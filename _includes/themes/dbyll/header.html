@@ -3,6 +3,7 @@
 <title>{{ page.title }}</title>
 {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
 <meta name="author" content="{{ site.author.name }}">
+<meta name="keywords" content="peter peerdeman, coding, technology, {% assign tags_list = page.tags %} {% for tag in tags_list %}{{ tag }}{% unless forloop.last %},{% endunless %}{% endfor %}">
 
 <!-- Enable responsive viewport -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
