@@ -1,7 +1,8 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:500&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Abril+Fatface|Open+Sans&subset=latin,latin-ext);
 
 body{
 	color: #2c3e50;
+	font-family: 'Open Sans';
 }
 
 .sidebar {
@@ -15,8 +16,6 @@ body{
 	margin-bottom: 10px;
 }
 .sidebar-header .title{
-	letter-spacing: 3px;
-	text-transform: uppercase;
 }
 
 .sidebar-header .title a{
@@ -63,13 +62,16 @@ article{
 article.home div a, article.home pre a { color: #2c3e50; }
 article.home div a:hover, article.home pre a:hover { color: #2c3e50; text-decoration: none; }
 
-h1,h2,h3,h4,h5,h6{ font-family: 'Ubuntu', sans-serif; color: #f2756a; }
+h1,h2,h3,h4,h5,h6{ font-family: 'Abril Fatface', sans-serif; color: #2c3e50; }
+h1 {
+	font-size:65px;
+}
 h1 a,h2 a,h3 a,h4 a{ color: #f2756a; }
 h1 a:hover,h2 a:hover,h3 a:hover,h4 a:hover{ color: #e74c3c; }
 
 footer {
 	padding-top: 15px;
-	font-family: 'Ubuntu';
+	font-family: 'Open Sans';
 }
 
 .badge { background: #F2756A; }
@@ -83,4 +85,8 @@ footer {
  #nav-menu .dropdown-menu {
      left: inherit;
      right: 0px;
+ }
+ .pager li>a {
+ 	border-radius:0;
+ 	border:0;
  }
