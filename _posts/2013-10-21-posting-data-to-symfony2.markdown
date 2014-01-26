@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "Posting data to Symfony2"
+date:   2013-10-21 16:46:42
+categories: symfony2
+tags: [symfony2, rest]
+---
+
+After struggling for a couple of hours I found out why my post to symphony was seemingly not working:
+
+{% highlight php %}
+    /**
+     * @var Request $request
+     * @Rest\View()
+     */
+    public function postCustomersAction(Request $request) {
+        $customer = new Customer();
+        $form = $this->createForm('customer', $customer);
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($customer);
+            $em->flush();
+            
+            $data = array("id" => $customer->getId());
+
+            $view = $this->view($data, Codes::HTTP_CREATED)
+                ->setFormat('json');
+        } else {
+            $data = array("errors" => $form->getErrorsAsString());
+            $view = $this->view($data, Codes::HTTP_BAD_REQUEST)
+                ->setFormat('json');
+        }
+        return $this->handleView($view);
+    }
+{% endhighlight %}
+
+all was nice and good, but when posting from both phpunit and rest client I had no luck getting any data into the form.
+
+I was sure all data was correct, inspected the http request headers and found that the body was post in the following fashion: {"name":"test", "number":"4343"}. Then I came to the idea that the data might have to be wrapped to identify the type of the object. This resulted in instant success. I wrote the following unit test.
+
+{% highlight php %}
+   public function testPostCustomer()
+    {
+        $client = static::createClient();
+        $client->request(
+            'POST',
+            '/customers',
+            array("customer" =>
+                array(
+                    "name" => "lifely",
+                    "number" => "1010"
+                )
+            )
+        );
+
+        $response = $client->getResponse();
+        $data = json_decode($response->getContent(), true);
+
+        $this->assertEquals(Codes::HTTP_CREATED, $response->getStatusCode());
+        $this->assertArrayHasKey("id", $data);
+    }
+{% endhighlight %}
+{% include JB/setup %}

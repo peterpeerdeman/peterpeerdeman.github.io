@@ -1,0 +1,24 @@
+---
+layout: post
+title:  "Deploying Angular to Heroku"
+date:   2013-11-05
+categories: angular
+tags: [angular, heroku]
+---
+
+1. yo angular
+1. develop app
+1. use postinstall to build grunt
+1. heroku create
+1. set buildpack 
+
+{% highlight bash %}
+heroku config:add BUILDPACK_URL=https://github.com/mbuchetics/heroku-buildpack-nodejs-grunt.git
+heroku labs:enable user-env-compile
+heroku config:set NODE_ENV=production
+{% endhighlight %}
+
+1. heroku push
+
+
+{% include JB/setup %}
