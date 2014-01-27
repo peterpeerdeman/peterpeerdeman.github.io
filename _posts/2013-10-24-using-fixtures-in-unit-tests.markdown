@@ -8,6 +8,8 @@ tags: [symfony2, phpunit, fixtures]
 
 To ensure a valid data set for unit tests and to avoid setting up test data for each separate unit tests I've integrated setting up the fixtures in a separate class
 
+<!--more-->
+
 {% highlight php %}
 //FixturesWebTestCase.php
 namespace BNP\ApiBundle\DataFixtures\ORM;

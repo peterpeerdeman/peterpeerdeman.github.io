@@ -6,6 +6,10 @@ categories: symfony2
 tags: [symfony2, deployment, server]
 ---
 
+A checklist for the things that need to be configured in our Symfony2 deploy target
+
+<!--more-->
+
 1. Rent VPS solution
 1. Install ubuntu 12.04 with LAMP and SSH server
 1. Upgrade PHP to PHP5.4
@@ -37,12 +41,13 @@ tags: [symfony2, deployment, server]
 1. set AllowOverride All in /etc/apache2/apache2.conf
 1. configure capifony deploy script
 # install wkhtml2pdf
-```
+
+{% highlight bash %}
 apt-get install wkhtmltopdf
 apt-get install xvfb
 echo 'xvfb-run --server-args="-screen 0, 1024x768x24" /usr/bin/wkhtmltopdf $*' > /usr/bin/wkhtmltopdf.sh
 chmod a+x /usr/bin/wkhtmltopdf.sh
 ln -s /usr/bin/wkhtmltopdf.sh /usr/local/bin/wkhtmltopdf
 wkhtmltopdf http://www.google.com output.pdf
-```
+{% endhighlight %}
 {% include JB/setup %}

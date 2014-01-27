@@ -7,7 +7,9 @@ tags: [angular, sorting]
 ---
 So apparently, orderBy only works on arrays. To properly sort objects, use following filter
 
-```js
+<!--more-->
+
+{% highlight js %}
 app.filter('orderObjectBy', function(){
  return function(input, attribute, reverse) {
     if (!angular.isObject(input)) return input;
@@ -29,6 +31,6 @@ app.filter('orderObjectBy', function(){
     return array;
  }
 });
-```
+{% endhighlight %}
 
 {% include JB/setup %}

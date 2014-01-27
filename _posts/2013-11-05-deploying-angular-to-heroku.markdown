@@ -6,6 +6,10 @@ categories: angular
 tags: [angular, heroku]
 ---
 
+Steps to create an angular application and host it on heroku
+
+<!--more-->
+
 1. yo angular
 1. develop app
 1. use postinstall to build grunt

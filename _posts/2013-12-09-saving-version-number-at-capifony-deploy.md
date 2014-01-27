@@ -7,7 +7,9 @@ tags: [capifony]
 ---
 To save the version number to a json file during deployment, use the following capifony task
 
-{% highlight ruby %}
+<!--more-->
+
+{% highlight rb %}
 namespace :deploy do
   desc "write version number to app-readable file"
   task :write_versionfile, :roles => :app do

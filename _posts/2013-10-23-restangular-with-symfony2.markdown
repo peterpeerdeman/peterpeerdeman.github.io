@@ -8,6 +8,8 @@ tags: [symfony2, angular, restangular]
 
 Symfony expects resources to be POST'ed / PUT'ed wrapped in their entity name to identify which entity to use:
 
+<!--more-->
+
 {% highlight javascript %}
 {
     "customer" {

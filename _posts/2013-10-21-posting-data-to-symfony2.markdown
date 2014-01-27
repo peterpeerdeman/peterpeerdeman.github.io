@@ -6,7 +6,7 @@ categories: symfony2
 tags: [symfony2, rest]
 ---
 
-After struggling for a couple of hours I found out why my post to symphony was seemingly not working:
+After struggling for a couple of hours I found out why my POST call to our Symphony2 backend was seemingly not working.
 
 {% highlight php %}
     /**
@@ -34,6 +34,8 @@ After struggling for a couple of hours I found out why my post to symphony was s
         return $this->handleView($view);
     }
 {% endhighlight %}
+
+<!--more-->
 
 all was nice and good, but when posting from both phpunit and rest client I had no luck getting any data into the form.
 
