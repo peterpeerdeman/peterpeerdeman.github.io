@@ -39,6 +39,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
             <li class="active"><a href="{% if BASE_PATH %}{{ BASE_PATH }}{% else %}/{% endif %}">Home</a></li>
+            <li><a href="{{ BASE_PATH}}{{ site.JB.archive_path }}">Archive</a></li>
             <li><a href="{{ BASE_PATH}}{{ site.JB.categories_path }}">Categories</a></li>
             <li><a href="{{ BASE_PATH}}{{ site.JB.tags_path }}">Tags</a></li>
             </ul>
@@ -52,6 +53,7 @@
            </button>
            <ul class="dropdown-menu" role="menu">
              <li><a href="{% if BASE_PATH %}{{ BASE_PATH }}{% else %}/{% endif %}"><i class="fa fa-home"></i> Home</a></li>
+             <li><a href="{{ BASE_PATH}}{{ site.JB.archive_path }}"><i class="fa fa-archive"></i> Archive</a></li>
              <li><a href="{{ BASE_PATH}}{{ site.JB.categories_path }}"><i class="fa fa-folder"></i> Categories</a></li>
              <li><a href="{{ BASE_PATH}}{{ site.JB.tags_path }}"><i class="fa fa-tags"></i> Tags</a></li>
                <li class="divider"></li>
