@@ -5,7 +5,16 @@ description: ""
 category: 
 tags: []
 ---
-
+{% highlight php %}
+/** 
+ * MyPretendEntity 
+ * 
+ * @ORM\Table(name="my_table_name") 
+ * @ORM\Entity(repositoryClass="\MCM\MyExampleBundle\Repository\MyPretendRepository") 
+ * @ORM\HasLifecycleCallbacks() 
+ */  
+class MyPretendEntity  
+{  
     /** 
      * Set created
      * 
@@ -31,5 +40,7 @@ tags: []
         $this->updated = new \DateTime();  
         return $this;
     }  
+{% endhighlight %}
 
 {% include JB/setup %}
+
