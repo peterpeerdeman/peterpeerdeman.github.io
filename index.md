@@ -20,4 +20,4 @@ title: pp-blog
 </article>
 {% endfor %}
 
-<p>visit the <a href="archive.html">archive</a> for older posts</p>
+<i>Found a typo? Something is wrong in this documentation? Just <a href="https://github.com/peterpeerdeman/peterpeerdeman.github.io">fork and edit</a> it! </i>
