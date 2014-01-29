@@ -22,6 +22,7 @@ A checklist for the things that need to be configured in our Symfony2 deploy tar
 1. sudo apt-get install php5-intl (for lib-icu)
 1. sudo apt-get install git
 1. sudo apt-get install acl
+1. sudo apt-get install yui-compressor
 1. configure mysql user, password and db
         mysql -u root -p
         create database dbname;
@@ -41,7 +42,6 @@ A checklist for the things that need to be configured in our Symfony2 deploy tar
 1. set AllowOverride All in /etc/apache2/apache2.conf
 1. configure capifony deploy script
 # install wkhtml2pdf
-
 {% highlight bash %}
 apt-get install wkhtmltopdf
 apt-get install xvfb
