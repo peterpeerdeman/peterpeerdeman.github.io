@@ -1,6 +1,6 @@
 ---
 layout: page
-title: pp-blog
+title: hashbang blog
 ---
 {% include JB/setup %}
 
