@@ -24,6 +24,7 @@ A checklist for the things that need to be configured in our Symfony2 deploy tar
 1. sudo apt-get install acl
 1. sudo apt-get install yui-compressor
 1. sudo apt-get install php5-gd
+1. sudo apt-get install php5-curl
 1. configure mysql user, password and db
         mysql -u root -p
         create database dbname;
