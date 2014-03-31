@@ -19,7 +19,7 @@ A checklist for the things that need to be configured in our Symfony2 deploy tar
     1. apt-get upgrade
     1. apt-get dist-upgrade
     1. restart apache2
-1. sudo apt-get install php5-intl (for lib-icu)
+1. sudo apt-get install php5-intl
 1. sudo apt-get install git
 1. sudo apt-get install acl
 1. sudo apt-get install yui-compressor
@@ -43,13 +43,5 @@ A checklist for the things that need to be configured in our Symfony2 deploy tar
         date.timezone = "Europe/Amsterdam" 
 1. set AllowOverride All in /etc/apache2/apache2.conf
 1. configure capifony deploy script
-# install wkhtml2pdf
-{% highlight bash %}
-apt-get install wkhtmltopdf
-apt-get install xvfb
-echo 'xvfb-run --server-args="-screen 0, 1024x768x24" /usr/bin/wkhtmltopdf $*' > /usr/bin/wkhtmltopdf.sh
-chmod a+x /usr/bin/wkhtmltopdf.sh
-ln -s /usr/bin/wkhtmltopdf.sh /usr/local/bin/wkhtmltopdf
-wkhtmltopdf http://www.google.com output.pdf
-{% endhighlight %}
+
 {% include JB/setup %}

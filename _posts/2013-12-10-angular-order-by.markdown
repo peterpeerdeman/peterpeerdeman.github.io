@@ -5,7 +5,7 @@ date:   2013-12-10 16:46:42
 categories: angular
 tags: [angular, sorting]
 ---
-So apparently, orderBy only works on arrays. To properly sort objects, use following filter
+So apparently, orderBy only works on arrays. If you want to sort an object, you can use the following filter which transforms the object into an array and sorts it.
 
 <!--more-->
 

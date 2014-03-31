@@ -3,7 +3,7 @@ layout: post
 title:  "Restangular and POST'ing / PUT'ing to symfony2"
 date:   2013-10-22 
 categories: symfony2
-tags: [symfony2, angular, restangular]
+tags: [symfony2, angular, rest]
 ---
 
 Symfony expects resources to be POST'ed / PUT'ed wrapped in their entity name to identify which entity to use:
