@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "My thoughts on NoSQL after reading a book about it"
-description: ""
+description: "I've been interested in NoSQL databases for a while and now I've read a book about it. Main takeaway: Nosql is pretty cool, good for fast schemaless development and scales incredibly well."
 category: technology
 tags: [nosql, databases, opinion]
 ---
