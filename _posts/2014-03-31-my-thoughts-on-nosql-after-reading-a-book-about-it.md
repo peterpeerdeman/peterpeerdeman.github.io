@@ -1,0 +1,17 @@
+---
+layout: post
+title: "My thoughts on NoSQL after reading a book about it"
+description: ""
+category: technology
+tags: [nosql, databases, opinion]
+---
+
+I've been interested in NoSQL databases for a while and now I've read a book about it. Main takeaway: Nosql is pretty cool, good for fast schemaless development and scales incredibly well.
+
+However, practical use is scenario dependant. It makes perfect sense to offload an io intensive part of your application to a nosql database to increase availability and throughput, but these upgrades come at the cost of partitioning and eventual consistency of data. 
+
+This is great and all, if it doesn't matter that you retrieve some stale data now and that you don't mind having some write conflicts resulting in inconsistent data. When using NoSQL you are dealing with versions of documents, migrating old data and having fallbacks for old documents in application code, which you have to take into account. I found that for certain, maybe even the majority of applications, a relational database suits fine because of it's atomic transactions, guaranteed consistency and replicatable database migrations.
+
+If I were to build a high traffic web application I will be sure to implement the heaviest / most intensive data entities such as session management in a NoSQL solution to ensure scalability but for core functionality where consistency is very important I'd take a very good look at the possibilities to make sure data integrity is kept at all times.
+
+{% include JB/setup %}
