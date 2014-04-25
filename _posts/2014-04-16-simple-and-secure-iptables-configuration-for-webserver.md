@@ -8,8 +8,6 @@ tags: [unix, webserver]
 
 While I was enabling a management console for a queue I was implementing (rabbitmq) I found out that on my clean ubuntu 12.01 box there is no default firewall whatsoever. After fiddling a bit with the `iptables` command and following this [guide](https://help.ubuntu.com/community/IptablesHowTo) the server was locked down tight.
 
-<!--more-->
-
 {% highlight bash %}
 sudo iptables -I INPUT 1 -i lo -j ACCEPT
 sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
