@@ -51,5 +51,15 @@ class MyPretendEntity
     }  
 {% endhighlight %}
 
+In addition to these callbacks, the following annotations / callbacks can also be used: 
+
+* preRemove 
+* postRemove
+* preUpdate
+* postUpdate
+* postLoad
+
+please see the [Lifecycle Events](http://docs.doctrine-project.org/en/2.0.x/reference/events.html#lifecycle-events) in doctrine documentation for more information.
+
 {% include JB/setup %}
 
