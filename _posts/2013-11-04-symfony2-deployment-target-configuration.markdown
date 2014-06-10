@@ -19,12 +19,15 @@ A checklist for the things that need to be configured in our Symfony2 deploy tar
     1. apt-get upgrade
     1. apt-get dist-upgrade
     1. restart apache2
-1. sudo apt-get install php5-intl
+1. install node and less
+    apt-add-repository ppa:chris-lea/node.js
+    apt-get update
+    apt-get install nodejs
+    sudo npm install less
+1. sudo apt-get install openjdk-7-jre (for yuicompressor)
+1. sudo apt-get install php5-intl (for lib-icu)
 1. sudo apt-get install git
 1. sudo apt-get install acl
-1. sudo apt-get install yui-compressor
-1. sudo apt-get install php5-gd
-1. sudo apt-get install php5-curl
 1. configure mysql user, password and db
         mysql -u root -p
         create database dbname;
@@ -42,6 +45,10 @@ A checklist for the things that need to be configured in our Symfony2 deploy tar
 1. set timezone in /etc/php5/apache2/php.ini
         date.timezone = "Europe/Amsterdam" 
 1. set AllowOverride All in /etc/apache2/apache2.conf
+1. ensure authorization is rewritten:
+        RewriteEngine on
+        RewriteCond %{HTTP:Authorization} ^(.*)
+        RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 1. configure capifony deploy script
 
 {% include JB/setup %}
