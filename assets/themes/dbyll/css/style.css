@@ -90,3 +90,7 @@ footer {
  	border-radius:0;
  	border:0;
  }
+
+article img {
+	max-width: 100%;
+}
