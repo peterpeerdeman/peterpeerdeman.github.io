@@ -8,7 +8,7 @@ tags: [symfony2, devops, capistrano]
 
 To get some more insight into the different code applications deployed to different servers (e.g. staging, acceptance production) I wanted to be able to see the version hash and deploy date in a small file that gets deployed with the application.
 
-I found out about the [version](https://github.com/westarete/capistrano-helpers/blob/master/lib/capistrano-helpers/version.rb) routine in the [https://github.com/westarete/capistrano-helpers](capistrano-helpers) repository by @westarete, which prints the currently deployed git hash to a VERSION file. I've adjusted the code slightly to create a nice json formatted file which includes both the git hash and the deploydate. 
+I found out about the [version](https://github.com/westarete/capistrano-helpers/blob/master/lib/capistrano-helpers/version.rb) routine in the [capistrano-helpers](https://github.com/westarete/capistrano-helpers) repository by @westarete, which prints the currently deployed git hash to a VERSION file. I've adjusted the code slightly to create a nice json formatted file which includes both the git hash and the deploydate. 
 
 {% highlight ruby %}
 # insert this code snippet in your deploy.rb capistrano config

@@ -7,9 +7,9 @@ category: devops
 tags: [symfony2, devops]
 ---
 
-To continuously integrate and deploy our Symfony2 applications we I the cloud application [http://wercker.com](Wercker). It has a very quick setup, is free during beta period and has a nice web interface that allows you to inspect builds and deploys.
+To continuously integrate and deploy our Symfony2 applications we I the cloud application [Wercker](http://wercker.com). It has a very quick setup, is free during beta period and has a nice web interface that allows you to inspect builds and deploys.
 
-I have created the [https://app.wercker.com/#applications/5279508609b5e6377c00195f/tab/details](peterpeerdeman/symfony2-angular@0.0.2) Wercker box specifically for these builds, which include node, composer, phpunit, mysql and karma.
+I have created the [peterpeerdeman/symfony2-angular@0.0.2](https://app.wercker.com/#applications/5279508609b5e6377c00195f/tab/details) Wercker box specifically for these builds, which include node, composer, phpunit, mysql and karma.
 
 To configure the steps, we use the following wercker.yml config:
 
