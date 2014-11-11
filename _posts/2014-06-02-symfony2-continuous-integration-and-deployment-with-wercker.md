@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "Symfony2 continuous integration and deployment with Wercker"
