@@ -6,3 +6,7 @@ category:
 tags: []
 ---
 {% include JB/setup %}
+
+- newrelic graphs
+- alerts / reports
+- ansible provisioning script
