@@ -6,3 +6,10 @@ category:
 tags: []
 ---
 {% include JB/setup %}
+
+- meteor podcast
+- discover meteor
+- quickly mashup realtime apps (e.g. office-map.meteor.com)
+- DDP vs REST
+- reactive programming
+- isomorphic javascript
