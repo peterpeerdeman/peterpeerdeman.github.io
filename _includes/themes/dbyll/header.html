@@ -15,11 +15,18 @@
 <meta property="og:url" content="http://hashbang.nl">
 <meta property="og:type" content="blog">
 <meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@{{site.author.twitter}}" />
+<meta name="twitter:title" content="{{ page.title }}" />
+<meta name="twitter:image" content="http://www.gravatar.com/avatar/{{site.author.email_md5}}?s=150" />
+<meta name="twitter:url" content="http://hashbang.nl{{ page.url }}" />
 <meta property="article:author" content="https://www.facebook.com/peterpeerdeman">
 {% if page.description %}
 <meta name="description" content="{{ page.description }}">
+<meta name="twitter:description" content="{{ page.description }}" />
 {% else %}
 <meta name="description" content="Hashbang, a tech and development blog with Peter Peerdeman's epiphanies as an engineer!">
+<meta name="twitter:description" content="Hashbang, a tech and development blog with Peter Peerdeman's epiphanies as an engineer!">
 {% endif %}
 <meta property="og:image" content="http://www.gravatar.com/avatar/dd4c76470f1fd83c6dd7f4ec7873427a?s=500">
 
