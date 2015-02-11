@@ -32,6 +32,9 @@ author :
 #
 production_url : http://hashbang.nl
 
+gems:
+  - jekyll-redirect-from
+
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
 JB :
