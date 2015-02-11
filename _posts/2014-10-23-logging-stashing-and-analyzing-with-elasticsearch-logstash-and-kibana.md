@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Big data experiment with Elasticsearch, Logstash and Kibana"
-description: ""
 category: devops
 tags: [bigdata, devops]
 ---

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "merging branches and git --no-ff"
-description: ""
 category: git
 tags: [git]
 ---

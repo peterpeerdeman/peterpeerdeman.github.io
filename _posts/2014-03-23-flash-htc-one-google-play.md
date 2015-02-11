@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Flash HTC-One to Google Play edition"
-description: ""
 category: android
 tags: [android, phoneflashing]
 ---

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "From student to lead tech and back again"
-description: ""
 category: presentations
 tags: [career]
 ---

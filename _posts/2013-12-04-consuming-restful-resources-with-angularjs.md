@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Consuming RESTful Resources with AngularJS"
-description: ""
 category: presentations
 tags: [angular, rest]
 ---

@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Saving version number at capifony deploy"
-date:   2013-12-10 16:46:42
 categories: devops
 tags: [capifony]
 ---

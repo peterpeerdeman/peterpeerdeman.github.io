@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Clear and concise API design with blueprint and markdown"
-description: ""
 category: technology
 tags: [api, backend, documentation]
 ---

@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Symfony2 cache clearing problems"
-date:   2013-10-24 
 categories: symfony2
 tags: [symfony2, cache]
 ---

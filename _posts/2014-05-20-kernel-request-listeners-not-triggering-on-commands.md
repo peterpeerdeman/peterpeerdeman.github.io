@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Kernel request listeners not triggering on commands"
-description: ""
 category: symfony2
 tags: [symfony2, events]
 ---

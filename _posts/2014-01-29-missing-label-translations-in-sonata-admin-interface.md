@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Missing label translations in Sonata admin interface"
-description: ""
 category: symfony2
 tags: [symfony2, sonata]
 ---

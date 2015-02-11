@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Symfony2 Doctrine ManyToOne as required field using join column"
-description: ""
 category: symfony2 
 tags: [symfony2, doctrine]
 ---

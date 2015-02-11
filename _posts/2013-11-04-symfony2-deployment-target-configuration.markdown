@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Symfony2 deployment target configuration"
-date:   2013-10-21 16:46:42
 categories: symfony2
 tags: [symfony2, deployment, server]
 ---

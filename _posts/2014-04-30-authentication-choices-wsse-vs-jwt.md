@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Authentication choices: WSSE vs JWT"
-description: ""
 category: symfony2
 tags: [wsse, jwt, authentication]
 ---

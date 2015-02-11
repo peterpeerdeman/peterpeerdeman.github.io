@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Angular orderBy in object"
-date:   2013-12-10 16:46:42
 categories: angular
 tags: [angular, sorting]
 ---

@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Simple and secure iptables configuration for webserver"
-description: ""
 category: devops
 tags: [unix, webserver]
 ---

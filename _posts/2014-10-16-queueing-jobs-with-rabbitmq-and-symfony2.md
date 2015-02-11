@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Queueing jobs with RabbitMQ and Symfony2"
-description: ""
 category: presentations
 tags: [rabbitmq, symfony2, meetup]
 ---

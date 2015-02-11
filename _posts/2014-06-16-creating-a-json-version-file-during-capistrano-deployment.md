@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Creating a json version file during capistrano deployment"
-description: ""
 category: devops
 tags: [symfony2, devops, capistrano]
 ---

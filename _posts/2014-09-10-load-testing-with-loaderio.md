@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Load testing with loader.io"
-description: ""
 category: devops
 tags: [devops, loadtesting, cache]
 ---

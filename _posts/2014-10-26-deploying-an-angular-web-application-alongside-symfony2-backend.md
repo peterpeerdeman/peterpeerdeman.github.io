@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Deploying an Angular web application alongside Symfony2 back-end"
-description: ""
 category: devops 
 tags: [devops, angular, symfony2]
 ---

@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Deploying Angular to Heroku"
-date:   2013-11-05
 categories: angular
 tags: [angular, heroku]
 ---

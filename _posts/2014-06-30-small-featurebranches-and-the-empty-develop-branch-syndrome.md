@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Small featurebranches and the empty develop branch syndrome"
-description: ""
 category: git
 tags: [git]
 ---
