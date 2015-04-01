@@ -6,9 +6,9 @@ tags: [devops, angular, grunt]
 ---
 {% include JB/setup %}
 
-After deploying our AngularJS / Symfony2 application we found that the user's browser would load cached assets from the previous deployment. The user would have to empty the cache / perform a hard refresh before the new version would be shown. 
+After deploying our AngularJS / Symfony2 application we found our users browsers loading cached assets from the previous deployment. The user would have to empty the cache / perform a hard refresh before the new version of the assets would be loaded. This behavior occurs because the url to the updated resources do not change during deployment. 
 
-By adding a timestamp to the url of the application Javascript / CSS assets, we can ensure that a "cache miss" will occur (because the url has changed) while we still maintain the advantage of caching the resources.
+By adding a timestamp as a query parameter to the url of the application Javascript / CSS assets, we can ensure that a "[cache miss](http://stackoverflow.com/questions/18559342/what-is-a-cache-hit-and-a-cache-miss-why-context-switching-would-cause-cache-mi)" occurs. With a different timestamp, the browser will not find the changed url in the cache and will request the new version. 
 
 To do this we used [grunt-replace](https://github.com/outaTiME/grunt-replace) to replace a placeholder value (`@@TIMESTAMP@@`) in the html file with a timestamp during the build of our frontend assets.
 
@@ -30,7 +30,7 @@ grunt.initConfig({
 });
 {% endhighlight %}
 
-The snippet from `index.html` where the assets are loaded would unsurprisingly look something like:
+The snippet from `index.html` where the assets are loaded would look something like the following snippet:
 
 {% highlight html %}
 <head>
@@ -41,4 +41,3 @@ The snippet from `index.html` where the assets are loaded would unsurprisingly l
     <script type="text/javascript" src="/js/f.js?v=@@TIMESTAMP@@"></script>
 </head>
 {% endhighlight %}
-
