@@ -7,7 +7,7 @@ tags: [meteor, conference, javascript]
 ---
 {% include JB/setup %}
 
-![Peter speaking at Endpointcon 2015](https://farm1.staticflickr.com/764/20579039463_a99dd24f21_z_d.jpg)
+[![Peter speaking at Endpointcon 2015]({{ site.url }}/assets/images/2015-09-04-endpointcon.jpg)](https://www.flickr.com/photos/peterpeerdeman/20579039463/in/dateposted/)
 
 On the 4th of September 2015 I spoke at [Endpoint 2015](http://www.endpointcon.com/). I gave a conference talk on the specifics of the DDP protocol, on which the Meteor framework was built.
 
