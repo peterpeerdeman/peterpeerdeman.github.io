@@ -77,7 +77,7 @@ When a method is sent and incurs an error on the server, a result containing an 
 }
 {% endhighlight %}
 
-I've created several examples to display the use of DDP. The first example is the [endpointcon map](https://github.com/peterpeerdeman/ddp-the-real-time-api-for-web-applications/tree/gh-pages/examples/endpointcon-map), a small meteor application that shows avatars of the speakers of endpointcon that are draggable around a map of amsterdam. The javascript for this example is only 77 lines long describing both the frontend and the balong describing both the frontend and the backend.
+I've created several examples to display the use of DDP. The first example is the [endpointcon map](https://github.com/peterpeerdeman/ddp-the-real-time-api-for-web-applications/tree/gh-pages/examples/endpointcon-map), a small meteor application that shows avatars of the speakers of endpointcon that are draggable around a map of amsterdam. The javascript for this example is only 77 lines long containing both the frontend and the backend code.
 
 The second example is a nodejs javascript DDP server, called [endpointcon-server](https://github.com/peterpeerdeman/ddp-the-real-time-api-for-web-applications/tree/gh-pages/examples/endpointcon-server). It utilizes the `ddp-server-reactive` npm module to create a simple sensor server without the need for the full meteor framework.
 
