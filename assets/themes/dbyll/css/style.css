@@ -62,7 +62,7 @@ article{
 article.home div a, article.home pre a { color: #2c3e50; }
 article.home div a:hover, article.home pre a:hover { color: #2c3e50; text-decoration: none; }
 
-h1,h2,h3,h4,h5,h6{ font-family: 'Abril Fatface', serif; color: #2c3e50; }
+h1,.title{ font-family: 'Abril Fatface', serif; color: #2c3e50; }
 h1 {
 	font-size:65px;
 }
