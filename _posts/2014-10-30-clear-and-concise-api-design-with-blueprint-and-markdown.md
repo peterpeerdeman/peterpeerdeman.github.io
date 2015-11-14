@@ -35,6 +35,6 @@ Tools like [api-mock](https://github.com/localmed/api-mock) will instantly turn 
 
 [Dredd](https://github.com/apiaryio/dredd) is a command line tool that will verify your backends implementation against the original blueprint specification. If specified well, this will save you writing a lot of repetitive integration tests!
 
-Finally, [apiary](http://www.apiary.com) will take your blueprint document to a whole new level. By sharing your design to their cloud service you get access to their hosted stub servers, extensive [rendered documentation](http://docs.gooddata.apiary.io/) with sandboxes and can easily inspect the traffic that is directed towards the stub API to test your application.
+Finally, [apiary](http://www.apiary.io) will take your blueprint document to a whole new level. By sharing your design to their cloud service you get access to their hosted stub servers, extensive [rendered documentation](http://docs.gooddata.apiary.io/) with sandboxes and can easily inspect the traffic that is directed towards the stub API to test your application.
 
 As long as were writing REST API's, I'll be jotting them down using blueprint. 
