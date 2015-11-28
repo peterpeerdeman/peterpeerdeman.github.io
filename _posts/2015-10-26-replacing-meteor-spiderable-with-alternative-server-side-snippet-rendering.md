@@ -1,22 +1,22 @@
 ---
 layout: post
-title: "Replacing meteor spiderable with alternative server side rendering"
-description: "Replacing meteor spiderable with alternative server side rendering"
+title: "Replacing meteor spiderable with alternative server side snippet rendering"
+description: "Replacing meteor spiderable with alternative server side snippet rendering"
 category: meteor
-tags: [meteor, javascript]
+tags: [meteor, javascript, ssr]
 ---
 {% include JB/setup %}
 
 After getting fed up with meteor's spiderable spawning phantomjs instances all over the place when receiving a couple of concurrent requests for different resources we decided to switch to a different strategy to support spiders/crawlers.
 
-Instead of using the spiderable package to fully render the application including all the logic and data in the blaze template we decided to serve alternative snippets for our SEO heavy content whenever google, facebook or another crawler hits the application server.
+Instead of using the spiderable package to fully render the application including all the logic and data in the blaze template we decided to serve alternative snippets for our SEO heavy content whenever google, facebook or another crawler hits the application server with specific user agent.
 
-To achieve this we have used [the meteorhacks:picker package](https://github.com/meteorhacks/picker) along with [the meteorhacks:ssr package](https://github.com/meteorhacks/meteor-ssr)
+To achieve this we have used [the meteorhacks:picker package](https://github.com/meteorhacks/picker) along with [the meteorhacks:ssr package](https://github.com/meteorhacks/meteor-ssr) to handle each incoming request, detect the user agent and render a specific html snippet on the server when a crawler is detected.
+
+The following piece of meteor backend code shows how to create a router that is activated  triggered when the botagent or google's "unescaped fragment" query param is detected.
 
 {% highlight javascript %}
 var SeoRouter = Picker.filter(function(request, response) {
-    // TODO: Add more checks to see if we should render a snippet
-
     var botAgents = [
         /^facebookexternalhit/i, // Facebook
         /^linkedinbot/i, // LinkedIn
@@ -36,6 +36,8 @@ var SeoRouter = Picker.filter(function(request, response) {
     return escapedFragmentIsUsed || botIsUsed;
 });
 {% endhighlight %}
+
+The `SeoRouter` can then be configured to match specific request urls. This example shows matching a profile url, retrieve a user profile and use the `SSR.compileTemplate` method to render the specified blaze template to an html string. Please note that the helpers used in this template should also be defined here.
 
 {% highlight javascript %}
 /**
@@ -61,9 +63,7 @@ SeoRouter.route('/profile/:id', function(params, request, response) {
         getImageUrl: function() {
             if (!image) return Meteor.absoluteUrl() + 'images/partup-logo.png';
 
-            var url = image.url().substr(1);
-
-            return Meteor.absoluteUrl() + encodeURIComponent(url).replace(/%2F/g, '/');
+            return image.url()
         }
     });
 
@@ -73,6 +73,8 @@ SeoRouter.route('/profile/:id', function(params, request, response) {
     response.end(html);
 });
 {% endhighlight %}
+
+The last example shows the actual html template, which is a stripped down html page containing just the SEO meta tags, a heading and a paragraph.
 
 {% highlight html %}
 {% raw %}
@@ -108,3 +110,5 @@ SeoRouter.route('/profile/:id', function(params, request, response) {
 </html>
 {% endraw %}
 {% endhighlight %}
+
+Please note that this method of search engine optimalization is called "[Cloaking](https://en.wikipedia.org/wiki/Cloaking)" and could be considered as "Black hat SEO" if the content you are serving in the snippet is completely different from the content you would be serving in the single page application. In our case it has proven to be a scalable and effective method of solving the seo problem in our meteor application.
