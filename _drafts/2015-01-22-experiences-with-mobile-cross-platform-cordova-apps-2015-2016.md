@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Experiences with multiplatform angular cordova apps 2015"
+title: "Experiences with mobile cross-platform cordova apps 2015-2016"
 description: ""
 category: 
 tags: []
@@ -11,4 +11,5 @@ tags: []
 - almost native experience on iphone 4s+ devices
 - cordova plugins mostly functional (some quirks)
 - little problems porting android
+- crosswalk huge performance boost for android
 - performance android worse / old devices
