@@ -7,9 +7,9 @@ tags: [meteor, real-time, webapplications]
 ---
 {% include JB/setup %}
 
-I've had a couple of run-ins with [Meteor]() while it was in development. Several times I've given the framework a shot to see if their promises (developer delight, fraction of development time needed plus scalable and robust real-time data) were met and ready for production. As of version 1.0, I think they are.
+I've had a couple of run-ins with [Meteor](https://www.meteor.com) while it was in development. Several times I've given the framework a shot to see if their promises (developer delight, fraction of development time needed plus scalable and robust real-time data) were met and ready for production. As of version 1.0, I think they are.
 
-So I started listening to some podcasts ([Crater podcast](http://podcast.crater.io/) and [Meteor Interviews](http://www.meteorinterviews.com/) and visited some dutch [Meteor Meet-ups](www.meetup.com/Meteor-NL/). We got a chance to work with meteor for a big client project, so we decided to go for it.
+So I started listening to some podcasts ([Crater podcast](http://podcast.crater.io/) and [Meteor Interviews](http://www.meteorinterviews.com/) and visited some dutch [Meteor Meet-ups](http://www.meetup.com/Meteor-NL/). We got a chance to work with meteor for a big client project, so we decided to go for it.
 
 ## Reactive templates
 

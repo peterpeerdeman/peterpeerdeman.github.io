@@ -11,7 +11,7 @@ In 2015 and 2016 we've spent quite some time developing a mobile application usi
 
 To start off, I've had several previous experiences with Phonegap and Cordova. In multiple occasions I have given the platform a chance, mostly because of my and my team-mates experience with web technology. We are a web development team by heart, and the idea of using our experience and knowledge in web applications to develop a mobile application has always been a seductive path to get into mobile app development.
 
-## performance and user experience
+## Performance and user experience
 
 These early experiments never really worked out very well. In the age of the iPhone 3G, the mobile web browser was simply not able to keep up with the Javascript heavy web applications we would write as mobile applications. In 2015, we have still had performance issues but mostly with old android devices. With modern devices, I have witnessed our apps feel fluid and "native" enough to actually be deployed in production.
 

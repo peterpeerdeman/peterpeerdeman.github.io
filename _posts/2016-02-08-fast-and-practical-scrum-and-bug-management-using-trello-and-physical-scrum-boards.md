@@ -8,7 +8,7 @@ tags: [scrum, development, productivity]
 
 I have always been a great SCRUM enthusiast. In my years as software developer and SCRUM master I've found that the maintenance of the backlog is paramount to the success of the SCRUM process. In the past years I have witnessed several methods / tools for keeping an eye on stories and bugs, including JIRA, Github issues, Trello, Physical brown paper and post-its and even archaic ones like Excel and HP Quality Center.
 
-![Trello]({{ site.url }}/assets/images/2016-xx-xx-trello.png)
+![Trello]({{ site.url }}/assets/images/2016-02-08-trello.png)
 
 In the end, I've found that a combination of Trello and post-its on physical SCRUM boards works best for us. I'll be describing the process and reasons in the following sections.
 
@@ -16,7 +16,7 @@ In the end, I've found that a combination of Trello and post-its on physical SCR
 
 During backlog grooming sessions we fill up the "Product Backlog list" with user stories featuring recognizable titles, with a more elaborate "as an (x) i want (y) so that (z)" story description in the text of the Trello card.
 
-![SCRUM board]({{ site.url }}/assets/images/2016-xx-xx-scrumboard.jpg)
+![SCRUM board]({{ site.url }}/assets/images/2016-02-08-scrumboard.jpg)
 
 The stories then get estimated a number of story points and dragged onto a "Sprint Backlog list" in preparation of our off-line Sprint planning session. During this sprint planning session the concept / design team explains the stories on the sprint backlog list and the story titles are copied to sticky notes. The team then discusses the tasks that are required to finish the story and write the tasks down on post-its and stick them to the board.
 
