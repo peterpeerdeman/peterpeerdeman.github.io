@@ -2,7 +2,7 @@
 layout: post
 title: "Visualizing disk space usage on linux server using ncdu"
 description: ""
-category: 
+category: devops
 tags: []
 ---
 {% include JB/setup %}
