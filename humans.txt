@@ -11,8 +11,11 @@ title : Humans
     peter@peterpeerdeman.nl
     www.hashbang.nl
 
-    KvK nr. 66169631
-    BTW nr. NL856425473B01
+    KvK 66169631
+    BTW NL856425473B01
+
+    IBAN NL35 INGB 0007 3653 76
+    BIC INGBNL2A
 
 # THANKS
 
