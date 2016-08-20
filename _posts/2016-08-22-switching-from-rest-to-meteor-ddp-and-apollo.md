@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Switching from REST to Meteor, DDP and Apollo"
+description: "switching from REST to Meteor, DDP and Apollo"
+category: technology
+tags: [nodejs, meteor, rest, apollo]
+---
+{% include JB/setup %}
+
+After creating a bunch of webapplications with NodeJS and Express as a REST backend with Angular on the front-end, we had the opportunity to take on a client project that we would develop in MeteorJS. As described in [a previous post](http://hashbang.nl/technology/2015/12/14/looking-into-meteor-our-experiences-with-real-time-web-applications), Meteor has some great advantages for simplicity of development, avoiding the tangle of node versions, vagrant vm provisioning, grunt/gulp tasks and other stuff that has to be done to get your application ready to be deployed on production.
+
+Then came [DDP: The real time api for web applications](http://hashbang.nl/meteor/2015/09/04/ddp-the-real-time-api-for-web-applications) packaged with meteor. The publish subscribe protocol I've grown to both love and hate. DDP has served us great while creating reactiveness in our applications, such as immediately updating news feeds and realtime chats, but has also caused us a lot of pain in the performance hogness and uncacheableness of it all. In our heavily used data parts of the application we had to switch to regular cacheable HTTP requests to get the data to the multitude of users efficiently.
+
+The recent introduction of [Apollo](http://www.apollostack.com/) has come as a natural successor to DDP. Taking advantage of the [GraphQL](http://graphql.org/docs/getting-started/) query language designed by facebook, Apollo is a module that will replace the data layer of meteor, giving us both the benefits of (optional) realtime updating data and a flexible and uniform way of aggregating data from different resources, be it SQL, mongo or any other microservice that is able to provide us with data.
+
+Please note that the current version of apollo is not operating on a websocket, like DDP used to do but is now using plain old HTTP and polling to query for data and updates. This allows us to cache our data again, and only have it be realtime when needed. We have found that the commoncase for data is that it should be fast, and that "realtimeness" is not always as necessary as a default.
+
+Even though we are only just starting our first projects in GraphQL, we can already see that the way of resolving the necessary data on the backend yourself in a structured and predictable manner is helping us get data from any source to the client fast, in an aggregated way that was impossible when using REST.
