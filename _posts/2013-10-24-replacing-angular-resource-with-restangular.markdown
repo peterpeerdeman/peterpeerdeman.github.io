@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Replacing angular $resource with restangular"
-categories: angular
+category: angular
 tags: [angular, restangular]
 ---
 

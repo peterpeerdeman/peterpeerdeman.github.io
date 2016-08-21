@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Symfony2 cache clearing problems"
-categories: symfony2
+category: symfony2
 tags: [symfony2, cache]
 ---
 

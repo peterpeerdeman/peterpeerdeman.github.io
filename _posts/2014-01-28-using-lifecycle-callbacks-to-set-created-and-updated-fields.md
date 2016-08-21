@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using doctrine lifecycle callbacks to update timestamps"
-category: symfony2 
+category: symfony2
 tags: [symfony2, doctrine]
 ---
 

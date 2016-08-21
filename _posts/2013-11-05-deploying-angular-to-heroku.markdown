@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Deploying Angular to Heroku"
-categories: angular
+category: angular
 tags: [angular, heroku]
 ---
 

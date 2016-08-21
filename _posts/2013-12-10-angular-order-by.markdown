@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Angular orderBy in object"
-categories: angular
+category: angular
 tags: [angular, sorting]
 ---
 So apparently, orderBy only works on arrays. If you want to sort an object, you can use the following filter which transforms the object into an array and sorts it.

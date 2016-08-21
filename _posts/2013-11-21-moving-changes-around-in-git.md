@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Moving changes around in git"
-categories: devops
+category: devops
 tags: [git]
 ---
 
