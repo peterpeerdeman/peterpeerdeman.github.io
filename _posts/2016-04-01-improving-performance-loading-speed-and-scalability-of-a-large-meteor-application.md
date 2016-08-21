@@ -8,7 +8,7 @@ tags: [meteor, performance]
 
 After finishing the MVP functionalities of one of our biggest meteor applications, we had to take a step back and improve the performance and scalability of the application. These were the most important steps we took:
 
-## reduce distance between db and appservers
+## reduce distance between database and appservers
 
 One of the biggest gains in performance was relocating the mongodatabase to be physically closer to the application nodes. We initially had our application server running in New York with the database running in Ireland. As you might have expected, this did not bode well for our users that are mainly based in Europe. When we switched hosts we made sure that both the appserver and database servers ran in the same datacenter, which significantly improved latency.
 
@@ -20,7 +20,7 @@ Instead of streaming images from S3 through the meteor application, we changed t
 
 When hosting Node applications, loadbalancing is a necessity for proper horizontal scaling. In early versions of the loadbalancer we used `ip_hash`, a built in load balancing technique in nginx. This works with meteor websockets because each clients ip is logged, and the same ip addresses always get routed to the same box. However, if a lot of users hit the site from the same ip address (e.g. a group of users from a big corporate office) the load is not optimally distributed.
 
-We found that the third party [nginx-sticky-module-ng](https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng) plugin did quite a good job distributing the load among servers per specific user session. Unfortunately, this means you have to install nginx on the loadbalancer from source, and install the [nginx-sticky-module-ng](https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng) during the installation. I've written another blog somewhere around here explaining how to do so.
+We found that the third party [nginx-sticky-module-ng](https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng) plugin did quite a good job distributing the load among servers per specific user session. Unfortunately, this means you have to install nginx on the loadbalancer from source, and install the [nginx-sticky-module-ng](https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng) during the installation. I've written another blogpost detailing [how to implement the sticky modules]({% post_url 2016-05-02-sticky-sessions-loadbalance-for-meteor-using-nginx-sticky-module-ng %}).
 
 ## create cacheable REST endpoints for common data on home page
 

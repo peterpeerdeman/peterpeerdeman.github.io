@@ -2,7 +2,7 @@
 layout: post
 title: "NodeJS cacheheaders using express-cache-control"
 description: "NodeJS cacheheaders using express-cache-control"
-category: nodejs
+category: node
 tags: [node]
 ---
 {% include JB/setup %}

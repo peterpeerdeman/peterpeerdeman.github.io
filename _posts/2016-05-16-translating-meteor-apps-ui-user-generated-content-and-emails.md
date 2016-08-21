@@ -24,13 +24,13 @@ So one of our meteor apps is fully translated, including all ui, notifications a
 
 Inside the blaze component, we then render the label using the tap-i18n helper with an `_` like so:
 
-{% highlight javascript %}
+{% highlight html %}
 {% raw %}
-    {{# if activity.archived }}
-        <a class="pu-button" data-activity-unarchive>{{_ 'activity-button-unarchive'}}</a>
-    {{ else }}
-        <a class="pu-button" data-activity-archive>{{_ 'activity-button-archive'}}</a>
-    {{/ if }}
+{{# if activity.archived }}
+    <a class="pu-button" data-activity-unarchive>{{_ 'activity-button-unarchive'}}</a>
+{{ else }}
+    <a class="pu-button" data-activity-archive>{{_ 'activity-button-archive'}}</a>
+{{/ if }}
 {% endraw %}
 {% endhighlight %}
 
