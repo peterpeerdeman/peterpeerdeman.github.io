@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Restangular and validations while POST'ing to Symfony2"
-categories: symfony2
+category: symfony2
 tags: [symfony2, angular, rest]
 ---
 

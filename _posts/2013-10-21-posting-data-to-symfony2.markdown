@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Posting data to Symfony2"
-categories: symfony2
+category: symfony2
 tags: [symfony2, rest]
 ---
 
