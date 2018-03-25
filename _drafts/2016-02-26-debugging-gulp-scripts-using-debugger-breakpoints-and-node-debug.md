@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Debugging gulp scripts using debugger, breakpoints and node debug"
-description: ""
-category: 
-tags: []
+title: "Debugging Gulp scripts using debugger, breakpoints and node debug"
+category: javascript
+tags: [javascript]
 ---
 {% include JB/setup %}
+
