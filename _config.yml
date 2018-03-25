@@ -16,7 +16,7 @@ defaults:
     scope:
       path: "" # empty string for all files
     values:
-      title: dbyll
+      title: hashbang blog
 
 title : hashbang blog
 tagline: Peter's epiphanies in tech for the world to behold.
