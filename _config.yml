@@ -39,5 +39,5 @@ tags_path: tags.html
 
 BASE_PATH:
 
-plugins:
+gem:
   - jekyll-paginate
