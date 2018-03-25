@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 gem 'github-pages'
-#gem 'jekyll', '3.0.3'
-#gem 'jekyll-redirect-from'
-#gem 'rouge'
+gem 'jekyll'
+
+group :jekyll_plugins do
+  gem "jekyll-paginate"
+  gem "pygments.rb"
+end
