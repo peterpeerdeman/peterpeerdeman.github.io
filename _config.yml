@@ -5,18 +5,8 @@ paginate_path: "page:num"
 exclude: ["README.md"] # files to exclude
 highlighter: rouge
 markdown: kramdown
-disqus: dbyll
-
-#comments :
-#  provider : disqus
-#  disqus :
-#    short_name : peterpeerdemanblog
-
-#analytics :
-#  provider : google
-#  google :
-#    tracking_id : 'UA-47494831-1'
-#    url : 'hashbang.nl'
+disqus: peterpeerdemanblog
+google_analytics: UA-47494831-1
 title: hashbang blog
 
 production_url : http://hashbang.nl
