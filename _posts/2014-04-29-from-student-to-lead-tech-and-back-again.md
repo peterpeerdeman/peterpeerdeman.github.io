@@ -9,4 +9,4 @@ On the 29th of April 2014 I gave a presentation about my career journey from stu
 
 The slides can be found on http://hashbang.nl/from-student-to-lead-tech-and-back-again/
 
-{% include JB/setup %}
+

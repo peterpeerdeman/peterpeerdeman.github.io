@@ -5,6 +5,6 @@ description: ""
 category: 
 tags: []
 ---
-{% include JB/setup %}
+
 
 http://www.cgsecurity.org/wiki/TestDisk

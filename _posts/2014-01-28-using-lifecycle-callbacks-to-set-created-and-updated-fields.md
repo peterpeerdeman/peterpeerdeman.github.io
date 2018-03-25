@@ -60,5 +60,5 @@ In addition to these callbacks, the following annotations / callbacks can also b
 
 please see the [Lifecycle Events](http://docs.doctrine-project.org/en/2.0.x/reference/events.html#lifecycle-events) in doctrine documentation for more information.
 
-{% include JB/setup %}
+
 

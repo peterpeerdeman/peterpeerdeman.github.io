@@ -5,7 +5,7 @@ description: "DNS, AAAA records and ipv6"
 category: devops
 tags: [devops, dns]
 ---
-{% include JB/setup %}
+
 
 While doing some DNS changes for a hostname with quite some DNS records I was encountered with some very strange behavior in which certain users were receiving different DNS records than other users. Even though I made changes to a certain A record, a specific group of users would never receive these changes, and it would always be the same group.
 

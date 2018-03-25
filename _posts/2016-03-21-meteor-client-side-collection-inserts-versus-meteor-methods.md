@@ -5,7 +5,7 @@ description: "Meteor client side collection inserts versus meteor methods"
 category: meteor
 tags: [meteor]
 ---
-{% include JB/setup %}
+
 
 Even though it is pretty handy and quick getting started in meteor to run client side insert methods in front-end code, we decided to step away from this paradigm completely
 

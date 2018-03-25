@@ -4,7 +4,7 @@ title: "Simple and clear Angular application documentation using angular-jsdoc"
 category: angular
 tags: [documentation, angular, javascript]
 ---
-{% include JB/setup %}
+
 
 While looking for a good way to document our AngularJS codebase I stumbled upon the ["Sigh, AngularJS Documentation"](http://allenhwkim.tumblr.com/post/92161523693/sigh-angularjs-documentation) by Allan Kim. His quest for simple Angular documentation ended in the creation of [angular-jsdoc](https://github.com/allenhwkim/angular-jsdoc), his own Angular Template for JSDoc. I completely agree with his decision and found his template to be perfectly suited for our goals (using common js doc blocks, no server for browsing documentation).
 

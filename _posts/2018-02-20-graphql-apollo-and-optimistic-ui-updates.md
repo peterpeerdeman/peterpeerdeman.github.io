@@ -4,7 +4,6 @@ title: "GraphQL, Apollo and optimistic UI updates"
 category: presentations
 tags: [graphql]
 ---
-{% include JB/setup %}
 
 GraphQL has been a great replacement for REST API's in recent projects at the Lifely office. It offers an amazing abstraction over the available datamodel and allows the frontend views to be extremely flexible. Apollo helps the React components get their required data through GraphQL endpoints and has some awesome UI optimizations that we'd love to share, after kickstarting you with some GraphQL/Apollo basics.
 

@@ -5,7 +5,7 @@ description: ""
 category: meteor
 tags: [meteor, i18n]
 ---
-{% include JB/setup %}
+
 
 So one of our meteor apps is fully translated, including all ui, notifications and emails being sent to the clients. We've made heavy use of [tap-i18n](https://github.com/TAPevents/tap-i18n) to achieve this, along with [meteorhacks:ssr](https://atmospherejs.com/meteorhacks/ssr) to render dynamic blaze emailtemplates on the backend. 
 

@@ -5,7 +5,7 @@ description: ""
 category: 
 tags: []
 ---
-{% include JB/setup %}
+
 
 /boot/cmdline.txtworking with new technology at a software agency
 

@@ -9,4 +9,4 @@ After refactoring the structure and folders of javascript files included by the 
 
 After full removing everything in the app/cache folder through the filesystem, the template files were correctly reloaded.
 
-{% include JB/setup %}
+

@@ -5,7 +5,7 @@ description: "Looking into Meteor: our experiences with real-time web applicatio
 category: technology
 tags: [meteor, real-time, webapplications]
 ---
-{% include JB/setup %}
+
 
 I've had a couple of run-ins with [Meteor](https://www.meteor.com) while it was in development. Several times I've given the framework a shot to see if their promises (developer delight, fraction of development time needed plus scalable and robust real-time data) were met and ready for production. As of version 1.0, I think they are.
 

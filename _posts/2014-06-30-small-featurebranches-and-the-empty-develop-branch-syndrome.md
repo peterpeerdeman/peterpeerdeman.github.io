@@ -9,4 +9,4 @@ Whhen using a proper git flow and working with feature branches, you should forc
 
 The "empty develop branch syndrome" occurs when the team is working on a feature that turns out to larger than expected. Meanwhile the develop branch is abandoned, the unit tests are not being run for the develop branch and the staging envrionment does not get automatically deployed to. We could ofcourse configure the feature branches to get the same continuous treatment but I'd rather see smaller features get integrated into the main development branch more often.
 
-{% include JB/setup %}
+

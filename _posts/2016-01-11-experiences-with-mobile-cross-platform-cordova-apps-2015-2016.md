@@ -5,7 +5,7 @@ description: "A blog post highlighting our experience with frameworks, plug-ins 
 category: technology
 tags: [mobile, Cordova]
 ---
-{% include JB/setup %}
+
 
 In 2015 and 2016 we've spent quite some time developing a mobile application using apache Cordova. In this blog post I'm highlighting some of the findings we had before, during and after developing hybrid mobile apps using web technology.
 

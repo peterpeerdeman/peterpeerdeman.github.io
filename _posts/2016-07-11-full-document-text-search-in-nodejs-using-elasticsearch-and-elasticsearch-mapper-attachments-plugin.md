@@ -5,7 +5,7 @@ description: "Full document text search in nodejs using elasticsearch and elasti
 category: node
 tags: [node, elasticsearch, docker]
 ---
-{% include JB/setup %}
+
 
 In one of our recent meteor applications we included a full document search feature using elasticsearch. Elasticsearch creates an index of documents based on metadata and their plain text content. For this feature we needed to support PDF and office filetypes (doc, docx, pptx etc.) as well. To accomodate this, elasticsearch has a plugin called [elasticsearch-mapper-attachments](https://github.com/elastic/elasticsearch-mapper-attachments).
 

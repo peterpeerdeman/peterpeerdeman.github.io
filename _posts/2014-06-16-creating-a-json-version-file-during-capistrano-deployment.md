@@ -31,4 +31,4 @@ end
 
 I use the resulting version file to remotely retrieve the servers version for our status dashboard, which is pretty neat and gives you a quick overview of your servers statuses.
 
-{% include JB/setup %}
+

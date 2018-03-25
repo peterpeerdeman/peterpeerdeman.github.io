@@ -4,7 +4,7 @@ title: "My view on Android development in 2015"
 category: android
 tags: [android, java, mobile, apps]
 ---
-{% include JB/setup %}
+
 
 Recently I've done an Android project in which we developed a tutorial series on how to create an intermediate level Android app with REST integration and gradle dependencies. This has allowed me to get reacquainted with Android after a couple of years of non-android projects. In 2009 I created my first [Android application](http://www.niftysystems.nl/xbox-live-stats-widget) using the [Android 1.5 SDK](http://developer.android.com/about/versions/android-1.5.html) and dear me, a lot has changed in the mean time.
 

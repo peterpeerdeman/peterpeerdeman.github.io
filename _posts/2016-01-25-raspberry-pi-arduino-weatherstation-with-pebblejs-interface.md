@@ -5,7 +5,7 @@ description: "Raspberry Pi + Arduino weatherstation with PebbleJS interface"
 category: internetofthings
 tags: [node, javascript, arduino, raspberrypi, iot]
 ---
-{% include JB/setup %}
+
 
 ![Raspberry Pi + Arduino weatherstation with PebbleJS interface]({{ site.url }}/assets/images/2016-01-25-weather-pebblejs.jpg)
 

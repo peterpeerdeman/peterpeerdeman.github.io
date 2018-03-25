@@ -28,4 +28,4 @@ N.B. Please take a look at the XDA thread I link to at the bottom of this blog b
 
 My process was loosely based on the [Google Edition Converstion for HTC One XDA thread](http://forum.xda-developers.com/showthread.php?t=2358781) but I did not found it very clear / concise.
 
-{% include JB/setup %}
+

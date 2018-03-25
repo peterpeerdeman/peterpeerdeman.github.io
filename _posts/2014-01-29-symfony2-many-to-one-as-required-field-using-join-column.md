@@ -14,4 +14,4 @@ If you want a ManyToOne relation to be required, you have to include a join colu
 private $package;
 {% endhighlight %}
 
-{% include JB/setup %}
+

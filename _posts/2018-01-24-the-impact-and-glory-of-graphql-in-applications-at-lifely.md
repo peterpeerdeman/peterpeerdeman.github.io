@@ -4,7 +4,6 @@ title: "The impact and glory of GraphQL in applications at Lifely"
 category: presentations
 tags: [graphql]
 ---
-{% include JB/setup %}
 
 GraphQL has been an amazing technology for software agencies like Lifely in the past years. GraphQL gives us a lot of options in how to connect frontend applications to a plethora of databases, backends, API's and legacy systems. Peter will share Lifely's experiences switching over from REST to GraphQL, explain the different ways of using GraphQL in our projects and tell you more about the challenges we faced and how we solved them.
 

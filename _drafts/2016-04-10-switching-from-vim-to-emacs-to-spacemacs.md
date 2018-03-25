@@ -5,7 +5,7 @@ description: ""
 category: 
 tags: []
 ---
-{% include JB/setup %}
+
 
 As discussed in github issue [https://github.com/syl20bnr/spacemacs/issues/2222]
 

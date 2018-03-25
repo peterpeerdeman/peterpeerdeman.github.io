@@ -4,7 +4,7 @@ title: "Websockets and DDP in production"
 category: presentations
 tags: [websockets, ddp]
 ---
-{% include JB/setup %}
+
 
 In this guestlecture I show an example of a realtime application we built using Meteor and DDP. Along the way I explain how the DDP realtime protocol works, what the data through websockets looks like and how to consume this API data with the `ddp-client` npm package.
 

@@ -14,4 +14,4 @@ framework:
         fallback: en
 {% endhighlight %}
 
-{% include JB/setup %}
+

@@ -4,7 +4,6 @@ title: "Datamodels, API's and GraphQL in practice"
 category: presentations
 tags: [rest, graphql]
 ---
-{% include JB/setup %}
 
 Datamodels, API's and GraphQL in practice
 

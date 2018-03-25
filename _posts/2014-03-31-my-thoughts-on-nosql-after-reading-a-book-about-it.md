@@ -16,4 +16,4 @@ This is great and all, if it doesn't matter that you retrieve some stale data no
 
 If I were to build a high traffic web application I will be sure to implement the heaviest / most intensive data entities such as session management in a NoSQL solution to ensure scalability but for core functionality where consistency is very important I'd take a very good look at the possibilities to make sure data integrity is kept at all times.
 
-{% include JB/setup %}
+

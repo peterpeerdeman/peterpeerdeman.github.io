@@ -4,7 +4,7 @@ title: "Fast and practical SCRUM and bug management using Trello and physical SC
 category: development
 tags: [scrum, development, productivity]
 ---
-{% include JB/setup %}
+
 
 I have always been a great SCRUM enthusiast. In my years as software developer and SCRUM master I've found that the maintenance of the backlog is paramount to the success of the SCRUM process. In the past years I have witnessed several methods / tools for keeping an eye on stories and bugs, including JIRA, Github issues, Trello, Physical brown paper and post-its and even archaic ones like Excel and HP Quality Center.
 

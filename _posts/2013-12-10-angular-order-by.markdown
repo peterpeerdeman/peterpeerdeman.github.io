@@ -31,5 +31,3 @@ app.filter('orderObjectBy', function(){
  }
 });
 {% endhighlight %}
-
-{% include JB/setup %}

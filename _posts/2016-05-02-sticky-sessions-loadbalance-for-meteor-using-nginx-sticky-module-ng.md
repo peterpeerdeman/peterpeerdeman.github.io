@@ -4,7 +4,7 @@ title: "Sticky sessions loadbalancing for meteor using nginx-sticky-module-ng"
 category: nginx
 tags: [nginx, meteor, performance, loadbalancing]
 ---
-{% include JB/setup %}
+
 
 We found that the third party [nginx-sticky-module-ng](https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng) plugin did quite a good job distributing the load among servers per specific user session. Unfortunately, this means you have to install nginx on the loadbalancer from source, and install the [nginx-sticky-module-ng](https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng) during the installation. We use the following ansible step to install nginx including the sticky module:
 

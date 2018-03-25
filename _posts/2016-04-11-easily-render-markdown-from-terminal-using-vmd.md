@@ -5,7 +5,7 @@ description: ""
 category: 
 tags: [markdown, terminal]
 ---
-{% include JB/setup %}
+
 
 I stumbled upon this great little markdown visualizer tool created by [Joshua Wuyts](https://github.com/yoshuawuyts) called [VMD](https://github.com/yoshuawuyts/vmd). For those using a lot of markdown in the commandline it can be extremely useful to quickly view a compiled version of your markdown file in pretty github style formatting.
 
@@ -24,5 +24,3 @@ vmd README.md
 VMD then instantly shows a window with a rendered version of your markdown file. It even watches the original file for changes and instantly updates the rendered version if you save the file!
 
 ![vmd in commandline]({{ site.url }}/assets/images/2016-04-10-vmd.png)
-
-sfslkj

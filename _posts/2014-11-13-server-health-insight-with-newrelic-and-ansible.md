@@ -4,7 +4,7 @@ title: "Server health insight with NewRelic and ansible"
 category: devops
 tags: [devops, servers, logging]
 ---
-{% include JB/setup %}
+
 
 With the number of servers and applications in maintenance of my company growing it became time to find a decent solution that keeps tabs on the health of our servers. Though there are open source solutions available such as [graphite](http://graphite.wikidot.com/) that will gather and graph data collected with open source statistics gatherers like [collectd](http://graphite.wikidot.com/) it is hard to beat the ease of use and functionality of [Newrelic](http://newrelic.com/).
 

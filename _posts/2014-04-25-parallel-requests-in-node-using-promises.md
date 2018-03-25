@@ -59,4 +59,4 @@ function getUrl(url) {
 
 The fun part of implementing promises is shown in the ```getUrl``` method, where I demonstrate how to create a promise yourself using the q library. You can make any function asynchronous by first declaring the deferred object, doing some stuff that might take a while and then immediately returning the deferred's promise.
 
-{% include JB/setup %}
+

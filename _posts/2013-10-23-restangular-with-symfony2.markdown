@@ -35,5 +35,3 @@ RestangularProvider.setRequestInterceptor(function(elem, operation, what) {
 {% endhighlight %}
 
 credits for this solution go to the [issue](https://github.com/mgonto/restangular/issues/109) raised and closed on github.
-
-{% include JB/setup %}

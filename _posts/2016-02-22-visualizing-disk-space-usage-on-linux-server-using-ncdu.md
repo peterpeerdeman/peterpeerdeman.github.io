@@ -5,7 +5,7 @@ description: ""
 category: devops
 tags: []
 ---
-{% include JB/setup %}
+
 
 After getting one "fullest disk > 80%" alert too many for our continious integration servers and getting frustrated with apparently full disks, I decided too look into a solution that helps you find where the diskspace in your server is going.
 

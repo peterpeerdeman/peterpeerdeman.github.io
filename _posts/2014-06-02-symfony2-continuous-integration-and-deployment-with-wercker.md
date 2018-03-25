@@ -79,4 +79,4 @@ Some notable details:
 * slack notifications are triggered after each build and deploy, don't forget to configure the slack token through wercker interface
 * before deployment, the known host for bitbucket has to be set.
 
-{% include JB/setup %}
+

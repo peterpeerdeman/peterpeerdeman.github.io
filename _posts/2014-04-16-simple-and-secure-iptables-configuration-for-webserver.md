@@ -34,4 +34,4 @@ Please note the incoming `RELATED,ESTABLISHED` line, which is necessary if you w
 
 If you want to load these tables by default, run the command `sudo sh -c "iptables-save > /etc/iptables.rules"` to save the configuration to the default iptables configuration.
 
-{% include JB/setup %}
+

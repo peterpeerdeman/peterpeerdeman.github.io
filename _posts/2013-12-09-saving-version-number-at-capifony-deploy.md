@@ -24,4 +24,4 @@ end
 after 'deploy:update_code', 'deploy:write_versionfile'
 {% endhighlight %}
 
-{% include JB/setup %}
+

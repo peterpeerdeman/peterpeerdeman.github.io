@@ -24,4 +24,4 @@ heroku config:set NODE_ENV=production
 
 1. `heroku push`
 
-{% include JB/setup %}
+

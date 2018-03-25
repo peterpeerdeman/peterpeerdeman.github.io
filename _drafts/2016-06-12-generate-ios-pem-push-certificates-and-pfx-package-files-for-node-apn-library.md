@@ -5,7 +5,7 @@ description: ""
 category: 
 tags: []
 ---
-{% include JB/setup %}
+
 
 - follow guide https://www.raywenderlich.com/123862/push-notifications-tutorial
     - create keys through app id preferences screen in developer.apple.com

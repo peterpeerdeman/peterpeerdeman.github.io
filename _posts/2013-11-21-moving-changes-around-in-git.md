@@ -11,4 +11,4 @@ Now the working directory is clean and I can switch to any other branch, create 
 
 Bonus tip: If you have created some new files during your modifications, be sure to first git add these changes before stashing to make sure they are taken along the ride as well.
 
-{% include JB/setup %}
+

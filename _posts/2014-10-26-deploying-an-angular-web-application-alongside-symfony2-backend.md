@@ -4,7 +4,7 @@ title: "Deploying an Angular web application alongside Symfony2 back-end"
 category: devops 
 tags: [devops, angular, symfony2]
 ---
-{% include JB/setup %}
+
 
 When I started building web applications with Symfony2 and Angular I've tried a couple of different ways of integrating these two properly. 
 

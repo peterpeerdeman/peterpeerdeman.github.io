@@ -5,7 +5,7 @@ description: "Creating router independant blaze components for Meteor"
 category: meteor
 tags: [meteor, javascript, blaze]
 ---
-{% include JB/setup %}
+
 
 After Meteor allowed us to create [template level subscriptions](https://www.discovermeteor.com/blog/template-level-subscriptions/) we decided to decouple our blaze components from the router. By parsing the params on router level and passing in the parameters to the component templates as data context, the components become responsible for loading their required data instead of the router. Take a look at this snippet of iron router route:
 

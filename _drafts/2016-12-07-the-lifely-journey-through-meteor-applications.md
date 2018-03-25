@@ -4,7 +4,7 @@ title: "The Lifely journey through Meteor applications"
 category: presentations
 tags: [meteor]
 ---
-{% include JB/setup %}
+
 
 The slides can be found on http://peterpeerdeman.github.io/the-lifely-journey-through-meteor-applications/
 

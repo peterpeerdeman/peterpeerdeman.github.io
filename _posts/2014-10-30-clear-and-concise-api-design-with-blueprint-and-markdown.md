@@ -4,7 +4,7 @@ title: "Clear and concise API design with blueprint and markdown"
 category: technology
 tags: [api, backend, documentation]
 ---
-{% include JB/setup %}
+
 
 I've been designing a lot of REST API's lately and have found out that blueprint is one of the most concise yet expressive ways of capturing the design of a web interface before actually building it.
 

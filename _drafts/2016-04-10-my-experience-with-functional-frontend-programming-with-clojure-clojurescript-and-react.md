@@ -5,7 +5,7 @@ description: ""
 category: 
 tags: []
 ---
-{% include JB/setup %}
+
 
 cognicast
 http://www.braveclojure.com/

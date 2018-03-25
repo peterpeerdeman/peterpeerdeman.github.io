@@ -4,7 +4,7 @@ title: "Big data experiment with Elasticsearch, Logstash and Kibana"
 category: devops
 tags: [bigdata, devops]
 ---
-{% include JB/setup %}
+
 
 After hearing [Michael Heap's talk](http://endpointcon.com/posts/2014/07/01/michael-heap/) on Endpoint 2014 about doing more useful stuff with your logfiles I got inspired to start experimenting with big data: Elastiscsearch, Logstash and Kibana. 
 

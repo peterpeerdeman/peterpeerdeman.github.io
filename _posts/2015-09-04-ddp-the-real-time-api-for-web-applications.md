@@ -5,7 +5,7 @@ description: "DDP: The real time api for web applications, a conference talk giv
 category: meteor
 tags: [meteor, conference, javascript]
 ---
-{% include JB/setup %}
+
 
 [![Peter speaking at Endpointcon 2015]({{ site.url }}/assets/images/2015-09-04-endpointcon.jpg)](https://www.flickr.com/photos/peterpeerdeman/20579039463/in/dateposted/)
 

@@ -5,7 +5,7 @@ description: "Things I liked about Ruby on Rails and Symfony2 that I sometimes m
 category: technology
 tags: [ruby, php, javascript]
 ---
-{% include JB/setup %}
+
 
 In the past couple of years I've had the luxury of playing around with a multitude of different languages and frameworks on a daily basis. From developing front-ends in vanilla javascript with a little bit of help from jQuery and frameworkless PHP sites to structured web-applications in Ruby on Rails, PHP Symfony2 and NodeJS with express and meteor.js. Switching to nodejs on the back-end has had a lot of advantages for me, being able to program both front-end and back-end code in the same language greatly reduces context switching and decreases the mental gap between front and back-end teams. NodeJS and javascript give great amounts of freedom of development style. NPM is a vast resources of starting points for any project, which massively improve productivity and allow you to get ideas working quickly.
 

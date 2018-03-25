@@ -5,7 +5,7 @@ description: ""
 category: 
 tags: []
 ---
-{% include JB/setup %}
+
 
 https://laracasts.com/discuss/channels/general-discussion/env-not-reading-variables-sometimes?page=2
 https://github.com/Jeroen-G/Flickr/issues/3

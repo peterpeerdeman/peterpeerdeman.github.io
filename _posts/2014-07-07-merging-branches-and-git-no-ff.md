@@ -11,4 +11,4 @@ There is a lot of debate on the web about whether you should use ```git merge br
 
 Even if you are the only one committing, you get a tidy grouping of commits that belong to the merged feature branch. This greatly simplifies reading back the development branch and seeing which features were added when, which is great for writing changelogs and feature lists.
 
-{% include JB/setup %}
+

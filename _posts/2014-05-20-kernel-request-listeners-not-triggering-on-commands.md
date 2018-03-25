@@ -17,4 +17,4 @@ It turns out kernel events are not sent when executing a Symfony2 command instea
             - { name: kernel.event_listener, event: console.command, method: onKernelRequest }
 {% endhighlight %}
 
-{% include JB/setup %}
+

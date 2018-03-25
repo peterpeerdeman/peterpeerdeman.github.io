@@ -40,4 +40,4 @@ In Symfony2's documentation WSSE was described as the preferred way to do secure
 
 Implementing JWT for Symfony2 was a breeze using the [Lexik JWT AuthenticationBundle](https://github.com/lexik/LexikJWTAuthenticationBundle). After locking down the API and configuring the firewall, we used the examples from ["Cookies vs Tokens. Getting auth right with Angular.JS"](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/) to acquire the token in our AngularJS application and supply it with each request. One thing to note is that the JWT token is not repudiable. For our case this was no problem but if this is something you are worried about, stateless tokens might not be the right solution for you.
 
-{% include JB/setup %}
+

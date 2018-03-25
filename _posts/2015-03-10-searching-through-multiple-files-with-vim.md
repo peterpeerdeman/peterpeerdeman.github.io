@@ -4,7 +4,7 @@ title: "searching through multiple files with vim"
 category: development
 tags: [development, vim, editor]
 ---
-{% include JB/setup %}
+
 
 Just as a reminder to myself and to everyone looking for a short and easy answer to get a quick vim project search going:
 

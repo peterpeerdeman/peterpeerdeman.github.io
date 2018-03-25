@@ -19,4 +19,4 @@ I really hope that the extra features and configurability of Restangular get rep
 
 By the way, I've given a talk about this topic during the Javascript MVC Meetup in Amsterdam on the 5th of August 2013 called [Consuming RESTful Resources with AngularJS](http://peterpeerdeman.github.io/consuming-restful-resources-with-angularjs/). Please see the slides for more details and examples of $resource vs Restangular
 
-{% include JB/setup %}
+

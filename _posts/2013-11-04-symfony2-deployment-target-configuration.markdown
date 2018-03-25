@@ -50,4 +50,4 @@ A checklist for the things that need to be configured in our Symfony2 deploy tar
         RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 1. configure capifony deploy script
 
-{% include JB/setup %}
+

@@ -9,4 +9,4 @@ On the 4th of December 2013 I gave a talk at the JSMVC meetup about consuming RE
 
 The slides can be found on [http://hashbang.nl/consuming-restful-resources-with-angularjs/#/](http://hashbang.nl/consuming-restful-resources-with-angularjs/#/).
 
-{% include JB/setup %}
+

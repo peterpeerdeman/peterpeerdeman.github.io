@@ -4,7 +4,6 @@ title: "Part up: a Meteor Production Story, at the Meteor Meet-up hosted by Life
 category: meteor
 tags: [meteor, meetup]
 ---
-{% include JB/setup %}
 
 On the 1st of July 2015 [Lifely](http://lifely.nl) hosted the dutch [Meteor meetup](http://www.meetup.com/Meteor-NL/events/223096911/). I gave a presentation about our experiences during the "Part-up" project, a web-based startup product that we built in Meteor.
 

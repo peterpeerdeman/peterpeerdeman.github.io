@@ -5,7 +5,7 @@ description: "switching from REST to Meteor, DDP and Apollo"
 category: technology
 tags: [nodejs, meteor, rest, apollo]
 ---
-{% include JB/setup %}
+
 
 After creating a bunch of webapplications with NodeJS and Express as a REST backend with Angular on the front-end, we had the opportunity to take on a client project that we would develop in MeteorJS. As described in [a previous post](http://hashbang.nl/technology/2015/12/14/looking-into-meteor-our-experiences-with-real-time-web-applications), Meteor has some great advantages for simplicity of development, avoiding the tangle of node versions, vagrant vm provisioning, grunt/gulp tasks and other stuff that has to be done to get your application ready to be deployed on production.
 

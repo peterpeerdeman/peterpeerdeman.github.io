@@ -62,4 +62,3 @@ I was sure all data was correct, inspected the http request headers and found th
         $this->assertArrayHasKey("id", $data);
     }
 {% endhighlight %}
-{% include JB/setup %}

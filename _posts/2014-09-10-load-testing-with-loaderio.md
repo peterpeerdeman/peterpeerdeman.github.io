@@ -19,4 +19,4 @@ Before:
 After:
 ![loader io screenshot - after]({{ site.url }}/assets/images/2014-09-10-loaderio-02.png)
 
-{% include JB/setup %}
+

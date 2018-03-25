@@ -5,7 +5,7 @@ description: "Building recordfairs.nl, a webscraper application in nodejs with p
 category: node
 tags: [node, project, webscraper]
 ---
-{% include JB/setup %}
+
 
 As I've begun with a modest [vinyl collection hobby](https://www.discogs.com/user/peterpeerdeman/collection?sort=added&header=1&sort_order=desc) I've been visiting some local recordfairs. While searching for them online I have found numerous websites from different labels / brands / stores that list upcoming record fairs. After wading through all the different sites for a third time I thought: "wouldn't it be great if there was just one big aggregated table of all these recordfairs in a nice and simple mobile friendly layout?" and with that, the idea of [recordfairs.nl](http://recordfairs.nl) was born.
 

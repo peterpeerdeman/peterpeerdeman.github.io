@@ -5,7 +5,7 @@ description: "Analyzing HTTPS traffic on android mobile apps using charles proxy
 category: android
 tags: [android, mobile, https, apps, sniffing, http]
 ---
-{% include JB/setup %}
+
 
 - https://www.charlesproxy.com
 - ifconfig

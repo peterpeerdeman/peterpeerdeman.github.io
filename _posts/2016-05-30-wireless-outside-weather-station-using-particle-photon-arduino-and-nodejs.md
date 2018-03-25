@@ -5,7 +5,7 @@ description: "Wireless outside weather station using particle photon, arduino an
 category: internetofthings
 tags: [internetofthings, node, iot, photon]
 ---
-{% include JB/setup %}
+
 
 The particle photon is a pretty awesome little arduino device with onboard wifi. When I got my set Photons I decided to extend my [Raspberry Pi Arduino Weather station]({% post_url 2016-01-25-raspberry-pi-arduino-weatherstation-with-pebblejs-interface %}) with some outside temperature readings using the sensor that was packaged with the [Particle maker kit](https://store.particle.io/collections/photon) I got. I wanted to mount the sensor out the window of my shed and have the sensor connect to the wifi to transmit its data.
 

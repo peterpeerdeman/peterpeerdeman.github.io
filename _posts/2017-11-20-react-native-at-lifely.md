@@ -4,7 +4,6 @@ title: "ReactNative at Lifely"
 category: presentations
 tags: [react, reactnative]
 ---
-{% include JB/setup %}
 
 At Lifely, we have had a lot of experiences with hybrid multiplatform applications. We started with ionic, moved to cordova with angular, tried cordova with react but could never produce an experience that was on par with our quality standard. After discovering React Native we found out we could finally produce the apps that we wanted to produce all along, with the familiarity of javascript / typescript and the react paradigm. 
 
