@@ -2,7 +2,7 @@
 layout: page
 title: hashbang blog
 ---
-{% include JB/setup %}
+
 
 {% for post in site.posts limit:10 %}
 <article>
