@@ -10,4 +10,13 @@ download the slides [here](http://files.lifely.nl/graphql-the-future-of-apis-is-
 
 This talk was given at [Refresh Conference](https://refreshconference.nl) 26-10-2018
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mj850EuHQHs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/mj850EuHQHs"
+  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/mj850EuHQHs?autoplay=1><img src=https://img.youtube.com/vi/mj850EuHQHs/hqdefault.jpg alt='Embedded video'><span>▶</span></a>"
+  frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+  title="Embedded video"
+></iframe>
