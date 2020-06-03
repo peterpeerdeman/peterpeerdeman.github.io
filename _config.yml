@@ -7,7 +7,7 @@ highlighter: rouge
 markdown: kramdown
 disqus: peterpeerdemanblog
 google_analytics: UA-47494831-1
-title: hashbang blog
+title: hashbang
 
 production_url : http://hashbang.nl
 
@@ -16,9 +16,9 @@ defaults:
     scope:
       path: "" # empty string for all files
     values:
-      title: hashbang blog
+      title: hashbang
 
-title : hashbang blog
+title : hashbang
 tagline: Peter's epiphanies in tech for the world to behold.
 author :
   name : Peter Peerdeman
