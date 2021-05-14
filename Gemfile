@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-gem 'github-pages'
-gem 'jekyll'
-
+# gem "jekyll", "~> 4.0.0"
 group :jekyll_plugins do
+  gem "jekyll-feed", "~> 0.11"
+  gem "github-pages", "202"
   gem "jekyll-paginate"
   gem "pygments.rb"
 end
