@@ -74,6 +74,46 @@ slaves:
 ```
     7  k3s_server="https://192.168.117.11:6443"
     8  k3s_token=xxxxx
-    9  curl -sfL https://get.k3s.io | K3S_URL=$k3s_server K3S_TOKEN=$k3s_token sh -
+    9  curl -sfL https://get.k3s.io | K3S_URL=$k3s_server K3S_TOKEN=$k3s_token sh - --write-kubeconfig-mode 644
 ```
 
+
+interface:
+```
+https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+```
+
+access to interface (generate token): 
+```
+https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
+kubectl proxy
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/
+```
+
+commands:
+```
+kubectl get nodes
+kubectl get pods
+kubectl get services
+kubectl apply -f deployment-file.yaml
+kubectl rollout status namespace/deploymentname
+kubectl delete deploy/deploymentname
+kubectl delete service/servicename
+```
+
+
+persistence:
+https://longhorn.io/docs/0.8.1/what-is-longhorn/
+```
+kubectl create namespace longhorn-system
+helm install longhorn longhorn/longhorn --namespace longhorn-system
+kubectl port-forward --namespace longhorn-system svc/longhorn-frontend :80
+```
+
+influx:
+- make sure you extend startupProbe time for slow raspberry pi boot up times
+- dont use the alpine image, for it has no armv8 tags -> use the non-alpine instead
+- use helm charts, configure them with copied variables.yml files
+
+telegraf:
+use a daemonset to ensure pods run on all the different nodes,
