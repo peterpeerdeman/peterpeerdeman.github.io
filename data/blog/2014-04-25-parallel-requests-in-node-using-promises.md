@@ -1,9 +1,10 @@
 ---
-layout: post
+date: '2014-04-25'
 title: 'Parallel requests in node using promises'
 description: 'While developing my first node applications I rediscovered the power of promises in javascript. In one recent project I built a proxy application that aggregates some data from different resources, bundles it and serves it in one single json to the frontend.'
 category: node
-tags: [q, promises, proxy, javascript]
+tags: ['node']
+draft: false
 ---
 
 While developing my first node applications I rediscovered the power of promises in javascript. In one recent project I built a proxy application that aggregates some data from different resources, bundles it and serves it in one single json to the frontend.

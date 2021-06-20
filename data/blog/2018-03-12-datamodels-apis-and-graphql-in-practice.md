@@ -1,8 +1,10 @@
 ---
+date: '2018-03-12'
 layout: post
 title: "Datamodels, API's and GraphQL in practice"
 category: presentations
-tags: [rest, graphql]
+tags: ['presentations', 'graphql']
+draft: false
 ---
 
 Datamodels, API's and GraphQL in practice

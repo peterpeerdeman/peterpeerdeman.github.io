@@ -1,8 +1,9 @@
 ---
-layout: post
-title:  "Deploying Angular to Heroku"
+title: Deploying Angular to Heroku
+date: '2013-11-05'
 category: angular
-tags: [angular, heroku]
+tags: ['angular']
+draft: false
 ---
 
 A couple of simple steps to quickly create a nodejs angular application and host it on heroku.
@@ -23,5 +24,3 @@ heroku config:set NODE_ENV=production
 {% endhighlight %}
 
 1. `heroku push`
-
-

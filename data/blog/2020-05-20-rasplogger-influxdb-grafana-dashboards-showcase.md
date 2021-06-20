@@ -1,8 +1,10 @@
 ---
+date: '2020-05-20'
 layout: post
 title: 'RaspLogger, InfluxDB, Grafana dashboards showcase'
 category: timeseries
 tags: [timeseries, grafana, influxdb, nodejs]
+draft: false
 ---
 
 I've been experimenting with datacollection for non-server/ops related dashboards. I've not found the time to do full writeups on these things but as I'm procrastinating that I'd still love to share some of the things I'm working on. All ingredients needed to get these examples running are listed below!

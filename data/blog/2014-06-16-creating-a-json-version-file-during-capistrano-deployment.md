@@ -1,8 +1,9 @@
 ---
-layout: post
+date: '2014-06-16'
 title: 'Creating a json version file during capistrano deployment'
 category: devops
-tags: [symfony2, devops, capistrano]
+tags: ['devops']
+draft: false
 ---
 
 To get some more insight into the different code applications deployed to different servers (e.g. staging, acceptance production) I wanted to be able to see the version hash and deploy date in a small file that gets deployed with the application.

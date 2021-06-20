@@ -1,9 +1,11 @@
 ---
+date: '2014-06-02'
 layout: post
 title: 'Symfony2 continuous integration and deployment with Wercker'
 description: 'Symfony2 continuous integration and deployment with Wercker'
 category: devops
-tags: [symfony2, devops]
+tags: ['devops']
+draft: false
 ---
 
 To continuously integrate and deploy our Symfony2 applications we I the cloud application [Wercker](http://wercker.com). It has a very quick setup, is free during beta period and has a nice web interface that allows you to inspect builds and deploys.
@@ -28,7 +30,7 @@ code: |-
 npm install - script:
 name: configure and initialize the db
 code: |-
-sed -i.bak -e "s/database_host: ._/database_host: $WERCKER_MYSQL_HOST/" -e "s/database_port: ._/database_port: $WERCKER_MYSQL_PORT/" -e "s/database_name: ._/database_name: $WERCKER_MYSQL_DATABASE/" -e "s/database_user: ._/database_user: $WERCKER_MYSQL_USERNAME/" -e "s/database_password: .\*/database_password: $WERCKER_MYSQL_PASSWORD/" app/config/parameters.yml
+sed -i.bak -e "s/database*host: .*/database*host: $WERCKER_MYSQL_HOST/" -e "s/database_port: .*/database*port: $WERCKER_MYSQL_PORT/" -e "s/database_name: .*/database*name: $WERCKER_MYSQL_DATABASE/" -e "s/database_user: .*/database_user: $WERCKER_MYSQL_USERNAME/" -e "s/database_password: .\*/database_password: $WERCKER_MYSQL_PASSWORD/" app/config/parameters.yml
 ./post-install.sh - script:
 name: PHPUnit integration tests
 code: phpunit --configuration app/phpunit.xml.dist - script:

@@ -1,7 +1,10 @@
 ---
+date: '2020-06-04'
 layout: post
 title: 'Veilig en snel aan je verzekeraars platform werken met externe partijen'
 category: opinions
+tags: ['opinions']
+draft: false
 ---
 
 Heb je als verzekeraar de doelstellingen van de komende kwartalen uitgeschreven en verwacht je een piekspanning bij het development team? Dan ben je op zoek naar de juiste versterking. Wellicht heb je mijn vorige artikel ‘drie samenwerkingsvormen tussen verzekeraars en tech-partijen’ gelezen en onze oplossing gevonden. Hoe zorg je er nu voor dat deze samenwerking veilig en efficiënt verloopt?

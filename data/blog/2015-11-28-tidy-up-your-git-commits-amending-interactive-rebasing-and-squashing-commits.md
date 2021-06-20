@@ -1,8 +1,10 @@
 ---
+date: '2015-11-28'
 layout: post
 title: 'tidy up your git commits: amending, interactive rebasing and squashing commits'
 category: git
-tags: [git, development]
+tags: ['git']
+draft: false
 ---
 
 Either you've read about cleaning up git commits a million times, or not at all. I heard about it but never really gave it a shot before but after "the git-father" [@chielkunkels](http://www.twitter.com/chielkunkels) showed me how easy it is to rewrite your history, everyone should at least give `git commit --amend` and `git rebase -i` a try.

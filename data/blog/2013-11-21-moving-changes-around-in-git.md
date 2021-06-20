@@ -1,8 +1,9 @@
 ---
-layout: post
 title: 'Moving changes around in git'
+date: '2013-11-21'
 category: devops
-tags: [git]
+tags: ['git']
+draft: false
 ---
 
 Sometimes, you are working in a branch and find yourself working on something that should be committed to a different branch or a new branch. Sometimes I even find I've got pending changes that belong in several different branches. In this case I use "git stash" to put the current changes away temporarily.

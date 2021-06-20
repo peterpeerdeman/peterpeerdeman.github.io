@@ -1,17 +1,19 @@
 ---
-layout: post
-title:  "Angular orderBy in object"
+date: '2013-12-10'
+title: 'Angular orderBy in object'
 category: angular
-tags: [angular, sorting]
+tags: ['angular']
+draft: false
 ---
+
 So apparently, orderBy only works on arrays. If you want to sort an object, you can use the following filter which transforms the object into an array and sorts it.
 
 <!--more-->
 
 {% highlight js %}
 app.filter('orderObjectBy', function(){
- return function(input, attribute, reverse) {
-    if (!angular.isObject(input)) return input;
+return function(input, attribute, reverse) {
+if (!angular.isObject(input)) return input;
 
     var array = [];
     for(var i=0; i<input.length;i++) {
@@ -28,6 +30,7 @@ app.filter('orderObjectBy', function(){
         }
     });
     return array;
- }
+
+}
 });
 {% endhighlight %}

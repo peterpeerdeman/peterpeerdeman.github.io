@@ -1,8 +1,9 @@
 ---
-layout: post
+date: '2015-07-01'
 title: 'Part up: a Meteor Production Story, at the Meteor Meet-up hosted by Lifely'
 category: meteor
-tags: [meteor, meetup]
+tags: ['presentations', 'meteor']
+draft: false
 ---
 
 On the 1st of July 2015 [Lifely](http://lifely.nl) hosted the dutch [Meteor meetup](http://www.meetup.com/Meteor-NL/events/223096911/). I gave a presentation about our experiences during the "Part-up" project, a web-based startup product that we built in Meteor.
@@ -103,9 +104,9 @@ _
 _ @param {Object} activity The activity to render
 _ @param {Function} createCallback A function which is executed after a new activity has been added
 _ @param {String} contribution_id Contribution id to render, if only one should be rendered
-_ @param {Boolean} COMMENTS_LINK Whether the widget should display the link to comments
-_ ...
-_/
+_ @param {Boolean} COMMENTS*LINK Whether the widget should display the link to comments
+* ...
+\_/
 
     // snip
 

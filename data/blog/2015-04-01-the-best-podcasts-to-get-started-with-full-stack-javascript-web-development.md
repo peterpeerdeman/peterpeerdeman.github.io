@@ -1,8 +1,10 @@
 ---
+date: '2015-04-01'
 layout: post
 title: 'The best podcasts to get started with full stack javascript web development'
 category: development
-tags: [development, podcast, javascript]
+tags: ['opinions']
+draft: false
 ---
 
 I've been listening to a load of podcasts during my daily commute and found out that this is a very entertaining way to keep up to date with the latest developments of web technologies. I'd love to share some of my favorites, give them a try and let me know which ones you think are missing!

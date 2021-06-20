@@ -1,13 +1,14 @@
 ---
-layout: post
-title:  "Posting data to Symfony2"
+title: Posting data to Symfony2
+date: '2013-10-21'
+tags: ['php']
+draft: false
 category: symfony2
-tags: ['symfony2', 'rest']
 ---
 
 After struggling for a couple of hours I found out why my POST call to our Symphony2 backend was seemingly not working.
 
-{% highlight php %}
+```php
     /**
      * @var Request $request
      * @Rest\View()
@@ -20,7 +21,7 @@ After struggling for a couple of hours I found out why my POST call to our Symph
             $em = $this->getDoctrine()->getManager();
             $em->persist($customer);
             $em->flush();
-            
+
             $data = array("id" => $customer->getId());
 
             $view = $this->view($data, Codes::HTTP_CREATED)
@@ -32,7 +33,7 @@ After struggling for a couple of hours I found out why my POST call to our Symph
         }
         return $this->handleView($view);
     }
-{% endhighlight %}
+```
 
 <!--more-->
 
@@ -40,7 +41,7 @@ all was nice and good, but when posting from both phpunit and rest client I had 
 
 I was sure all data was correct, inspected the http request headers and found that the body was post in the following fashion: {"name":"test", "number":"4343"}. Then I came to the idea that the data might have to be wrapped to identify the type of the object. This resulted in instant success. I wrote the following unit test.
 
-{% highlight php %}
+```php
    public function testPostCustomer()
     {
         $client = static::createClient();
@@ -61,4 +62,4 @@ I was sure all data was correct, inspected the http request headers and found th
         $this->assertEquals(Codes::HTTP_CREATED, $response->getStatusCode());
         $this->assertArrayHasKey("id", $data);
     }
-{% endhighlight %}
+```

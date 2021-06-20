@@ -1,7 +1,10 @@
 ---
+date: '2020-08-04'
 layout: post
 title: 'Drie moderne cloud geheimen voor e commerce platformen'
 category: opinions
+tags: ['opinions']
+draft: false
 ---
 
 Webshops beginnen altijd klein, maar barsten bij succes vaak uit hun voegen. Iets wat in een korte tijd na lancering kan gebeuren. Als dit gebeurt, leun je vaak op de beschikbaarheid van je webshop. Als hierbij een probleem ontstaat, wil je snel op de hoogte zijn, kunnen schakelen en repareren waarbij data niet verloren gaat. Precies op dit vlak kan de e-commerce wereld nog veel leren van de wereld van de moderne cloud technologie. Wij verklappen hier alvast drie geheimen.

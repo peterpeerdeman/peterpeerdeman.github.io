@@ -1,8 +1,9 @@
 ---
-layout: post
+date: '2015-03-02'
 title: 'Force cache miss on Javascript / CSS assets after deploy with grunt-replace'
 category: devops
-tags: [devops, angular, grunt]
+tags: ['devops']
+draft: false
 ---
 
 After deploying our AngularJS / Symfony2 application we found our users browsers loading cached assets from the previous deployment. The user would have to empty the cache / perform a hard refresh before the new version of the assets would be loaded. This behavior occurs because the url to the updated resources do not change during deployment.

@@ -1,9 +1,11 @@
 ---
+date: '2015-09-04'
 layout: post
 title: 'DDP: The real time api for web applications'
 description: 'DDP: The real time api for web applications, a conference talk given at Endpointcon 2015'
 category: meteor
-tags: [meteor, conference, javascript]
+tags: ['presentations', 'meteor']
+draft: false
 ---
 
 [![Peter speaking at Endpointcon 2015]({{ site.url }}/assets/images/2015-09-04-endpointcon.jpg)](https://www.flickr.com/photos/peterpeerdeman/20579039463/in/dateposted/)

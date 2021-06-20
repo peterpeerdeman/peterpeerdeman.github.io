@@ -1,8 +1,10 @@
 ---
+date: '2018-04-11'
 layout: post
 title: 'Why the hybrid approach finally works'
 category: presentations
-tags: [reactnative, react, hybrid, mobile]
+tags: ['presentations', 'mobile']
+draft: false
 ---
 
 We have all seen the hybrid platforms before. The promise is great but it never really worked that well in practice, until React Native came along. React Native is the hybrid platform that made our javascript development agency love to build apps again and I would love to share all the benefits we enjoy from having just one codebase and QA process.

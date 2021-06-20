@@ -1,9 +1,11 @@
 ---
+date: '2016-05-09'
 layout: post
 title: 'Upgrading old ruby 2.0.0 app to 2.2.4 for heroku deployment'
 description: 'Upgrading old ruby 2.0.0 app to 2.2.4 for heroku deployment'
 category: devops
 tags: [devops, ruby]
+draft: false
 ---
 
 So heroku urged me to update my old ruby project [Wisdoms.nl](http://www.wisdoms.nl) from version 2.0.0 to 2.2.4. Should be as easy as updating the `Gemfile` with the new version of ruby:

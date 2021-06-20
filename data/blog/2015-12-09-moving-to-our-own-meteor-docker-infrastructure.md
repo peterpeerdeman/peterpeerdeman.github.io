@@ -1,8 +1,10 @@
 ---
+date: '2015-12-09'
 layout: post
 title: 'Moving to our own Meteor Docker infrastructure'
 category: presentations
-tags: [meteor, docker]
+tags: ['presentations', 'meteor']
+draft: false
 ---
 
 After working with a meteor hosting provider for a while we decided to move our meteor applications to our own hosted environments. In this presentation I explain why and how we did this.

@@ -1,8 +1,10 @@
 ---
+date: '2020-03-05'
 layout: post
 title: 'GraphQL, Apollo and GraphQL Subscriptions, at React JS Utrecht meetup'
 category: presentations
 tags: [graphql, subscriptions, realtime]
+draft: false
 ---
 
 Peter will briefly introduce GraphQL and its benefits, demo one of the many production GraphQL applications Lifely has created in the past years and dive a little deeper into the possibilities of Apollo for React and GraphQL Subscriptions.

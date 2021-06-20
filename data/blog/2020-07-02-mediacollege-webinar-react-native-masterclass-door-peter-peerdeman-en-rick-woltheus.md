@@ -1,8 +1,10 @@
 ---
+date: '2020-07-02'
 layout: post
 title: 'Mediacollege webinar: React Native Masterclass, door Peter Peerdeman en Rick Woltheus'
 category: presentations
 tags: [reactnative, mobile, hybrid]
+draft: false
 ---
 
 We houden van het delen van kennis en daarom zeiden we ook volmondig 'ja' toen Bettina Hohmann van Mediacollege Amsterdam ons uitnodigde voor het geven van een Masterclass in React Native. Peter Peerdeman en Rick Woltheus delen alle tips en tricks over dit open-source (JavaScript-) framework dat veelvoudig gebruikt wordt voor het ontwikkelen van native uitziende mobiele applicaties voor iOS en Android.

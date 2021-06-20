@@ -1,9 +1,11 @@
 ---
+date: '2016-04-10'
 layout: post
 title: 'quickly test npm modules using trymodule'
 description: 'quickly test npm modules using trymodule'
 category: node
 tags: [node, npm]
+draft: false
 ---
 
 Just a quick little tip: try npm installing [trymodule](https://github.com/VictorBjelkholm/trymodule). It is a fun little cli app that lets you quickly try out an npm module:

@@ -1,8 +1,10 @@
 ---
+date: '2020-02-09'
 layout: post
 title: 'Een oplossing visualiseren in het eerste gesprek met de klant'
 category: opinions
-tags: [visualisation]
+tags: ['opinions']
+draft: false
 ---
 
 Het eerste gesprek met een klant is spannend. Begrijp je elkaar wel goed? Kan je iets voor elkaar betekenen? Pas je wel bij elkaar? Deze vragen worden vaak beantwoord in het gesprek zelf. Maar hoe zorg je ervoor dat de klant ook daadwerkelijk met jou in zee gaat en niet met een andere partij? Zelf gebruik ik verschillende hulpmiddelen waardoor ik direct een visueel beeld kan schetsen van de situatie en de mogelijke oplossingen. Laten we starten bij het begin.

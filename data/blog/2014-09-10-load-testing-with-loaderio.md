@@ -1,8 +1,9 @@
 ---
-layout: post
+date: '2014-09-10'
 title: 'Load testing with loader.io'
 category: devops
-tags: [devops, loadtesting, cache]
+tags: ['devops']
+draft: false
 ---
 
 While developing webapplications I'm always trying to keep a close watch on performance and reliability, especially when working on web applications that are facing a broad audience. To test whether the site is able to withstand big crowds of visitors you can easily test your webapplication with some online tools.

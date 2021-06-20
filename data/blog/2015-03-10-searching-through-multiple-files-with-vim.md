@@ -1,8 +1,9 @@
 ---
-layout: post
+date: '2015-03-10'
 title: 'searching through multiple files with vim'
 category: development
-tags: [development, vim, editor]
+tags: ['vim']
+draft: false
 ---
 
 Just as a reminder to myself and to everyone looking for a short and easy answer to get a quick vim project search going:

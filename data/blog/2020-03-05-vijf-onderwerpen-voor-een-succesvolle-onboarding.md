@@ -1,7 +1,10 @@
 ---
+date: '2020-03-05'
 layout: post
 title: 'Vijf onderwerpen voor een succesvolle onboarding'
 category: opinions
+tags: ['opinions']
+draft: false
 ---
 
 Het is zover, je hebt een nieuw talent ontdekt voor een passende functie in je bedrijf. Er is een overeenkomst gesloten en ze start volgende week al! Fantastisch, maar hoe zorg je voor een succesvolle onboarding?

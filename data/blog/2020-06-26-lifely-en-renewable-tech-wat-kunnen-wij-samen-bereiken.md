@@ -1,7 +1,10 @@
 ---
+date: '2020-06-26'
 layout: post
 title: 'Lifely & renewable tech, wat kunnen wij samen bereiken?'
 category: opinions
+tags: ['opinions']
+draft: false
 ---
 
 Hoe kies je de juiste technologie voor je bedrijfsuitdagingen van dit moment, en hoe plan je de implementatie route naar de toekomst? Elke maand schrijven wij een voorbeeld uit, vandaag gaan we het hebben over een bedrijf dat zonnepanelen levert.

@@ -1,9 +1,11 @@
 ---
+date: '2016-06-27'
 layout: post
 title: 'Deploy different environment variable configurations with the same docker image using combine in ansible 2.0'
 description: 'Deploy different environment variable configurations with the same docker image using combine in ansible 2.0'
 category: devops
 tags: [devops, ansible, docker]
+draft: false
 ---
 
 As described in an earlier post about [improving performance in meteor applications]({% post_url 2016-04-01-improving-performance-loading-speed-and-scalability-of-a-large-meteor-application %}), we separated synchedcron jobs out of a meteor application docker image using two deployments of the same image using a special environment variable.

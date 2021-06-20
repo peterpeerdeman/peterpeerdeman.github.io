@@ -1,8 +1,10 @@
 ---
+date: '2020-06-03'
 layout: post
 title: 'Using influxdb, grafana and nodejs datalogger rasplogger to visualise solar panel data'
 category: timeseries
 tags: [timeseries, grafana, influxdb, nodejs]
+draft: false
 ---
 
 I've been working on a datalogging project collecting timeseries data using [nodejs app RaspLogger](https://github.com/peterpeerdeman/rasplogger) to log the data, [influxdb](https://www.influxdata.com/) as a timeseries database and [grafana](https://grafana.com/) to visualise the data. I will do a more elaborate writeup on this setup soon, but can already share a specific pvoutput based dashboard with some instructions!

@@ -1,9 +1,11 @@
 ---
+date: '2016-04-25'
 layout: post
 title: 'Scheduling philips hue lights commands using node cron tasks'
 description: 'Scheduling philips hue lights commands using node cron tasks'
 category: internetofthings
 tags: [internetofthings, node]
+draft: false
 ---
 
 After getting my first smart [Philips Hue color ambiance starter kit](http://www2.meethue.com/nl-nl/productdetail/philips-hue-white-and-color-ambiance-starter-kit-a19) as a present from the [LifelyNL team](https://instagram.com/LifelyNL) I immediately started integrating the set into my home automation system.

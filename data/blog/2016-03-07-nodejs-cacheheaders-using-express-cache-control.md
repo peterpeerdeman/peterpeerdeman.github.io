@@ -1,9 +1,11 @@
 ---
+date: '2016-03-07'
 layout: post
 title: 'NodeJS cacheheaders using express-cache-control'
 description: 'NodeJS cacheheaders using express-cache-control'
 category: node
 tags: [node]
+draft: false
 ---
 
 In one of our NodeJS backend projects we used a nice little module called "[express-cache-control](https://github.com/idottv/express-cache-control/blob/master/cache.js)" that calculates the number of cache seconds for you and sets the cache header on a request accordingly:

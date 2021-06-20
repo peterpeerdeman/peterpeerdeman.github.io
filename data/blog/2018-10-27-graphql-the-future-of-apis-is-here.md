@@ -1,8 +1,10 @@
 ---
+date: '2018-10-27'
 layout: post
 title: "GraphQL: The future of API's is here"
 category: presentations
-tags: [graphql, api, rest]
+tags: ['presentations', 'graphql']
+draft: false
 ---
 
 You have probably integrated a fair share of REST APIs in your frontend applications. Ever wished you could decide for yourself what combination of data and fields the backend should return? GraphQL is an API language that allows backend teams to expose strongly typed, automatically documented APIs that are a joy for the frontend team to work with and Peter would love to show you how they use it at their agency.

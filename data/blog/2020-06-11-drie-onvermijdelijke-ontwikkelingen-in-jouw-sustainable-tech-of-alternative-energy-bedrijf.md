@@ -1,7 +1,10 @@
 ---
+date: '2020-06-11'
 layout: post
 title: 'Drie onvermijdelijke ontwikkelingen in jouw sustainable tech of alternative energy bedrijf'
 category: opinions
+tags: ['opinions']
+draft: false
 ---
 
 De markt voor sustainable tech producten zoals zonnepanelen, laadpalen, batterijen, energieopslag en biotech staan op het punt om volledig te exploderen. Zo was Tesla afgelopen jaar nog de meest verkochte auto in Nederland. Zonnepanelen gaan als warme broodjes over de toonbank, en het is niet voor niets dat zelfs Coolblue hier bovenop sprong. Met de komst van betaalbare green tech producten zal ook de vraag naar renewable energy omhoog gaan. Dit zorgt voor nieuwe ontwikkelingen. Herken jij ze al?

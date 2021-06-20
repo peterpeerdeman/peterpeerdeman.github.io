@@ -1,8 +1,10 @@
 ---
+date: '2020-02-24'
 layout: post
 title: 'Intellectueel eigendom, waar moet je rekening mee houden?'
 category: opinions
-tags: [intellectual property]
+tags: ['opinions']
+draft: false
 ---
 
 Het is zover: je bent als bedrijf klaar voor een digitale transformatie. Je zoekt een expert op dit gebied en gaat in gesprek met verschillende partijen. De eerste koffie’s en kennismakingsgesprekken zitten erop en de term: ‘intellectueel eigendom’ blijft door je hoofd spoken. Wat is het? Welke varianten zijn er? Waar moet je op letten? En waar doe jezelf en de tegenpartij goed aan?

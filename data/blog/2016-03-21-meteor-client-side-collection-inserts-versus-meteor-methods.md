@@ -1,9 +1,11 @@
 ---
+date: '2016-03-21'
 layout: post
 title: 'Meteor client side collection inserts versus meteor methods'
 description: 'Meteor client side collection inserts versus meteor methods'
 category: meteor
 tags: [meteor]
+draft: false
 ---
 
 Even though it is pretty handy and quick getting started in meteor to run client side insert methods in front-end code, we decided to step away from this paradigm completely

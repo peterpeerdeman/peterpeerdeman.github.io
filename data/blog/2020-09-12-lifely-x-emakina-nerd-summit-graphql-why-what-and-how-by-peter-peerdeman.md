@@ -1,8 +1,10 @@
 ---
+date: '2020-09-12'
 layout: post
 title: 'Lifely x Emakina Nerd Summit GraphQL: Why What and How by Peter Peerdeman'
 category: presentations
-tags: [graphql, ecommerce]
+tags: ['presentations', 'graphql']
+draft: false
 ---
 
 The nerd summit you have all been waiting for! GraphQL is a modern server side technology that empowers front-end systems with a dynamic and robust way of consuming data.

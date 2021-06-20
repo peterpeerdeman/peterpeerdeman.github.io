@@ -1,9 +1,11 @@
 ---
+date: '2016-04-11'
 layout: post
 title: 'easily render markdown files from terminal using vmd'
 description: ''
 category:
 tags: [markdown, terminal]
+draft: false
 ---
 
 I stumbled upon this great little markdown visualizer tool created by [Joshua Wuyts](https://github.com/yoshuawuyts) called [VMD](https://github.com/yoshuawuyts/vmd). For those using a lot of markdown in the commandline it can be extremely useful to quickly view a compiled version of your markdown file in pretty github style formatting.

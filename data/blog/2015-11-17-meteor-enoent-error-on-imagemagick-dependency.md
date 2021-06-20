@@ -1,8 +1,10 @@
 ---
+date: '2015-11-17'
 layout: post
 title: 'Meteor ENOENT error because of imagemagick dependency'
 category: meteor
-tags: [meteor, node, javascript]
+tags: ['node', 'meteor']
+draft: false
 ---
 
 This problem drove us up the wall a couple of days ago. Seemingly out of nowhere the meteor server simply wouldn't boot anymore and exit with the following dreadfully unhelpful ENOENT errorcode:

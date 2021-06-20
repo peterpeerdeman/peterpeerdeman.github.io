@@ -1,8 +1,9 @@
 ---
-layout: post
+date: '2014-04-16'
 title: 'Simple and secure iptables configuration for webserver'
 category: devops
-tags: [unix, webserver]
+tags: ['devops']
+draft: false
 ---
 
 While I was enabling a management console for a queue I was implementing (rabbitmq) I found out that on my clean ubuntu 12.01 box there is no default firewall whatsoever. After fiddling a bit with the `iptables` command and following this [guide](https://help.ubuntu.com/community/IptablesHowTo) the server was locked down tight.

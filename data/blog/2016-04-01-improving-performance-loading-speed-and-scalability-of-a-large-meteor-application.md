@@ -1,8 +1,10 @@
 ---
+date: '2016-04-01'
 layout: post
 title: 'improving performance, loading speed and scalability of a large meteor application'
 category: meteor
 tags: [meteor, performance]
+draft: false
 ---
 
 After finishing the MVP functionalities of one of our biggest meteor applications, we had to take a step back and improve the performance and scalability of the application. These were the most important steps we took:

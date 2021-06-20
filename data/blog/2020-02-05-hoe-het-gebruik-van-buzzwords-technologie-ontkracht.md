@@ -1,9 +1,11 @@
 ---
+date: '2020-02-05'
 layout: post
 title: 'Hoe het gebruik van buzzwords technologie ontkracht'
 description: ''
 category: opinions
-tags: []
+tags: ['opinions']
+draft: false
 ---
 
 Het idee van een buzzword is dat een nieuwe technologie met veel potentie door de media wordt gehyped. Heel fijn voor de bekendheid van de technologie. Het marketingeffect werkt echter zo goed dat echt iedereen ermee aan de haal gaat. Leveranciers gebruiken de technologie zelf amper, maar gebruiken juist de aandacht voor een product of dienst die eraan verwant is. Mijns inziens wordt er zo afbreuk gedaan aan de toepasbaarheid van de nieuwe technologie en word je als bedrijf bijna gedwongen om ook met de hype mee te doen. Want als je niet meedoet, val je ook niet op. Daarnaast wekt het ook bij de afnemende kant een soort technologie-FOMO (Fear of Missing Out) op. Je wilt natuurlijk de boot niet missen, maar je kan je ook afvragen wat dan wel het logische pad naar de technologie is.

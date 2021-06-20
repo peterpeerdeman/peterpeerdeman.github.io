@@ -1,8 +1,9 @@
 ---
-layout: post
+date: '2014-01-28'
 title: 'Using doctrine lifecycle callbacks to update timestamps'
 category: symfony2
-tags: [symfony2, doctrine]
+tags: ['php']
+draft: false
 ---
 
 Lifecycle callbacks are an awesome feature in doctrine that help you to automatically update objects whenever you interact with them. For instance, an entity could automatically set its "created" timestamp whenever it is first persisted to the database or automatically update its "last updated" timestamp when you persist the entity.

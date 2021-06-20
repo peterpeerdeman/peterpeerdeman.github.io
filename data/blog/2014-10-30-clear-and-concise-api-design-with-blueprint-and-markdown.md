@@ -1,8 +1,9 @@
 ---
-layout: post
+date: '2014-10-30'
 title: 'Clear and concise API design with blueprint and markdown'
 category: technology
-tags: [api, backend, documentation]
+tags: ['documentation']
+draft: false
 ---
 
 I've been designing a lot of REST API's lately and have found out that blueprint is one of the most concise yet expressive ways of capturing the design of a web interface before actually building it.

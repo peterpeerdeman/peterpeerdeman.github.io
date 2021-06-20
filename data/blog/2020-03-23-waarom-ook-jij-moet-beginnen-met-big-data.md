@@ -1,7 +1,10 @@
 ---
+date: '2020-03-23'
 layout: post
 title: 'Waarom ook jij moet beginnen met big data'
 category: opinions
+tags: ['opinions']
+draft: false
 ---
 
 In de vroege jaren van Lifely kregen we sporadisch de vraag van klanten: ‘Wat is big data?’ Waarop ik telkens antwoorden met: ‘Voordat we het over big data gaan hebben, wil ik eerst praten over small data.’ Want welke data leg je al vast? En hoe structureer je dat? En hoe zorg je ervoor dat je datastroom op gang komt? Je kan data tenslotte pas analyseren als je het hebt! Ondertussen hebben onze klanten hun data aardig op orde en kunnen we het hebben over big data. Laten we beginnen bij het begin.

@@ -1,8 +1,10 @@
 ---
+date: '2019-02-15'
 layout: post
 title: 'Expert tracks vs Management tracks and portfolio tips, HelloMentor meetup at Lifely'
 category: presentations
-tags: [leadership, expert, management]
+tags: ['presentations', 'leadership']
+draft: false
 ---
 
 In the Hello Mentor project I was one of the mentors giving a mentorship to one of the students of the programme. During the project I gave a presentation to the whole team about expert tracks vs management tracks. Included at the end of the slides is a bunch of tips on how to build a good portfolio as a start in the tech scene.

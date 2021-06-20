@@ -1,7 +1,10 @@
 ---
+date: '2020-06-18'
 layout: post
 title: 'Samenwerken met een agency: briefen, visualiseren en profiteren'
 category: opinions
+tags: ['opinions']
+draft: false
 ---
 
 Samenwerken met een digital agency vereist vertrouwen en duidelijke afspraken. Tegenover de hogere kostprijs staat een flinke bak ervaring, een gestroomlijnd proces en hoge commitment. Zoals met elke samenwerking, ook met een agency, staat of valt ook deze met een goede briefing. Maar wat moet er allemaal in een briefing staan?

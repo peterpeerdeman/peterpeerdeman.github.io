@@ -1,7 +1,10 @@
 ---
+date: '2020-08-13'
 layout: post
 title: 'E commerce, dit is wat samenwerkingen voor jou kunnen betekenen'
 category: opinions
+tags: ['opinions']
+draft: false
 ---
 
 Er zijn veel specialisten die standaard e-commerce platformen als Magento, Woocommerce en Shopware volledig uit hun hoofd kennen. Maar kan je jouw platform met alleen de standaard oplossing goed onderscheiden van anderen? Hoe dicht sluit het platform aan bij jouw manier van omgaan met je klanten? Hoe toets jij of de beleving overeenkomt met hun verwachtingen? Hoe optimaliseer je conversie?

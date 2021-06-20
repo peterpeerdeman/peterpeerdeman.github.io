@@ -1,9 +1,11 @@
 ---
+date: '2016-01-25'
 layout: post
 title: 'Raspberry Pi + Arduino weatherstation with PebbleJS interface'
 description: 'Raspberry Pi + Arduino weatherstation with PebbleJS interface'
 category: internetofthings
-tags: [node, javascript, arduino, raspberrypi, iot]
+tags: ['iot', 'javascript', 'raspberry']
+draft: false
 ---
 
 ![Raspberry Pi + Arduino weatherstation with PebbleJS interface]({{ site.url }}/assets/images/2016-01-25-weather-pebblejs.jpg)

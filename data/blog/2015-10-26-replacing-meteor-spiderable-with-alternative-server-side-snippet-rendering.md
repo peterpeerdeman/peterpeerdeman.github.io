@@ -1,9 +1,11 @@
 ---
+date: '2015-10-26'
 layout: post
 title: 'Replacing meteor spiderable with alternative server side snippet rendering'
 description: 'Replacing meteor spiderable with alternative server side snippet rendering'
 category: meteor
-tags: [meteor, javascript, ssr]
+tags: ['meteor']
+draft: false
 ---
 
 After getting fed up with meteor's spiderable spawning phantomjs instances all over the place when receiving a couple of concurrent requests for different resources we decided to switch to a different strategy to support spiders/crawlers.

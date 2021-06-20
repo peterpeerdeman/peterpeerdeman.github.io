@@ -1,8 +1,10 @@
 ---
+date: '2015-09-28'
 layout: post
 title: 'Webapplications: from Concept to Code'
 category: presentations
-tags: []
+tags: ['presentations']
+draft: false
 ---
 
 What if you have never built a webapplication before? Where would you start? In this guest lecture for firstyear computer science students I explain the different stages of software development and show some examples what we do during these stages:

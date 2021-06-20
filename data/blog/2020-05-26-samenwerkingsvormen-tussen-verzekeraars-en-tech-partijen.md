@@ -1,7 +1,10 @@
 ---
+date: '2020-05-26'
 layout: post
 title: 'Samenwerkingsvormen tussen verzekeraars en tech partijen'
 category: opinions
+tags: ['opinions']
+draft: false
 ---
 
 Ben je bekend in de wereld van verzekeraars? Dan zul je beamen dat het een eigen manier van werken heeft. Innovatie en gebruikerservaring staan hoog op de agenda want daar liggen kansen om te onderscheiden. Om te kunnen leveren is samenwerken met een team ontwikkelaars onoverkomelijk, en vaak is er meer werk dan capaciteit in het team. Wat zijn de mogelijkheden voor verzekeraars om werk gedaan te krijgen en welke voor- en nadelen heeft het?

@@ -1,9 +1,11 @@
 ---
+date: '2015-12-14'
 layout: post
 title: 'Looking into Meteor: our experiences with real-time web applications'
 description: 'Looking into Meteor: our experiences with real-time web applications'
 category: technology
-tags: [meteor, real-time, webapplications]
+tags: ['opinions', 'meteor']
+draft: false
 ---
 
 I've had a couple of run-ins with [Meteor](https://www.meteor.com) while it was in development. Several times I've given the framework a shot to see if their promises (developer delight, fraction of development time needed plus scalable and robust real-time data) were met and ready for production. As of version 1.0, I think they are.

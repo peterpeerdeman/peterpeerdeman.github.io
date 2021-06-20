@@ -1,9 +1,11 @@
 ---
+date: '2016-08-01'
 layout: post
 title: 'using gitstats to get an overview of git activity in a repository'
 description: 'using gitstats to get an overview of git activity in a repository'
 category: git
 tags: [git]
+draft: false
 ---
 
 I was recently interested to get some more info on a git project that has been running for a long time. There is a tool that creates some nice stats such as busiest commit moments, amount of commits per user and others called [gitstats](http://gitstats.sourceforge.net/). The documentation is a bit finicky, but you can easily install it via homebrew:

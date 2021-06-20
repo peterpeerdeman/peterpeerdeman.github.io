@@ -1,8 +1,9 @@
 ---
-layout: post
+date: '2014-03-23'
 title: 'Flash HTC-One to Google Play edition'
 category: android
-tags: [android, phoneflashing]
+tags: ['android']
+draft: false
 ---
 
 After an exciting day of fiddling with roms for HTC one I was able to get rid of the HTC sense rom and create a clean Google Play device running the latest version of Android (4.4.2 as time of speaking) which also receives OTA (over the air) updates when Google releases a new version.

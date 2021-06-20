@@ -1,8 +1,9 @@
 ---
-layout: post
-title: 'Saving version number at capifony deploy'
+title: Saving version number at capifony deploy
+date: '2013-12-09'
 category: devops
-tags: [capifony]
+tags: ['devops']
+draft: false
 ---
 
 Having a git version number and deploydate is very convenient to keep tabs on the deployed software on your different environments. To save the version number to a json file during deployment, use the following capifony task.

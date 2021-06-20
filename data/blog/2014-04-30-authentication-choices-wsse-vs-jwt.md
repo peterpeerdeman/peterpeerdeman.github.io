@@ -1,8 +1,10 @@
 ---
+date: '2014-04-30'
 layout: post
 title: 'Authentication choices: WSSE vs JWT'
 category: symfony2
-tags: [wsse, jwt, authentication]
+tags: ['php']
+draft: false
 ---
 
 In order to keep our application's backend API RESTful and stateless and securing it in a proper way I've been looking into some authentication methods. The API in question was written with PHP Symfony2. My prerequisites for the authentication were for it to be token based, stateless (no sessions), preferably as little passwords over the wire as possible. After some research I found basic authentication, WSSE and JWT to be the most likely candidates for this use case and after some experiments and weighing pros and cons I decided to stick with JWT.
