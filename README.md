@@ -1,3 +1,11 @@
+## TODO
+
+-   fix images
+-   fix summaries / abstracts
+-   clean tags
+-   devops / deployment to github pages
+-   about page
+
 ## Usage
 
 ```bash
