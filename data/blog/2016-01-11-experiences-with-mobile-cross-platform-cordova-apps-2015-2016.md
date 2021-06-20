@@ -1,0 +1,45 @@
+---
+layout: post
+title: 'Experiences with mobile cross-platform Cordova apps 2015-2016'
+description: 'A blog post highlighting our experience with frameworks, plug-ins and android specifics'
+category: technology
+tags: [mobile, Cordova]
+---
+
+In 2015 and 2016 we've spent quite some time developing a mobile application using apache Cordova. In this blog post I'm highlighting some of the findings we had before, during and after developing hybrid mobile apps using web technology.
+
+To start off, I've had several previous experiences with Phonegap and Cordova. In multiple occasions I have given the platform a chance, mostly because of my and my team-mates experience with web technology. We are a web development team by heart, and the idea of using our experience and knowledge in web applications to develop a mobile application has always been a seductive path to get into mobile app development.
+
+## Performance and user experience
+
+These early experiments never really worked out very well. In the age of the iPhone 3G, the mobile web browser was simply not able to keep up with the Javascript heavy web applications we would write as mobile applications. In 2015, we have still had performance issues but mostly with old android devices. With modern devices, I have witnessed our apps feel fluid and "native" enough to actually be deployed in production.
+
+## Frameworks
+
+In the start of the application development, we've given [ionic]() a shot. The platform was actually quite decent, and delivered some smooth performance in scrolling lists but we soon found out that overwriting all the skins in ionic to match the custom design of our app was too much of a hassle. We switched away from ionic to our own custom responsive styles which gave us a lot of freedom in styling the application just how it was originally designed, instead of changing the design to fit the underlying technology.
+
+For the Javascript framework we have chosen for angular, which was our go-to framework for web applications. To this day I still think this is a perfectly suitable framework for hybrid apps, mainly because of the ability to separate the application into a structured set of components that encourage reuse of injectable services.
+
+## Plug-ins
+
+So the plug-ins in Phonegap / Cordova have always been the greatest source of struggles. The plug-ins were mostly written by web developers with a little bit of native iOS / native android experience and usually only suited 1 specific case: the case they were used for by the original developer.
+
+Over the years, the available plug-ins have gotten a lot better. Especially at the end of 2015, we've seen major improvements to the plug-ins we are using ourselves. The local notifications plug-in that powers a great deal of the functionality in our application has really been overhauled in 2015 and is now very reliable.
+
+## Android and Crosswalk
+
+Android web view performance was also a topic high on the issue list. The diversity of the android ecosystem is still quite big, as there are a lot of cheaper, low powered devices around running up to date versions of the android operating system. We have found that supporting only android 4.1+ devices was a safe cutoff point to avoid having users being stuck in the application simply because the CPU can't catch up to the web application.
+
+A big sigh of relief was given by the arrival of the [crosswalk]() plug-in. This plug-in switches out the android native web view for a chromium web view, effectively allowing you to target one single web browser version instead of coping with the plethora of available android web views. In addition, the chromium web view performed a lot better than the stock android web view in a lot of cases, so this solved a lot of issues on the android part.
+
+## Quality assurance
+
+A big advantage point of hybrid apps that is often overlooked is the simplification of quality assurance. Because there is one codebase for all (both) platforms, business logic is reused and therefore consistent. When testing the resulting applications, bugs found in either application are immediately solved in both places.
+
+New features are also added on both platforms at the same time, which allows quality assurance to be focused on the application itself, instead of having to test both application for the same flows. Of course there is always platform specific code that has to be checked separately in each application, but knowing that shared Javascript behaves the same in both platforms is a huge time saver during testing.
+
+## Conclusion
+
+We have had a lot of discussions about hybrid applications vs native applications. In the end we definitely agree that the best user experience is achieved when developing two separate native apps. In our case, this would mean we'd have to build experience in both Android and iOS native development and have quality assurance test two different apps, possible developed by two separate developers.
+
+Until our team has the mass and budget to afford the investment in separate mobile teams we might switch over, but for the time being, we are actually able to squeeze very decent experiences out of our hybrid web applications. The focus on web technology also benefits us in our pure web application projects, which makes developing mobile apps using Javascript a win win.

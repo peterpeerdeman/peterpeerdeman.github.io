@@ -1,0 +1,21 @@
+---
+layout: post
+title: 'Webapplications: from Concept to Code'
+category: presentations
+tags: []
+---
+
+What if you have never built a webapplication before? Where would you start? In this guest lecture for firstyear computer science students I explain the different stages of software development and show some examples what we do during these stages:
+
+-   Concept
+-   Interaction design
+-   Architecture
+-   Development (SCRUM)
+-   Deployment
+-   Analytics & Monitoring
+
+In the second part, I do a small technical deepdive on serverside rendering vs clientside rendering and show how applications can even stream data in realtime through a websocket.
+
+The slides can be found on [github](http://peterpeerdeman.github.io/webapplications-from-concept-to-code/)
+
+This guest lecture was given on the 28th of September 2015 at [AvansHogeschool](http://www.avans.nl/)

@@ -1,0 +1,13 @@
+---
+layout: post
+title: 'DNS, AAAA records and ipv6'
+description: 'DNS, AAAA records and ipv6'
+category: devops
+tags: [devops, dns]
+---
+
+While doing some DNS changes for a hostname with quite some DNS records I was encountered with some very strange behavior in which certain users were receiving different DNS records than other users. Even though I made changes to a certain A record, a specific group of users would never receive these changes, and it would always be the same group.
+
+After asking one of these users to send out the details of a `ping` command, I found out that the host was being resolved to an ipv6 address, that looks like `2a00:1450:400c:c05::71`. After inspecting the DNS records once more, I found out that there was a lingering AAAA record that still pointed to an old ipv6 address. Each of the users with a ipv6 internet connection were automatically being served the AAAA ipv6 DNS records. After removing the AAAA record, the DNS automatically resolved using a fallback to the ipv4 A record and everything went back to normal.
+
+If you want the AAAA records to point to an ipv4 host, you can use tools like [ultratools](https://www.ultratools.com/tools/ipv4toipv6) to convert you regular ipv4 address to an ipv6 compatible address.

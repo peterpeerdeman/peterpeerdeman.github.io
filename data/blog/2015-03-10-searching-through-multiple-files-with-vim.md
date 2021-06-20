@@ -1,0 +1,31 @@
+---
+layout: post
+title: 'searching through multiple files with vim'
+category: development
+tags: [development, vim, editor]
+---
+
+Just as a reminder to myself and to everyone looking for a short and easy answer to get a quick vim project search going:
+
+-   `brew install the_silver_searcher` (this is an amazingly fast file searcher)
+-   download and configure the [vim ack plugin](https://github.com/mileszs/ack.vim)
+-   enter the following code in vimrc file to enable ag as default for ack
+
+{% highlight vim %}
+if executable('ag')
+let g:ackprg = 'ag --vimgrep'
+endif
+{% endhighlight %}
+
+-   `:Ack TIMESTAMP` to find the word TIMESTAMP in any file in the current directory
+-   `:cn` for next and `:cp` for previous hit
+-   install [vim-unimpaired](https://github.com/tpope/vim-unimpaired) for access to shortkeys `[q` and `]q` for jumping through hits
+
+### fallback
+
+Ofcourse, you could also use vimgrep which will work without installing any plugins but is a lot slower:
+
+`:vimgrep <searchterm> **/*.<fileextension>`
+
+-   e.g. `:vimgrep TIMESTAMP *.*` to find the word TIMESTAMP in any file in the current directory
+-   e.g. `:vimgrep /\v\d{5}/g **/*.md` to recursively find all 5 number strings in any markdown file in the current project

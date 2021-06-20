@@ -1,0 +1,37 @@
+---
+layout: post
+title: 'E commerce, dit is wat samenwerkingen voor jou kunnen betekenen'
+category: opinions
+---
+
+Er zijn veel specialisten die standaard e-commerce platformen als Magento, Woocommerce en Shopware volledig uit hun hoofd kennen. Maar kan je jouw platform met alleen de standaard oplossing goed onderscheiden van anderen? Hoe dicht sluit het platform aan bij jouw manier van omgaan met je klanten? Hoe toets jij of de beleving overeenkomt met hun verwachtingen? Hoe optimaliseer je conversie?
+
+Het toepassen van digitalisering in de e-commerce is al lang niet meer iets wat je alleen met één enkele partij kan doen. Digitaal is meer dan alleen een webproduct. Het gaat over je verkoopkanaal, marketing, het logistieke proces, je selfservice klantenportaal en de gebruikerservaring. Het is dan ook niet vreemd dat er in deze specialisaties allerlei niche bedrijven zijn ontstaan.
+
+### Gebruikerservaring
+
+Gebruikerservaring start bij het het ontwerpen van je touchpoints: de paden die jouw klant volgt. Een juiste product configurator helpt je klant bij het vinden van de juiste productcombinaties en kan ook inzicht geven hoe het eindresultaat eruit gaat zien. Zie bijvoorbeeld de website van By Sidde, die banken en andere meubels verkoopt. Het uitzoeken van een bank is vrij lastig, al helemaal als je de bank nog nooit in het echt hebt gezien. En de grootste vraag: past de bank wel in jouw ruimte?
+
+By Sidde heeft gebruik gemaakt van Augmented Reality in hun gebruikerservaring. Zo kun je vanuit de mobiele website je camera activeren en het richten op de juiste plek in je eigen huis waar de bank moet komen te staan, en zien of jouw gekozen By Sidde bank wel of niet in je huis past. Iets wat de gebruiker zal doen stralen en helpen bij het maken van de keuze om de bank wel of niet te bestellen. Voor elk e-commerce platform is er wel een techniek die gebruikt kan worden om de gebruikerservaring te verbeteren.
+
+### Datascience
+
+In jouw sales historie van de afgelopen jaren gaan allerlei verborgen patronen schuil. Natuurlijk voel je als ondernemer een aantal van deze trends wel aan, in de zomer draai je bijvoorbeeld betere omzet dan in de winter. Maar de langere termijn projecties, of keerpunten van trends zijn juist met data-analyse goed aan te tonen. Je kunt op die manier ook meten wat het effect is van je marketing campagne of veranderingen aan je website. Op die manier krijg je inzicht in je data en doelgroep en kan je voorspellingen stellen waardoor je betere voorbereidingen treffen voor de komende kwartalen. [Lees hier een voorbeeld van de parkeerdata analyse van bij de Gemeente Amsterdam](../2020-03-23-waarom-ook-jij-moet-beginnen-met-big-data.md).
+
+### Conversie optimalisatie
+
+Zelfs de best lopende winkel kan verder geoptimaliseerd worden. Denk aan booking.com en hun eindeloze experimenten waarin ze kijken of de ene of andere kleur button beter geklikt wordt. Denk bijvoorbeeld aan het draaien van bijvoorbeeld A/B testing om twee verschillende interfaces met elkaar te vergelijken, en aan het toepassen van “nudging” om klanten te helpen in een bepaalde denkrichting te duwen. Deze aanpassingen, die we graag samen met SOM onderzoeken, kunnen enorm verrassende resultaten hebben. Dankzij het meten van succes met harde data wordt ook duidelijk dat de investering zich dubbel en dwars terugverdiend.
+
+### Marketing
+
+Een blog schrijven kan iedereen. Alleen een passende strategie, online advertenties, het gebruik van social media, linkbuilding, SEO, SEA, en het maken van content en campagnes zodat je als bedrijf de juiste leads binnenhaalt? Daar heb je expertise voor nodig. Als een product het toestaat kun je conversie optimalisaties laten uitvoeren en er flink op winnen. Ga hiervoor op zoek naar samenwerkingen met bijvoorbeeld Hubspot, Winners of een andere partij.
+
+### Ecommerce platform kennis
+
+Jouw e-commerce oplossing draait al, maar het zou best eens interessant zijn om met concullega's te praten om te kijken of een ander of nieuw platform beter past. Het klinkt misschien eng om hierover na te denken, maar met een blinde loyaliteit naar een specifiek product kan het best zijn dat je kansen laat liggen. Een ander onderliggend systeem zou je wellicht naar een volgend level kunnen brengen.
+
+### Techniek/infrastructuur/robuustheid
+
+Veel e-commerce platformen beginnen klein. Deze webshops en platformen zijn vaak ontwikkelt in php en zijn uiteindelijk zo succesvol dat het een beetje uit de hand begint te lopen. Het bedrijf wordt groter en er wordt vanuit gegaan dat je als shop 24/7 online bent. Ontdekken ze om 21.00 uur in de avond een probleem? Dan verwachten ze hulp te krijgen en moet je online zijn. Hier kunnen technieken uit de devops en software wereld veel kunnen betekenen. Met schaalbare omgevingen, continue monitoring, back-ups, reproduceerbare productieomgevingen en agile werkprocessen.
+
+Kijk daarom eens goed welke samenwerking jouw bedrijf naar een volgend niveau kan tillen. Niet alleen Lifely, maar ook met onze partners. Samen bekijken we hoe we jouw product een flinke boost kunnen geven. Get in touch!

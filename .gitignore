@@ -1,13 +1,14 @@
-_site/*
-_theme_packages/*
-
 Thumbs.db
 .DS_Store
 
 !.gitkeep
 
-.rbenv-version
-.rvmrc
-
 *.swp
 *.swo
+
+.next
+node_modules/
+.env
+.env.build
+.env
+.env.build
