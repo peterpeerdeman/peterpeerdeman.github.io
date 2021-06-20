@@ -1,0 +1,94 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Sat, 12 Sep 2020 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/graphql/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/lifely-x-emakina-nerd-summit-graphql-why-what-and-how-by-peter-peerdeman</guid>
+  <title>Lifely x Emakina Nerd Summit GraphQL: Why What and How by Peter Peerdeman</title>
+  <link>https://hashbang.nl/blog/lifely-x-emakina-nerd-summit-graphql-why-what-and-how-by-peter-peerdeman</link>
+    <description>undefined</description>
+    <pubDate>Sat, 12 Sep 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-apollo-subscriptions</guid>
+  <title>GraphQL, Apollo and GraphQL Subscriptions, at React JS Utrecht meetup</title>
+  <link>https://hashbang.nl/blog/graphql-apollo-subscriptions</link>
+    <description>undefined</description>
+    <pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>graphql</category><category>subscriptions</category><category>realtime</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-and-apollo</guid>
+  <title>GraphQL and Apollo at Saxum Food n Code Meetup</title>
+  <link>https://hashbang.nl/blog/graphql-and-apollo</link>
+    <description>undefined</description>
+    <pubDate>Thu, 13 Dec 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-the-future-of-apis-is-here</guid>
+  <title>GraphQL: The future of API's is here</title>
+  <link>https://hashbang.nl/blog/graphql-the-future-of-apis-is-here</link>
+    <description>undefined</description>
+    <pubDate>Sat, 27 Oct 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/datamodels-apis-and-graphql-in-practice</guid>
+  <title>Datamodels, API's and GraphQL in practice</title>
+  <link>https://hashbang.nl/blog/datamodels-apis-and-graphql-in-practice</link>
+    <description>undefined</description>
+    <pubDate>Mon, 12 Mar 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/from-buzzwords-to-products</guid>
+  <title>From buzzwords to products, working with new technology at a software agency</title>
+  <link>https://hashbang.nl/blog/from-buzzwords-to-products</link>
+    <description>undefined</description>
+    <pubDate>Thu, 22 Feb 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>react</category><category>reactnative</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-apollo-and-optimistic-ui-updates</guid>
+  <title>GraphQL, Apollo and optimistic UI updates</title>
+  <link>https://hashbang.nl/blog/graphql-apollo-and-optimistic-ui-updates</link>
+    <description>undefined</description>
+    <pubDate>Tue, 20 Feb 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/the-impact-and-glory-of-graphql-in-applications-at-lifely</guid>
+  <title>The impact and glory of GraphQL in applications at Lifely</title>
+  <link>https://hashbang.nl/blog/the-impact-and-glory-of-graphql-in-applications-at-lifely</link>
+    <description>undefined</description>
+    <pubDate>Wed, 24 Jan 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>graphql</category>
+  </item>
+
+    </channel>
+  </rss>

@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Fri, 21 Apr 2017 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/ddp/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/websockets-and-ddp-in-production</guid>
+  <title>Websockets and DDP in production</title>
+  <link>https://hashbang.nl/blog/websockets-and-ddp-in-production</link>
+    <description>undefined</description>
+    <pubDate>Fri, 21 Apr 2017 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>websockets</category><category>ddp</category>
+  </item>
+
+    </channel>
+  </rss>

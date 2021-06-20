@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Mon, 11 Jul 2016 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/full-document-text-search-in-nodejs-using-elasticsearch-and-elasticsearch-mapper-attachments-plugin</guid>
+  <title>Full document text search in nodejs using elasticsearch and elasticsearch mapper attachments plugin</title>
+  <link>https://hashbang.nl/blog/full-document-text-search-in-nodejs-using-elasticsearch-and-elasticsearch-mapper-attachments-plugin</link>
+    <description>undefined</description>
+    <pubDate>Mon, 11 Jul 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>elasticsearch</category><category>docker</category>
+  </item>
+
+    </channel>
+  </rss>

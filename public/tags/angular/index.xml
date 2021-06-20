@@ -1,0 +1,64 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Tue, 10 Feb 2015 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/angular/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/simple-and-clear-angular-application-documentation-using-angular-jsdoc</guid>
+  <title>Simple and clear Angular application documentation using angular-jsdoc</title>
+  <link>https://hashbang.nl/blog/simple-and-clear-angular-application-documentation-using-angular-jsdoc</link>
+    <description>undefined</description>
+    <pubDate>Tue, 10 Feb 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>angular</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/angular-order-by</guid>
+  <title>Angular orderBy in object</title>
+  <link>https://hashbang.nl/blog/angular-order-by</link>
+    <description>undefined</description>
+    <pubDate>Tue, 10 Dec 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>angular</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/consuming-restful-resources-with-angularjs</guid>
+  <title>Consuming RESTful Resources with AngularJS</title>
+  <link>https://hashbang.nl/blog/consuming-restful-resources-with-angularjs</link>
+    <description>undefined</description>
+    <pubDate>Wed, 04 Dec 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>angular</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/deploying-angular-to-heroku</guid>
+  <title>Deploying Angular to Heroku</title>
+  <link>https://hashbang.nl/blog/deploying-angular-to-heroku</link>
+    <description>undefined</description>
+    <pubDate>Tue, 05 Nov 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>angular</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/replacing-angular-resource-with-restangular</guid>
+  <title>Replacing angular $resource with restangular</title>
+  <link>https://hashbang.nl/blog/replacing-angular-resource-with-restangular</link>
+    <description>undefined</description>
+    <pubDate>Thu, 24 Oct 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>angular</category>
+  </item>
+
+    </channel>
+  </rss>

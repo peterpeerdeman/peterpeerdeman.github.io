@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Mon, 13 Jun 2016 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/project/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/building-recordfairsnl-a-webscraper-application-in-nodejs-with-postgres-database</guid>
+  <title>Building recordfairs.nl, a webscraper application in nodejs with postgres database</title>
+  <link>https://hashbang.nl/blog/building-recordfairsnl-a-webscraper-application-in-nodejs-with-postgres-database</link>
+    <description>undefined</description>
+    <pubDate>Mon, 13 Jun 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>project</category><category>webscraper</category>
+  </item>
+
+    </channel>
+  </rss>

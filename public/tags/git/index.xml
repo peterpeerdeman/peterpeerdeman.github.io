@@ -1,0 +1,64 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Mon, 01 Aug 2016 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/git/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/using-gitstats-to-get-an-overview-of-git-activity-in-a-repository</guid>
+  <title>using gitstats to get an overview of git activity in a repository</title>
+  <link>https://hashbang.nl/blog/using-gitstats-to-get-an-overview-of-git-activity-in-a-repository</link>
+    <description>undefined</description>
+    <pubDate>Mon, 01 Aug 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/tidy-up-your-git-commits-amending-interactive-rebasing-and-squashing-commits</guid>
+  <title>tidy up your git commits: amending, interactive rebasing and squashing commits</title>
+  <link>https://hashbang.nl/blog/tidy-up-your-git-commits-amending-interactive-rebasing-and-squashing-commits</link>
+    <description>undefined</description>
+    <pubDate>Sat, 28 Nov 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/merging-branches-and-git-no-ff</guid>
+  <title>merging branches and git --no-ff</title>
+  <link>https://hashbang.nl/blog/merging-branches-and-git-no-ff</link>
+    <description>undefined</description>
+    <pubDate>Mon, 07 Jul 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/small-featurebranches-and-the-empty-develop-branch-syndrome</guid>
+  <title>Small featurebranches and the empty develop branch syndrome</title>
+  <link>https://hashbang.nl/blog/small-featurebranches-and-the-empty-develop-branch-syndrome</link>
+    <description>undefined</description>
+    <pubDate>Mon, 30 Jun 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/moving-changes-around-in-git</guid>
+  <title>Moving changes around in git</title>
+  <link>https://hashbang.nl/blog/moving-changes-around-in-git</link>
+    <description>undefined</description>
+    <pubDate>Thu, 21 Nov 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+    </channel>
+  </rss>

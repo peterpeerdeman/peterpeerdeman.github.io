@@ -1,0 +1,134 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Mon, 22 Aug 2016 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/meteor/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</guid>
+  <title>Switching from REST to Meteor, DDP and Apollo</title>
+  <link>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</link>
+    <description>undefined</description>
+    <pubDate>Mon, 22 Aug 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>nodejs</category><category>meteor</category><category>rest</category><category>apollo</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/translating-meteor-apps-ui-user-generated-content-and-emails</guid>
+  <title>Translating Meteor apps: UI, user generated content and emails</title>
+  <link>https://hashbang.nl/blog/translating-meteor-apps-ui-user-generated-content-and-emails</link>
+    <description>undefined</description>
+    <pubDate>Mon, 16 May 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>meteor</category><category>i18n</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/sticky-sessions-loadbalance-for-meteor-using-nginx-sticky-module-ng</guid>
+  <title>Sticky sessions loadbalancing for meteor using nginx-sticky-module-ng</title>
+  <link>https://hashbang.nl/blog/sticky-sessions-loadbalance-for-meteor-using-nginx-sticky-module-ng</link>
+    <description>undefined</description>
+    <pubDate>Mon, 02 May 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>nginx</category><category>meteor</category><category>performance</category><category>loadbalancing</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/improving-performance-loading-speed-and-scalability-of-a-large-meteor-application</guid>
+  <title>improving performance, loading speed and scalability of a large meteor application</title>
+  <link>https://hashbang.nl/blog/improving-performance-loading-speed-and-scalability-of-a-large-meteor-application</link>
+    <description>undefined</description>
+    <pubDate>Fri, 01 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>meteor</category><category>performance</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/meteor-client-side-collection-inserts-versus-meteor-methods</guid>
+  <title>Meteor client side collection inserts versus meteor methods</title>
+  <link>https://hashbang.nl/blog/meteor-client-side-collection-inserts-versus-meteor-methods</link>
+    <description>undefined</description>
+    <pubDate>Mon, 21 Mar 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/looking-into-meteor-our-experiences-with-real-time-web-applications</guid>
+  <title>Looking into Meteor: our experiences with real-time web applications</title>
+  <link>https://hashbang.nl/blog/looking-into-meteor-our-experiences-with-real-time-web-applications</link>
+    <description>undefined</description>
+    <pubDate>Mon, 14 Dec 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/moving-to-our-own-meteor-docker-infrastructure</guid>
+  <title>Moving to our own Meteor Docker infrastructure</title>
+  <link>https://hashbang.nl/blog/moving-to-our-own-meteor-docker-infrastructure</link>
+    <description>undefined</description>
+    <pubDate>Wed, 09 Dec 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/meteor-enoent-error-on-imagemagick-dependency</guid>
+  <title>Meteor ENOENT error because of imagemagick dependency</title>
+  <link>https://hashbang.nl/blog/meteor-enoent-error-on-imagemagick-dependency</link>
+    <description>undefined</description>
+    <pubDate>Tue, 17 Nov 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/replacing-meteor-spiderable-with-alternative-server-side-snippet-rendering</guid>
+  <title>Replacing meteor spiderable with alternative server side snippet rendering</title>
+  <link>https://hashbang.nl/blog/replacing-meteor-spiderable-with-alternative-server-side-snippet-rendering</link>
+    <description>undefined</description>
+    <pubDate>Mon, 26 Oct 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/ddp-the-real-time-api-for-web-applications</guid>
+  <title>DDP: The real time api for web applications</title>
+  <link>https://hashbang.nl/blog/ddp-the-real-time-api-for-web-applications</link>
+    <description>undefined</description>
+    <pubDate>Fri, 04 Sep 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/part-up-a-meteor-production-story-at-the-meteor-meetup-hosted-by-lifely</guid>
+  <title>Part up: a Meteor Production Story, at the Meteor Meet-up hosted by Lifely</title>
+  <link>https://hashbang.nl/blog/part-up-a-meteor-production-story-at-the-meteor-meetup-hosted-by-lifely</link>
+    <description>undefined</description>
+    <pubDate>Wed, 01 Jul 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/creating-router-independant-blaze-components-for-meteor</guid>
+  <title>Creating router independant blaze components for Meteor</title>
+  <link>https://hashbang.nl/blog/creating-router-independant-blaze-components-for-meteor</link>
+    <description>undefined</description>
+    <pubDate>Sun, 24 May 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>meteor</category>
+  </item>
+
+    </channel>
+  </rss>

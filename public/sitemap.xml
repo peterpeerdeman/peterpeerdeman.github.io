@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://hashbang.nl/404</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/about</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/projects</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/posting-data-to-symfony2</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/restangular-with-symfony2</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/replacing-angular-resource-with-restangular</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/symfony2-cache-clearing</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/symfony2-deployment-target-configuration</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/deploying-angular-to-heroku</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/moving-changes-around-in-git</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/consuming-restful-resources-with-angularjs</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/saving-version-number-at-capifony-deploy</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/angular-order-by</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/using-lifecycle-callbacks-to-set-created-and-updated-fields</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/missing-label-translations-in-sonata-admin-interface</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/symfony2-many-to-one-as-required-field-using-join-column</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/flash-htc-one-google-play</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/my-thoughts-on-nosql-after-reading-a-book-about-it</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/simple-and-secure-iptables-configuration-for-webserver</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/parallel-requests-in-node-using-promises</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/from-student-to-lead-tech-and-back-again</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/authentication-choices-wsse-vs-jwt</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/kernel-request-listeners-not-triggering-on-commands</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/symfony2-continuous-integration-and-deployment-with-wercker</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/creating-a-json-version-file-during-capistrano-deployment</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/small-featurebranches-and-the-empty-develop-branch-syndrome</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/merging-branches-and-git-no-ff</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/load-testing-with-loaderio</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/queueing-jobs-with-rabbitmq-and-symfony2</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/logging-stashing-and-analyzing-with-elasticsearch-logstash-and-kibana</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/deploying-an-angular-web-application-alongside-symfony2-backend</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/clear-and-concise-api-design-with-blueprint-and-markdown</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/server-health-insight-with-newrelic-and-ansible</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/my-view-on-android-development-in-2015</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/s3-bucket-downloader</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/simple-and-clear-angular-application-documentation-using-angular-jsdoc</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/force-cache-miss-with-grunt-replace</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/searching-through-multiple-files-with-vim</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/the-best-podcasts-to-get-started-with-full-stack-javascript-web-development</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/creating-router-independant-blaze-components-for-meteor</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/part-up-a-meteor-production-story-at-the-meteor-meetup-hosted-by-lifely</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/ddp-the-real-time-api-for-web-applications</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/dns-aaaa-records-and-ipv6</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/webapplications-from-concept-to-code</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/things-i-liked-about-ruby-rails-and-symfony2-that-i-miss-in-nodejs</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/replacing-meteor-spiderable-with-alternative-server-side-snippet-rendering</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/meteor-enoent-error-on-imagemagick-dependency</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/tidy-up-your-git-commits-amending-interactive-rebasing-and-squashing-commits</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/moving-to-our-own-meteor-docker-infrastructure</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/looking-into-meteor-our-experiences-with-real-time-web-applications</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/experiences-with-mobile-cross-platform-cordova-apps-2015-2016</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/raspberry-pi-arduino-weatherstation-with-pebblejs-interface</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/fast-and-practical-scrum-and-bug-management-using-trello-and-physical-scrum-boards</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/visualizing-disk-space-usage-on-linux-server-using-ncdu</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/nodejs-cacheheaders-using-express-cache-control</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/meteor-client-side-collection-inserts-versus-meteor-methods</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/improving-performance-loading-speed-and-scalability-of-a-large-meteor-application</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/quickly-test-npm-modules-using-trymodule</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/easily-render-markdown-from-terminal-using-vmd</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/scheduling-philips-hue-lights-commands-using-node-cron-tasks</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/sticky-sessions-loadbalance-for-meteor-using-nginx-sticky-module-ng</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/upgrading-old-ruby-200-app-to-224-for-heroku-deployment</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/translating-meteor-apps-ui-user-generated-content-and-emails</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/building-recordfairsnl-a-webscraper-application-in-nodejs-with-postgres-database</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/deploy-different-environment-variable-configurations-with-the-same-docker-image-using-combine-in-ansible-20</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/full-document-text-search-in-nodejs-using-elasticsearch-and-elasticsearch-mapper-attachments-plugin</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/using-gitstats-to-get-an-overview-of-git-activity-in-a-repository</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/websockets-and-ddp-in-production</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/react-native-at-lifely</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/the-impact-and-glory-of-graphql-in-applications-at-lifely</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/graphql-apollo-and-optimistic-ui-updates</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/from-buzzwords-to-products</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/datamodels-apis-and-graphql-in-practice</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/why-the-hybrid-approach-finally-works</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/graphql-the-future-of-apis-is-here</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/kickstart-your-digital-process-with-an-agency</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/graphql-and-apollo</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/expert-tracks-vs-management-tracks-plus-portfolio-tips</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/hoe-het-gebruik-van-buzzwords-technologie-ontkracht</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/een-oplossing-visualiseren-in-het-eerste-gesprek-met-de-klant</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/intellectueel-eigendom-waar-moet-je-rekening-mee-houden</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/graphql-apollo-subscriptions</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/vijf-onderwerpen-voor-een-succesvolle-onboarding</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/waarom-ook-jij-moet-beginnen-met-big-data</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/rasplogger-influxdb-grafana-dashboards-showcase</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/samenwerkingsvormen-tussen-verzekeraars-en-tech-partijen</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/using-influxdb-grafana-and-nodejs-datalogger-to-visualise-solar-panel-data</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/veilig-en-snel-aan-je-verzekeraars-platform-werken-met-externe-partijen</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/drie-onvermijdelijke-ontwikkelingen-in-jouw-sustainable-tech-of-alternative-energy-bedrijf</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/samenwerken-met-een-agency-briefen-visualiseren-en-profiteren</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/lifely-en-renewable-tech-wat-kunnen-wij-samen-bereiken</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/mediacollege-webinar-react-native-masterclass-door-peter-peerdeman-en-rick-woltheus</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/drie-moderne-cloud-geheimen-voor-e-commerce-platformen</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/e-commerce-dit-is-wat-samenwerkingen-voor-jou-kunnen-betekenen</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/lifely-x-emakina-nerd-summit-graphql-why-what-and-how-by-peter-peerdeman</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/building-raspberry-pi-arm64-images-on-desktop-using-docker-buildx</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/kubernetes-k3s-simple-persistent-distributed-storage-with-longhorn</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/kubernetes-openfaas-private-cloud-functions-on-raspberry-pi-cluster</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/predicting-timeseries-data-with-influxdb-and-facebook-prophet</loc
+        >
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/blog/vim-development-2021-with-coc-typescript-and-prettier</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/agile</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/amazon</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/android</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/angular</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/ansible</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/apollo</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/ddp</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/devops</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/docker</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/documentation</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/elasticsearch</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/git</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/grafana</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/graphql</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/hybrid</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/i18-n</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/influxdb</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/internetofthings</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/iot</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/javascript</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/leadership</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/loadbalancing</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/markdown</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/meteor</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/mobile</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/nginx</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/node</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/nodejs</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/npm</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/opinions</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/performance</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/photon</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/php</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/presentations</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/project</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/raspberry</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/react</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/reactnative</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/realtime</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/rest</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/ruby</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/subscriptions</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/terminal</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/timeseries</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/vim</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/webscraper</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/websockets</loc>
+    </url>
+</urlset>

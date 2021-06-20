@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Sun, 10 Apr 2016 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/npm/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/quickly-test-npm-modules-using-trymodule</guid>
+  <title>quickly test npm modules using trymodule</title>
+  <link>https://hashbang.nl/blog/quickly-test-npm-modules-using-trymodule</link>
+    <description>undefined</description>
+    <pubDate>Sun, 10 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>npm</category>
+  </item>
+
+    </channel>
+  </rss>

@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Thu, 05 Mar 2020 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/subscriptions/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-apollo-subscriptions</guid>
+  <title>GraphQL, Apollo and GraphQL Subscriptions, at React JS Utrecht meetup</title>
+  <link>https://hashbang.nl/blog/graphql-apollo-subscriptions</link>
+    <description>undefined</description>
+    <pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>graphql</category><category>subscriptions</category><category>realtime</category>
+  </item>
+
+    </channel>
+  </rss>
