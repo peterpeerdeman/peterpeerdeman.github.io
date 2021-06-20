@@ -22,7 +22,7 @@ The four main parts the DDP spec focuses are the connection, managing data, remo
 
 After opening the websocket connecting, the client sends out a `connect` message, to which the server responds with either a `connected` message or a `failed` message. Both parties are able to send out a `ping` message, to which the receiving will reply with a `pong` message.
 
-{% highlight bash %}
+```bash
 CLIENT SERVER
 
 => connect
@@ -31,13 +31,13 @@ CLIENT SERVER
 
 => ping
 <= pong
-{% endhighlight %}
+```
 
 ### Managing Data
 
 After connecting to the server, the client describes its interest in certain documents by sending a `sub` message, containing the name of the publication. The server will respond with a series of `added` messages for each requested document, followed by a `ready` message to indicate all initial data has been sent. If a document changes on the server, `changed` and/or `removed` messages are sent out to each subscribed client. This means that clients no longer have to poll for data, but will be automatically updated once a document changes on the server side. If a client is no longer interested in receiving updates on a description, an `unsub` message can be sent.
 
-{% highlight bash %}
+```bash
 CLIENT SERVER
 
 => sub
@@ -48,36 +48,36 @@ CLIENT SERVER
 <= removed
 => unsub
 <= nosub
-{% endhighlight %}
+```
 
 ### Remote Procedure Calls
 
 The RPC paradigm is used to manipulate data on the backend. At any given time, the client is able to send `method` messages to the server, containing the method name that has to be exectued and optional arguments for that method. The server responds with a `result` message, containing either a response value or an error. If certain documents the user was subscribed to were changed due to the execution of the method, these changes are sent with similar `changed` messages as we have seen in the previous diagram. After all the `changed` messages have been sent, an `updated` message is sent used to signal the end of the incoming changes.
 
-{% highlight bash %}
+```bash
 CLIENT SERVER
 => method
 <= result
 <= changed
 <= updated
-{% endhighlight %}
+```
 
 ### Errors
 
 When a method is sent and incurs an error on the server, a result containing an error is returned. A result containing an error will look like this:
 
-{% highlight json %}
+```json
 {
-"msg": "result",
-"id": "1",
-"error": {
-"error": 404,
-"reason": "Method not found",
-"message": "Method not found [404]",
-"errorType": "Method.Error"
+    "msg": "result",
+    "id": "1",
+    "error": {
+        "error": 404,
+        "reason": "Method not found",
+        "message": "Method not found [404]",
+        "errorType": "Method.Error"
+    }
 }
-}
-{% endhighlight %}
+```
 
 I've created several examples to display the use of DDP. The first example is the [endpointcon map](https://github.com/peterpeerdeman/ddp-the-real-time-api-for-web-applications/tree/gh-pages/examples/endpointcon-map), a small meteor application that shows avatars of the speakers of endpointcon that are draggable around a map of amsterdam. The javascript for this example is only 77 lines long containing both the frontend and the backend code.
 

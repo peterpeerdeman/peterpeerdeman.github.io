@@ -26,7 +26,7 @@ The files in this build folder are now being served directly from nginx. Only se
 
 If you are still using the old setup for your web application, I'd strongly advise you to give the separated setup a try. Getting started with a grunt front-end pipeline and angular is very easy with some example scaffolds such as the [Yeoman Angular generator](https://github.com/yeoman/generator-angular). To serve the built folder, we've used an nginx configuration similar to this one:
 
-{% highlight nginx %}
+```nginx
 server {
 location / {
 access_log off;
@@ -46,4 +46,4 @@ access_log off;
     }
 
 }
-{% endhighlight %}
+```

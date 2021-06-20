@@ -12,7 +12,7 @@ The particle photon is a pretty awesome little arduino device with onboard wifi.
 
 Setting up the Particle was done through the app on the phone, there is good [getting started documentation](https://docs.particle.io/guide/getting-started/start/photon/) on that available. Through the [build.particle.io web interface](https://build.particle.io/build) I loaded the following arduino/particle snippet that exposes the current outside temperature on a double variable `temperature` that will be retrievable through the Particle API later. The temperature value is read using the [OneWire spark library](https://github.com/Hotaman/OneWireSpark) that works pretty well with the "sealed, water proof version of the DS18B20" from the maker kit.
 
-{% highlight c %}
+```c
 // Use this include for the Web IDE:
 #include "OneWire.h"
 
@@ -138,7 +138,7 @@ Serial.print(" Celsius, ");
 Serial.print(fahrenheit);
 Serial.println(" Fahrenheit");
 }
-{% endhighlight %}
+```
 
 I put the photon and [wiring](https://community.particle.io/uploads/default/original/2X/8/836116627384eb201d909e623c31d6e69733f11f.png) in the plastic case, plugged in a usb charger in the shed and fed the temperature through the windows of the shed:
 
@@ -147,24 +147,26 @@ I put the photon and [wiring](https://community.particle.io/uploads/default/orig
 
 The particle photon is now sending it's temperature data to the particle cloud, and I can access these from my [nodejs weather script](https://github.com/peterpeerdeman/raspweather) on the raspberrypi using the `PARTICLE_DEVICE_ID` and `PARTICLE_ACCESS_TOKEN` from the Particle cloud api as follows:
 
-{% highlight javascript %}
+```javascript
 function logOutsideTemperature() {
-var url = ['https://api.particle.io/v1/devices/',
-PARTICLE_DEVICE_ID,
-'/temperature?access_token=',
-PARTICLE_ACCESS_TOKEN].join('');
-request(url, function(error, response, body) {
-if (!error && response.statusCode == 200) {
-var temperatureFloat = JSON.parse(body).result;
-if (temperatureFloat == "-0.0625" || parseFloat(temperatureFloat) >100) return;
-var logEntry = new Date().toString() + ';' + temperatureFloat + '\n';
-fs.appendFile('temperatures-outside.txt', logEntry, function(err) {
-//
-});
+    var url = [
+        'https://api.particle.io/v1/devices/',
+        PARTICLE_DEVICE_ID,
+        '/temperature?access_token=',
+        PARTICLE_ACCESS_TOKEN,
+    ].join('');
+    request(url, function (error, response, body) {
+        if (!error && response.statusCode == 200) {
+            var temperatureFloat = JSON.parse(body).result;
+            if (temperatureFloat == '-0.0625' || parseFloat(temperatureFloat) > 100) return;
+            var logEntry = new Date().toString() + ';' + temperatureFloat + '\n';
+            fs.appendFile('temperatures-outside.txt', logEntry, function (err) {
+                //
+            });
+        }
+    });
 }
-});
-}
-{% endhighlight %}
+```
 
 For some reason, there are sometimes some strange celsius values popping up, which I've excluded using some simple checks. To keep the data management easy, I'm writing the temperature values to a simple text file, and retrieve the data in the webinterface the same way I did on the previous version of the [raspweather node API](https://github.com/peterpeerdeman/raspweather/). The weather graph now shows both outside and inside temperature:
 

@@ -10,7 +10,7 @@ To get some more insight into the different code applications deployed to differ
 
 I found out about the [version](https://github.com/westarete/capistrano-helpers/blob/master/lib/capistrano-helpers/version.rb) routine in the [capistrano-helpers](https://github.com/westarete/capistrano-helpers) repository by @westarete, which prints the currently deployed git hash to a VERSION file. I've adjusted the code slightly to create a nice json formatted file which includes both the git hash and the deploydate.
 
-{% highlight ruby %}
+```ruby
 
 # insert this code snippet in your deploy.rb capistrano config
 
@@ -30,6 +30,6 @@ task :setup_group do
 run "chown -R :#{group} #{deploy_to} && chmod -R g+s #{deploy_to}"
 end
 end
-{% endhighlight %}
+```
 
 I use the resulting version file to remotely retrieve the servers version for our status dashboard, which is pretty neat and gives you a quick overview of your servers statuses.

@@ -12,11 +12,11 @@ Just as a reminder to myself and to everyone looking for a short and easy answer
 -   download and configure the [vim ack plugin](https://github.com/mileszs/ack.vim)
 -   enter the following code in vimrc file to enable ag as default for ack
 
-{% highlight vim %}
+```vim
 if executable('ag')
 let g:ackprg = 'ag --vimgrep'
 endif
-{% endhighlight %}
+```
 
 -   `:Ack TIMESTAMP` to find the word TIMESTAMP in any file in the current directory
 -   `:cn` for next and `:cp` for previous hit

@@ -12,21 +12,21 @@ Even though it is pretty handy and quick getting started in meteor to run client
 
 Imagine a blaze helper method, that inserts an activity in an activy:
 
-{% highlight javascript %}
+```javascript
 Template.addactivity.events({
-'submit .pu-addactivity': function (event) {
-Activities.insert({
-name: event.target.name.value,
-createdAt: new Date(),
-groupId: this.\_id
+    'submit .pu-addactivity': function (event) {
+        Activities.insert({
+            name: event.target.name.value,
+            createdAt: new Date(),
+            groupId: this.\_id,
+        });
+    },
 });
-}
-})
-{% endhighlight %}
+```
 
 The `createdAt` value is decided from the front-end, and no check whatsoever is made as whether this date is correct, that a proper date is supplied or that the group this activity is added to even exists. We have experimented with authorization hooks to check basic behavior, but found that creating your own meteor methods to check the incoming parameters and all the edge cases is the way to go, and allows you to document your method in the process as well:
 
-{% highlight javascript %}
+```javascript
 Meteor.methods({
 /\*\*
 _ Insert an Activity
@@ -50,4 +50,4 @@ var group = Groups.findOneOrFail({\_id: groupId});
     }
 
 }
-{% endhighlight %}
+```

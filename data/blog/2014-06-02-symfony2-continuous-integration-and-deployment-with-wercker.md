@@ -14,7 +14,7 @@ I have created the [peterpeerdeman/symfony2-angular@0.0.2](https://app.wercker.c
 
 To configure the steps, we use the following wercker.yml config:
 
-{% highlight ruby %}
+```ruby
 box: peterpeerdeman/symfony2-angular@0.0.2
 services: - wercker/mysql
 build:
@@ -59,7 +59,7 @@ subdomain: lifely
 token: $SLACK_TOKEN
 channel: notifications
 
-{% endhighlight %}
+```
 
 Some notable details:
 

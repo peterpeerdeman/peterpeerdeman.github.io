@@ -12,7 +12,7 @@ During the presentation I give some insights on how we weighed the pro's and con
 
 The slides and code can be found at [Part-up: a Meteor Production Story](http://hashbang.nl/partup-a-meteor-production-story/)
 
-<iframe src="https://player.vimeo.com/video/134308969" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/134308969">Part-up, MeteorJS - Peter Peerdeman</a> from <a href="https://vimeo.com/lifely">Lifely</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3NrlmwYD2jw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Teamwork -> Component directory structure
 
@@ -95,7 +95,7 @@ This second snippet shows the directory structure of the Activity component.
 
 `Activity.js` is the entrypoint for the component, which also contains API documentation how to use the component:
 
-{% highlight js %}
+```javascript
 /\*\*
 _ Widget to render a single activity
 _
@@ -120,8 +120,7 @@ _ @param {Boolean} COMMENTS*LINK Whether the widget should display the link to c
     });
 
     // snip
-
-{% endhighlight %}
+```
 
 ### Code reuse -> Lib package with namespaced functionality
 
@@ -129,6 +128,7 @@ To share common code between client and server in an organized fashion we used a
 
 The following snippet shows the directory structure of the lib package
 
+```
     ▾ partup:lib/
         ▸ collections/
         ▸ helpers/
@@ -140,43 +140,45 @@ The following snippet shows the directory structure of the lib package
         error.js
         namespace.js
         package.js
+```
 
 The functionality in the lib package would be defined in separate files adding functionality to the namespace object:
 
-{% highlight js %}
+```javascript
 /**
 @namespace Tags helper service
 @name Partup.services.tags
 @memberOf partup.services
 \*/
 Partup.services.tags = {
-/**
+    /**
 _ Transform a comma separated string into an array of tags
 _
 _ @memberOf services.tags
 _ @param {String} tags_input
 \*/
-tagInputToArray: function(tags_input) {
-if (!tags_input) return [];
+    tagInputToArray: function (tags_input) {
+        if (!tags_input) return [];
 
         var _tags = tags_input.split(',');
 
         if (_tags.length === 0) return [];
 
-        return _tags.map(function(elem) {
-            return elem.trim();
-        }).filter(function(elem) {
-            return !!elem;
-        });
+        return _tags
+            .map(function (elem) {
+                return elem.trim();
+            })
+            .filter(function (elem) {
+                return !!elem;
+            });
     },
     // snip
-
-}
-{% endhighlight %}
+};
+```
 
 The following snippet shows our use of collection helpers and specific model helpers that operate on the document instances
 
-{% highlight js %}
+```javascript
 /\*\*
 
 -   Network model
@@ -219,7 +221,7 @@ return new Network(document);
     };
     return this.find(complicatedQuery, options);
     };
-    {% endhighlight %}
+```
 
 ### Micro service integration -> Event based meteor methods
 
@@ -227,7 +229,7 @@ To allow external micro services outside of the meteor system to hook into funct
 
 The events would be triggered in a method as follows:
 
-{% highlight js %}
+```javascript
 Meteor.methods({
 /\*\*
 _ Archive an Activity
@@ -257,11 +259,11 @@ var activity = Activities.findOneOrFail(activityId);
     }
 
 });
-{% endhighlight %}
+```
 
 Internally we use the events to trigger the creation of updates, notifications and emails, as seen in the following example:
 
-{% highlight js %}
+```javascript
 /\*\*
 
 -   Generate a Partup update when an activity is archived
@@ -279,7 +281,7 @@ Internally we use the events to trigger the creation of updates, notifications a
         Updates.update({_id: activity.update_id}, {$set: set});
 
     });
-    {% endhighlight %}
+```
 
 Externally the events are submitted to a message bus, such as [RabbitMQ](https://www.rabbitmq.com/), that allows outside systems to listen to the stream of events and react on updates in the system. For instance, the micro service containing the recommendation engine could use these events to build its recommendation graph and emit recommendation events on the message bus. These recommendation events can then be used by the meteor application to store recommendations on meteor collection documents and present these recommendations to the user.
 

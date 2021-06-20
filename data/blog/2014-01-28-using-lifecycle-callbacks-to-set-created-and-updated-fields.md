@@ -14,7 +14,7 @@ If you handle all of this functionality inside the entity, you are absolutely su
 
 As shown in the following example, the lifecycle callbacks are triggered by including the HasLifecycleCallbacks() annotation at the top of the class. Whenever the annotation "PrePersist" or "PreUpdate" is found above a method, this method will be called automatically when these events occur.
 
-{% highlight php %}
+```php
 /\*\*
 
 -   MyPretendEntity
@@ -22,17 +22,17 @@ As shown in the following example, the lifecycle callbacks are triggered by incl
 -   @ORM\Table(name="my_table_name")
 -   @ORM\Entity(repositoryClass="\MCM\MyExampleBundle\Repository\MyPretendRepository")
 -   @ORM\HasLifecycleCallbacks()
-    _/  
-    class MyPretendEntity  
-    {  
+    _/
+    class MyPretendEntity
+    {
      /\*\*
     _ Set created \*
     _ @ORM\PrePersist
     _ @return Product
-    \*/  
-     public function setCreated()  
-     {  
-     $this->created = new \DateTime();  
+    \*/
+     public function setCreated()
+     {
+     $this->created = new \DateTime();
      $this->updated = new \DateTime();
 
             return $this;
@@ -50,7 +50,7 @@ As shown in the following example, the lifecycle callbacks are triggered by incl
             return $this;
         }
 
-    {% endhighlight %}
+```
 
 In addition to these callbacks, the following annotations / callbacks can also be used:
 

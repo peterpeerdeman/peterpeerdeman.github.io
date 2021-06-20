@@ -12,7 +12,7 @@ After getting my first smart [Philips Hue color ambiance starter kit](http://www
 
 First off, the bridge had to be integrated into my `raspapi` node application, to be able to access the API functionality from anywhere I have access to my home automation API. I used the [node-hue-api]() npm module to easily configure my home bridge and send commands to the Hue lights. I created the following express routes that exposes some of the features through a nice rest api (the rest of the code can be found on [github](https://github.com/peterpeerdeman/raspapi/blob/master/routes/lights/index.js))
 
-{% highlight javascript %}
+```javascript
 var express = require('express');
 var router = express.Router();
 var hue = require('node-hue-api');
@@ -24,45 +24,45 @@ var hostname = 'insert bridge ip here';
 var username = 'insert bridge username here';
 var api = new HueApi(hostname, username);
 
-router.get('/lights', function(req, res) {
-api.lights(function(err, lights) {
-if (err) throw err;
-res.send(lights);
-});
-});
-
-router.get('/on', function(req, res) {
-api.setGroupLightState(0, {'on': true}) // provide a value of false to turn off
-.then(function(result) {
-res.send(result);
-})
-.fail(function(error) {
-res.send(error);
-})
-.done();
+router.get('/lights', function (req, res) {
+    api.lights(function (err, lights) {
+        if (err) throw err;
+        res.send(lights);
+    });
 });
 
-router.get('/off', function(req, res) {
-api.setGroupLightState(0, {'on': false}) // provide a value of false to turn off
-.then(function(result) {
-res.send(result);
-})
-.fail(function(error) {
-res.send(error);
-})
-.done();
+router.get('/on', function (req, res) {
+    api.setGroupLightState(0, { on: true }) // provide a value of false to turn off
+        .then(function (result) {
+            res.send(result);
+        })
+        .fail(function (error) {
+            res.send(error);
+        })
+        .done();
+});
+
+router.get('/off', function (req, res) {
+    api.setGroupLightState(0, { on: false }) // provide a value of false to turn off
+        .then(function (result) {
+            res.send(result);
+        })
+        .fail(function (error) {
+            res.send(error);
+        })
+        .done();
 });
 
 // for the other routes, check my github page
 
 module.exports = router;
-{% endhighlight %}
+```
 
 Now the lights are switchable through the API which is great, but I'd like them to be automatically turned on when it gets dark, and have them turned off when it is time to go to sleep. It sounds weird but it actually works as a nice reminder at night to quit what we are doing and get some sleep ;)
 
 I extended my [raspschedule](https://github.com/peterpeerdeman/raspschedule/blob/master/raspschedule.js) program, also running on the raspberrypi home server, to include the code that switches the lights on and off through the raspapi api on `localhost:3000`. By using the npm module [suncalc](https://github.com/mourner/suncalc) I know exactly when sunset and sunrise are occuring for the current day. The cronjob is then scheduled for these times precisely, and only if the sun is not already shining at that moment!
 
-{% highlight javascript %}
+```javascript
 var CronJob = require('cron').CronJob;
 var request = require('request');
 var suncalc = require('suncalc');
@@ -71,80 +71,78 @@ var moment = require('moment');
 var apiUrl = 'http://localhost:3000/api';
 
 var geolocation = {
-lat: 52,
-lng: 4
-}
+    lat: 52,
+    lng: 4,
+};
 
 function lightsOn() {
-request(apiUrl + '/lights/on', function(error, response, body) {
-})
+    request(apiUrl + '/lights/on', function (error, response, body) {});
 }
 
 function lightsOff() {
-request(apiUrl + '/lights/off', function(error, response, body) {
-})
+    request(apiUrl + '/lights/off', function (error, response, body) {});
 }
 
 var lightsOnWeekdaysMorning = new CronJob({
-cronTime: '00 00 07 \* \* 1-5',
-onTick: function() {
-var times = suncalc.getTimes(new Date(), geolocation.lat, geolocation.lng)
-console.log("sunrise at: " + times.sunrise + ", triggered at: " + new Date());
-if (times.sunrise > new Date()) {
-lightsOn();
-}
-},
-start: true,
-timeZone: 'Europe/Amsterdam'
+    cronTime: '00 00 07 * * 1-5',
+    onTick: function () {
+        var times = suncalc.getTimes(new Date(), geolocation.lat, geolocation.lng);
+        console.log('sunrise at: ' + times.sunrise + ', triggered at: ' + new Date());
+        if (times.sunrise > new Date()) {
+            lightsOn();
+        }
+    },
+    start: true,
+    timeZone: 'Europe/Amsterdam',
 });
 
 var lightsOffWeekdaysMorning = new CronJob({
-cronTime: '00 20 08 \* \* 1-5',
-onTick: function() {
-lightsOff();
-},
-start: true,
-timeZone: 'Europe/Amsterdam'
+    cronTime: '00 20 08 * * 1-5',
+    onTick: function () {
+        lightsOff();
+    },
+    start: true,
+    timeZone: 'Europe/Amsterdam',
 });
 
 var lightsOnEvening = new CronJob({
-cronTime: '00 00 04 \* \* _',
-onTick: function() {
-var times = suncalc.getTimes(new Date(), geolocation.lat, geolocation.lng)
-console.log("sunset: " + times.sunset)
-console.log("scheduling for: " + moment(times.sunset).subtract(30, 'minutes').toDate())
-new CronJob(
-moment(times.sunset).subtract(30, 'minutes').toDate(),
-function() {
-console.log("turning light on evening at: " + new Date())
-lightsOn();
-},
-function() {
-/_ This function is executed when the job stops \*/
-},
-true,
-'Europe/Amsterdam'
-);
-},
-start: true,
-timeZone: 'Europe/Amsterdam'
+    cronTime: '00 00 04 * * _',
+    onTick: function () {
+        var times = suncalc.getTimes(new Date(), geolocation.lat, geolocation.lng);
+        console.log('sunset: ' + times.sunset);
+        console.log('scheduling for: ' + moment(times.sunset).subtract(30, 'minutes').toDate());
+        new CronJob(
+            moment(times.sunset).subtract(30, 'minutes').toDate(),
+            function () {
+                console.log('turning light on evening at: ' + new Date());
+                lightsOn();
+            },
+            function () {
+                /_ This function is executed when the job stops \*/;
+            },
+            true,
+            'Europe/Amsterdam'
+        );
+    },
+    start: true,
+    timeZone: 'Europe/Amsterdam',
 });
 
 var lightsOffWeekdaysEvening = new CronJob({
-cronTime: '00 00 22 \* \* 0-5',
-onTick: function() {
-lightsOff();
-},
-start: true,
-timeZone: 'Europe/Amsterdam'
+    cronTime: '00 00 22 * * 0-5',
+    onTick: function () {
+        lightsOff();
+    },
+    start: true,
+    timeZone: 'Europe/Amsterdam',
 });
 
 var lightsOffWeekendEvening = new CronJob({
-cronTime: '00 00 01 \* \* 0,6',
-onTick: function() {
-lightsOff();
-},
-start: true,
-timeZone: 'Europe/Amsterdam'
+    cronTime: '00 00 01 * * 0,6',
+    onTick: function () {
+        lightsOff();
+    },
+    start: true,
+    timeZone: 'Europe/Amsterdam',
 });
-{% endhighlight %}
+```

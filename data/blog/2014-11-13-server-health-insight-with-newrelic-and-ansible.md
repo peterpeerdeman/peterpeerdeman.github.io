@@ -12,43 +12,39 @@ With the number of servers and applications in maintenance of my company growing
 
 We are using the following ansible script to install newrelic on any machine we deploy to, independent of it being a staging, acceptance or production environment:
 
-{% highlight yaml %}
+```yaml
 #/devops/provision/roles/common/tasks/newrelic.yml
-
 ---
+- name: newrelic | add apt repository
+  shell: echo deb http://apt.newrelic.com/debian/ newrelic non-free > /etc/apt/sources.list.d/newrelic.list
+  tags: newrelic
 
--   name: newrelic | add apt repository
-    shell: echo deb http://apt.newrelic.com/debian/ newrelic non-free > /etc/apt/sources.list.d/newrelic.list
-    tags: newrelic
+- name: newrelic | trust GPG key
+  shell: wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
+  tags: newrelic
 
--   name: newrelic | trust GPG key
-    shell: wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
-    tags: newrelic
+- name: newrelic | install
+  apt: package=newrelic-sysmond state=latest update_cache=yes
+  tags: newrelic
 
--   name: newrelic | install
-    apt: package=newrelic-sysmond state=latest update_cache=yes
-    tags: newrelic
+- name: newrelic | set license key
+  shell: nrsysmond-config --set license_key={{ common.newrelic.license_key }}
+  tags: newrelic
 
--   name: newrelic | set license key
-    shell: nrsysmond-config --set license_key={{ common.newrelic.license_key }}
-    tags: newrelic
-
--   name: newrelic | start daemon
-    shell: /etc/init.d/newrelic-sysmond start
-    tags: newrelic
-    {% endhighlight %}
+- name: newrelic | start daemon
+  shell: /etc/init.d/newrelic-sysmond start
+  tags: newrelic
+```
 
 with the license key being supplied from the (ansible-vault encrypted) group_vars folder environment specific file.
 
-{% highlight yaml %}
+```yaml
 #/devops/provision/group_vars/production.yml
-
 ---
-
 common:
 newrelic:
 license_key: <insert new relic license here>
-{% endhighlight %}
+```
 
 Once the daemon is running and sending its data to newrelic you can inspect your webservers through their web application. Statistics like CPU load, memory usage and diskspace can be monitored with ease and configuring the thresholds for when to trigger an email alert / slack notification is a breeze.
 

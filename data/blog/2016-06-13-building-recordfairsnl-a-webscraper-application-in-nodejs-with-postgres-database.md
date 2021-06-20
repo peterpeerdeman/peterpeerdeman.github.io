@@ -18,8 +18,8 @@ As you might have expected, scraping the data, getting into a unified format and
 
 The [request-promise](https://www.npmjs.com/package/request-promise) npm package was a great help to help make scraping the sites asynchronous and chain them all together. Each of the scrapers exposes a promise:
 
-{% highlight javascript %}
-"use strict";
+```javascript
+'use strict';
 
 let cheerio = require('cheerio');
 let S = require('string');
@@ -29,83 +29,97 @@ let Promise = require('bluebird');
 let debug = require('debug')('myappdebugtag');
 
 module.exports = function () {
-var options = {
-uri: 'http://scrapesource',
-transform: function (body) {
-return cheerio.load(body);
-}
-};
+    var options = {
+        uri: 'http://scrapesource',
+        transform: function (body) {
+            return cheerio.load(body);
+        },
+    };
 
     return rp(options)
-        .then(function($) {
+        .then(function ($) {
             let dataTable = $('table').first();
-            return dataTable.find('tbody tr').toArray().map(function(el) {
-                let row = $(el);
-                let dateInput = S(row.find('td:nth-child(2)').text()).trim().s
-                if(!dateInput) return null;
+            return dataTable
+                .find('tbody tr')
+                .toArray()
+                .map(function (el) {
+                    let row = $(el);
+                    let dateInput = S(row.find('td:nth-child(2)').text()).trim().s;
+                    if (!dateInput) return null;
 
-                let date = moment(dateInput, 'D-MMM', 'nl');
+                    let date = moment(dateInput, 'D-MMM', 'nl');
 
-                let timeInput = S(row.find('td:nth-child(6)').text()).trim().s
-                let times = timeInput.split('-');
-                let startDate;
-                let endDate;
-                if(timeInput && times.length > 0) {
-                    let startTimeString = times[0].indexOf('.') > 0 ? times[0].replace('.',':') : times[0] + ':00';
-                    let endTimeString = times[1].indexOf('.') > 0 ? times[1].replace('.',':') : times[1] + ':00';
-                    startDate = moment(`${date.format('MM-DD-YYYY')} ${startTimeString}`, 'MM-DD-YYYY HH:mm').toDate();
-                    endDate = moment(`${date.format('MM-DD-YYYY')} ${endTimeString}`, 'MM-DD-YYYY HH:mm').toDate();
-                }
-                let fair = {
-                    date: date.toDate(),
-                    startDate: startDate,
-                    endDate: endDate,
-                    city: row.find('td:nth-child(3)').text(),
-                    country: row.find('td:nth-child(4)').text(),
-                    location: S(row.find('td:nth-child(5)').text()).trim().s,
-                    organiser: row.find('td:nth-child(7)').text(),
-                    origin: 'scrapesource'
-                }
-                return fair;
-            });
+                    let timeInput = S(row.find('td:nth-child(6)').text()).trim().s;
+                    let times = timeInput.split('-');
+                    let startDate;
+                    let endDate;
+                    if (timeInput && times.length > 0) {
+                        let startTimeString =
+                            times[0].indexOf('.') > 0
+                                ? times[0].replace('.', ':')
+                                : times[0] + ':00';
+                        let endTimeString =
+                            times[1].indexOf('.') > 0
+                                ? times[1].replace('.', ':')
+                                : times[1] + ':00';
+                        startDate = moment(
+                            `${date.format('MM-DD-YYYY')} ${startTimeString}`,
+                            'MM-DD-YYYY HH:mm'
+                        ).toDate();
+                        endDate = moment(
+                            `${date.format('MM-DD-YYYY')} ${endTimeString}`,
+                            'MM-DD-YYYY HH:mm'
+                        ).toDate();
+                    }
+                    let fair = {
+                        date: date.toDate(),
+                        startDate: startDate,
+                        endDate: endDate,
+                        city: row.find('td:nth-child(3)').text(),
+                        country: row.find('td:nth-child(4)').text(),
+                        location: S(row.find('td:nth-child(5)').text()).trim().s,
+                        organiser: row.find('td:nth-child(7)').text(),
+                        origin: 'scrapesource',
+                    };
+                    return fair;
+                });
         })
-        .catch(function(err) {
+        .catch(function (err) {
             console.log(err);
         });
-
-}
-{% endhighlight %}
+};
+```
 
 I created an endpoint that initiates the scraping process, which imports and executes the above promise calls, and handles the resulting data in the `then` handler. Just before storing the data in the database, I check if there is already a fair for that date and city:
 
-{% highlight javascript %}
+```javascript
 function handleFairs(fairs) {
-fairs.forEach(function(fair) {
-if(!fair) {
-return;
-}
+    fairs.forEach(function (fair) {
+        if (!fair) {
+            return;
+        }
 
         models.Fair.findOne({
             where: {
                 date: fair.date,
-                city: fair.city
-            }
-        }).then(function(existingFair) {
+                city: fair.city,
+            },
+        }).then(function (existingFair) {
             if (existingFair) {
                 console.log('existing found', existingFair.id);
             } else {
-                models.Fair.create(fair).then( () => {
-                    console.log('added fair', fair.city, fair.date)
-                })
-                .catch( (err) => {
-                    console.log('an error occurred')
-                });
+                models.Fair.create(fair)
+                    .then(() => {
+                        console.log('added fair', fair.city, fair.date);
+                    })
+                    .catch((err) => {
+                        console.log('an error occurred');
+                    });
             }
-        })
-    })
-
+        });
+    });
 }
-{% endhighlight %}
+```
 
 Pretty straightforward, but a fun experience nonetheless. As you can see on [recordfairs.nl](http://recordfairs.nl), the result isn't perfect but it's still a lot better than visiting all of the urls separately. As a small addition, I've also created a small cordova app for android using ionic that basically displays the same information and allows you to do a clientside search through the retrieved data, check it out for free: [Record Fairs on the android playstore](https://play.google.com/store/apps/details?id=nl.peterpeerdeman.recordfairs&hl=nl)
 

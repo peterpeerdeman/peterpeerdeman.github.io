@@ -9,27 +9,29 @@ draft: false
 
 This problem drove us up the wall a couple of days ago. Seemingly out of nowhere the meteor server simply wouldn't boot anymore and exit with the following dreadfully unhelpful ENOENT errorcode:
 
-{% highlight bash %}
+```bash
 W20151117-16:32:34.995(1)? (STDERR) Error: spawn ENOENT
 W20151117-16:32:34.996(1)? (STDERR) at errnoException (child_process.js:1011:11)
 W20151117-16:32:34.996(1)? (STDERR) at Process.ChildProcess.\_handle.onexit (child_process.js:802:34)
 => Exited with code: 7
-{% endhighlight %}
+```
 
 The strangest part was that some of the team members could boot the project without problems. After wildly commenting out most of the projects bootstrapping code we found out that the following lines were causing the crash:
 
-{% highlight javascript %}
-var gm = Npm.require('gm').subClass({imageMagick: true});
+```javascript
+var gm = Npm.require('gm').subClass({ imageMagick: true });
 
-var resize = function(filename, body, width, height, callback) {
-gm(body, filename).resize(width, height).toBuffer(function(error, resizedBody) {
-if (error) return callback(error);
-return callback(null, resizedBody);
-});
+var resize = function (filename, body, width, height, callback) {
+    gm(body, filename)
+        .resize(width, height)
+        .toBuffer(function (error, resizedBody) {
+            if (error) return callback(error);
+            return callback(null, resizedBody);
+        });
 };
 
 var resizeSync = Meteor.wrapAsync(resize);
-{% endhighlight %}
+```
 
 As it turns out, the gm package dependency was configured to use the imageMagick library, while graphicsmagick was installed on the system. This probably caused the npm package to execute some command that was not available on the system (hence the ENOENT error). Solving the problem on the faulty workstations was as easy as installing imagemagick:
 

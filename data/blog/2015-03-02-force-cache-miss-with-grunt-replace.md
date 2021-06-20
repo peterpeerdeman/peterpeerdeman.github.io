@@ -12,33 +12,33 @@ By adding a timestamp as a query parameter to the url of the application Javascr
 
 To do this we used [grunt-replace](https://github.com/outaTiME/grunt-replace) to replace a placeholder value (`@@TIMESTAMP@@`) in the html file with a timestamp during the build of our frontend assets.
 
-{% highlight js %}
-
+```javascript
 grunt.initConfig({
-replace : {
-cache_bust: {
-src: ['src/index.html'],
-dest: 'build/',
-replacements: [{
-from: '@@TIMESTAMP@@',
-to: function (matchedWord) {
-return new Date().getTime();
-}
-}]
-}
-}
+    replace: {
+        cache_bust: {
+            src: ['src/index.html'],
+            dest: 'build/',
+            replacements: [
+                {
+                    from: '@@TIMESTAMP@@',
+                    to: function (matchedWord) {
+                        return new Date().getTime();
+                    },
+                },
+            ],
+        },
+    },
 });
-{% endhighlight %}
+```
 
 The snippet from `index.html` where the assets are loaded would look something like the following snippet:
 
-{% highlight html %}
-
+```html
 <head>
     <!-- Load document styling -->
-    <link rel="stylesheet" type="text/css" href="/css/vendor.css?v=@@TIMESTAMP@@">
-    <link rel="stylesheet" type="text/css" href="/css/f.css?v=@@TIMESTAMP@@">
+    <link rel="stylesheet" type="text/css" href="/css/vendor.css?v=@@TIMESTAMP@@" />
+    <link rel="stylesheet" type="text/css" href="/css/f.css?v=@@TIMESTAMP@@" />
     <script type="text/javascript" src="/js/vendor.js?v=@@TIMESTAMP@@"></script>
     <script type="text/javascript" src="/js/f.js?v=@@TIMESTAMP@@"></script>
 </head>
-{% endhighlight %}
+```

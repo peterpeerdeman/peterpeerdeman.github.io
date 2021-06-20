@@ -12,9 +12,7 @@ As described in an earlier post about [improving performance in meteor applicati
 
 In the ansible file below we can see two ansible docker tasks that both run a specific docker image. The environment settings are loaded from the `app.env` groupvar. Using the ansible `combine` functionthat was introduced in ansible 2.0, we are now able to combine the configured groupvars with one special environment variable `CRON_ENABLED`, which is set to 0 or 1, depending on wether we are deploying a cron instance, or a webserver instance of the same docker container. The ansible `when` configuration ensures that only one of these 2 tasks is ran for each individual server.
 
-{% highlight yaml %}
-{% raw %}
-
+```yaml
 -   name: docker | start application
     docker:
     name: app
@@ -44,5 +42,4 @@ In the ansible file below we can see two ansible docker tasks that both run a sp
     env: "{{ app.env|combine({'CRON_ENABLED': 1}) }}"
     when: "'cronservers' in group_names"
     tags: app
-    {% endraw %}
-    {% endhighlight %}
+```

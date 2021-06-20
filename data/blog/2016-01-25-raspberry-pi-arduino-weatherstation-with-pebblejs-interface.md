@@ -18,24 +18,24 @@ In my one of my latest hobby projects I've been fiddling around with some Raspbe
 
 In order to access my data from anywhere on the internet, I needed a hub application that would aggregate all of my home-automation data and features. The result is [RaspAPI](https://github.com/peterpeerdeman/raspapi), a super light NodeJS express server that is responsible for all the publicly available routes into my home automation system. The first case was a "TOP" module, a route that would expose the current processes on the Raspberry PI through the /top path. The route for the weather station is a simple proxy to a separate nodejs application:
 
-{% highlight javascript %}
+```javascript
 var express = require('express');
 var request = require('request');
 var router = express.Router();
 
-router.all('/\*', function (req, res) {
-var url = 'http://127.0.0.1:1234' + req.url;
-req.pipe(request(url)).pipe(res);
-})
+router.all('/*', function (req, res) {
+    var url = 'http://127.0.0.1:1234' + req.url;
+    req.pipe(request(url)).pipe(res);
+});
 
 module.exports = router;
-{% endhighlight %}
+```
 
 ## RaspWeather
 
 [RaspWeather](https://github.com/peterpeerdeman/raspweather) Is an application running on the Raspberry Pi that focusses purely on collecting, storing and exposing the weather data measured by the Arduino board connected through USB. Because the Arduino does not have a REST api, the data has to be read through a "serial port". Through a quick and dirty use of the `serialport` npm module, I'm reading the data from the serialport, and writing the temperature float and timestamp to a text file every hour:
 
-{% highlight javascript %}
+```javascript
 serialPort.open(function(error) {
 if (error) {
 console.log('failed to open: ' + error);
@@ -61,11 +61,11 @@ lastTimeStamp = now;
 });
 }
 });
-{% endhighlight %}
+```
 
 Next to reading and writing the data, the RaspWeather application exposes the contents of the temperatures file through a simple express web api. The API allows a limit query parameter that will allow me to retrieve more than just the last 24 readings when needed:
 
-{% highlight javascript %}
+```javascript
 /\* Get temperatures
 
 -   @param limit number of temperatures, max 24*7
@@ -105,13 +105,13 @@ var port = server.address().port;
 
 console.log('Temperature webserver listening at http://%s:%s', host, port);
 });
-{% endhighlight %}
+```
 
 ## Arduino temperature reading
 
 The Arduino board has a SEN-00250 thermistor wired to an analog pin and just sends out a temperature value every couple of seconds. I found this script on the [Arduino Playground Thermistor2](http://playground.arduino.cc/ComponentLib/Thermistor2) page that gave a pretty accurate temperature reading to the USB port, that we have seen gets read through the serialport:
 
-{% highlight c %}
+```c
 void loop() {
 float temp;
 temp=Thermistor(analogRead(ThermistorPIN)); // read ADC and convert it to Celsius
@@ -123,61 +123,70 @@ Serial.print(temp,1); // display Celsius
 Serial.println("");
 delay(5000); // Delay a bit...
 }
-{% endhighlight %}
+```
 
 ## pebble-raspi PebbleJS application
 
 The final part of the project is displaying the temperature on my pebble smartwatch using my [pebble-raspi application](https://github.com/peterpeerdeman/pebble-raspi). The most approachable way to run code on the pebble is using the [CloudPebble platform](https://cloudpebble.net/). CloudPebble allows you to write simple dataviews in javascript and push the code to your pebble remotely. The following piece of code is the snippet that retrieves and renders the temperature on the pebble (for full example including all of my other pebble-raspi features, check the [github repo](https://github.com/peterpeerdeman/pebble-raspi))
 
-{% highlight javascript %}
+```javascript
 var temperatureMenu = new UI.Menu({
-sections: [{
-items: [{
-title: 'current temp inside'
-},{
-title: 'day temp inside'
-}]
-}]
+    sections: [
+        {
+            items: [
+                {
+                    title: 'current temp inside',
+                },
+                {
+                    title: 'day temp inside',
+                },
+            ],
+        },
+    ],
 });
 
-temperatureMenu.on('select', function(e) {
-if(e.itemIndex === 0) {
-// current
-ajax({
-url: RASPAPI_URL + '/api/weather/temperatures?limit=1',
-type:'json'
-},
-function(data) {
-console.log('data',data);
-var currenttemp = new UI.Card({
-title: data[0].temperature + '° celsius',
-subtitle: data[0].date
-});
+temperatureMenu.on('select', function (e) {
+    if (e.itemIndex === 0) {
+        // current
+        ajax(
+            {
+                url: RASPAPI_URL + '/api/weather/temperatures?limit=1',
+                type: 'json',
+            },
+            function (data) {
+                console.log('data', data);
+                var currenttemp = new UI.Card({
+                    title: data[0].temperature + '° celsius',
+                    subtitle: data[0].date,
+                });
 
-             currenttemp.show();
-           }
-          );
+                currenttemp.show();
+            }
+        );
     } else if (e.itemIndex === 1) {
-      // daytemp
-      ajax({
-        url: RASPAPI_URL + '/api/weather/temperatures',
-        type:'json'
-      },
-       function(data) {
-         var menuItems = parseTemperaturesFeed(data);
-         var resultsMenu = new UI.Menu({
-           sections: [{
-             title: 'Inside temperatures',
-             items: menuItems
-           }]
-         });
-         resultsMenu.show();
-       });
+        // daytemp
+        ajax(
+            {
+                url: RASPAPI_URL + '/api/weather/temperatures',
+                type: 'json',
+            },
+            function (data) {
+                var menuItems = parseTemperaturesFeed(data);
+                var resultsMenu = new UI.Menu({
+                    sections: [
+                        {
+                            title: 'Inside temperatures',
+                            items: menuItems,
+                        },
+                    ],
+                });
+                resultsMenu.show();
+            }
+        );
     }
-
 });
 temperatureMenu.show();
-{% endhighlight %}
+```
 
 All the sourcecode of this project can be found in the following repositories:
 

@@ -10,7 +10,7 @@ Having a git version number and deploydate is very convenient to keep tabs on th
 
 <!--more-->
 
-{% highlight rb %}
+```ruby
 namespace :deploy do
 desc "write version number to app-readable file"
 task :write_versionfile, :roles => :app do
@@ -24,4 +24,4 @@ end
 end
 
 after 'deploy:update_code', 'deploy:write_versionfile'
-{% endhighlight %}
+```

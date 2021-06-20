@@ -10,7 +10,7 @@ While looking for a good way to document our AngularJS codebase I stumbled upon 
 
 Using the template is incredibly easy and only requires you to add a single `@ngdoc` attribute in your JSDoc to group the angular files together:
 
-{% highlight js%}
+```javascript
 /\*\*
 
 -   @ngdoc factory
@@ -33,29 +33,26 @@ Using the template is incredibly easy and only requires you to add a single `@ng
         return Auth;
 
     })
-    {% endhighlight %}
+```
 
 We document every exposed function in a module with regular JSDoc blocks. In this example we specify that the function belongs to the `Auth` module using the `@memberof` attribute.
 
 To generate the docs automatically with each build I used [grunt-jsdoc](https://github.com/krampstudio/grunt-jsdoc) with the following configuration:
 
-{% highlight js%}
+```javascript
 grunt.initConfig({
-jsdoc : {
-dist: {
-src: [
-'src/scripts/app/**/*.js',
-'FRONTEND-GUIDE.md'
-],
-options: {
-destination: '../docs/client-jsdocs',
-configure: 'node_modules/angular-jsdoc/conf.json',
-template: 'node_modules/angular-jsdoc/template'
-}
-}
-}
+    jsdoc: {
+        dist: {
+            src: ['src/scripts/app/**/*.js', 'FRONTEND-GUIDE.md'],
+            options: {
+                destination: '../docs/client-jsdocs',
+                configure: 'node_modules/angular-jsdoc/conf.json',
+                template: 'node_modules/angular-jsdoc/template',
+            },
+        },
+    },
 });
-{% endhighlight%}
+```
 
 Running the grunt jsdoc task generates the simple, basic and clear html documentation:
 

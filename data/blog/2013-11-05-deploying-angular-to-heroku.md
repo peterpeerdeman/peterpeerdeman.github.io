@@ -17,10 +17,10 @@ A couple of simple steps to quickly create a nodejs angular application and host
 1. `heroku create`
 1. set buildpack:
 
-{% highlight bash %}
+```bash
 heroku config:add BUILDPACK_URL=https://github.com/mbuchetics/heroku-buildpack-nodejs-grunt.git
 heroku labs:enable user-env-compile
 heroku config:set NODE_ENV=production
-{% endhighlight %}
+```
 
 1. `heroku push`
