@@ -3,7 +3,7 @@ date: '2020-07-02'
 layout: post
 title: 'Mediacollege webinar: React Native Masterclass, door Peter Peerdeman en Rick Woltheus'
 category: presentations
-tags: [reactnative, mobile, hybrid]
+tags: ['presentations', 'mobile', 'reactnative']
 draft: false
 ---
 

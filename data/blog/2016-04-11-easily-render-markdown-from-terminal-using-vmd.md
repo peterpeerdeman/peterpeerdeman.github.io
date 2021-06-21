@@ -4,7 +4,7 @@ layout: post
 title: 'easily render markdown files from terminal using vmd'
 description: ''
 category:
-tags: [markdown, terminal]
+tags: ['workflow']
 draft: false
 ---
 

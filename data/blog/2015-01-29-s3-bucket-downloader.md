@@ -2,7 +2,7 @@
 date: '2015-01-29'
 title: 'S3 bucket downloader'
 category: ruby
-tags: ['amazon']
+tags: ['ruby']
 draft: false
 ---
 

@@ -4,7 +4,7 @@ layout: post
 title: 'Upgrading old ruby 2.0.0 app to 2.2.4 for heroku deployment'
 description: 'Upgrading old ruby 2.0.0 app to 2.2.4 for heroku deployment'
 category: devops
-tags: [devops, ruby]
+tags: ['devops', 'ruby']
 draft: false
 ---
 

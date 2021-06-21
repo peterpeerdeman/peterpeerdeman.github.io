@@ -4,7 +4,7 @@ layout: post
 title: 'Scheduling philips hue lights commands using node cron tasks'
 description: 'Scheduling philips hue lights commands using node cron tasks'
 category: internetofthings
-tags: [internetofthings, node]
+tags: ['iot', 'node']
 draft: false
 ---
 

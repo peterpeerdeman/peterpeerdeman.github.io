@@ -3,7 +3,7 @@ date: '2020-05-20'
 layout: post
 title: 'RaspLogger, InfluxDB, Grafana dashboards showcase'
 category: timeseries
-tags: [timeseries, grafana, influxdb, nodejs]
+tags: ['timeseries', 'grafana', 'influxdb', 'node']
 draft: false
 ---
 

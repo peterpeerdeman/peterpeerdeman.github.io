@@ -3,7 +3,7 @@ date: '2016-05-02'
 layout: post
 title: 'Sticky sessions loadbalancing for meteor using nginx-sticky-module-ng'
 category: nginx
-tags: [nginx, meteor, performance, loadbalancing]
+tags: ['devops', 'meteor']
 draft: false
 ---
 

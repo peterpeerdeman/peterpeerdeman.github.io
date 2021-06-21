@@ -3,7 +3,7 @@ date: '2018-02-22'
 layout: post
 title: 'From buzzwords to products, working with new technology at a software agency'
 category: presentations
-tags: [react, reactnative, graphql]
+tags: ['presentations', 'reactnative', 'graphql']
 draft: false
 ---
 

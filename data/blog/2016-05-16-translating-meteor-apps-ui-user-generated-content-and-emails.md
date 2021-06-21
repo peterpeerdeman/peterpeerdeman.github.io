@@ -4,7 +4,7 @@ layout: post
 title: 'Translating Meteor apps: UI, user generated content and emails'
 description: ''
 category: meteor
-tags: [meteor, i18n]
+tags: ['meteor']
 draft: false
 ---
 

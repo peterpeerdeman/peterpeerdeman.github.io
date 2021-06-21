@@ -3,7 +3,7 @@ date: '2020-03-05'
 layout: post
 title: 'GraphQL, Apollo and GraphQL Subscriptions, at React JS Utrecht meetup'
 category: presentations
-tags: [graphql, subscriptions, realtime]
+tags: ['presentations', 'graphql', 'react']
 draft: false
 ---
 

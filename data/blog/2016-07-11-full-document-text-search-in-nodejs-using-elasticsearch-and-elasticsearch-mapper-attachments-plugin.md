@@ -4,7 +4,7 @@ layout: post
 title: 'Full document text search in nodejs using elasticsearch and elasticsearch mapper attachments plugin'
 description: 'Full document text search in nodejs using elasticsearch and elasticsearch mapper attachments plugin'
 category: node
-tags: [node, elasticsearch, docker]
+tags: ['node', 'docker']
 draft: false
 ---
 

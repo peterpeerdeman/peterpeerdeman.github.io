@@ -3,7 +3,7 @@ date: '2018-02-20'
 layout: post
 title: 'GraphQL, Apollo and optimistic UI updates'
 category: presentations
-tags: [graphql]
+tags: ['presentations', 'graphql']
 draft: false
 ---
 

@@ -3,7 +3,7 @@ date: '2018-04-11'
 layout: post
 title: 'Why the hybrid approach finally works'
 category: presentations
-tags: ['presentations', 'mobile']
+tags: ['presentations', 'mobile', 'reactnative']
 draft: false
 ---
 

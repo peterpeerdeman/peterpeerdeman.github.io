@@ -3,7 +3,7 @@ date: '2017-04-21'
 layout: post
 title: 'Websockets and DDP in production'
 category: presentations
-tags: [websockets, ddp]
+tags: ['presentations', 'ddp']
 draft: false
 ---
 

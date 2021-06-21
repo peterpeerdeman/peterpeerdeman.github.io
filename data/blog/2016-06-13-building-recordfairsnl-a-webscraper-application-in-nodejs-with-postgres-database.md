@@ -4,7 +4,7 @@ layout: post
 title: 'Building recordfairs.nl, a webscraper application in nodejs with postgres database'
 description: 'Building recordfairs.nl, a webscraper application in nodejs with postgres database'
 category: node
-tags: [node, project, webscraper]
+tags: ['node']
 draft: false
 ---
 

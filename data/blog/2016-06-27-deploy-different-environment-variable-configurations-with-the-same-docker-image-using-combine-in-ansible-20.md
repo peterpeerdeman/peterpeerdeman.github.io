@@ -4,7 +4,7 @@ layout: post
 title: 'Deploy different environment variable configurations with the same docker image using combine in ansible 2.0'
 description: 'Deploy different environment variable configurations with the same docker image using combine in ansible 2.0'
 category: devops
-tags: [devops, ansible, docker]
+tags: ['devops', 'docker']
 draft: false
 ---
 

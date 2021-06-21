@@ -4,7 +4,7 @@ layout: post
 title: 'Switching from REST to Meteor, DDP and Apollo'
 description: 'switching from REST to Meteor, DDP and Apollo'
 category: technology
-tags: [nodejs, meteor, rest, apollo]
+tags: ['node', 'meteor', 'ddp']
 draft: false
 ---
 

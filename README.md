@@ -1,6 +1,5 @@
 ## TODO
 
--   clean tags
 -   devops / deployment to github pages
 -   about page
 -   refactor old drafts into new frontmatter draft format

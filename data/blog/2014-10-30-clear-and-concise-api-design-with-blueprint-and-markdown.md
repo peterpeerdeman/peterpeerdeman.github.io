@@ -2,7 +2,7 @@
 date: '2014-10-30'
 title: 'Clear and concise API design with blueprint and markdown'
 category: technology
-tags: ['documentation']
+tags: ['software engineering']
 draft: false
 ---
 

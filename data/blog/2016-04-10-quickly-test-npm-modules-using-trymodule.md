@@ -4,7 +4,7 @@ layout: post
 title: 'quickly test npm modules using trymodule'
 description: 'quickly test npm modules using trymodule'
 category: node
-tags: [node, npm]
+tags: ['node']
 draft: false
 ---
 

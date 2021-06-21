@@ -3,7 +3,7 @@ date: '2017-11-20'
 layout: post
 title: 'ReactNative at Lifely'
 category: presentations
-tags: [react, reactnative]
+tags: ['presentations', 'reactnative']
 draft: false
 ---
 

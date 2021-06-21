@@ -4,7 +4,7 @@ layout: post
 title: 'Meteor client side collection inserts versus meteor methods'
 description: 'Meteor client side collection inserts versus meteor methods'
 category: meteor
-tags: [meteor]
+tags: ['meteor']
 draft: false
 ---
 

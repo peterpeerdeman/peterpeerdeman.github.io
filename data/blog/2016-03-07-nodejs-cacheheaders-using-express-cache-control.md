@@ -4,7 +4,7 @@ layout: post
 title: 'NodeJS cacheheaders using express-cache-control'
 description: 'NodeJS cacheheaders using express-cache-control'
 category: node
-tags: [node]
+tags: ['node']
 draft: false
 ---
 

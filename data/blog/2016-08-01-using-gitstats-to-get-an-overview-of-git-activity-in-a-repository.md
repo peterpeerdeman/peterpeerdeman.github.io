@@ -4,7 +4,7 @@ layout: post
 title: 'using gitstats to get an overview of git activity in a repository'
 description: 'using gitstats to get an overview of git activity in a repository'
 category: git
-tags: [git]
+tags: ['git']
 draft: false
 ---
 

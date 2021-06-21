@@ -2,7 +2,7 @@
 date: '2014-03-23'
 title: 'Flash HTC-One to Google Play edition'
 category: android
-tags: ['android']
+tags: ['mobile']
 draft: false
 ---
 

@@ -4,7 +4,7 @@ layout: post
 title: 'Wireless outside weather station using particle photon, arduino and nodejs'
 description: 'Wireless outside weather station using particle photon, arduino and nodejs'
 category: internetofthings
-tags: [internetofthings, node, iot, photon]
+tags: ['iot', 'node']
 draft: false
 ---
 

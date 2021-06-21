@@ -2,7 +2,7 @@
 date: '2015-01-08'
 title: 'My view on Android development in 2015'
 category: android
-tags: ['android']
+tags: ['mobile']
 draft: false
 ---
 
