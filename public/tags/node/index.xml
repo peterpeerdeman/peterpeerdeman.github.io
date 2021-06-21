@@ -1,0 +1,94 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Mon, 11 Jul 2016 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/node/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/full-document-text-search-in-nodejs-using-elasticsearch-and-elasticsearch-mapper-attachments-plugin</guid>
+  <title>Full document text search in nodejs using elasticsearch and elasticsearch mapper attachments plugin</title>
+  <link>https://hashbang.nl/blog/full-document-text-search-in-nodejs-using-elasticsearch-and-elasticsearch-mapper-attachments-plugin</link>
+    <description>undefined</description>
+    <pubDate>Mon, 11 Jul 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>elasticsearch</category><category>docker</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/building-recordfairsnl-a-webscraper-application-in-nodejs-with-postgres-database</guid>
+  <title>Building recordfairs.nl, a webscraper application in nodejs with postgres database</title>
+  <link>https://hashbang.nl/blog/building-recordfairsnl-a-webscraper-application-in-nodejs-with-postgres-database</link>
+    <description>undefined</description>
+    <pubDate>Mon, 13 Jun 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>project</category><category>webscraper</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs</guid>
+  <title>Wireless outside weather station using particle photon, arduino and nodejs</title>
+  <link>https://hashbang.nl/blog/wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs</link>
+    <description>undefined</description>
+    <pubDate>Mon, 30 May 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>internetofthings</category><category>node</category><category>iot</category><category>photon</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/scheduling-philips-hue-lights-commands-using-node-cron-tasks</guid>
+  <title>Scheduling philips hue lights commands using node cron tasks</title>
+  <link>https://hashbang.nl/blog/scheduling-philips-hue-lights-commands-using-node-cron-tasks</link>
+    <description>undefined</description>
+    <pubDate>Mon, 25 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>internetofthings</category><category>node</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/quickly-test-npm-modules-using-trymodule</guid>
+  <title>quickly test npm modules using trymodule</title>
+  <link>https://hashbang.nl/blog/quickly-test-npm-modules-using-trymodule</link>
+    <description>undefined</description>
+    <pubDate>Sun, 10 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>npm</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/nodejs-cacheheaders-using-express-cache-control</guid>
+  <title>NodeJS cacheheaders using express-cache-control</title>
+  <link>https://hashbang.nl/blog/nodejs-cacheheaders-using-express-cache-control</link>
+    <description>undefined</description>
+    <pubDate>Mon, 07 Mar 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/meteor-enoent-error-on-imagemagick-dependency</guid>
+  <title>Meteor ENOENT error because of imagemagick dependency</title>
+  <link>https://hashbang.nl/blog/meteor-enoent-error-on-imagemagick-dependency</link>
+    <description>undefined</description>
+    <pubDate>Tue, 17 Nov 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/parallel-requests-in-node-using-promises</guid>
+  <title>Parallel requests in node using promises</title>
+  <link>https://hashbang.nl/blog/parallel-requests-in-node-using-promises</link>
+    <description>undefined</description>
+    <pubDate>Fri, 25 Apr 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category>
+  </item>
+
+    </channel>
+  </rss>

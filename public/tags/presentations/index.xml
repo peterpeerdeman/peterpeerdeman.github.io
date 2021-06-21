@@ -1,0 +1,154 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Sat, 12 Sep 2020 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/presentations/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/lifely-x-emakina-nerd-summit-graphql-why-what-and-how-by-peter-peerdeman</guid>
+  <title>Lifely x Emakina Nerd Summit GraphQL: Why What and How by Peter Peerdeman</title>
+  <link>https://hashbang.nl/blog/lifely-x-emakina-nerd-summit-graphql-why-what-and-how-by-peter-peerdeman</link>
+    <description>undefined</description>
+    <pubDate>Sat, 12 Sep 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/expert-tracks-vs-management-tracks-plus-portfolio-tips</guid>
+  <title>Expert tracks vs Management tracks and portfolio tips, HelloMentor meetup at Lifely</title>
+  <link>https://hashbang.nl/blog/expert-tracks-vs-management-tracks-plus-portfolio-tips</link>
+    <description>undefined</description>
+    <pubDate>Fri, 15 Feb 2019 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>leadership</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-and-apollo</guid>
+  <title>GraphQL and Apollo at Saxum Food n Code Meetup</title>
+  <link>https://hashbang.nl/blog/graphql-and-apollo</link>
+    <description>undefined</description>
+    <pubDate>Thu, 13 Dec 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/kickstart-your-digital-process-with-an-agency</guid>
+  <title>Kickstart your digital process with an agency</title>
+  <link>https://hashbang.nl/blog/kickstart-your-digital-process-with-an-agency</link>
+    <description>undefined</description>
+    <pubDate>Wed, 21 Nov 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-the-future-of-apis-is-here</guid>
+  <title>GraphQL: The future of API's is here</title>
+  <link>https://hashbang.nl/blog/graphql-the-future-of-apis-is-here</link>
+    <description>undefined</description>
+    <pubDate>Sat, 27 Oct 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/why-the-hybrid-approach-finally-works</guid>
+  <title>Why the hybrid approach finally works</title>
+  <link>https://hashbang.nl/blog/why-the-hybrid-approach-finally-works</link>
+    <description>undefined</description>
+    <pubDate>Wed, 11 Apr 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>mobile</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/datamodels-apis-and-graphql-in-practice</guid>
+  <title>Datamodels, API's and GraphQL in practice</title>
+  <link>https://hashbang.nl/blog/datamodels-apis-and-graphql-in-practice</link>
+    <description>undefined</description>
+    <pubDate>Mon, 12 Mar 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/moving-to-our-own-meteor-docker-infrastructure</guid>
+  <title>Moving to our own Meteor Docker infrastructure</title>
+  <link>https://hashbang.nl/blog/moving-to-our-own-meteor-docker-infrastructure</link>
+    <description>undefined</description>
+    <pubDate>Wed, 09 Dec 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/webapplications-from-concept-to-code</guid>
+  <title>Webapplications: from Concept to Code</title>
+  <link>https://hashbang.nl/blog/webapplications-from-concept-to-code</link>
+    <description>undefined</description>
+    <pubDate>Mon, 28 Sep 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/ddp-the-real-time-api-for-web-applications</guid>
+  <title>DDP: The real time api for web applications</title>
+  <link>https://hashbang.nl/blog/ddp-the-real-time-api-for-web-applications</link>
+    <description>undefined</description>
+    <pubDate>Fri, 04 Sep 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/part-up-a-meteor-production-story-at-the-meteor-meetup-hosted-by-lifely</guid>
+  <title>Part up: a Meteor Production Story, at the Meteor Meet-up hosted by Lifely</title>
+  <link>https://hashbang.nl/blog/part-up-a-meteor-production-story-at-the-meteor-meetup-hosted-by-lifely</link>
+    <description>undefined</description>
+    <pubDate>Wed, 01 Jul 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/queueing-jobs-with-rabbitmq-and-symfony2</guid>
+  <title>Queueing jobs with RabbitMQ and Symfony2</title>
+  <link>https://hashbang.nl/blog/queueing-jobs-with-rabbitmq-and-symfony2</link>
+    <description>undefined</description>
+    <pubDate>Thu, 16 Oct 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/from-student-to-lead-tech-and-back-again</guid>
+  <title>From student to lead tech and back again</title>
+  <link>https://hashbang.nl/blog/from-student-to-lead-tech-and-back-again</link>
+    <description>undefined</description>
+    <pubDate>Tue, 29 Apr 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/consuming-restful-resources-with-angularjs</guid>
+  <title>Consuming RESTful Resources with AngularJS</title>
+  <link>https://hashbang.nl/blog/consuming-restful-resources-with-angularjs</link>
+    <description>undefined</description>
+    <pubDate>Wed, 04 Dec 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>angular</category>
+  </item>
+
+    </channel>
+  </rss>

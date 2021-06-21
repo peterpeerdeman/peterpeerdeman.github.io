@@ -1,0 +1,144 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Mon, 27 Jun 2016 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/devops/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/deploy-different-environment-variable-configurations-with-the-same-docker-image-using-combine-in-ansible-20</guid>
+  <title>Deploy different environment variable configurations with the same docker image using combine in ansible 2.0</title>
+  <link>https://hashbang.nl/blog/deploy-different-environment-variable-configurations-with-the-same-docker-image-using-combine-in-ansible-20</link>
+    <description>undefined</description>
+    <pubDate>Mon, 27 Jun 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category><category>ansible</category><category>docker</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/upgrading-old-ruby-200-app-to-224-for-heroku-deployment</guid>
+  <title>Upgrading old ruby 2.0.0 app to 2.2.4 for heroku deployment</title>
+  <link>https://hashbang.nl/blog/upgrading-old-ruby-200-app-to-224-for-heroku-deployment</link>
+    <description>undefined</description>
+    <pubDate>Mon, 09 May 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category><category>ruby</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/visualizing-disk-space-usage-on-linux-server-using-ncdu</guid>
+  <title>Visualizing disk space usage on linux server using ncdu</title>
+  <link>https://hashbang.nl/blog/visualizing-disk-space-usage-on-linux-server-using-ncdu</link>
+    <description>undefined</description>
+    <pubDate>Mon, 22 Feb 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/dns-aaaa-records-and-ipv6</guid>
+  <title>DNS, AAAA records and ipv6</title>
+  <link>https://hashbang.nl/blog/dns-aaaa-records-and-ipv6</link>
+    <description>undefined</description>
+    <pubDate>Sat, 19 Sep 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/force-cache-miss-with-grunt-replace</guid>
+  <title>Force cache miss on Javascript / CSS assets after deploy with grunt-replace</title>
+  <link>https://hashbang.nl/blog/force-cache-miss-with-grunt-replace</link>
+    <description>undefined</description>
+    <pubDate>Mon, 02 Mar 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/server-health-insight-with-newrelic-and-ansible</guid>
+  <title>Server health insight with NewRelic and ansible</title>
+  <link>https://hashbang.nl/blog/server-health-insight-with-newrelic-and-ansible</link>
+    <description>undefined</description>
+    <pubDate>Thu, 13 Nov 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/deploying-an-angular-web-application-alongside-symfony2-backend</guid>
+  <title>Deploying an Angular web application alongside Symfony2 back-end</title>
+  <link>https://hashbang.nl/blog/deploying-an-angular-web-application-alongside-symfony2-backend</link>
+    <description>undefined</description>
+    <pubDate>Sun, 26 Oct 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/logging-stashing-and-analyzing-with-elasticsearch-logstash-and-kibana</guid>
+  <title>Big data experiment with Elasticsearch, Logstash and Kibana</title>
+  <link>https://hashbang.nl/blog/logging-stashing-and-analyzing-with-elasticsearch-logstash-and-kibana</link>
+    <description>undefined</description>
+    <pubDate>Thu, 23 Oct 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/load-testing-with-loaderio</guid>
+  <title>Load testing with loader.io</title>
+  <link>https://hashbang.nl/blog/load-testing-with-loaderio</link>
+    <description>undefined</description>
+    <pubDate>Wed, 10 Sep 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/creating-a-json-version-file-during-capistrano-deployment</guid>
+  <title>Creating a json version file during capistrano deployment</title>
+  <link>https://hashbang.nl/blog/creating-a-json-version-file-during-capistrano-deployment</link>
+    <description>undefined</description>
+    <pubDate>Mon, 16 Jun 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/symfony2-continuous-integration-and-deployment-with-wercker</guid>
+  <title>Symfony2 continuous integration and deployment with Wercker</title>
+  <link>https://hashbang.nl/blog/symfony2-continuous-integration-and-deployment-with-wercker</link>
+    <description>undefined</description>
+    <pubDate>Mon, 02 Jun 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/simple-and-secure-iptables-configuration-for-webserver</guid>
+  <title>Simple and secure iptables configuration for webserver</title>
+  <link>https://hashbang.nl/blog/simple-and-secure-iptables-configuration-for-webserver</link>
+    <description>undefined</description>
+    <pubDate>Wed, 16 Apr 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/saving-version-number-at-capifony-deploy</guid>
+  <title>Saving version number at capifony deploy</title>
+  <link>https://hashbang.nl/blog/saving-version-number-at-capifony-deploy</link>
+    <description>undefined</description>
+    <pubDate>Mon, 09 Dec 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+    </channel>
+  </rss>

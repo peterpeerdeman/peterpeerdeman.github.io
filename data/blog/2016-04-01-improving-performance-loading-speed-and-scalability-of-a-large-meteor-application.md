@@ -1,0 +1,34 @@
+---
+date: '2016-04-01'
+layout: post
+title: 'improving performance, loading speed and scalability of a large meteor application'
+category: meteor
+tags: ['meteor']
+draft: false
+---
+
+After finishing the MVP functionalities of one of our biggest meteor applications, we had to take a step back and improve the performance and scalability of the application. These were the most important steps we took:
+
+## reduce distance between database and appservers
+
+One of the biggest gains in performance was relocating the mongodatabase to be physically closer to the application nodes. We initially had our application server running in New York with the database running in Ireland. As you might have expected, this did not bode well for our users that are mainly based in Europe. When we switched hosts we made sure that both the appserver and database servers ran in the same datacenter, which significantly improved latency.
+
+## load images from S3 directly
+
+Instead of streaming images from S3 through the meteor application, we changed the front-end code to load the images from S3 directly. This offloaded a lot of stress from our application servers, which now had more resources to handle data requests. If you keep your images in an s3 bucket in a predictable manner (e.g., with folders and filenames that are constructable from the client code) you also take advantage of the browser being able to load multiple resources from different hostnames at the same time.
+
+## load balance applicationservers with nginx `sticky secure` instead of `ip_hash`
+
+When hosting Node applications, loadbalancing is a necessity for proper horizontal scaling. In early versions of the loadbalancer we used `ip_hash`, a built in load balancing technique in nginx. This works with meteor websockets because each clients ip is logged, and the same ip addresses always get routed to the same box. However, if a lot of users hit the site from the same ip address (e.g. a group of users from a big corporate office) the load is not optimally distributed.
+
+We found that the third party [nginx-sticky-module-ng](https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng) plugin did quite a good job distributing the load among servers per specific user session. Unfortunately, this means you have to install nginx on the loadbalancer from source, and install the [nginx-sticky-module-ng](https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng) during the installation. I've written another blogpost detailing [how to implement the sticky modules]({% post_url 2016-05-02-sticky-sessions-loadbalance-for-meteor-using-nginx-sticky-module-ng %}).
+
+## create cacheable REST endpoints for common data on home page
+
+Unfortunately, there was just too much reactivity going on in certain parts of the application. The app we created even had realtime reactive data on the splashpage, which would get hit quite heavily when sending out marketing / pr / tweets / newsletters etc. To solve this, we changed the frontend and backend to load data through cacheable HTTP calls to the backend. We configured the endpoints using the [meteorhacks:picker](https://github.com/meteorhacks/picker) package, that allows you to build REST endpoints on top of your Meteor application.
+
+## separate background jobs from client facing nodes
+
+While building the application, we used the [meteor-synched-cron](https://github.com/percolatestudio/meteor-synced-cron) package to perform routine background tasks, such as recalculating certain scores, updating most popular lists, retrieving commonly used tags, resetting clicks per hour etc etc. In the end, some of the heavier cron jobs started to take lots of CPU, using the same resources as the data requests from our users.
+
+To solve this, we configured the cron jobs to only run when a certain environment variable is present. While deploying, we deploy 1 of the servers using this environment variable, effectively making that server the designated cron server. This offloaded the appservers that were serving content to our users. Another huge performance gain!

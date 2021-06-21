@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Fri, 15 Feb 2019 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/leadership/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/expert-tracks-vs-management-tracks-plus-portfolio-tips</guid>
+  <title>Expert tracks vs Management tracks and portfolio tips, HelloMentor meetup at Lifely</title>
+  <link>https://hashbang.nl/blog/expert-tracks-vs-management-tracks-plus-portfolio-tips</link>
+    <description>undefined</description>
+    <pubDate>Fri, 15 Feb 2019 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>leadership</category>
+  </item>
+
+    </channel>
+  </rss>

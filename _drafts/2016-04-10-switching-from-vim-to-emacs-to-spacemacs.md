@@ -1,15 +1,14 @@
 ---
 layout: post
-title: "switching from vim to emacs to spacemacs"
-description: ""
-category: 
+title: 'switching from vim to emacs to spacemacs'
+description: ''
+category:
 tags: []
 ---
 
-
 As discussed in github issue [https://github.com/syl20bnr/spacemacs/issues/2222]
 
-{% highlight lisp %}
+```lisp
 
 (defun dotspacemacs/user-config ()
 
@@ -44,5 +43,5 @@ As discussed in github issue [https://github.com/syl20bnr/spacemacs/issues/2222]
     )
   (evil-leader/set-key "o y" 'copy-to-clipboard)
   (evil-leader/set-key "o p" 'paste-from-clipboard)
-  ) 
-  {% endhighlight %}
+  )
+```

@@ -1,0 +1,36 @@
+---
+date: '2020-03-05'
+layout: post
+title: 'Vijf onderwerpen voor een succesvolle onboarding'
+category: opinions
+tags: ['opinions']
+draft: false
+---
+
+Het is zover, je hebt een nieuw talent ontdekt voor een passende functie in je bedrijf. Er is een overeenkomst gesloten en ze start volgende week al! Fantastisch, maar hoe zorg je voor een succesvolle onboarding?
+
+Ieder bedrijf heeft zijn eigen vorm van onboarding. Dit heeft natuurlijk alles te maken met de schaal van je bedrijf, in welke branche je werkzaam bent en je bedrijfscultuur.
+
+Binnen Lifely zijn waardes als gelijkwaardigheid, transparantie en persoonlijke ontwikkeling belangrijk. Dit voeren we door in ons onboarding traject. Persoonlijk leiderschap, leren reflecteren op je eigen werk en vragen leren stellen zijn daar een belangrijk onderdeel van. Graag deel ik onze vijf onboarding onderwerpen voor onze succesvolle onboarding.
+
+### Direct aan de slag
+
+Als digitaal projectontwikkelaars werken wij bij Lifely graag met scrum. Scrum biedt ons een gestructureerd proces dat een duidelijke verdeling maakt tussen voorbereiden en effectief produceren waar onze klant iteratief in wordt meegenomen. Als onboardee doe je direct mee met de daily standup bij het scrumbord en de sprint-planning, waarin alle teamleden samen de taken definiëren die benodigd zijn om een product te maken. Zo ben je als nieuweling direct op de hoogte van het proces en de activiteiten van je collega’s. Tijdens zo’n planning stellen we elkaar vragen over hoe we taken kunnen aanpakken, zo leer je van elkaar.
+
+### Reviews
+
+Als taken zijn uitgevoerd worden deze bekeken door een collega. Het streven is hierbij om altijd één specifieke opmerking te geven. Wat is er bijvoorbeeld specifiek goed aan dit onderdeel? Bij opbouwende kritiek stellen we liever een vraag dan dat we alleen aangeven dat iets fout is en beter moet. Zo kan degene die de taak uitgevoerd heeft duidelijk maken waarom welke keuzes gemaakt zijn en praten over hoe het ook anders had gekund. Een soort van automatisch ingebakken leerproces.
+
+### Onafhankelijk werken
+
+Door de verschillende sprints en vele reviews, heb je veel geleerd over de inhoud en ben je beter geworden in je werk. Dit zorgt ervoor dat je steeds meer ownership krijgt over een project. In plaats van dat een collega aan jou vragen stelt, stel jij nu vragen aan je collega. Hoe zou jij deze taak aanpakken? En waar verwacht je hulp nodig te hebben? De collega zal vanaf nu alleen nog maar overzicht houden en je helpen als je vast zit.
+
+### Teammate onboarden
+
+You made it! Je hebt al ownership over het project en nu is het tijd om een nieuwe collega te onboarden. Precies op dezelfde manier hoe jij het onboarding traject hebt gevolgd. Tijdens het uitleggen en voordoen ga je automatisch al je learnings verwoorden. Je leert dan passend je geduld te bewaren, niet altijd alles te verklappen, te luisteren naar iemands uitleg en je te verplaatsen in iemand zijn of haar belevingswereld. Als jij het bewust voordoet, volgt je collega vanzelf!
+
+### Eigen team
+
+Om meer tijd te creëren voor voorbereiding en afstemming kan je doorgroeien. Je wordt dan zelf een leidinggevende collega en gaat teams begeleiden, contacten onderhouden tussen afdelingen en houdt controle over projecten. Niet iedereen droomt daarvan, er zijn er genoeg die zich liever als inhoudelijk expert ontwikkelen. Ook een combinatie is mogelijk, denk aan een expert die met een groepje specialisten aan een moeilijke uitdaging werkt.
+
+Een continu proces van persoonlijke ontwikkeling staat bij ons onboarding traject centraal, het past goed binnen ons cultuur. Wel ben ik benieuwd naar onboarding ervaringen in onze branche. Welke onderwerpen vind jij belangrijk in jouw onboardingsproces? Zijn er onderwerpen die echt onmisbaar zijn? Laat het me weten via peter@lifely.nl.

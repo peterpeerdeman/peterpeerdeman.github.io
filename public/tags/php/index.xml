@@ -1,0 +1,104 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Tue, 20 May 2014 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/php/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/kernel-request-listeners-not-triggering-on-commands</guid>
+  <title>Kernel request listeners not triggering on commands</title>
+  <link>https://hashbang.nl/blog/kernel-request-listeners-not-triggering-on-commands</link>
+    <description>undefined</description>
+    <pubDate>Tue, 20 May 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/authentication-choices-wsse-vs-jwt</guid>
+  <title>Authentication choices: WSSE vs JWT</title>
+  <link>https://hashbang.nl/blog/authentication-choices-wsse-vs-jwt</link>
+    <description>undefined</description>
+    <pubDate>Wed, 30 Apr 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/missing-label-translations-in-sonata-admin-interface</guid>
+  <title>Missing label translations in Sonata admin interface</title>
+  <link>https://hashbang.nl/blog/missing-label-translations-in-sonata-admin-interface</link>
+    <description>undefined</description>
+    <pubDate>Wed, 29 Jan 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/symfony2-many-to-one-as-required-field-using-join-column</guid>
+  <title>Symfony2 Doctrine ManyToOne as required field using join column</title>
+  <link>https://hashbang.nl/blog/symfony2-many-to-one-as-required-field-using-join-column</link>
+    <description>undefined</description>
+    <pubDate>Wed, 29 Jan 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/using-lifecycle-callbacks-to-set-created-and-updated-fields</guid>
+  <title>Using doctrine lifecycle callbacks to update timestamps</title>
+  <link>https://hashbang.nl/blog/using-lifecycle-callbacks-to-set-created-and-updated-fields</link>
+    <description>undefined</description>
+    <pubDate>Tue, 28 Jan 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/symfony2-deployment-target-configuration</guid>
+  <title>Symfony2 deployment target configuration</title>
+  <link>https://hashbang.nl/blog/symfony2-deployment-target-configuration</link>
+    <description>undefined</description>
+    <pubDate>Mon, 04 Nov 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/symfony2-cache-clearing</guid>
+  <title>Symfony2 cache clearing problems</title>
+  <link>https://hashbang.nl/blog/symfony2-cache-clearing</link>
+    <description>undefined</description>
+    <pubDate>Fri, 25 Oct 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/restangular-with-symfony2</guid>
+  <title>Restangular and validations while POST'ing to Symfony2</title>
+  <link>https://hashbang.nl/blog/restangular-with-symfony2</link>
+    <description>undefined</description>
+    <pubDate>Wed, 23 Oct 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/posting-data-to-symfony2</guid>
+  <title>Posting data to Symfony2</title>
+  <link>https://hashbang.nl/blog/posting-data-to-symfony2</link>
+    <description>undefined</description>
+    <pubDate>Mon, 21 Oct 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+    </channel>
+  </rss>

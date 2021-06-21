@@ -1,0 +1,954 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Sat, 12 Sep 2020 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/lifely-x-emakina-nerd-summit-graphql-why-what-and-how-by-peter-peerdeman</guid>
+  <title>Lifely x Emakina Nerd Summit GraphQL: Why What and How by Peter Peerdeman</title>
+  <link>https://hashbang.nl/blog/lifely-x-emakina-nerd-summit-graphql-why-what-and-how-by-peter-peerdeman</link>
+    <description>undefined</description>
+    <pubDate>Sat, 12 Sep 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/e-commerce-dit-is-wat-samenwerkingen-voor-jou-kunnen-betekenen</guid>
+  <title>E commerce, dit is wat samenwerkingen voor jou kunnen betekenen</title>
+  <link>https://hashbang.nl/blog/e-commerce-dit-is-wat-samenwerkingen-voor-jou-kunnen-betekenen</link>
+    <description>undefined</description>
+    <pubDate>Thu, 13 Aug 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/drie-moderne-cloud-geheimen-voor-e-commerce-platformen</guid>
+  <title>Drie moderne cloud geheimen voor e commerce platformen</title>
+  <link>https://hashbang.nl/blog/drie-moderne-cloud-geheimen-voor-e-commerce-platformen</link>
+    <description>undefined</description>
+    <pubDate>Tue, 04 Aug 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/mediacollege-webinar-react-native-masterclass-door-peter-peerdeman-en-rick-woltheus</guid>
+  <title>Mediacollege webinar: React Native Masterclass, door Peter Peerdeman en Rick Woltheus</title>
+  <link>https://hashbang.nl/blog/mediacollege-webinar-react-native-masterclass-door-peter-peerdeman-en-rick-woltheus</link>
+    <description>undefined</description>
+    <pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>reactnative</category><category>mobile</category><category>hybrid</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/lifely-en-renewable-tech-wat-kunnen-wij-samen-bereiken</guid>
+  <title>Lifely & renewable tech, wat kunnen wij samen bereiken?</title>
+  <link>https://hashbang.nl/blog/lifely-en-renewable-tech-wat-kunnen-wij-samen-bereiken</link>
+    <description>undefined</description>
+    <pubDate>Fri, 26 Jun 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/samenwerken-met-een-agency-briefen-visualiseren-en-profiteren</guid>
+  <title>Samenwerken met een agency: briefen, visualiseren en profiteren</title>
+  <link>https://hashbang.nl/blog/samenwerken-met-een-agency-briefen-visualiseren-en-profiteren</link>
+    <description>undefined</description>
+    <pubDate>Thu, 18 Jun 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/drie-onvermijdelijke-ontwikkelingen-in-jouw-sustainable-tech-of-alternative-energy-bedrijf</guid>
+  <title>Drie onvermijdelijke ontwikkelingen in jouw sustainable tech of alternative energy bedrijf</title>
+  <link>https://hashbang.nl/blog/drie-onvermijdelijke-ontwikkelingen-in-jouw-sustainable-tech-of-alternative-energy-bedrijf</link>
+    <description>undefined</description>
+    <pubDate>Thu, 11 Jun 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/veilig-en-snel-aan-je-verzekeraars-platform-werken-met-externe-partijen</guid>
+  <title>Veilig en snel aan je verzekeraars platform werken met externe partijen</title>
+  <link>https://hashbang.nl/blog/veilig-en-snel-aan-je-verzekeraars-platform-werken-met-externe-partijen</link>
+    <description>undefined</description>
+    <pubDate>Thu, 04 Jun 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/using-influxdb-grafana-and-nodejs-datalogger-to-visualise-solar-panel-data</guid>
+  <title>Using influxdb, grafana and nodejs datalogger rasplogger to visualise solar panel data</title>
+  <link>https://hashbang.nl/blog/using-influxdb-grafana-and-nodejs-datalogger-to-visualise-solar-panel-data</link>
+    <description>undefined</description>
+    <pubDate>Wed, 03 Jun 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>nodejs</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/samenwerkingsvormen-tussen-verzekeraars-en-tech-partijen</guid>
+  <title>Samenwerkingsvormen tussen verzekeraars en tech partijen</title>
+  <link>https://hashbang.nl/blog/samenwerkingsvormen-tussen-verzekeraars-en-tech-partijen</link>
+    <description>undefined</description>
+    <pubDate>Tue, 26 May 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/rasplogger-influxdb-grafana-dashboards-showcase</guid>
+  <title>RaspLogger, InfluxDB, Grafana dashboards showcase</title>
+  <link>https://hashbang.nl/blog/rasplogger-influxdb-grafana-dashboards-showcase</link>
+    <description>undefined</description>
+    <pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>nodejs</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/waarom-ook-jij-moet-beginnen-met-big-data</guid>
+  <title>Waarom ook jij moet beginnen met big data</title>
+  <link>https://hashbang.nl/blog/waarom-ook-jij-moet-beginnen-met-big-data</link>
+    <description>undefined</description>
+    <pubDate>Mon, 23 Mar 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-apollo-subscriptions</guid>
+  <title>GraphQL, Apollo and GraphQL Subscriptions, at React JS Utrecht meetup</title>
+  <link>https://hashbang.nl/blog/graphql-apollo-subscriptions</link>
+    <description>undefined</description>
+    <pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>graphql</category><category>subscriptions</category><category>realtime</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/vijf-onderwerpen-voor-een-succesvolle-onboarding</guid>
+  <title>Vijf onderwerpen voor een succesvolle onboarding</title>
+  <link>https://hashbang.nl/blog/vijf-onderwerpen-voor-een-succesvolle-onboarding</link>
+    <description>undefined</description>
+    <pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/intellectueel-eigendom-waar-moet-je-rekening-mee-houden</guid>
+  <title>Intellectueel eigendom, waar moet je rekening mee houden?</title>
+  <link>https://hashbang.nl/blog/intellectueel-eigendom-waar-moet-je-rekening-mee-houden</link>
+    <description>undefined</description>
+    <pubDate>Mon, 24 Feb 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/een-oplossing-visualiseren-in-het-eerste-gesprek-met-de-klant</guid>
+  <title>Een oplossing visualiseren in het eerste gesprek met de klant</title>
+  <link>https://hashbang.nl/blog/een-oplossing-visualiseren-in-het-eerste-gesprek-met-de-klant</link>
+    <description>undefined</description>
+    <pubDate>Sun, 09 Feb 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/hoe-het-gebruik-van-buzzwords-technologie-ontkracht</guid>
+  <title>Hoe het gebruik van buzzwords technologie ontkracht</title>
+  <link>https://hashbang.nl/blog/hoe-het-gebruik-van-buzzwords-technologie-ontkracht</link>
+    <description>undefined</description>
+    <pubDate>Wed, 05 Feb 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/expert-tracks-vs-management-tracks-plus-portfolio-tips</guid>
+  <title>Expert tracks vs Management tracks and portfolio tips, HelloMentor meetup at Lifely</title>
+  <link>https://hashbang.nl/blog/expert-tracks-vs-management-tracks-plus-portfolio-tips</link>
+    <description>undefined</description>
+    <pubDate>Fri, 15 Feb 2019 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>leadership</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-and-apollo</guid>
+  <title>GraphQL and Apollo at Saxum Food n Code Meetup</title>
+  <link>https://hashbang.nl/blog/graphql-and-apollo</link>
+    <description>undefined</description>
+    <pubDate>Thu, 13 Dec 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/kickstart-your-digital-process-with-an-agency</guid>
+  <title>Kickstart your digital process with an agency</title>
+  <link>https://hashbang.nl/blog/kickstart-your-digital-process-with-an-agency</link>
+    <description>undefined</description>
+    <pubDate>Wed, 21 Nov 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-the-future-of-apis-is-here</guid>
+  <title>GraphQL: The future of API's is here</title>
+  <link>https://hashbang.nl/blog/graphql-the-future-of-apis-is-here</link>
+    <description>undefined</description>
+    <pubDate>Sat, 27 Oct 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/why-the-hybrid-approach-finally-works</guid>
+  <title>Why the hybrid approach finally works</title>
+  <link>https://hashbang.nl/blog/why-the-hybrid-approach-finally-works</link>
+    <description>undefined</description>
+    <pubDate>Wed, 11 Apr 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>mobile</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/datamodels-apis-and-graphql-in-practice</guid>
+  <title>Datamodels, API's and GraphQL in practice</title>
+  <link>https://hashbang.nl/blog/datamodels-apis-and-graphql-in-practice</link>
+    <description>undefined</description>
+    <pubDate>Mon, 12 Mar 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/from-buzzwords-to-products</guid>
+  <title>From buzzwords to products, working with new technology at a software agency</title>
+  <link>https://hashbang.nl/blog/from-buzzwords-to-products</link>
+    <description>undefined</description>
+    <pubDate>Thu, 22 Feb 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>react</category><category>reactnative</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-apollo-and-optimistic-ui-updates</guid>
+  <title>GraphQL, Apollo and optimistic UI updates</title>
+  <link>https://hashbang.nl/blog/graphql-apollo-and-optimistic-ui-updates</link>
+    <description>undefined</description>
+    <pubDate>Tue, 20 Feb 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/the-impact-and-glory-of-graphql-in-applications-at-lifely</guid>
+  <title>The impact and glory of GraphQL in applications at Lifely</title>
+  <link>https://hashbang.nl/blog/the-impact-and-glory-of-graphql-in-applications-at-lifely</link>
+    <description>undefined</description>
+    <pubDate>Wed, 24 Jan 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/react-native-at-lifely</guid>
+  <title>ReactNative at Lifely</title>
+  <link>https://hashbang.nl/blog/react-native-at-lifely</link>
+    <description>undefined</description>
+    <pubDate>Mon, 20 Nov 2017 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>react</category><category>reactnative</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/websockets-and-ddp-in-production</guid>
+  <title>Websockets and DDP in production</title>
+  <link>https://hashbang.nl/blog/websockets-and-ddp-in-production</link>
+    <description>undefined</description>
+    <pubDate>Fri, 21 Apr 2017 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>websockets</category><category>ddp</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</guid>
+  <title>Switching from REST to Meteor, DDP and Apollo</title>
+  <link>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</link>
+    <description>undefined</description>
+    <pubDate>Mon, 22 Aug 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>nodejs</category><category>meteor</category><category>rest</category><category>apollo</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/using-gitstats-to-get-an-overview-of-git-activity-in-a-repository</guid>
+  <title>using gitstats to get an overview of git activity in a repository</title>
+  <link>https://hashbang.nl/blog/using-gitstats-to-get-an-overview-of-git-activity-in-a-repository</link>
+    <description>undefined</description>
+    <pubDate>Mon, 01 Aug 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/full-document-text-search-in-nodejs-using-elasticsearch-and-elasticsearch-mapper-attachments-plugin</guid>
+  <title>Full document text search in nodejs using elasticsearch and elasticsearch mapper attachments plugin</title>
+  <link>https://hashbang.nl/blog/full-document-text-search-in-nodejs-using-elasticsearch-and-elasticsearch-mapper-attachments-plugin</link>
+    <description>undefined</description>
+    <pubDate>Mon, 11 Jul 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>elasticsearch</category><category>docker</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/deploy-different-environment-variable-configurations-with-the-same-docker-image-using-combine-in-ansible-20</guid>
+  <title>Deploy different environment variable configurations with the same docker image using combine in ansible 2.0</title>
+  <link>https://hashbang.nl/blog/deploy-different-environment-variable-configurations-with-the-same-docker-image-using-combine-in-ansible-20</link>
+    <description>undefined</description>
+    <pubDate>Mon, 27 Jun 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category><category>ansible</category><category>docker</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/building-recordfairsnl-a-webscraper-application-in-nodejs-with-postgres-database</guid>
+  <title>Building recordfairs.nl, a webscraper application in nodejs with postgres database</title>
+  <link>https://hashbang.nl/blog/building-recordfairsnl-a-webscraper-application-in-nodejs-with-postgres-database</link>
+    <description>undefined</description>
+    <pubDate>Mon, 13 Jun 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>project</category><category>webscraper</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs</guid>
+  <title>Wireless outside weather station using particle photon, arduino and nodejs</title>
+  <link>https://hashbang.nl/blog/wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs</link>
+    <description>undefined</description>
+    <pubDate>Mon, 30 May 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>internetofthings</category><category>node</category><category>iot</category><category>photon</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/translating-meteor-apps-ui-user-generated-content-and-emails</guid>
+  <title>Translating Meteor apps: UI, user generated content and emails</title>
+  <link>https://hashbang.nl/blog/translating-meteor-apps-ui-user-generated-content-and-emails</link>
+    <description>undefined</description>
+    <pubDate>Mon, 16 May 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>meteor</category><category>i18n</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/upgrading-old-ruby-200-app-to-224-for-heroku-deployment</guid>
+  <title>Upgrading old ruby 2.0.0 app to 2.2.4 for heroku deployment</title>
+  <link>https://hashbang.nl/blog/upgrading-old-ruby-200-app-to-224-for-heroku-deployment</link>
+    <description>undefined</description>
+    <pubDate>Mon, 09 May 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category><category>ruby</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/sticky-sessions-loadbalance-for-meteor-using-nginx-sticky-module-ng</guid>
+  <title>Sticky sessions loadbalancing for meteor using nginx-sticky-module-ng</title>
+  <link>https://hashbang.nl/blog/sticky-sessions-loadbalance-for-meteor-using-nginx-sticky-module-ng</link>
+    <description>undefined</description>
+    <pubDate>Mon, 02 May 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>nginx</category><category>meteor</category><category>performance</category><category>loadbalancing</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/scheduling-philips-hue-lights-commands-using-node-cron-tasks</guid>
+  <title>Scheduling philips hue lights commands using node cron tasks</title>
+  <link>https://hashbang.nl/blog/scheduling-philips-hue-lights-commands-using-node-cron-tasks</link>
+    <description>undefined</description>
+    <pubDate>Mon, 25 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>internetofthings</category><category>node</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/easily-render-markdown-from-terminal-using-vmd</guid>
+  <title>easily render markdown files from terminal using vmd</title>
+  <link>https://hashbang.nl/blog/easily-render-markdown-from-terminal-using-vmd</link>
+    <description>undefined</description>
+    <pubDate>Mon, 11 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>markdown</category><category>terminal</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/quickly-test-npm-modules-using-trymodule</guid>
+  <title>quickly test npm modules using trymodule</title>
+  <link>https://hashbang.nl/blog/quickly-test-npm-modules-using-trymodule</link>
+    <description>undefined</description>
+    <pubDate>Sun, 10 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>npm</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/improving-performance-loading-speed-and-scalability-of-a-large-meteor-application</guid>
+  <title>improving performance, loading speed and scalability of a large meteor application</title>
+  <link>https://hashbang.nl/blog/improving-performance-loading-speed-and-scalability-of-a-large-meteor-application</link>
+    <description>undefined</description>
+    <pubDate>Fri, 01 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>meteor</category><category>performance</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/meteor-client-side-collection-inserts-versus-meteor-methods</guid>
+  <title>Meteor client side collection inserts versus meteor methods</title>
+  <link>https://hashbang.nl/blog/meteor-client-side-collection-inserts-versus-meteor-methods</link>
+    <description>undefined</description>
+    <pubDate>Mon, 21 Mar 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/nodejs-cacheheaders-using-express-cache-control</guid>
+  <title>NodeJS cacheheaders using express-cache-control</title>
+  <link>https://hashbang.nl/blog/nodejs-cacheheaders-using-express-cache-control</link>
+    <description>undefined</description>
+    <pubDate>Mon, 07 Mar 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/visualizing-disk-space-usage-on-linux-server-using-ncdu</guid>
+  <title>Visualizing disk space usage on linux server using ncdu</title>
+  <link>https://hashbang.nl/blog/visualizing-disk-space-usage-on-linux-server-using-ncdu</link>
+    <description>undefined</description>
+    <pubDate>Mon, 22 Feb 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/fast-and-practical-scrum-and-bug-management-using-trello-and-physical-scrum-boards</guid>
+  <title>Fast and practical SCRUM and bug management using Trello and physical SCRUM boards</title>
+  <link>https://hashbang.nl/blog/fast-and-practical-scrum-and-bug-management-using-trello-and-physical-scrum-boards</link>
+    <description>undefined</description>
+    <pubDate>Mon, 08 Feb 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>agile</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/raspberry-pi-arduino-weatherstation-with-pebblejs-interface</guid>
+  <title>Raspberry Pi + Arduino weatherstation with PebbleJS interface</title>
+  <link>https://hashbang.nl/blog/raspberry-pi-arduino-weatherstation-with-pebblejs-interface</link>
+    <description>undefined</description>
+    <pubDate>Mon, 25 Jan 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>iot</category><category>javascript</category><category>raspberry</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/experiences-with-mobile-cross-platform-cordova-apps-2015-2016</guid>
+  <title>Experiences with mobile cross-platform Cordova apps 2015-2016</title>
+  <link>https://hashbang.nl/blog/experiences-with-mobile-cross-platform-cordova-apps-2015-2016</link>
+    <description>undefined</description>
+    <pubDate>Mon, 11 Jan 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category><category>mobile</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/looking-into-meteor-our-experiences-with-real-time-web-applications</guid>
+  <title>Looking into Meteor: our experiences with real-time web applications</title>
+  <link>https://hashbang.nl/blog/looking-into-meteor-our-experiences-with-real-time-web-applications</link>
+    <description>undefined</description>
+    <pubDate>Mon, 14 Dec 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/moving-to-our-own-meteor-docker-infrastructure</guid>
+  <title>Moving to our own Meteor Docker infrastructure</title>
+  <link>https://hashbang.nl/blog/moving-to-our-own-meteor-docker-infrastructure</link>
+    <description>undefined</description>
+    <pubDate>Wed, 09 Dec 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/tidy-up-your-git-commits-amending-interactive-rebasing-and-squashing-commits</guid>
+  <title>tidy up your git commits: amending, interactive rebasing and squashing commits</title>
+  <link>https://hashbang.nl/blog/tidy-up-your-git-commits-amending-interactive-rebasing-and-squashing-commits</link>
+    <description>undefined</description>
+    <pubDate>Sat, 28 Nov 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/meteor-enoent-error-on-imagemagick-dependency</guid>
+  <title>Meteor ENOENT error because of imagemagick dependency</title>
+  <link>https://hashbang.nl/blog/meteor-enoent-error-on-imagemagick-dependency</link>
+    <description>undefined</description>
+    <pubDate>Tue, 17 Nov 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/replacing-meteor-spiderable-with-alternative-server-side-snippet-rendering</guid>
+  <title>Replacing meteor spiderable with alternative server side snippet rendering</title>
+  <link>https://hashbang.nl/blog/replacing-meteor-spiderable-with-alternative-server-side-snippet-rendering</link>
+    <description>undefined</description>
+    <pubDate>Mon, 26 Oct 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/things-i-liked-about-ruby-rails-and-symfony2-that-i-miss-in-nodejs</guid>
+  <title>Things I liked about Ruby on Rails and Symfony2 that I sometimes miss in NodeJS</title>
+  <link>https://hashbang.nl/blog/things-i-liked-about-ruby-rails-and-symfony2-that-i-miss-in-nodejs</link>
+    <description>undefined</description>
+    <pubDate>Mon, 05 Oct 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category><category>ruby</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/webapplications-from-concept-to-code</guid>
+  <title>Webapplications: from Concept to Code</title>
+  <link>https://hashbang.nl/blog/webapplications-from-concept-to-code</link>
+    <description>undefined</description>
+    <pubDate>Mon, 28 Sep 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/dns-aaaa-records-and-ipv6</guid>
+  <title>DNS, AAAA records and ipv6</title>
+  <link>https://hashbang.nl/blog/dns-aaaa-records-and-ipv6</link>
+    <description>undefined</description>
+    <pubDate>Sat, 19 Sep 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/ddp-the-real-time-api-for-web-applications</guid>
+  <title>DDP: The real time api for web applications</title>
+  <link>https://hashbang.nl/blog/ddp-the-real-time-api-for-web-applications</link>
+    <description>undefined</description>
+    <pubDate>Fri, 04 Sep 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/part-up-a-meteor-production-story-at-the-meteor-meetup-hosted-by-lifely</guid>
+  <title>Part up: a Meteor Production Story, at the Meteor Meet-up hosted by Lifely</title>
+  <link>https://hashbang.nl/blog/part-up-a-meteor-production-story-at-the-meteor-meetup-hosted-by-lifely</link>
+    <description>undefined</description>
+    <pubDate>Wed, 01 Jul 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/creating-router-independant-blaze-components-for-meteor</guid>
+  <title>Creating router independant blaze components for Meteor</title>
+  <link>https://hashbang.nl/blog/creating-router-independant-blaze-components-for-meteor</link>
+    <description>undefined</description>
+    <pubDate>Sun, 24 May 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/the-best-podcasts-to-get-started-with-full-stack-javascript-web-development</guid>
+  <title>The best podcasts to get started with full stack javascript web development</title>
+  <link>https://hashbang.nl/blog/the-best-podcasts-to-get-started-with-full-stack-javascript-web-development</link>
+    <description>undefined</description>
+    <pubDate>Wed, 01 Apr 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/searching-through-multiple-files-with-vim</guid>
+  <title>searching through multiple files with vim</title>
+  <link>https://hashbang.nl/blog/searching-through-multiple-files-with-vim</link>
+    <description>undefined</description>
+    <pubDate>Tue, 10 Mar 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>vim</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/force-cache-miss-with-grunt-replace</guid>
+  <title>Force cache miss on Javascript / CSS assets after deploy with grunt-replace</title>
+  <link>https://hashbang.nl/blog/force-cache-miss-with-grunt-replace</link>
+    <description>undefined</description>
+    <pubDate>Mon, 02 Mar 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/simple-and-clear-angular-application-documentation-using-angular-jsdoc</guid>
+  <title>Simple and clear Angular application documentation using angular-jsdoc</title>
+  <link>https://hashbang.nl/blog/simple-and-clear-angular-application-documentation-using-angular-jsdoc</link>
+    <description>undefined</description>
+    <pubDate>Tue, 10 Feb 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>angular</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/s3-bucket-downloader</guid>
+  <title>S3 bucket downloader</title>
+  <link>https://hashbang.nl/blog/s3-bucket-downloader</link>
+    <description>undefined</description>
+    <pubDate>Thu, 29 Jan 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>amazon</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/my-view-on-android-development-in-2015</guid>
+  <title>My view on Android development in 2015</title>
+  <link>https://hashbang.nl/blog/my-view-on-android-development-in-2015</link>
+    <description>undefined</description>
+    <pubDate>Thu, 08 Jan 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>android</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/server-health-insight-with-newrelic-and-ansible</guid>
+  <title>Server health insight with NewRelic and ansible</title>
+  <link>https://hashbang.nl/blog/server-health-insight-with-newrelic-and-ansible</link>
+    <description>undefined</description>
+    <pubDate>Thu, 13 Nov 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/clear-and-concise-api-design-with-blueprint-and-markdown</guid>
+  <title>Clear and concise API design with blueprint and markdown</title>
+  <link>https://hashbang.nl/blog/clear-and-concise-api-design-with-blueprint-and-markdown</link>
+    <description>undefined</description>
+    <pubDate>Thu, 30 Oct 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>documentation</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/deploying-an-angular-web-application-alongside-symfony2-backend</guid>
+  <title>Deploying an Angular web application alongside Symfony2 back-end</title>
+  <link>https://hashbang.nl/blog/deploying-an-angular-web-application-alongside-symfony2-backend</link>
+    <description>undefined</description>
+    <pubDate>Sun, 26 Oct 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/logging-stashing-and-analyzing-with-elasticsearch-logstash-and-kibana</guid>
+  <title>Big data experiment with Elasticsearch, Logstash and Kibana</title>
+  <link>https://hashbang.nl/blog/logging-stashing-and-analyzing-with-elasticsearch-logstash-and-kibana</link>
+    <description>undefined</description>
+    <pubDate>Thu, 23 Oct 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/queueing-jobs-with-rabbitmq-and-symfony2</guid>
+  <title>Queueing jobs with RabbitMQ and Symfony2</title>
+  <link>https://hashbang.nl/blog/queueing-jobs-with-rabbitmq-and-symfony2</link>
+    <description>undefined</description>
+    <pubDate>Thu, 16 Oct 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/load-testing-with-loaderio</guid>
+  <title>Load testing with loader.io</title>
+  <link>https://hashbang.nl/blog/load-testing-with-loaderio</link>
+    <description>undefined</description>
+    <pubDate>Wed, 10 Sep 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/merging-branches-and-git-no-ff</guid>
+  <title>merging branches and git --no-ff</title>
+  <link>https://hashbang.nl/blog/merging-branches-and-git-no-ff</link>
+    <description>undefined</description>
+    <pubDate>Mon, 07 Jul 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/small-featurebranches-and-the-empty-develop-branch-syndrome</guid>
+  <title>Small featurebranches and the empty develop branch syndrome</title>
+  <link>https://hashbang.nl/blog/small-featurebranches-and-the-empty-develop-branch-syndrome</link>
+    <description>undefined</description>
+    <pubDate>Mon, 30 Jun 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/creating-a-json-version-file-during-capistrano-deployment</guid>
+  <title>Creating a json version file during capistrano deployment</title>
+  <link>https://hashbang.nl/blog/creating-a-json-version-file-during-capistrano-deployment</link>
+    <description>undefined</description>
+    <pubDate>Mon, 16 Jun 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/symfony2-continuous-integration-and-deployment-with-wercker</guid>
+  <title>Symfony2 continuous integration and deployment with Wercker</title>
+  <link>https://hashbang.nl/blog/symfony2-continuous-integration-and-deployment-with-wercker</link>
+    <description>undefined</description>
+    <pubDate>Mon, 02 Jun 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/kernel-request-listeners-not-triggering-on-commands</guid>
+  <title>Kernel request listeners not triggering on commands</title>
+  <link>https://hashbang.nl/blog/kernel-request-listeners-not-triggering-on-commands</link>
+    <description>undefined</description>
+    <pubDate>Tue, 20 May 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/authentication-choices-wsse-vs-jwt</guid>
+  <title>Authentication choices: WSSE vs JWT</title>
+  <link>https://hashbang.nl/blog/authentication-choices-wsse-vs-jwt</link>
+    <description>undefined</description>
+    <pubDate>Wed, 30 Apr 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/from-student-to-lead-tech-and-back-again</guid>
+  <title>From student to lead tech and back again</title>
+  <link>https://hashbang.nl/blog/from-student-to-lead-tech-and-back-again</link>
+    <description>undefined</description>
+    <pubDate>Tue, 29 Apr 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/parallel-requests-in-node-using-promises</guid>
+  <title>Parallel requests in node using promises</title>
+  <link>https://hashbang.nl/blog/parallel-requests-in-node-using-promises</link>
+    <description>undefined</description>
+    <pubDate>Fri, 25 Apr 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/simple-and-secure-iptables-configuration-for-webserver</guid>
+  <title>Simple and secure iptables configuration for webserver</title>
+  <link>https://hashbang.nl/blog/simple-and-secure-iptables-configuration-for-webserver</link>
+    <description>undefined</description>
+    <pubDate>Wed, 16 Apr 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/my-thoughts-on-nosql-after-reading-a-book-about-it</guid>
+  <title>My thoughts on NoSQL after reading a book about it</title>
+  <link>https://hashbang.nl/blog/my-thoughts-on-nosql-after-reading-a-book-about-it</link>
+    <description>undefined</description>
+    <pubDate>Mon, 31 Mar 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/flash-htc-one-google-play</guid>
+  <title>Flash HTC-One to Google Play edition</title>
+  <link>https://hashbang.nl/blog/flash-htc-one-google-play</link>
+    <description>undefined</description>
+    <pubDate>Sun, 23 Mar 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>android</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/missing-label-translations-in-sonata-admin-interface</guid>
+  <title>Missing label translations in Sonata admin interface</title>
+  <link>https://hashbang.nl/blog/missing-label-translations-in-sonata-admin-interface</link>
+    <description>undefined</description>
+    <pubDate>Wed, 29 Jan 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/symfony2-many-to-one-as-required-field-using-join-column</guid>
+  <title>Symfony2 Doctrine ManyToOne as required field using join column</title>
+  <link>https://hashbang.nl/blog/symfony2-many-to-one-as-required-field-using-join-column</link>
+    <description>undefined</description>
+    <pubDate>Wed, 29 Jan 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/using-lifecycle-callbacks-to-set-created-and-updated-fields</guid>
+  <title>Using doctrine lifecycle callbacks to update timestamps</title>
+  <link>https://hashbang.nl/blog/using-lifecycle-callbacks-to-set-created-and-updated-fields</link>
+    <description>undefined</description>
+    <pubDate>Tue, 28 Jan 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/angular-order-by</guid>
+  <title>Angular orderBy in object</title>
+  <link>https://hashbang.nl/blog/angular-order-by</link>
+    <description>undefined</description>
+    <pubDate>Tue, 10 Dec 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>angular</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/saving-version-number-at-capifony-deploy</guid>
+  <title>Saving version number at capifony deploy</title>
+  <link>https://hashbang.nl/blog/saving-version-number-at-capifony-deploy</link>
+    <description>undefined</description>
+    <pubDate>Mon, 09 Dec 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/consuming-restful-resources-with-angularjs</guid>
+  <title>Consuming RESTful Resources with AngularJS</title>
+  <link>https://hashbang.nl/blog/consuming-restful-resources-with-angularjs</link>
+    <description>undefined</description>
+    <pubDate>Wed, 04 Dec 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>angular</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/moving-changes-around-in-git</guid>
+  <title>Moving changes around in git</title>
+  <link>https://hashbang.nl/blog/moving-changes-around-in-git</link>
+    <description>undefined</description>
+    <pubDate>Thu, 21 Nov 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/deploying-angular-to-heroku</guid>
+  <title>Deploying Angular to Heroku</title>
+  <link>https://hashbang.nl/blog/deploying-angular-to-heroku</link>
+    <description>undefined</description>
+    <pubDate>Tue, 05 Nov 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>angular</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/symfony2-deployment-target-configuration</guid>
+  <title>Symfony2 deployment target configuration</title>
+  <link>https://hashbang.nl/blog/symfony2-deployment-target-configuration</link>
+    <description>undefined</description>
+    <pubDate>Mon, 04 Nov 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/symfony2-cache-clearing</guid>
+  <title>Symfony2 cache clearing problems</title>
+  <link>https://hashbang.nl/blog/symfony2-cache-clearing</link>
+    <description>undefined</description>
+    <pubDate>Fri, 25 Oct 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/replacing-angular-resource-with-restangular</guid>
+  <title>Replacing angular $resource with restangular</title>
+  <link>https://hashbang.nl/blog/replacing-angular-resource-with-restangular</link>
+    <description>undefined</description>
+    <pubDate>Thu, 24 Oct 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>angular</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/restangular-with-symfony2</guid>
+  <title>Restangular and validations while POST'ing to Symfony2</title>
+  <link>https://hashbang.nl/blog/restangular-with-symfony2</link>
+    <description>undefined</description>
+    <pubDate>Wed, 23 Oct 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/posting-data-to-symfony2</guid>
+  <title>Posting data to Symfony2</title>
+  <link>https://hashbang.nl/blog/posting-data-to-symfony2</link>
+    <description>undefined</description>
+    <pubDate>Mon, 21 Oct 2013 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>php</category>
+  </item>
+
+    </channel>
+  </rss>

@@ -1,0 +1,34 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Mon, 09 May 2016 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/ruby/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/upgrading-old-ruby-200-app-to-224-for-heroku-deployment</guid>
+  <title>Upgrading old ruby 2.0.0 app to 2.2.4 for heroku deployment</title>
+  <link>https://hashbang.nl/blog/upgrading-old-ruby-200-app-to-224-for-heroku-deployment</link>
+    <description>undefined</description>
+    <pubDate>Mon, 09 May 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category><category>ruby</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/things-i-liked-about-ruby-rails-and-symfony2-that-i-miss-in-nodejs</guid>
+  <title>Things I liked about Ruby on Rails and Symfony2 that I sometimes miss in NodeJS</title>
+  <link>https://hashbang.nl/blog/things-i-liked-about-ruby-rails-and-symfony2-that-i-miss-in-nodejs</link>
+    <description>undefined</description>
+    <pubDate>Mon, 05 Oct 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>opinions</category><category>ruby</category>
+  </item>
+
+    </channel>
+  </rss>

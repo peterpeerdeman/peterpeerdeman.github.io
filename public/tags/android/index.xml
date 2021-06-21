@@ -1,0 +1,34 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>Hashbang</title>
+      <link>https://hashbang.nl/blog</link>
+      <description>learn love share drive create</description>
+      <language>en-us</language>
+      <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
+      <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
+      <lastBuildDate>Thu, 08 Jan 2015 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://hashbang.nl/tags/android/index.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+  <guid>https://hashbang.nl/blog/my-view-on-android-development-in-2015</guid>
+  <title>My view on Android development in 2015</title>
+  <link>https://hashbang.nl/blog/my-view-on-android-development-in-2015</link>
+    <description>undefined</description>
+    <pubDate>Thu, 08 Jan 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>android</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/flash-htc-one-google-play</guid>
+  <title>Flash HTC-One to Google Play edition</title>
+  <link>https://hashbang.nl/blog/flash-htc-one-google-play</link>
+    <description>undefined</description>
+    <pubDate>Sun, 23 Mar 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>android</category>
+  </item>
+
+    </channel>
+  </rss>
