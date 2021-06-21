@@ -47,7 +47,7 @@
     <description>undefined</description>
     <pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>reactnative</category><category>mobile</category><category>hybrid</category>
+    <category>presentations</category><category>mobile</category><category>reactnative</category>
   </item>
 
   <item>
@@ -97,7 +97,7 @@
     <description>undefined</description>
     <pubDate>Wed, 03 Jun 2020 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>nodejs</category>
+    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>node</category>
   </item>
 
   <item>
@@ -117,7 +117,7 @@
     <description>undefined</description>
     <pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>nodejs</category>
+    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>node</category>
   </item>
 
   <item>
@@ -137,7 +137,7 @@
     <description>undefined</description>
     <pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>graphql</category><category>subscriptions</category><category>realtime</category>
+    <category>presentations</category><category>graphql</category><category>react</category>
   </item>
 
   <item>
@@ -227,7 +227,7 @@
     <description>undefined</description>
     <pubDate>Wed, 11 Apr 2018 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>presentations</category><category>mobile</category>
+    <category>presentations</category><category>mobile</category><category>reactnative</category>
   </item>
 
   <item>
@@ -247,7 +247,7 @@
     <description>undefined</description>
     <pubDate>Thu, 22 Feb 2018 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>react</category><category>reactnative</category><category>graphql</category>
+    <category>presentations</category><category>reactnative</category><category>graphql</category>
   </item>
 
   <item>
@@ -257,7 +257,7 @@
     <description>undefined</description>
     <pubDate>Tue, 20 Feb 2018 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>graphql</category>
+    <category>presentations</category><category>graphql</category>
   </item>
 
   <item>
@@ -267,7 +267,7 @@
     <description>undefined</description>
     <pubDate>Wed, 24 Jan 2018 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>graphql</category>
+    <category>presentations</category><category>graphql</category>
   </item>
 
   <item>
@@ -277,7 +277,7 @@
     <description>undefined</description>
     <pubDate>Mon, 20 Nov 2017 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>react</category><category>reactnative</category>
+    <category>presentations</category><category>reactnative</category>
   </item>
 
   <item>
@@ -287,7 +287,7 @@
     <description>undefined</description>
     <pubDate>Fri, 21 Apr 2017 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>websockets</category><category>ddp</category>
+    <category>presentations</category><category>ddp</category>
   </item>
 
   <item>
@@ -297,7 +297,7 @@
     <description>undefined</description>
     <pubDate>Mon, 22 Aug 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>nodejs</category><category>meteor</category><category>rest</category><category>apollo</category>
+    <category>node</category><category>meteor</category><category>ddp</category>
   </item>
 
   <item>
@@ -317,7 +317,7 @@
     <description>undefined</description>
     <pubDate>Mon, 11 Jul 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>node</category><category>elasticsearch</category><category>docker</category>
+    <category>node</category><category>docker</category>
   </item>
 
   <item>
@@ -327,7 +327,7 @@
     <description>undefined</description>
     <pubDate>Mon, 27 Jun 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>devops</category><category>ansible</category><category>docker</category>
+    <category>devops</category><category>docker</category>
   </item>
 
   <item>
@@ -337,7 +337,7 @@
     <description>undefined</description>
     <pubDate>Mon, 13 Jun 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>node</category><category>project</category><category>webscraper</category>
+    <category>node</category>
   </item>
 
   <item>
@@ -347,7 +347,7 @@
     <description>undefined</description>
     <pubDate>Mon, 30 May 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>internetofthings</category><category>node</category><category>iot</category><category>photon</category>
+    <category>iot</category><category>node</category>
   </item>
 
   <item>
@@ -357,7 +357,7 @@
     <description>undefined</description>
     <pubDate>Mon, 16 May 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>meteor</category><category>i18n</category>
+    <category>meteor</category>
   </item>
 
   <item>
@@ -377,7 +377,7 @@
     <description>undefined</description>
     <pubDate>Mon, 02 May 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>nginx</category><category>meteor</category><category>performance</category><category>loadbalancing</category>
+    <category>devops</category><category>meteor</category>
   </item>
 
   <item>
@@ -387,7 +387,7 @@
     <description>undefined</description>
     <pubDate>Mon, 25 Apr 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>internetofthings</category><category>node</category>
+    <category>iot</category><category>node</category>
   </item>
 
   <item>
@@ -397,7 +397,7 @@
     <description>undefined</description>
     <pubDate>Mon, 11 Apr 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>markdown</category><category>terminal</category>
+    <category>workflow</category>
   </item>
 
   <item>
@@ -407,7 +407,7 @@
     <description>undefined</description>
     <pubDate>Sun, 10 Apr 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>node</category><category>npm</category>
+    <category>node</category>
   </item>
 
   <item>
@@ -417,7 +417,7 @@
     <description>undefined</description>
     <pubDate>Fri, 01 Apr 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>meteor</category><category>performance</category>
+    <category>meteor</category>
   </item>
 
   <item>
@@ -607,7 +607,7 @@
     <description>undefined</description>
     <pubDate>Tue, 10 Mar 2015 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>vim</category>
+    <category>workflow</category>
   </item>
 
   <item>
@@ -637,7 +637,7 @@
     <description>undefined</description>
     <pubDate>Thu, 29 Jan 2015 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>amazon</category>
+    <category>ruby</category>
   </item>
 
   <item>
@@ -647,7 +647,7 @@
     <description>undefined</description>
     <pubDate>Thu, 08 Jan 2015 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>android</category>
+    <category>mobile</category>
   </item>
 
   <item>
@@ -667,7 +667,7 @@
     <description>undefined</description>
     <pubDate>Thu, 30 Oct 2014 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>documentation</category>
+    <category>software engineering</category>
   </item>
 
   <item>
@@ -817,7 +817,7 @@
     <description>undefined</description>
     <pubDate>Sun, 23 Mar 2014 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>android</category>
+    <category>mobile</category>
   </item>
 
   <item>

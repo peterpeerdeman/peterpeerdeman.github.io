@@ -21,6 +21,26 @@
   </item>
 
   <item>
+  <guid>https://hashbang.nl/blog/mediacollege-webinar-react-native-masterclass-door-peter-peerdeman-en-rick-woltheus</guid>
+  <title>Mediacollege webinar: React Native Masterclass, door Peter Peerdeman en Rick Woltheus</title>
+  <link>https://hashbang.nl/blog/mediacollege-webinar-react-native-masterclass-door-peter-peerdeman-en-rick-woltheus</link>
+    <description>undefined</description>
+    <pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>mobile</category><category>reactnative</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-apollo-subscriptions</guid>
+  <title>GraphQL, Apollo and GraphQL Subscriptions, at React JS Utrecht meetup</title>
+  <link>https://hashbang.nl/blog/graphql-apollo-subscriptions</link>
+    <description>undefined</description>
+    <pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category><category>react</category>
+  </item>
+
+  <item>
   <guid>https://hashbang.nl/blog/expert-tracks-vs-management-tracks-plus-portfolio-tips</guid>
   <title>Expert tracks vs Management tracks and portfolio tips, HelloMentor meetup at Lifely</title>
   <link>https://hashbang.nl/blog/expert-tracks-vs-management-tracks-plus-portfolio-tips</link>
@@ -67,7 +87,7 @@
     <description>undefined</description>
     <pubDate>Wed, 11 Apr 2018 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>presentations</category><category>mobile</category>
+    <category>presentations</category><category>mobile</category><category>reactnative</category>
   </item>
 
   <item>
@@ -78,6 +98,56 @@
     <pubDate>Mon, 12 Mar 2018 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
     <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/from-buzzwords-to-products</guid>
+  <title>From buzzwords to products, working with new technology at a software agency</title>
+  <link>https://hashbang.nl/blog/from-buzzwords-to-products</link>
+    <description>undefined</description>
+    <pubDate>Thu, 22 Feb 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>reactnative</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/graphql-apollo-and-optimistic-ui-updates</guid>
+  <title>GraphQL, Apollo and optimistic UI updates</title>
+  <link>https://hashbang.nl/blog/graphql-apollo-and-optimistic-ui-updates</link>
+    <description>undefined</description>
+    <pubDate>Tue, 20 Feb 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/the-impact-and-glory-of-graphql-in-applications-at-lifely</guid>
+  <title>The impact and glory of GraphQL in applications at Lifely</title>
+  <link>https://hashbang.nl/blog/the-impact-and-glory-of-graphql-in-applications-at-lifely</link>
+    <description>undefined</description>
+    <pubDate>Wed, 24 Jan 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>graphql</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/react-native-at-lifely</guid>
+  <title>ReactNative at Lifely</title>
+  <link>https://hashbang.nl/blog/react-native-at-lifely</link>
+    <description>undefined</description>
+    <pubDate>Mon, 20 Nov 2017 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>reactnative</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/websockets-and-ddp-in-production</guid>
+  <title>Websockets and DDP in production</title>
+  <link>https://hashbang.nl/blog/websockets-and-ddp-in-production</link>
+    <description>undefined</description>
+    <pubDate>Fri, 21 Apr 2017 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>ddp</category>
   </item>
 
   <item>

@@ -17,7 +17,7 @@
     <description>undefined</description>
     <pubDate>Mon, 27 Jun 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>devops</category><category>ansible</category><category>docker</category>
+    <category>devops</category><category>docker</category>
   </item>
 
   <item>
@@ -28,6 +28,16 @@
     <pubDate>Mon, 09 May 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
     <category>devops</category><category>ruby</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/sticky-sessions-loadbalance-for-meteor-using-nginx-sticky-module-ng</guid>
+  <title>Sticky sessions loadbalancing for meteor using nginx-sticky-module-ng</title>
+  <link>https://hashbang.nl/blog/sticky-sessions-loadbalance-for-meteor-using-nginx-sticky-module-ng</link>
+    <description>undefined</description>
+    <pubDate>Mon, 02 May 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category><category>meteor</category>
   </item>
 
   <item>

@@ -7,9 +7,39 @@
       <language>en-us</language>
       <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
       <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
-      <lastBuildDate>Mon, 11 Jul 2016 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 03 Jun 2020 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://hashbang.nl/tags/node/index.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+  <guid>https://hashbang.nl/blog/using-influxdb-grafana-and-nodejs-datalogger-to-visualise-solar-panel-data</guid>
+  <title>Using influxdb, grafana and nodejs datalogger rasplogger to visualise solar panel data</title>
+  <link>https://hashbang.nl/blog/using-influxdb-grafana-and-nodejs-datalogger-to-visualise-solar-panel-data</link>
+    <description>undefined</description>
+    <pubDate>Wed, 03 Jun 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>node</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/rasplogger-influxdb-grafana-dashboards-showcase</guid>
+  <title>RaspLogger, InfluxDB, Grafana dashboards showcase</title>
+  <link>https://hashbang.nl/blog/rasplogger-influxdb-grafana-dashboards-showcase</link>
+    <description>undefined</description>
+    <pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>node</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</guid>
+  <title>Switching from REST to Meteor, DDP and Apollo</title>
+  <link>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</link>
+    <description>undefined</description>
+    <pubDate>Mon, 22 Aug 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>meteor</category><category>ddp</category>
+  </item>
+
   <item>
   <guid>https://hashbang.nl/blog/full-document-text-search-in-nodejs-using-elasticsearch-and-elasticsearch-mapper-attachments-plugin</guid>
   <title>Full document text search in nodejs using elasticsearch and elasticsearch mapper attachments plugin</title>
@@ -17,7 +47,7 @@
     <description>undefined</description>
     <pubDate>Mon, 11 Jul 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>node</category><category>elasticsearch</category><category>docker</category>
+    <category>node</category><category>docker</category>
   </item>
 
   <item>
@@ -27,7 +57,7 @@
     <description>undefined</description>
     <pubDate>Mon, 13 Jun 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>node</category><category>project</category><category>webscraper</category>
+    <category>node</category>
   </item>
 
   <item>
@@ -37,7 +67,7 @@
     <description>undefined</description>
     <pubDate>Mon, 30 May 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>internetofthings</category><category>node</category><category>iot</category><category>photon</category>
+    <category>iot</category><category>node</category>
   </item>
 
   <item>
@@ -47,7 +77,7 @@
     <description>undefined</description>
     <pubDate>Mon, 25 Apr 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>internetofthings</category><category>node</category>
+    <category>iot</category><category>node</category>
   </item>
 
   <item>
@@ -57,7 +87,7 @@
     <description>undefined</description>
     <pubDate>Sun, 10 Apr 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>node</category><category>npm</category>
+    <category>node</category>
   </item>
 
   <item>

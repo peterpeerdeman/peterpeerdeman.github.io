@@ -17,7 +17,7 @@
     <description>undefined</description>
     <pubDate>Mon, 22 Aug 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>nodejs</category><category>meteor</category><category>rest</category><category>apollo</category>
+    <category>node</category><category>meteor</category><category>ddp</category>
   </item>
 
   <item>
@@ -27,7 +27,7 @@
     <description>undefined</description>
     <pubDate>Mon, 16 May 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>meteor</category><category>i18n</category>
+    <category>meteor</category>
   </item>
 
   <item>
@@ -37,7 +37,7 @@
     <description>undefined</description>
     <pubDate>Mon, 02 May 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>nginx</category><category>meteor</category><category>performance</category><category>loadbalancing</category>
+    <category>devops</category><category>meteor</category>
   </item>
 
   <item>
@@ -47,7 +47,7 @@
     <description>undefined</description>
     <pubDate>Fri, 01 Apr 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>meteor</category><category>performance</category>
+    <category>meteor</category>
   </item>
 
   <item>

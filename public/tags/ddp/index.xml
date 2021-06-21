@@ -17,7 +17,17 @@
     <description>undefined</description>
     <pubDate>Fri, 21 Apr 2017 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>websockets</category><category>ddp</category>
+    <category>presentations</category><category>ddp</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</guid>
+  <title>Switching from REST to Meteor, DDP and Apollo</title>
+  <link>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</link>
+    <description>undefined</description>
+    <pubDate>Mon, 22 Aug 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>node</category><category>meteor</category><category>ddp</category>
   </item>
 
     </channel>

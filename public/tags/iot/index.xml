@@ -17,7 +17,17 @@
     <description>undefined</description>
     <pubDate>Mon, 30 May 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>internetofthings</category><category>node</category><category>iot</category><category>photon</category>
+    <category>iot</category><category>node</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/scheduling-philips-hue-lights-commands-using-node-cron-tasks</guid>
+  <title>Scheduling philips hue lights commands using node cron tasks</title>
+  <link>https://hashbang.nl/blog/scheduling-philips-hue-lights-commands-using-node-cron-tasks</link>
+    <description>undefined</description>
+    <pubDate>Mon, 25 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>iot</category><category>node</category>
   </item>
 
   <item>

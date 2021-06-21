@@ -17,7 +17,7 @@
     <description>undefined</description>
     <pubDate>Wed, 03 Jun 2020 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>nodejs</category>
+    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>node</category>
   </item>
 
   <item>
@@ -27,7 +27,7 @@
     <description>undefined</description>
     <pubDate>Wed, 20 May 2020 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>nodejs</category>
+    <category>timeseries</category><category>grafana</category><category>influxdb</category><category>node</category>
   </item>
 
     </channel>

@@ -17,7 +17,7 @@
     <description>undefined</description>
     <pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>reactnative</category><category>mobile</category><category>hybrid</category>
+    <category>presentations</category><category>mobile</category><category>reactnative</category>
   </item>
 
   <item>
@@ -27,7 +27,7 @@
     <description>undefined</description>
     <pubDate>Wed, 11 Apr 2018 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>presentations</category><category>mobile</category>
+    <category>presentations</category><category>mobile</category><category>reactnative</category>
   </item>
 
   <item>
@@ -38,6 +38,26 @@
     <pubDate>Mon, 11 Jan 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
     <category>opinions</category><category>mobile</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/my-view-on-android-development-in-2015</guid>
+  <title>My view on Android development in 2015</title>
+  <link>https://hashbang.nl/blog/my-view-on-android-development-in-2015</link>
+    <description>undefined</description>
+    <pubDate>Thu, 08 Jan 2015 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>mobile</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/flash-htc-one-google-play</guid>
+  <title>Flash HTC-One to Google Play edition</title>
+  <link>https://hashbang.nl/blog/flash-htc-one-google-play</link>
+    <description>undefined</description>
+    <pubDate>Sun, 23 Mar 2014 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>mobile</category>
   </item>
 
     </channel>

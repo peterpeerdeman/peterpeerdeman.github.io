@@ -7,27 +7,17 @@
       <language>en-us</language>
       <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
       <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
-      <lastBuildDate>Thu, 22 Feb 2018 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 05 Mar 2020 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://hashbang.nl/tags/react/index.xml" rel="self" type="application/rss+xml"/>
       
   <item>
-  <guid>https://hashbang.nl/blog/from-buzzwords-to-products</guid>
-  <title>From buzzwords to products, working with new technology at a software agency</title>
-  <link>https://hashbang.nl/blog/from-buzzwords-to-products</link>
+  <guid>https://hashbang.nl/blog/graphql-apollo-subscriptions</guid>
+  <title>GraphQL, Apollo and GraphQL Subscriptions, at React JS Utrecht meetup</title>
+  <link>https://hashbang.nl/blog/graphql-apollo-subscriptions</link>
     <description>undefined</description>
-    <pubDate>Thu, 22 Feb 2018 00:00:00 GMT</pubDate>
+    <pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>react</category><category>reactnative</category><category>graphql</category>
-  </item>
-
-  <item>
-  <guid>https://hashbang.nl/blog/react-native-at-lifely</guid>
-  <title>ReactNative at Lifely</title>
-  <link>https://hashbang.nl/blog/react-native-at-lifely</link>
-    <description>undefined</description>
-    <pubDate>Mon, 20 Nov 2017 00:00:00 GMT</pubDate>
-    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>react</category><category>reactnative</category>
+    <category>presentations</category><category>graphql</category><category>react</category>
   </item>
 
     </channel>

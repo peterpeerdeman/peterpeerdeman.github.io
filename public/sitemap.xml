@@ -507,11 +507,11 @@
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/android</loc>
+        <loc>https://hashbang.nl/tags/angular</loc>
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/angular</loc>
+        <loc>https://hashbang.nl/tags/android</loc>
     </url>
 
     <url>
@@ -663,6 +663,10 @@
     </url>
 
     <url>
+        <loc>https://hashbang.nl/tags/software-engineering</loc>
+    </url>
+
+    <url>
         <loc>https://hashbang.nl/tags/subscriptions</loc>
     </url>
 
@@ -684,5 +688,9 @@
 
     <url>
         <loc>https://hashbang.nl/tags/websockets</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/workflow</loc>
     </url>
 </urlset>

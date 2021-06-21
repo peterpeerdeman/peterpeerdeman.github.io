@@ -17,7 +17,17 @@
     <description>undefined</description>
     <pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>reactnative</category><category>mobile</category><category>hybrid</category>
+    <category>presentations</category><category>mobile</category><category>reactnative</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/why-the-hybrid-approach-finally-works</guid>
+  <title>Why the hybrid approach finally works</title>
+  <link>https://hashbang.nl/blog/why-the-hybrid-approach-finally-works</link>
+    <description>undefined</description>
+    <pubDate>Wed, 11 Apr 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>mobile</category><category>reactnative</category>
   </item>
 
   <item>
@@ -27,7 +37,7 @@
     <description>undefined</description>
     <pubDate>Thu, 22 Feb 2018 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>react</category><category>reactnative</category><category>graphql</category>
+    <category>presentations</category><category>reactnative</category><category>graphql</category>
   </item>
 
   <item>
@@ -37,7 +47,7 @@
     <description>undefined</description>
     <pubDate>Mon, 20 Nov 2017 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>react</category><category>reactnative</category>
+    <category>presentations</category><category>reactnative</category>
   </item>
 
     </channel>
