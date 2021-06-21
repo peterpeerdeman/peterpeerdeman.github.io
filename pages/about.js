@@ -37,9 +37,7 @@ export default function About() {
                             <SocialIcon kind="twitter" href={siteMetadata.twitter} />
                         </div>
                     </div>
-                    <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">
-                        <p>Welcome to Hashbang!</p>
-                    </div>
+                    <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2"></div>
                 </div>
             </div>
         </>

@@ -1,9 +1,3 @@
-## TODO
-
--   devops / deployment to github pages
--   about page
--   refactor old drafts into new frontmatter draft format
-
 ## Usage
 
 ```bash
@@ -19,7 +13,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 ## Credits
 
-heavily innspired by [https://github.com/timlrx/timlrx.com](https://github.com/timlrx/timlrx.com)
+heavily inspired by [https://github.com/timlrx/timlrx.com](https://github.com/timlrx/timlrx.com)
 
 ## Extend / Customize
 
