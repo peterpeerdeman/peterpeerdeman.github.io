@@ -14,4 +14,4 @@ I've found a very helpful guide to [setup the ELK stack by DigitalOcean](https:/
 
 Once setup, the logs are collected through logstash, stored in elasticsearch and can get queried with a nice dashboard frontend with Kibana. It takes a while to get Kibana to display the information you want to see but it surely beats creating a custom dashboard from scratch. Look at those pretty graphs!
 
-![kibana in all its graphy glory]({{ site.url }}/assets/images/2014-10-23-kibana.png)
+![kibana in all its graphy glory](../assets/images/2014-10-23-kibana.png)

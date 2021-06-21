@@ -19,28 +19,28 @@ I've been experimenting with datacollection for non-server/ops related dashboard
 
 ### public parkingplaces in Amsterdam over time
 
-![public parkingplaces in Amsterdam over time]({{ site.url }}/assets/images/2020-05-20-parking.png)
+![public parkingplaces in Amsterdam over time](../assets/images/2020-05-20-parking.png)
 
 ### solar panel performance data, based on pvoutput
 
-![solar panel performance data over time, based on pvoutput]({{ site.url }}/assets/images/2020-05-20-pv.png)
+![solar panel performance data over time, based on pvoutput](../assets/images/2020-05-20-pv.png)
 
 ### indoor temperature and heating data over time, based on tado smart thermostat
 
-![indoor temperature and heating data over time, based on tado smart thermostat]({{ site.url }}/assets/images/2020-05-20-thermostat.png)
+![indoor temperature and heating data over time, based on tado smart thermostat](../assets/images/2020-05-20-thermostat.png)
 
 ### destiny videogame clan character levels, minutes played and online status
 
-![destiny videogame clan character levels, minutes played and online status]({{ site.url }}/assets/images/2020-05-20-destiny-1.png)
+![destiny videogame clan character levels, minutes played and online status](../assets/images/2020-05-20-destiny-1.png)
 
 ### destiny multiplayer online behavior
 
-![destiny multiplayer online behavior]({{ site.url }}/assets/images/2020-05-20-destiny-2.png)
+![destiny multiplayer online behavior](../assets/images/2020-05-20-destiny-2.png)
 
 ### RouterAPI / device based presence tracking
 
-![RouterAPI / device based presence tracking]({{ site.url }}/assets/images/2020-05-20-router.png)
+![RouterAPI / device based presence tracking](../assets/images/2020-05-20-router.png)
 
 ### Personal health data tracking based on fitbit data
 
-![Personal health data tracking based on fitbit data]({{ site.url }}/assets/images/2020-05-20-fitbit.png)
+![Personal health data tracking based on fitbit data](../assets/images/2020-05-20-fitbit.png)

@@ -11,7 +11,7 @@ I've been working on a datalogging project collecting timeseries data using [nod
 
 I've formatted the guide in the form of the [influx-db community templates](https://github.com/influxdata/community-template://github.com/influxdata/community-templates):
 
-![solar panel data in grafana dashboard]({{ site.url }}/assets/images/2020-06-03-pv-dashboard.png)
+![solar panel data in grafana dashboard](../assets/images/2020-06-03-pv-dashboard.png)
 
 This dashboard shows solar panel data that is collected through a nodejs datalogger capturing data from pvoutput.org
 

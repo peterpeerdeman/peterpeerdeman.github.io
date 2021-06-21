@@ -15,7 +15,7 @@ In this case, we saw that the application was facing major issues when ramping u
 After enabling the applications cache configuration, we can clearly see the big improvement in load times and stability, staying below 100ms on average.
 
 Before:
-![loader io screenshot - before]({{ site.url }}/assets/images/2014-09-10-loaderio-01.png)
+![loader io screenshot - before](../assets/images/2014-09-10-loaderio-01.png)
 
 After:
-![loader io screenshot - after]({{ site.url }}/assets/images/2014-09-10-loaderio-02.png)
+![loader io screenshot - after](../assets/images/2014-09-10-loaderio-02.png)

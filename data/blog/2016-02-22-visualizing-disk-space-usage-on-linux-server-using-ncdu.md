@@ -14,4 +14,4 @@ For Mac OSX I have always used [OmniDiskSweeper](https://www.omnigroup.com/more)
 
 Thats when I found [NCDU](https://dev.yorhel.nl/ncdu), a disk space analyzer that is just one `apt-get install ncdu` away from visualizing your harddrive and navigating around folders with high consumption. I found it an absolute delight to work with, give it a try!
 
-![ncdu in action]({{ site.url }}/assets/images/2016-02-22-ncdu.png)
+![ncdu in action](../assets/images/2016-02-22-ncdu.png)

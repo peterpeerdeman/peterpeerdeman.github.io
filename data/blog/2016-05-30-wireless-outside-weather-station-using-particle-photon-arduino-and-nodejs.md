@@ -142,8 +142,8 @@ Serial.println(" Fahrenheit");
 
 I put the photon and [wiring](https://community.particle.io/uploads/default/original/2X/8/836116627384eb201d909e623c31d6e69733f11f.png) in the plastic case, plugged in a usb charger in the shed and fed the temperature through the windows of the shed:
 
-![photon in case]({{ site.url }}/assets/images/2016-05-30-photon.jpg)
-![weathersensor]({{ site.url }}/assets/images/2016-05-30-outdoorweathersensor.jpg)
+![photon in case](../assets/images/2016-05-30-photon.jpg)
+![weathersensor](../assets/images/2016-05-30-outdoorweathersensor.jpg)
 
 The particle photon is now sending it's temperature data to the particle cloud, and I can access these from my [nodejs weather script](https://github.com/peterpeerdeman/raspweather) on the raspberrypi using the `PARTICLE_DEVICE_ID` and `PARTICLE_ACCESS_TOKEN` from the Particle cloud api as follows:
 
@@ -170,4 +170,4 @@ function logOutsideTemperature() {
 
 For some reason, there are sometimes some strange celsius values popping up, which I've excluded using some simple checks. To keep the data management easy, I'm writing the temperature values to a simple text file, and retrieve the data in the webinterface the same way I did on the previous version of the [raspweather node API](https://github.com/peterpeerdeman/raspweather/). The weather graph now shows both outside and inside temperature:
 
-![temperatures graph]({{ site.url }}/assets/images/2016-05-30-temperatures-graph.png)
+![temperatures graph](../assets/images/2016-05-30-temperatures-graph.png)

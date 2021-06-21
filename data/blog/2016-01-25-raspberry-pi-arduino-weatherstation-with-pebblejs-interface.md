@@ -8,11 +8,11 @@ tags: ['iot', 'javascript', 'raspberry']
 draft: false
 ---
 
-![Raspberry Pi + Arduino weatherstation with PebbleJS interface]({{ site.url }}/assets/images/2016-01-25-weather-pebblejs.jpg)
+![Raspberry Pi + Arduino weatherstation with PebbleJS interface](../assets/images/2016-01-25-weather-pebblejs.jpg)
 
 In my one of my latest hobby projects I've been fiddling around with some Raspberry Pi, Arduino and PebbleJS stuff. I thought it would be a nice idea to start measuring the temperature in our living room, visualise this data through a nice graph on a webserver and also be able to monitor this data wherever I am through my Pebble smart watch. And so it began, with the following architecture as result:
 
-![Internet of Things architecture]({{ site.url }}/assets/images/2016-01-25-raspapi-architecture.png)
+![Internet of Things architecture](../assets/images/2016-01-25-raspapi-architecture.png)
 
 ## RaspAPI: The API hub to the outside world
 

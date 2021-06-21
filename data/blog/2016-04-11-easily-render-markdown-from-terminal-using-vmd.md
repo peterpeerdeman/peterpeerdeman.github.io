@@ -24,4 +24,4 @@ vmd README.md
 
 VMD then instantly shows a window with a rendered version of your markdown file. It even watches the original file for changes and instantly updates the rendered version if you save the file!
 
-![vmd in commandline]({{ site.url }}/assets/images/2016-04-10-vmd.png)
+![vmd in commandline](../assets/images/2016-04-10-vmd.png)

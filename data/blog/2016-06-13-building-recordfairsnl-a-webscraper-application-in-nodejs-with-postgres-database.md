@@ -12,7 +12,7 @@ As I've begun with a modest [vinyl collection hobby](https://www.discogs.com/use
 
 As I wanted the operational costs to be as low as possible, I've decided to host recordfairs on heroku using the free plan. I'm glad I was able to use nodejs and for the free database plan I had to use PostgreSQL. For the node part I generated a project using the [express-generator](https://expressjs.com/en/starter/generator.html), opted for some jade templates, used sequelize models for postgres integration and the ever-so-amazing [cheerio](https://github.com/cheeriojs/cheerio) for scraping the different websites with the data. The front-end is basic bootstrap with a header [image of a recordplayer that I shot a while ago](https://www.flickr.com/photos/peterpeerdeman/6235844978/in/photolist-av3ksA).
 
-![recordfairs desktop]({{ site.url }}/assets/images/2016-06-13-recordfairs-desktop.png)
+![recordfairs desktop](../assets/images/2016-06-13-recordfairs-desktop.png)
 
 As you might have expected, scraping the data, getting into a unified format and avoiding duplicate entries in the database was the most exciting part of this application. Especially the dates, for they were in different text formats on almost each of the sites, some even just listing the starting time and finishing time as hours with 2 digits.
 
@@ -123,4 +123,4 @@ function handleFairs(fairs) {
 
 Pretty straightforward, but a fun experience nonetheless. As you can see on [recordfairs.nl](http://recordfairs.nl), the result isn't perfect but it's still a lot better than visiting all of the urls separately. As a small addition, I've also created a small cordova app for android using ionic that basically displays the same information and allows you to do a clientside search through the retrieved data, check it out for free: [Record Fairs on the android playstore](https://play.google.com/store/apps/details?id=nl.peterpeerdeman.recordfairs&hl=nl)
 
-![recordfairs mobile]({{ site.url }}/assets/images/2016-06-13-recordfairs-mobile.png)
+![recordfairs mobile](../assets/images/2016-06-13-recordfairs-mobile.png)

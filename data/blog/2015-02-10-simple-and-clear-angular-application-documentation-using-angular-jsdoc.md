@@ -56,6 +56,6 @@ grunt.initConfig({
 
 Running the grunt jsdoc task generates the simple, basic and clear html documentation:
 
-![jsdoc screenshot]({{ site.url }}/assets/images/2015-02-10-jsdoc-01.png)
+![jsdoc screenshot](../assets/images/2015-02-10-jsdoc-01.png)
 
 As an added bonus in addition to all the docblocks defined in the javascript files of our project, the markdown frontend guide we've created will automatically be rendered as the intro page as well.

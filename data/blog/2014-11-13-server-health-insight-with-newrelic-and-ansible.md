@@ -48,10 +48,10 @@ license_key: <insert new relic license here>
 
 Once the daemon is running and sending its data to newrelic you can inspect your webservers through their web application. Statistics like CPU load, memory usage and diskspace can be monitored with ease and configuring the thresholds for when to trigger an email alert / slack notification is a breeze.
 
-![newrelic screenshot server stats]({{ site.url }}/assets/images/2014-11-13-newrelic-01.png)
+![newrelic screenshot server stats](../assets/images/2014-11-13-newrelic-01.png)
 
 New relic offers several libraries that can be included into your application code as well which allows even deeper inspection. We are using the node library integration that shows responsetimes for different endpoints, API throughput and an Appdex score based on your services availability.
 
-![newrelic screenshot application stats]({{ site.url }}/assets/images/2014-11-13-newrelic-02.png)
+![newrelic screenshot application stats](../assets/images/2014-11-13-newrelic-02.png)
 
 The basic subscription is free to use and is a great way to get started getting more grip on the uptime of your infrastructure!
