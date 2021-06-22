@@ -3,6 +3,7 @@ import siteMetadata from '@/data/siteMetadata';
 import Tag from '@/components/Tag';
 import Link from '@/components/Link';
 import { PageSeo } from '@/components/SEO';
+import Image from 'next/image';
 
 const MAX_DISPLAY = 10;
 const postDateTemplate = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -23,7 +24,12 @@ export default function Home({ posts }) {
             />
             <div className="divide-y divide-gray-200 dark:divide-gray-700">
                 <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-                    <img src="/static/img/twitter-card.jpg" />
+                    <Image
+                        alt="Hashbang's Peter Peerdeman"
+                        src="/static/img/twitter-card.jpg"
+                        width={1024}
+                        height={312}
+                    />
                 </div>
                 <ul className="divide-y divide-gray-200 dark:divide-gray-700">
                     {!posts.length && 'No posts found.'}
