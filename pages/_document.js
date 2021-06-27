@@ -41,7 +41,7 @@ class MyDocument extends Document {
                     />
                     <link
                         rel="stylesheet"
-                        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+                        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Merriweather:wght@400;600;700&display=swap"
                     />
                     <link
                         rel="preload"

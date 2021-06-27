@@ -34,7 +34,7 @@ export default function Tags({ tags }) {
                                 <Tag text={t} />
                                 <Link
                                     href={`/tags/${kebabCase(t)}`}
-                                    className="-ml-2 text-sm font-semibold text-gray-600 uppercase dark:text-gray-300"
+                                    className="-ml-2 text-sm font-bold text-gray-600 uppercase dark:text-gray-300"
                                 >
                                     {` (${tags[t]})`}
                                 </Link>

@@ -18,7 +18,9 @@ module.exports = {
                 14: '3.5rem',
             },
             fontFamily: {
-                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+                bold: ['Merriweather', ...defaultTheme.fontFamily.sans],
+                extrabold: ['Merriweather', ...defaultTheme.fontFamily.sans],
+                sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 blue: colors.lightBlue,
