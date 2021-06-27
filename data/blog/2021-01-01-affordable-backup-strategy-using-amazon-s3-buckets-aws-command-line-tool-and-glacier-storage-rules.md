@@ -1,0 +1,29 @@
+---
+title: Affordable backup strategy using amazon s3 buckets, aws command line tool and glacier storage rules
+date: '2021-01-01'
+tags: ['devops']
+draft: false
+---
+
+In the midsts of new year resolutions I've been on the lookout for a proper backup strategy for big files such as raw DSLR images for a while now. While SaaS services such as Dropbox, Google Drive and iCloud have perfect solutions with a highly usable applications none of these tools make use of "deep storage" rules for big files that you very rarely access, and don't need immediate access to.
+
+This is where Amazon S3 comes in. When storing files in S3, you can access them any time you like just like you would a dropbox folder. But by adding lifecycle rules to your bucket, you can make S3 move files automatically to "glacier" status. Files stored in glacier are not immediately accessible, you have to make a request to move files back to S3 which takes a short while. But the difference in pricing is quite extreme: you only pay $0.004 per GB on glacier versus $0.023 per GB on S3.
+
+If you don't mind a little command line management and can do without the fancy applications, this is one of the most affordable long term cloud backup strategies for the files you never want to lose.
+
+## setting up the accounts and tools
+
+1. register an account on amazon, enter creditt card details
+2. follow the guide on [https://aws.amazon.com/cli/](https://aws.amazon.com/cli/) to install the aws cli tool
+3. create a bucket on amazon s3 [https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html)
+4. setup a lifecycle configuration on that s3 bucket. Ensure to choose glacier deep archive to transition files to. [https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html](https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-set-lifecycle-configuration-intro.html)
+5. setup access keys for that bucket and configure the credentials in the aws cli tool [https://medium.com/@shamnad.p.s/how-to-create-an-s3-bucket-and-aws-access-key-id-and-secret-access-key-for-accessing-it-5653b6e54337](https://medium.com/@shamnad.p.s/how-to-create-an-s3-bucket-and-aws-access-key-id-and-secret-access-key-for-accessing-it-5653b6e54337)
+6. use the cli tool to sync the folder you want to backup to S3.
+
+```
+aws s3 sync folder-to-backup s3://s3-bucket-name/folder-to-backup/
+```
+
+5. repeat this command either manually, or setup a cron job to automatically sync your folder to the remote folder.
+
+enjoy your affordable cloud backups and rest assured that your files aren't going missing anywhere soon!

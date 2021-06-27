@@ -7,9 +7,19 @@
       <language>en-us</language>
       <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
       <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
-      <lastBuildDate>Mon, 27 Jun 2016 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Fri, 01 Jan 2021 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://hashbang.nl/tags/devops/index.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+  <guid>https://hashbang.nl/blog/affordable-backup-strategy-using-amazon-s3-buckets-aws-command-line-tool-and-glacier-storage-rules</guid>
+  <title>Affordable backup strategy using amazon s3 buckets, aws command line tool and glacier storage rules</title>
+  <link>https://hashbang.nl/blog/affordable-backup-strategy-using-amazon-s3-buckets-aws-command-line-tool-and-glacier-storage-rules</link>
+    <description>undefined</description>
+    <pubDate>Fri, 01 Jan 2021 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
   <item>
   <guid>https://hashbang.nl/blog/deploy-different-environment-variable-configurations-with-the-same-docker-image-using-combine-in-ansible-20</guid>
   <title>Deploy different environment variable configurations with the same docker image using combine in ansible 2.0</title>

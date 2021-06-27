@@ -7,9 +7,19 @@
       <language>en-us</language>
       <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
       <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
-      <lastBuildDate>Mon, 01 Aug 2016 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 20 Jan 2021 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://hashbang.nl/tags/git/index.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+  <guid>https://hashbang.nl/blog/interactively-staging-chunk-an-specific-lines-on-command-line-using-git-add-interactive-patching</guid>
+  <title>Interactively staging chunks and specific lines on command line using git add interactive patching</title>
+  <link>https://hashbang.nl/blog/interactively-staging-chunk-an-specific-lines-on-command-line-using-git-add-interactive-patching</link>
+    <description>undefined</description>
+    <pubDate>Wed, 20 Jan 2021 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
   <item>
   <guid>https://hashbang.nl/blog/using-gitstats-to-get-an-overview-of-git-activity-in-a-repository</guid>
   <title>using gitstats to get an overview of git activity in a repository</title>

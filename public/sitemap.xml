@@ -265,6 +265,10 @@
     </url>
 
     <url>
+        <loc>https://hashbang.nl/blog/meteor-and-isomorphic-javascript</loc>
+    </url>
+
+    <url>
         <loc
             >https://hashbang.nl/blog/meteor-client-side-collection-inserts-versus-meteor-methods</loc
         >
@@ -273,6 +277,12 @@
     <url>
         <loc
             >https://hashbang.nl/blog/improving-performance-loading-speed-and-scalability-of-a-large-meteor-application</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/analyzing-https-traffic-on-android-mobile-apps-using-charles-proxy</loc
         >
     </url>
 
@@ -387,6 +397,12 @@
     </url>
 
     <url>
+        <loc
+            >https://hashbang.nl/blog/interactively-staging-chunk-an-specific-lines-on-command-line-using-git-add-interactive-patching</loc
+        >
+    </url>
+
+    <url>
         <loc>https://hashbang.nl/blog/hoe-het-gebruik-van-buzzwords-technologie-ontkracht</loc>
     </url>
 
@@ -472,6 +488,12 @@
 
     <url>
         <loc
+            >https://hashbang.nl/blog/affordable-backup-strategy-using-amazon-s3-buckets-aws-command-line-tool-and-glacier-storage-rules</loc
+        >
+    </url>
+
+    <url>
+        <loc
             >https://hashbang.nl/blog/building-raspberry-pi-arm64-images-on-desktop-using-docker-buildx</loc
         >
     </url>
@@ -499,6 +521,12 @@
     </url>
 
     <url>
+        <loc
+            >https://hashbang.nl/blog/turning-my-markdown-notes-archive-into-business-insights-using-grafana</loc
+        >
+    </url>
+
+    <url>
         <loc>https://hashbang.nl/tags/agile</loc>
     </url>
 
@@ -507,11 +535,11 @@
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/angular</loc>
+        <loc>https://hashbang.nl/tags/android</loc>
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/android</loc>
+        <loc>https://hashbang.nl/tags/angular</loc>
     </url>
 
     <url>
@@ -643,11 +671,11 @@
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/react</loc>
+        <loc>https://hashbang.nl/tags/reactnative</loc>
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/reactnative</loc>
+        <loc>https://hashbang.nl/tags/react</loc>
     </url>
 
     <url>

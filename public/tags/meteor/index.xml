@@ -61,6 +61,16 @@
   </item>
 
   <item>
+  <guid>https://hashbang.nl/blog/meteor-and-isomorphic-javascript</guid>
+  <title>Meteor and isomorphic javascript at JSMVC 15 in Amsterdam</title>
+  <link>https://hashbang.nl/blog/meteor-and-isomorphic-javascript</link>
+    <description>undefined</description>
+    <pubDate>Wed, 16 Mar 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
   <guid>https://hashbang.nl/blog/looking-into-meteor-our-experiences-with-real-time-web-applications</guid>
   <title>Looking into Meteor: our experiences with real-time web applications</title>
   <link>https://hashbang.nl/blog/looking-into-meteor-our-experiences-with-real-time-web-applications</link>

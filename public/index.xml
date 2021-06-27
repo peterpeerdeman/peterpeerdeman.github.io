@@ -7,9 +7,29 @@
       <language>en-us</language>
       <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
       <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
-      <lastBuildDate>Sat, 12 Sep 2020 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 20 Jan 2021 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://hashbang.nl/index.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+  <guid>https://hashbang.nl/blog/interactively-staging-chunk-an-specific-lines-on-command-line-using-git-add-interactive-patching</guid>
+  <title>Interactively staging chunks and specific lines on command line using git add interactive patching</title>
+  <link>https://hashbang.nl/blog/interactively-staging-chunk-an-specific-lines-on-command-line-using-git-add-interactive-patching</link>
+    <description>undefined</description>
+    <pubDate>Wed, 20 Jan 2021 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/affordable-backup-strategy-using-amazon-s3-buckets-aws-command-line-tool-and-glacier-storage-rules</guid>
+  <title>Affordable backup strategy using amazon s3 buckets, aws command line tool and glacier storage rules</title>
+  <link>https://hashbang.nl/blog/affordable-backup-strategy-using-amazon-s3-buckets-aws-command-line-tool-and-glacier-storage-rules</link>
+    <description>undefined</description>
+    <pubDate>Fri, 01 Jan 2021 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>devops</category>
+  </item>
+
   <item>
   <guid>https://hashbang.nl/blog/lifely-x-emakina-nerd-summit-graphql-why-what-and-how-by-peter-peerdeman</guid>
   <title>Lifely x Emakina Nerd Summit GraphQL: Why What and How by Peter Peerdeman</title>
@@ -401,6 +421,16 @@
   </item>
 
   <item>
+  <guid>https://hashbang.nl/blog/analyzing-https-traffic-on-android-mobile-apps-using-charles-proxy</guid>
+  <title>Analyzing HTTPS traffic on android mobile apps using Charles proxy</title>
+  <link>https://hashbang.nl/blog/analyzing-https-traffic-on-android-mobile-apps-using-charles-proxy</link>
+    <description>undefined</description>
+    <pubDate>Sun, 10 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>mobile</category>
+  </item>
+
+  <item>
   <guid>https://hashbang.nl/blog/quickly-test-npm-modules-using-trymodule</guid>
   <title>quickly test npm modules using trymodule</title>
   <link>https://hashbang.nl/blog/quickly-test-npm-modules-using-trymodule</link>
@@ -428,6 +458,16 @@
     <pubDate>Mon, 21 Mar 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
     <category>meteor</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/meteor-and-isomorphic-javascript</guid>
+  <title>Meteor and isomorphic javascript at JSMVC 15 in Amsterdam</title>
+  <link>https://hashbang.nl/blog/meteor-and-isomorphic-javascript</link>
+    <description>undefined</description>
+    <pubDate>Wed, 16 Mar 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
   </item>
 
   <item>
