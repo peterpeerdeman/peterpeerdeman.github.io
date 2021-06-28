@@ -59,6 +59,11 @@ module.exports = withBundleAnalyzer({
                 permanent: true,
             },
             {
+                source: '/archive',
+                destination: '/blog',
+                permanent: true,
+            },
+            {
                 source: '/:category/:year(\\d{4})/:month(\\d{2})/:day(\\d{2})/:slug',
                 destination: '/blog/:slug',
                 permanent: true,
