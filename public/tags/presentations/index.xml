@@ -151,6 +151,16 @@
   </item>
 
   <item>
+  <guid>https://hashbang.nl/blog/challenges-and-solutions-for-meteor-in-production</guid>
+  <title>Challenges and solutions for meteor in production</title>
+  <link>https://hashbang.nl/blog/challenges-and-solutions-for-meteor-in-production</link>
+    <description>undefined</description>
+    <pubDate>Wed, 20 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
+  </item>
+
+  <item>
   <guid>https://hashbang.nl/blog/meteor-and-isomorphic-javascript</guid>
   <title>Meteor and isomorphic javascript at JSMVC 15 in Amsterdam</title>
   <link>https://hashbang.nl/blog/meteor-and-isomorphic-javascript</link>

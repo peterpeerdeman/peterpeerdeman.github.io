@@ -295,6 +295,10 @@
     </url>
 
     <url>
+        <loc>https://hashbang.nl/blog/challenges-and-solutions-for-meteor-in-production</loc>
+    </url>
+
+    <url>
         <loc
             >https://hashbang.nl/blog/scheduling-philips-hue-lights-commands-using-node-cron-tasks</loc
         >
@@ -319,6 +323,12 @@
     <url>
         <loc
             >https://hashbang.nl/blog/wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs</loc
+        >
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/generate-ios-pem-push-certificates-and-pfx-package-files-for-node-apn-library</loc
         >
     </url>
 
@@ -374,6 +384,12 @@
 
     <url>
         <loc>https://hashbang.nl/blog/datamodels-apis-and-graphql-in-practice</loc>
+    </url>
+
+    <url>
+        <loc
+            >https://hashbang.nl/blog/impersonating-a-growatt-solar-panel-api-decoding-a-solar-panel-data-bytestream-and-uploading-that-data-to-pvoutput-using-nodejs</loc
+        >
     </url>
 
     <url>
@@ -543,11 +559,11 @@
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/ansible</loc>
+        <loc>https://hashbang.nl/tags/apollo</loc>
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/apollo</loc>
+        <loc>https://hashbang.nl/tags/ansible</loc>
     </url>
 
     <url>
@@ -671,11 +687,11 @@
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/reactnative</loc>
+        <loc>https://hashbang.nl/tags/react</loc>
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/react</loc>
+        <loc>https://hashbang.nl/tags/reactnative</loc>
     </url>
 
     <url>

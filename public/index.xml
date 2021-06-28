@@ -251,6 +251,16 @@
   </item>
 
   <item>
+  <guid>https://hashbang.nl/blog/impersonating-a-growatt-solar-panel-api-decoding-a-solar-panel-data-bytestream-and-uploading-that-data-to-pvoutput-using-nodejs</guid>
+  <title>Impersonating a growatt solar panel API, decoding a solar panel data bytestream and uploading that data to pvoutput using nodejs</title>
+  <link>https://hashbang.nl/blog/impersonating-a-growatt-solar-panel-api-decoding-a-solar-panel-data-bytestream-and-uploading-that-data-to-pvoutput-using-nodejs</link>
+    <description>undefined</description>
+    <pubDate>Thu, 22 Mar 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>iot</category><category>node</category>
+  </item>
+
+  <item>
   <guid>https://hashbang.nl/blog/datamodels-apis-and-graphql-in-practice</guid>
   <title>Datamodels, API's and GraphQL in practice</title>
   <link>https://hashbang.nl/blog/datamodels-apis-and-graphql-in-practice</link>
@@ -361,6 +371,16 @@
   </item>
 
   <item>
+  <guid>https://hashbang.nl/blog/generate-ios-pem-push-certificates-and-pfx-package-files-for-node-apn-library</guid>
+  <title>generate iOS pem push certificates and pfx package files for node apn library</title>
+  <link>https://hashbang.nl/blog/generate-ios-pem-push-certificates-and-pfx-package-files-for-node-apn-library</link>
+    <description>undefined</description>
+    <pubDate>Sun, 12 Jun 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>mobile</category><category>node</category>
+  </item>
+
+  <item>
   <guid>https://hashbang.nl/blog/wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs</guid>
   <title>Wireless outside weather station using particle photon, arduino and nodejs</title>
   <link>https://hashbang.nl/blog/wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs</link>
@@ -408,6 +428,16 @@
     <pubDate>Mon, 25 Apr 2016 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
     <category>iot</category><category>node</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/challenges-and-solutions-for-meteor-in-production</guid>
+  <title>Challenges and solutions for meteor in production</title>
+  <link>https://hashbang.nl/blog/challenges-and-solutions-for-meteor-in-production</link>
+    <description>undefined</description>
+    <pubDate>Wed, 20 Apr 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentations</category><category>meteor</category>
   </item>
 
   <item>

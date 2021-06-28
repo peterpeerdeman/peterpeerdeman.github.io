@@ -31,6 +31,16 @@
   </item>
 
   <item>
+  <guid>https://hashbang.nl/blog/generate-ios-pem-push-certificates-and-pfx-package-files-for-node-apn-library</guid>
+  <title>generate iOS pem push certificates and pfx package files for node apn library</title>
+  <link>https://hashbang.nl/blog/generate-ios-pem-push-certificates-and-pfx-package-files-for-node-apn-library</link>
+    <description>undefined</description>
+    <pubDate>Sun, 12 Jun 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>mobile</category><category>node</category>
+  </item>
+
+  <item>
   <guid>https://hashbang.nl/blog/analyzing-https-traffic-on-android-mobile-apps-using-charles-proxy</guid>
   <title>Analyzing HTTPS traffic on android mobile apps using Charles proxy</title>
   <link>https://hashbang.nl/blog/analyzing-https-traffic-on-android-mobile-apps-using-charles-proxy</link>

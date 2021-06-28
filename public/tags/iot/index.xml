@@ -7,9 +7,19 @@
       <language>en-us</language>
       <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
       <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
-      <lastBuildDate>Mon, 30 May 2016 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 22 Mar 2018 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://hashbang.nl/tags/iot/index.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+  <guid>https://hashbang.nl/blog/impersonating-a-growatt-solar-panel-api-decoding-a-solar-panel-data-bytestream-and-uploading-that-data-to-pvoutput-using-nodejs</guid>
+  <title>Impersonating a growatt solar panel API, decoding a solar panel data bytestream and uploading that data to pvoutput using nodejs</title>
+  <link>https://hashbang.nl/blog/impersonating-a-growatt-solar-panel-api-decoding-a-solar-panel-data-bytestream-and-uploading-that-data-to-pvoutput-using-nodejs</link>
+    <description>undefined</description>
+    <pubDate>Thu, 22 Mar 2018 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>iot</category><category>node</category>
+  </item>
+
   <item>
   <guid>https://hashbang.nl/blog/wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs</guid>
   <title>Wireless outside weather station using particle photon, arduino and nodejs</title>
