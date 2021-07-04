@@ -2,7 +2,7 @@
 date: '2014-10-23'
 title: 'Big data experiment with Elasticsearch, Logstash and Kibana'
 category: devops
-tags: ['devops']
+tags: ['timeseries']
 draft: false
 ---
 

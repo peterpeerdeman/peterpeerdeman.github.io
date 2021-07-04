@@ -101,16 +101,6 @@
   </item>
 
   <item>
-  <guid>https://hashbang.nl/blog/logging-stashing-and-analyzing-with-elasticsearch-logstash-and-kibana</guid>
-  <title>Big data experiment with Elasticsearch, Logstash and Kibana</title>
-  <link>https://hashbang.nl/blog/logging-stashing-and-analyzing-with-elasticsearch-logstash-and-kibana</link>
-    <description>undefined</description>
-    <pubDate>Thu, 23 Oct 2014 00:00:00 GMT</pubDate>
-    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>devops</category>
-  </item>
-
-  <item>
   <guid>https://hashbang.nl/blog/load-testing-with-loaderio</guid>
   <title>Load testing with loader.io</title>
   <link>https://hashbang.nl/blog/load-testing-with-loaderio</link>
