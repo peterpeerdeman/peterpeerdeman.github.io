@@ -3,8 +3,18 @@ import SocialIcon from '@/components/social-icons';
 import Link from '@/components/Link';
 import { PageSeo } from '@/components/SEO';
 import Image from 'next/image';
+import { MDXRemote } from 'next-mdx-remote';
+import MDXComponents from '@/components/MDXComponents';
+import { getAboutPage } from '@/lib/mdx';
 
-export default function About() {
+export async function getStaticProps() {
+    const aboutContent = await getAboutPage();
+
+    return { props: { aboutContent } };
+}
+
+export default function About({ aboutContent }) {
+    const { mdxSource, frontMatter } = aboutContent;
     return (
         <>
             <PageSeo
@@ -40,7 +50,9 @@ export default function About() {
                             <SocialIcon kind="twitter" href={siteMetadata.twitter} />
                         </div>
                     </div>
-                    <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2"></div>
+                    <div className="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">
+                        <MDXRemote {...mdxSource} components={MDXComponents} />
+                    </div>
                 </div>
             </div>
         </>
