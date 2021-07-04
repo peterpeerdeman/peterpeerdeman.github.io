@@ -7,9 +7,19 @@
       <language>en-us</language>
       <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
       <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
-      <lastBuildDate>Mon, 22 Aug 2016 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 07 Dec 2016 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://hashbang.nl/tags/meteor/index.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+  <guid>https://hashbang.nl/blog/the-lifely-journey-through-meteor-applications</guid>
+  <title>The Lifely journey through Meteor applications</title>
+  <link>https://hashbang.nl/blog/the-lifely-journey-through-meteor-applications</link>
+    <description>undefined</description>
+    <pubDate>Wed, 07 Dec 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentation</category><category>meteor</category>
+  </item>
+
   <item>
   <guid>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</guid>
   <title>Switching from REST to Meteor, DDP and Apollo</title>

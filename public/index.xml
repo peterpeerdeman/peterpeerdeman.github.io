@@ -321,6 +321,16 @@
   </item>
 
   <item>
+  <guid>https://hashbang.nl/blog/the-lifely-journey-through-meteor-applications</guid>
+  <title>The Lifely journey through Meteor applications</title>
+  <link>https://hashbang.nl/blog/the-lifely-journey-through-meteor-applications</link>
+    <description>undefined</description>
+    <pubDate>Wed, 07 Dec 2016 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>presentation</category><category>meteor</category>
+  </item>
+
+  <item>
   <guid>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</guid>
   <title>Switching from REST to Meteor, DDP and Apollo</title>
   <link>https://hashbang.nl/blog/switching-from-rest-to-meteor-ddp-and-apollo</link>

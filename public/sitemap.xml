@@ -25,6 +25,10 @@
     </url>
 
     <url>
+        <loc>https://hashbang.nldata/about</loc>
+    </url>
+
+    <url>
         <loc>https://hashbang.nl/blog/posting-data-to-symfony2</loc>
     </url>
 
@@ -361,6 +365,10 @@
     </url>
 
     <url>
+        <loc>https://hashbang.nl/blog/the-lifely-journey-through-meteor-applications</loc>
+    </url>
+
+    <url>
         <loc>https://hashbang.nl/blog/websockets-and-ddp-in-production</loc>
     </url>
 
@@ -543,6 +551,12 @@
     </url>
 
     <url>
+        <loc
+            >https://hashbang.nl/blog/migrating-a-static-site-generation-blog-from-jekyll-to-nextjs</loc
+        >
+    </url>
+
+    <url>
         <loc>https://hashbang.nl/tags/agile</loc>
     </url>
 
@@ -551,19 +565,19 @@
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/android</loc>
-    </url>
-
-    <url>
         <loc>https://hashbang.nl/tags/angular</loc>
     </url>
 
     <url>
-        <loc>https://hashbang.nl/tags/apollo</loc>
+        <loc>https://hashbang.nl/tags/android</loc>
     </url>
 
     <url>
         <loc>https://hashbang.nl/tags/ansible</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/apollo</loc>
     </url>
 
     <url>
@@ -672,6 +686,10 @@
 
     <url>
         <loc>https://hashbang.nl/tags/php</loc>
+    </url>
+
+    <url>
+        <loc>https://hashbang.nl/tags/presentation</loc>
     </url>
 
     <url>
