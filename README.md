@@ -1,3 +1,9 @@
+## docs
+
+-   node 16
+-   npm 7
+-   deployed to vercel
+
 ## Usage
 
 ```bash
