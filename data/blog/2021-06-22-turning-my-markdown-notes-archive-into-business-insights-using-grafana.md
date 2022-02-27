@@ -5,3 +5,5 @@ tags: []
 draft: true
 summary:
 ---
+
+https://github.com/peterpeerdeman/markdown-notes-to-influx-grafana-dashboard-insights
