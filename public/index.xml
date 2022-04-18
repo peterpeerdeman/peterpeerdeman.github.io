@@ -7,17 +7,17 @@
       <language>en-us</language>
       <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
       <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
-      <lastBuildDate>Wed, 20 Jan 2021 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Mon, 22 Feb 2021 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://hashbang.nl/index.xml" rel="self" type="application/rss+xml"/>
       
   <item>
-  <guid>https://hashbang.nl/blog/interactively-staging-chunk-an-specific-lines-on-command-line-using-git-add-interactive-patching</guid>
-  <title>Interactively staging chunks and specific lines on command line using git add interactive patching</title>
-  <link>https://hashbang.nl/blog/interactively-staging-chunk-an-specific-lines-on-command-line-using-git-add-interactive-patching</link>
+  <guid>https://hashbang.nl/blog/gatsby-rss-feed-images-compatible-with-mailchimp-campaign</guid>
+  <title>Gatsby RSS feed with images compatible with mailchimp newsletter</title>
+  <link>https://hashbang.nl/blog/gatsby-rss-feed-images-compatible-with-mailchimp-campaign</link>
     <description>undefined</description>
-    <pubDate>Wed, 20 Jan 2021 00:00:00 GMT</pubDate>
+    <pubDate>Mon, 22 Feb 2021 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
-    <category>git</category>
+    <category>node</category><category>ssr</category>
   </item>
 
   <item>
@@ -198,6 +198,16 @@
     <pubDate>Wed, 05 Feb 2020 00:00:00 GMT</pubDate>
     <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
     <category>opinions</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/interactively-staging-chunk-an-specific-lines-on-command-line-using-git-add-interactive-patching</guid>
+  <title>Interactively staging chunks and specific lines on command line using git add interactive patching</title>
+  <link>https://hashbang.nl/blog/interactively-staging-chunk-an-specific-lines-on-command-line-using-git-add-interactive-patching</link>
+    <description>undefined</description>
+    <pubDate>Mon, 20 Jan 2020 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>git</category>
   </item>
 
   <item>
