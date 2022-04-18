@@ -1,6 +1,6 @@
 ---
 title: Interactively staging chunks and specific lines on command line using git add interactive patching
-date: '2021-01-20'
+date: '2020-01-20'
 tags: ['git']
 draft: false
 ---
