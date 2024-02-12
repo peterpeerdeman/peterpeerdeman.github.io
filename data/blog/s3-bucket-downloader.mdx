@@ -1,0 +1,11 @@
+---
+date: '2015-01-29'
+title: 'S3 bucket downloader'
+category: ruby
+tags: ['ruby']
+draft: false
+---
+
+As I've been playing with some Amazon S3 Buckets I stumbled upon the XML index in the root of S3 buckets that is exposed when the bucket is set to public. As an experiment I extended a ruby script written by [Rodrigo De Castro](http://blog.sacaluta.com/2011/08/s3-file-bucket-downloader-in-ruby.html) to download the files listed in the root XML and recreate the directory structure that is present in the bucket.
+
+I've posted the modified script for everyone to enjoy to the [S3 Bucket Downloader repo on github](https://github.com/peterpeerdeman/s3-bucket-downloader/blob/master/README.md).
