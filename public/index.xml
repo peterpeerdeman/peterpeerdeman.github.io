@@ -7,9 +7,29 @@
       <language>en-us</language>
       <managingEditor>peter@peterpeerdeman.nl (Peter Peerdeman)</managingEditor>
       <webMaster>peter@peterpeerdeman.nl (Peter Peerdeman)</webMaster>
-      <lastBuildDate>Sun, 01 Aug 2021 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Thu, 16 Sep 2021 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://hashbang.nl/index.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+  <guid>https://hashbang.nl/blog/visualising-raspberry-pi-kubernetes-cluster-by-deploying-the-k8s-interface</guid>
+  <title>Visualising a Raspberry Pi Kubernetes cluster by deploying the k8s web interface</title>
+  <link>https://hashbang.nl/blog/visualising-raspberry-pi-kubernetes-cluster-by-deploying-the-k8s-interface</link>
+    <description>undefined</description>
+    <pubDate>Thu, 16 Sep 2021 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>raspberry</category><category>kubernetes</category><category>devops</category>
+  </item>
+
+  <item>
+  <guid>https://hashbang.nl/blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats</guid>
+  <title>Kubernetes cluster build with Raspberry Pi nodes and PoE Hats in a DIN breaker box panel</title>
+  <link>https://hashbang.nl/blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats</link>
+    <description>undefined</description>
+    <pubDate>Wed, 15 Sep 2021 00:00:00 GMT</pubDate>
+    <author>peter@peterpeerdeman.nl (Peter Peerdeman)</author>
+    <category>raspberry</category><category>kubernetes</category><category>devops</category>
+  </item>
+
   <item>
   <guid>https://hashbang.nl/blog/installing-exposing-and-monitoring-ups-with-raspberry-pi-nut-influx-grafana</guid>
   <title>Installing, exposing and monitoring a UPS for Raspberry Pi with Network Ups Tools (NUT), Influxdb and Grafana</title>

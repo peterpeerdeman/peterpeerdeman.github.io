@@ -1,0 +1,35 @@
+---
+title: recursively restoring files in folders with amazon s3 in glacier storage
+date: '2024-01-24'
+tags: []
+draft: true
+summary:
+---
+
+-   no real folders
+-   direct command super slow
+-   api call 1 by 1
+
+script
+https://stackoverflow.com/questions/20033651/how-to-restore-folders-or-entire-buckets-to-amazon-s3-from-glacier
+watch storage class bulk
+json notation
+awk that takes spaces into account
+create a txt file with all your to be restored items
+use ifs to denominate
+
+```
+#!/bin/sh
+IFS=$'\n'
+for x in `cat glacier-restore-rest.txt`
+  do
+    echo "Begin restoring $x"
+    aws s3api restore-object --restore-request '{"Days":7,"GlacierJobParameters":{"Tier":"Bulk"}}' --bucket pp-backup-01 --profile peter --key "$x"
+    echo "Done restoring $x"
+  done
+unset IFS
+```
+
+`-- force-glacier-transfer` (https://stackoverflow.com/questions/51676738/aws-s3-sync-force-glacier-transfer)
+after restore is complete, s3 sync still error sensure
+link to amazon s3 sync blog

@@ -12,6 +12,12 @@ const projectsData = [
         href: 'https://snoffeecob.com',
     },
     {
+        title: 'Kubernetes Cluster',
+        description: `Learning by building my owne kubernetes cluster with 4 Raspberry pi nodes in a breaker box panel`,
+        imgSrc: '/static/img/cluster.jpg',
+        href: '/blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats',
+    },
+    {
         title: 'Timeseries & Quantified Self',
         description: `The collection of timeseries data of about any (digital) aspect of my life, including but not limited to health, parking, notes, gaming, devices data, gaming, finance using NodeJS, influxdb, grafana`,
         imgSrc: '/assets/images/2020-05-20-destiny-1.png',

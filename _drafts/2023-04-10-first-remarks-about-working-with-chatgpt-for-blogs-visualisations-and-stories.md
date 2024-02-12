@@ -1,0 +1,6 @@
+-   coding visually in processing
+    -   very neat, doing exactly as told
+    -   surprised me by thinking of a third modification after asking it for 2 modification (even guessed using hihat open in addition to hihat closed
+-   writing snoffeecob blogs
+    -   introducing clever puns
+    -   some simple http requests would gather more info such as price and other details missing from my marks
