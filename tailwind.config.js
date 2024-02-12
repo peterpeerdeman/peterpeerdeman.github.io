@@ -22,10 +22,13 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        bold: ['var(--font-merriweather)', ...fontFamily.sans],
+        extrabold: ['var(--font-merriweather)', ...fontFamily.sans],
+        sans: ['var(--font-open-sans)', ...fontFamily.sans],
+        // sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.pink,
+        primary: colors.lightBlue,
         gray: colors.gray,
       },
       typography: ({ theme }) => ({
@@ -41,12 +44,14 @@ module.exports = {
             'h1,h2': {
               fontWeight: '700',
               letterSpacing: theme('letterSpacing.tight'),
+              color: theme('colors.gray.900'),
             },
             h3: {
               fontWeight: '600',
+                color: theme('colors.gray.900'),
             },
             code: {
-              color: theme('colors.indigo.500'),
+              color: theme('colors.pink.500'),
             },
           },
         },
