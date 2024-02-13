@@ -1,7 +1,7 @@
-import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer/source-files'
-import { writeFileSync } from 'fs'
+import {defineDocumentType, ComputedFields, makeSource} from 'contentlayer/source-files'
+import {writeFileSync} from 'fs'
 import readingTime from 'reading-time'
-import { slug } from 'github-slugger'
+import {slug} from 'github-slugger'
 import path from 'path'
 // Remark packages
 import remarkGfm from 'remark-gfm'
@@ -20,13 +20,13 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
+import {allCoreContent, sortPosts} from 'pliny/utils/contentlayer.js'
 
 const root = process.cwd()
 const isProduction = process.env.NODE_ENV === 'production'
 
 const computedFields: ComputedFields = {
-  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  readingTime: {type: 'json', resolve: (doc) => readingTime(doc.body.raw)},
   slug: {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
@@ -39,7 +39,7 @@ const computedFields: ComputedFields = {
     type: 'string',
     resolve: (doc) => doc._raw.sourceFilePath,
   },
-  toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
+  toc: {type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw)},
 }
 
 /**
@@ -80,17 +80,19 @@ export const Blog = defineDocumentType(() => ({
   filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
-    date: { type: 'date', required: true },
-    tags: { type: 'list', of: { type: 'string' }, default: [] },
-    lastmod: { type: 'date' },
-    draft: { type: 'boolean' },
-    summary: { type: 'string' },
-    images: { type: 'json' },
-    authors: { type: 'list', of: { type: 'string' } },
-    layout: { type: 'string' },
-    bibliography: { type: 'string' },
-    canonicalUrl: { type: 'string' },
+    title: {type: 'string', required: true},
+    date: {type: 'date', required: true},
+    tags: {type: 'list', of: {type: 'string'}, default: []},
+    lastmod: {type: 'date'},
+    draft: {type: 'boolean'},
+    summary: {type: 'string'},
+    images: {type: 'json'},
+    authors: {type: 'list', of: {type: 'string'}},
+    layout: {type: 'string'},
+    bibliography: {type: 'string'},
+    canonicalUrl: {type: 'string'},
+    category: {type: 'string'},
+    description: {type: 'string'},
   },
   computedFields: {
     ...computedFields,
@@ -115,15 +117,15 @@ export const Authors = defineDocumentType(() => ({
   filePathPattern: 'authors/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    name: { type: 'string', required: true },
-    avatar: { type: 'string' },
-    occupation: { type: 'string' },
-    company: { type: 'string' },
-    email: { type: 'string' },
-    twitter: { type: 'string' },
-    linkedin: { type: 'string' },
-    github: { type: 'string' },
-    layout: { type: 'string' },
+    name: {type: 'string', required: true},
+    avatar: {type: 'string'},
+    occupation: {type: 'string'},
+    company: {type: 'string'},
+    email: {type: 'string'},
+    twitter: {type: 'string'},
+    linkedin: {type: 'string'},
+    github: {type: 'string'},
+    layout: {type: 'string'},
   },
   computedFields,
 }))
@@ -144,13 +146,13 @@ export default makeSource({
       rehypeSlug,
       rehypeAutolinkHeadings,
       rehypeKatex,
-      [rehypeCitation, { path: path.join(root, 'data') }],
-      [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
+      [rehypeCitation, {path: path.join(root, 'data')}],
+      [rehypePrismPlus, {defaultLanguage: 'js', ignoreMissing: true}],
       rehypePresetMinify,
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs } = await importData()
+    const {allBlogs} = await importData()
     createTagCount(allBlogs)
     createSearchIndex(allBlogs)
   },
