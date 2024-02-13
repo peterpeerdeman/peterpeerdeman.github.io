@@ -3,17 +3,17 @@ import Tag from '@/components/Tag'
 import Image from '@/components/Image'
 
 import siteMetadata from '@/data/siteMetadata'
-import {formatDate} from 'pliny/utils/formatDate'
+import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
-import {MDXLayoutRenderer} from 'pliny/mdx-components'
+import { MDXLayoutRenderer } from 'pliny/mdx-components'
 
 const MAX_DISPLAY = 10
 
-export default function Home({posts}) {
+export default function Home({ posts }) {
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="pt-6 pb-8 space-y-2 md:space-y-5">
+        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <Image
             alt="Hashbang's Peter Peerdeman"
             src="/static/images/twitter-card.jpg"
@@ -24,7 +24,7 @@ export default function Home({posts}) {
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const {slug, date, title, summary, body, tags} = post
+            const { slug, date, title, summary, body, tags } = post
             return (
               <li key={slug} className="py-12">
                 <article>
@@ -38,7 +38,7 @@ export default function Home({posts}) {
                     <div className="space-y-5 xl:col-span-3">
                       <div className="space-y-6">
                         <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
+                          <h2 className="font-bold text-2xl leading-8 tracking-tight">
                             <Link
                               href={`/blog/${slug}`}
                               className="text-gray-900 dark:text-gray-100"
