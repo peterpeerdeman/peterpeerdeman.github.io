@@ -8,7 +8,7 @@ tags: ['iot', 'node']
 draft: false
 ---
 
-The particle photon is a pretty awesome little arduino device with onboard wifi. When I got my set Photons I decided to extend my [Raspberry Pi Arduino Weather station]({% post_url 2016-01-25-raspberry-pi-arduino-weatherstation-with-pebblejs-interface %}) with some outside temperature readings using the sensor that was packaged with the [Particle maker kit](https://store.particle.io/collections/photon) I got. I wanted to mount the sensor out the window of my shed and have the sensor connect to the wifi to transmit its data.
+The particle photon is a pretty awesome little arduino device with onboard wifi. When I got my set Photons I decided to extend my [Raspberry Pi Arduino Weather station](../blog/raspberry-pi-arduino-weatherstation-with-pebblejs-interface) with some outside temperature readings using the sensor that was packaged with the [Particle maker kit](https://store.particle.io/collections/photon) I got. I wanted to mount the sensor out the window of my shed and have the sensor connect to the wifi to transmit its data.
 
 Setting up the Particle was done through the app on the phone, there is good [getting started documentation](https://docs.particle.io/guide/getting-started/start/photon/) on that available. Through the [build.particle.io web interface](https://build.particle.io/build) I loaded the following arduino/particle snippet that exposes the current outside temperature on a double variable `temperature` that will be retrievable through the Particle API later. The temperature value is read using the [OneWire spark library](https://github.com/Hotaman/OneWireSpark) that works pretty well with the "sealed, water proof version of the DS18B20" from the maker kit.
 

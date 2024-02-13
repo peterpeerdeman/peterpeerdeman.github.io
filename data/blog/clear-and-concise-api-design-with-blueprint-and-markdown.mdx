@@ -10,20 +10,22 @@ I've been designing a lot of REST API's lately and have found out that blueprint
 
 [Blueprint](https://apiblueprint.org/) is a "Web API language written in pure markdown, designed for humans while being understandable by machines with powerful tooling and an easy lifecycle". It allows you to quickly jot down your API spec:
 
-    ## POST /api/login
-    + Request (application/json)
-    {
-        "username":"peter",
-        "password":"welcome123"
-    }
-    + Response 200 (application/json)
-    {
-        "token":"86576576153765s76a5f76a5sf76a5fs765asdf765"
-    }
-    + Response 401 (application/json)
-    {
-        "message": "incorrect credentials"
-    }
+```
+## POST /api/login
++ Request (application/json)
+{
+    "username":"peter",
+    "password":"welcome123"
+}
++ Response 200 (application/json)
+{
+    "token":"86576576153765s76a5f76a5sf76a5fs765asdf765"
+}
++ Response 401 (application/json)
+{
+    "message": "incorrect credentials"
+}
+```
 
 In just a couple of lines you've described the endpoint, its expected input and all possible responses. In most cases, this specification is sufficient for any team member to actually implement the functionality. This makes blueprint a great communication tool for defining API's between different development teams that will be built at the same time but eventually need to be integrated.
 

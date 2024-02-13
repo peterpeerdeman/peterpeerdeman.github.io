@@ -8,8 +8,6 @@ draft: false
 
 So apparently, orderBy only works on arrays. If you want to sort an object, you can use the following filter which transforms the object into an array and sorts it.
 
-<!--more-->
-
 ```javascript
 app.filter('orderObjectBy', function () {
     return function (input, attribute, reverse) {
