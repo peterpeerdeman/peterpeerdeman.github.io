@@ -28,7 +28,7 @@ module.exports = {
         // sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
       },
       colors: {
-        primary: colors.lightBlue,
+        primary: colors.sky,
         gray: colors.gray,
       },
       typography: ({ theme }) => ({
@@ -48,7 +48,7 @@ module.exports = {
             },
             h3: {
               fontWeight: '600',
-                color: theme('colors.gray.900'),
+              color: theme('colors.gray.900'),
             },
             code: {
               color: theme('colors.pink.500'),
