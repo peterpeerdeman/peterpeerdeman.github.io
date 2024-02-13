@@ -37,7 +37,7 @@ After struggling for a couple of hours I found out why my POST call to our Symph
 
 all was nice and good, but when posting from both phpunit and rest client I had no luck getting any data into the form.
 
-I was sure all data was correct, inspected the http request headers and found that the body was post in the following fashion: {"name":"test", "number":"4343"}. Then I came to the idea that the data might have to be wrapped to identify the type of the object. This resulted in instant success. I wrote the following unit test.
+I was sure all data was correct, inspected the http request headers and found that the body was post in the following fashion: `{"name":"test", "number":"4343"}`. Then I came to the idea that the data might have to be wrapped to identify the type of the object. This resulted in instant success. I wrote the following unit test.
 
 ```php
    public function testPostCustomer()
