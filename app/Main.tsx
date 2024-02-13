@@ -3,27 +3,28 @@ import Tag from '@/components/Tag'
 import Image from '@/components/Image'
 
 import siteMetadata from '@/data/siteMetadata'
-import { formatDate } from 'pliny/utils/formatDate'
+import {formatDate} from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
+import {MDXLayoutRenderer} from 'pliny/mdx-components'
 
 const MAX_DISPLAY = 10
 
-export default function Home({ posts }) {
+export default function Home({posts}) {
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pt-6 pb-8 space-y-2 md:space-y-5">
-            <Image
-                alt="Hashbang's Peter Peerdeman"
-                src="/static/images/twitter-card.jpg"
-                width={1024}
-                height={312}
-            />
+          <Image
+            alt="Hashbang's Peter Peerdeman"
+            src="/static/images/twitter-card.jpg"
+            width={1024}
+            height={312}
+          />
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags } = post
+            const {slug, date, title, summary, body, tags} = post
             return (
               <li key={slug} className="py-12">
                 <article>
@@ -52,7 +53,7 @@ export default function Home({ posts }) {
                           </div>
                         </div>
                         <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                          {summary}
+                          {body.raw.substring(0, 400)}...
                         </div>
                       </div>
                       <div className="text-base font-medium leading-6">
