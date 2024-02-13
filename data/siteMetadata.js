@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://hashbang.nl',
   siteRepo: 'https://github.com/peterpeerdeman/peterpeerdeman.github.io',
   siteLogo: '/static/images/avatar.jpg',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/twitter-card.jpg',
   //mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'peter@peterpeerdeman.nl',
   github: 'https://github.com/peterpeerdeman',
@@ -54,8 +54,8 @@ const siteMetadata = {
     // https://vercel.com/docs/environment-variables
     provider: 'disqus', // supported providers: giscus, utterances, disqus
     disqusConfig: {
-      shortname: 'peterpeerdemanblog'
-    }
+      shortname: 'peterpeerdemanblog',
+    },
   },
   search: {
     provider: 'kbar', // kbar or algolia
