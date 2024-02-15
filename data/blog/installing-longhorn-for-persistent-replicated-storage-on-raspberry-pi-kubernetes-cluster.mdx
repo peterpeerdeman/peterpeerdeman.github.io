@@ -1,0 +1,82 @@
+---
+date: '2021-10-14'
+title: 'Longhorn for persistant, replicated storage on raspberry pi kubernetes cluster'
+category: technology
+tags: ['raspberry', 'kubernetes', 'devops']
+draft: false
+---
+
+As the [raspberry pi cluster](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats) is going to need some persistence, I looked into several distributed persistence modules such as NFS shares, [Ceph](https://ceph.com) and [Rook](https://rook.io) but found [Longhorn](https://longhorn.io) to be the most friendly to get started with, and actually had quite nice arm64 support at the time I was testing them out.
+
+First, we install `iscsi` on all nodes that we want to use in the disk configuration
+
+```
+sudo apt install open-iscsi
+```
+
+We then use the excellent package management solution Helm to easily install all of the necessary services automatically
+persistence:
+
+```
+helm repo add longhorn https://charts.longhorn.io
+helm repo update
+kubectl create namespace longhorn-system
+helm install longhorn longhorn/longhorn --namespace longhorn-system
+kubectl port-forward --namespace longhorn-system svc/longhorn-frontend :80
+```
+
+We can now access the web interface through the forwarded tunnel, showing a nice visual dashboard of all connected nodes.
+
+![longhorn web interface](/assets/images/2021-10-14-longhorn.png)
+
+We can now create a `storageclass.yml` file and deploy it to the cluster using `kubectl create -f storageclass.yml`
+
+```
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: longhorn
+provisioner: driver.longhorn.io
+allowVolumeExpansion: true
+parameters:
+  numberOfReplicas: "3"
+  staleReplicaTimeout: "2880" # 48 hours in minutes
+  fromBackup: ""
+  fsType: "ext4"
+```
+
+## using the storageclass
+
+we can now reference this storageclass when we create a deployment, by using the "storageClassName" and referencing our "longhorn" storage class. This is the moment where we also specify the amount of space the volume will take, which will then be replicated on each of the nodes
+
+For example, here is a snippet of the values file for a [influxdb2 helm deployment](https://github.com/influxdata/helm-charts/tree/master/charts/influxdb2) using the longhorn storageclass:
+
+```
+...
+persistence:
+  enabled: true
+  ## If true will use an existing PVC instead of creating one
+  # useExisting: false
+  ## Name of existing PVC to be used in the influx deployment
+  # name:
+  ## influxdb data Persistent Volume Storage Class
+  ## If defined, storageClassName: <storageClass>
+  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+  ## If undefined (the default) or set to null, no storageClassName spec is
+  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+  ##   GKE, AWS & OpenStack)
+  ##
+  storageClass: "longhorn"
+  accessMode: ReadWriteOnce
+  size: 3Gi
+  mountPath: /var/lib/influxdb2
+  subPath: ""
+...
+```
+
+After installing this chart, we can now go return to the longhorn web interface and see a new volume, of 3Gi was created. The volume was automatically replicated over all three nodes, since we used a variable "numberOfReplicas: 3" in the storageclass. When one of these nodes would die (or more commonly with raspberry pi's, the SD card would crash), we can create and add a new node and the data will be replicated on the fresh node.
+
+An interesting note is that if drain one of the nodes containing a volume, kubernetes will automatically try to replicate the volume somewhere else to achieve the replica number of 3. In this case, it would make the third replica on one of the 2 nodes that are left and of course having 2 replicas on the same disk is not ideal for data safety.
+
+![longhorn replicated volume](/assets/images/2021-10-14-longhorn-volume.png)
+
