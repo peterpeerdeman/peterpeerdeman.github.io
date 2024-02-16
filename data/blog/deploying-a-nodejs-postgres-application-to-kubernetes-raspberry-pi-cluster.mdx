@@ -1,0 +1,223 @@
+---
+date: '2021-12-20'
+title: 'Deploying a NodeJS Postgres application to a Kubernetes Raspberry Pi Cluster'
+category: technology
+tags: ['raspberry', 'kubernetes', 'devops', 'nodejs']
+---
+
+
+Now the Raspberry Pi Kubernetes cluster is [up and running](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats) and is carefully being [monitored](../blog/deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster), it is about time start deploying some actual workloads to the cluster.
+
+
+We'll cover the following topics:
+
+- [Dockerising the application](#dockerising-the-application)
+- [Application deployment definition](#application-deployment-definition)
+- [Postgres database with persistent statefulset](#postgres-database-with-persistent-statefulset)
+- [Creating services to access our database and application](#creating-services-to-access-our-database-and-application)
+
+## Dockerising the application
+
+For the first custom deployment I want to get a simple NodeJS application running, that uses a Postgres database. The app had been running on heroku a long while ago so we need to do a little prep to get it dockerised. 
+
+Luckily, it used mostly standard express code so upgrading wasn't that big of a deal and consisted of running a `npm audit fix --force` and upgrading the node version in the package.json to something more recent. 
+
+First order of business is dockerising the node application itself. I used the following template in a `Dockerfile`. Take special care to define the right command at the end to start your node application in the proper way.
+
+```
+# Use an existing image as a base
+FROM node:18.19.1-slim
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy the package.json and package-lock.json files
+COPY package*.json ./
+
+# Install the dependencies
+RUN npm install
+
+# Copy the rest of the code
+COPY . .
+
+# Expose the port that the app listens on
+EXPOSE 3000
+
+# Define the command to run the app
+CMD ["node", "./bin/www"]
+```
+
+I could then build the application for the raspberry pi arm architecture using the following [buildx command](../blog/building-raspberry-pi-arm64-images-on-desktop-using-docker-buildx)). The command also pushes the image to my docker hub repository for use later on:
+
+```
+docker buildx build -t peterpeerdeman/recordfairs:1.0.0 --push -f Dockerfile .
+```
+
+Now the application is properly packaged up, we can start working on the actual kubernetes files. I first followed an [excellent guide by Daniel Olaogun](https://loft.sh/blog/adding-services-and-dependencies-in-kubernetes-tutorial/) to set up the deployment and services for the app. I made a couple of adjustments to support postgres instead of a mysql, and made it work with a stateful set instead of a deployment for the database. 
+
+## Application deployment definition
+
+Let's start with the easiest, most recognizable definition: the deployment of the NodeJS web application. It looks a lot like a docker-compose definition and will basically result in a container that will be deployed as a pod to one of the nodes, as the `replicas` variable is set to 1. Let's call the file `recordfairs-deployment.yaml`
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recordfairs-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: recordfairs
+  template:
+    metadata:
+      labels:
+        app: recordfairs
+    spec:
+      containers:
+        - name: app
+          image: peterpeerdeman/recordfairs:1.0.0
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: postgresql-secrets
+                  key: database-url
+```
+
+You can see our deployment has two dependency on the postgres database: the definition references a secret containing the postgres database url containing username, password, host, port and database name. The specification of the host even reveals a second dependency on a service called `postgres-service`, but we'll get to that later.  Before we can apply the definition to our cluster, we first create the secret in fresh new namespace:
+
+```
+kubectl create namespace recordfairs
+kubectl create secret generic postgresql-secrets -n recordfairs --from-literal=database-url=postgres://app-user:app-password@postgres-service:5432/databasename
+```
+
+After the secret, we can create the deployment with `kubectl apply -f recordfairs-deployment.yaml -n recordfairs`
+
+As you'd expect, the application will not boot properly, as it tries to connect to a database that doesnt exist using a hostname that doesnt exist. Let's fix that!
+
+## Postgres database with persistent statefulset
+
+We could create a similar deployment definition for the postgres database, but I want to persist to our automatically replicated [longhorn storageclass](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster). This means we will have to create a `StatefulSet` rather than a `Deployment`. The longhorn documentation show [an excellent example of how to use a StatefulSet](https://longhorn.io/docs/1.6.0/references/examples/#statefulset), I've modified it only slightly, and called it `postgres-statefulset.yaml`:
+
+```
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  serviceName: "postgres"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16.2-alpine
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+              subPath: data
+          env:
+            - name: POSTGRES_DB
+              value: databasename
+            - name: POSTGRES_USER
+              value: app-user
+            - name: POSTGRES_PASSWORD
+              value: "app-password"
+  volumeClaimTemplates:
+  - metadata:
+      name: postgres-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "longhorn"
+      resources:
+        requests:
+          storage: 512Mi
+```
+
+The most interesting part of of this definition is the `volumeMounts` and the `volumeClaimTemplates`. The `volumeMounts`, similar to what you would see in a docker-compose definition, points to the volume that should be mounted to the container. (Sidenote: [for some reason](https://stackoverflow.com/a/76868038), postgres wouldn't boot properly because the mount folder wasn't empty, adding the subPath fixed that.)
+
+The `volumeClaimTemplates` defines that volume using a claim on our longhorn storage. We specify explicitly that it allocates 512Mi diskspace and longhorn takes care of the rest.
+
+After we deploy this StatefulSet, using `kubectl apply -f postgres-statefulset.yaml -n recordfairs` we can view our pods and persistent volumes with the following two commands:
+
+```
+» kubectl get pods -n recordfairs
+NAME                                      READY   STATUS    RESTARTS   AGE
+postgres-0                                1/1     Running   0          157m
+recordfairs-deployment-7bc5fc68fc-2t7lv   1/1     Running   0          155m
+
+» kubectl get pv -n recordfairs
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                  STORAGECLASS   REASON   AGE
+pvc-cffc167b-8da3-470b-8561-75a53267cf76   512Mi      RWO            Delete           Bound    recordfairs/postgres-data-postgres-0   longhorn                164m
+```
+
+It might be possible that the app deployment pod got into a "CrashLoopBackOff" state. To retry starting the pods again I tend to use this command to roll out the deployment again `kubectl rollout restart deployment recordfairs-deployment -n recordfairs`. Unfortunately, this still won't solve the problem, because we haven't defined the services and corresponding hostnames for the application to reach the database.
+
+## Creating services to access our database and application
+
+Alright, just a couple of definitions left! These ones are small and easy. It's similar to an nginx definition, creating an ip address and port number for a service. We need to deploy one for both the database and web application: 
+
+Go ahead and create `postgres-service.yaml` and deploy it with `kubectl apply -n recordfairs -f postgres-service.yaml`
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+spec:
+  selector:
+    app: postgres
+  ports:
+    - protocol: TCP
+      port: 5432
+  type: ClusterIP
+```
+
+And while you are at it, create `recordfairs-service.yaml` and deploy it with `kubectl apply -n recordfairs -f recordfairs-service.yaml`.
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: recordfairs-service
+spec:
+  selector:
+    app: recordfairs
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: LoadBalancer
+```
+
+As you can see, defining access to both services. The `type` is the most intersting here. The postgres one uses a [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/cluster-ip-allocation/), which means it will get an ip address automatically within the cluster range. The type `loadBalancer` creates an externally accessible IP that we can route external traffic to, but we'll probably get into that next time.
+
+```
+» kubectl -n recordfairs get services
+NAME                  TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
+recordfairs-service   LoadBalancer   10.43.153.253   <pending>     80:32719/TCP   5h34m
+postgres-service      ClusterIP      10.43.251.32    <none>        5432/TCP       5h20m
+```
+
+Congratulations, you now have your postgres nodejs application running in a kubernetes cluster. You can access the application by forwarding the freshly created service, just like we did with grafana in the [TIG stack blog](../blog/deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster).
+
+```
+kubectl port-forward --namespace recordfairs svc/recordfairs-service :80
+```
+
+![application with postgres running in kubernetes](/assets/images/2021-12-20-endresult.png)
+
+*Edit: blog updated 2024-02*
