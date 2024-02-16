@@ -7,7 +7,7 @@ draft: false
 
 In the midsts of new year resolutions I've been on the lookout for a proper backup strategy for big files such as raw DSLR images for a while now. While SaaS services such as Dropbox, Google Drive and iCloud have perfect solutions with a highly usable applications none of these tools make use of "deep storage" rules for big files that you very rarely access, and don't need immediate access to.
 
-This is where Amazon S3 comes in. When storing files in S3, you can access them any time you like just like you would a dropbox folder. But by adding lifecycle rules to your bucket, you can make S3 move files automatically to "glacier" status. Files stored in glacier are not immediately accessible, you have to make a request to move files back to S3 which takes a short while. But the difference in pricing is quite extreme: you only pay $0.004 per GB on glacier versus $0.023 per GB on S3.
+This is where Amazon S3 comes in. When storing files in S3, you can access them any time you like just like you would a dropbox folder. But by adding lifecycle rules to your bucket, you can make S3 move files automatically to "glacier" status. Files stored in glacier are not immediately accessible, you have to make a request to move files back to S3 which takes a short while. But the difference in pricing is quite extreme: you only pay \$0.004 per GB on glacier versus \$0.023 per GB on S3.
 
 If you don't mind a little command line management and can do without the fancy applications, this is one of the most affordable long term cloud backup strategies for the files you never want to lose.
 
