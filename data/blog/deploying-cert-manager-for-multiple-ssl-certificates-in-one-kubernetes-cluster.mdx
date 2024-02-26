@@ -1,0 +1,163 @@
+---
+date: '2022-01-14'
+title: 'Manage SSL certificates and ingress for services in k3s kubernetes cluster using cert-manager, letsencrypt and traefik'
+category: technology
+tags: ['kubernetes', 'devops']
+---
+
+Alright. We've [built a cluster](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats), we have [deployed our first app](../blog/deploying-a-nodejs-postgres-application-to-kubernetes-raspberry-pi-cluster) and now want to expose our hard work to the internet. Of course we want to provide a secure connection via https, and we do not want to refresh our SSL certificates by hand. To achieve this we learn about cert-manager, their definition of certificates and issuers, kubernetes ingress configurations to use the certificates, and avoiding the mistakes I've made when I was setting this up the first time.
+
+## Installing cert-manager
+The first part is a nice starter, the cert-manager is an application that takes care of requesting, requesting and managing certificates from suppliers such as LetsEncrypt automatically. We can use a readily available helm chart and get the cert-manager running on our raspberry pi architecture without any modifications. The command is from the original manual, I've chosen for an easy setup that automatically installs the "CRD's" as well. CRD's are Custom Resource Definitions that cert-manager uses: Certificates, Issuers, Certiifcate Signing Requests are all entities that arent native to kubernetes but are all very helpful when managing SSL certificates.
+
+```
+helm repo add jetstack https://charts.jetstack.io --force-update
+helm install \                       
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --create-namespace \
+  --version v1.14.2 \
+  --set installCRDs=true
+```
+
+## Issuers, or ClusterIssuers?
+
+Next up, we want to configure an "issuer", that tells cert-mananger to use a service like LetsEncrypt. There are two types available: the Issuer can be scoped to a namespace and the ClusterIssuer creates one issuer that is available for the whole cluster to use. 
+
+For this part I made extensive use of the excellent [Let's Encrypt guide by Manojit Das](https://medium.com/@manojit123/lets-encrypt-certificate-using-cert-manager-on-kubernetes-http-challenge-687ce3718baf). I encourage you to look there and create a staging issuer first, to avoid getting rate-limited or blocked by letsencrypt while you are still figuring things out. I've settled on the following production clusterissuer:
+
+```
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    # You must replace this email address with your own.
+    # Let's Encrypt will use this to contact you about expiring
+    # certificates, and issues related to your account.
+    email: your@email.nl
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      # Secret resource that will be used to store the account's private key.
+      name: letsencrypt-prod
+    # Add a single challenge solver, HTTP01 using nginx
+    solvers:
+    - http01:
+        ingress:
+          class: traefik
+```
+
+The last line was a real doozy and cost me a lot of time to debug and fix. Most guides use `ingress-nginx` for routing requests. In my raspberry pi cluster we are using k3s, which ships with `traefik` by default. I then tried configuring the traefik class, but I was running an old incompatible version of traefik, so still routes were not serverd (and letsencrypt certificates not validated). I couldn't get the nginx ingress installed and finally fixed the issue by upgrading traefik to the latest version using [bbk's comment on a rancher thread from 2021](https://forums.rancher.com/t/k3s-traefik-1-8-to-2-x/21268/5). From that point on traefik class worked and I used that in all configs.
+
+You can check (or debug) the status of your brand new new issuer by describing it:
+
+```
+kubectl describe clusterissuer
+```
+
+## Certificate configuration
+
+For each SSL endpoint we can configure a separate certificate. For me, that looked like this:
+```
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: recordfairs-hashbang-nl-production
+  namespace: recordfairs
+spec:
+  secretName: recordfairs-hashbang-nl-production
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - recordfairs.hashbang.nl
+```
+
+Things to note here are that you want to make sure your cluster is reachable through the dns name that you are supplying here before creating the configuration, as the issuer will immediately start to try validating the domain. You'll probably need to forward ports in your router.
+
+Give your the certificate process a couple of minutes and check the progress with 
+
+```
+k describe certificates -n recordfairs
+```
+
+An important detail here is that cert-manager creates a private key for your certificate and stores it as a kubernetes secret, in this case in `recordfairs-hashbang-nl-production`. We will use the key in this secret in just a second.
+
+## Create ingress for our service via traefik
+
+In addition to the recordfairs-service that we configured in [an earlier blog](../blog/deploying-a-nodejs-postgres-application-to-kubernetes-raspberry-pi-cluster), we need to configure an "ingress" that describes how the outside world will access that specific internal service.
+
+```
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: recordfairs-ingress-route
+  namespace: recordfairs
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`recordfairs.hashbang.nl`)
+      kind: Rule
+      services:
+        - name: recordfairs-service
+          namespace: recordfairs
+          port: 80
+  tls:
+    secretName: recordfairs-hashbang-nl-production
+```
+
+Please note a couple of things here:
+1) we are not using the regular kubernetes `Ingress`. This is an `IngressRoute` configuration that is specific to Traefik and allows us to configure more specifik Traefik properties. 
+2) Watch the `websecure` keyword. It looks like it is a reference to some app or something, but it is actually an alias to a "secure web port", e.g. 443. If you use `web` here the ingress will listen to port 80.
+3) As promised, we are using the secretName here to refer to our certificate. It uses native Kubernetes secrets, so this ingress route has no idea this secret is being managed by cert-manager!
+4) Please take care that this ingress route is deployed to the same namespace as the secret. Sounds obvious but that was another 30min mistake ;)
+
+Now all these resources are deployed to the cluster, we can finally pick the fruit of our work and make an https request to the cluster. I've stumbled upon this handy curl command that gives you a very clear overview of the headers and SSL handshake:
+
+```
+» curl -kivL https://recordfairs.hashbang.nl
+*   Trying 77.174.253.186:443...
+* Connected to recordfairs.hashbang.nl (77.174.253.186) port 443
+* ALPN: curl offers h2,http/1.1
+* (304) (OUT), TLS handshake, Client hello (1):
+* (304) (IN), TLS handshake, Server hello (2):
+* (304) (IN), TLS handshake, Unknown (8):
+* (304) (IN), TLS handshake, Certificate (11):
+* (304) (IN), TLS handshake, CERT verify (15):
+* (304) (IN), TLS handshake, Finished (20):
+* (304) (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / AEAD-CHACHA20-POLY1305-SHA256
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: CN=recordfairs.hashbang.nl
+*  start date: Feb 22 16:36:39 2024 GMT
+*  expire date: May 22 16:36:38 2024 GMT
+*  issuer: C=US; O=Let's Encrypt; CN=R3
+*  SSL certificate verify ok.
+* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://recordfairs.hashbang.nl/
+* [HTTP/2] [1] [:method: GET]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: recordfairs.hashbang.nl]
+* [HTTP/2] [1] [:path: /]
+* [HTTP/2] [1] [user-agent: curl/8.4.0]
+* [HTTP/2] [1] [accept: */*]
+> GET / HTTP/2
+> Host: recordfairs.hashbang.nl
+> User-Agent: curl/8.4.0
+> Accept: */*
+>
+< HTTP/2 200
+HTTP/2 200
+```
+
+This concludes the series of raspberry pi kubernetes blogs, be sure to check the others here:
+
+1. [Kubernetes cluster build with Raspberry Pi nodes and PoE Hats in a DIN breaker box panel](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats)
+2. [Visualising a Raspberry Pi Kubernetes cluster by deploying the k8s web interface](../blog/visualising-raspberry-pi-kubernetes-cluster-by-deploying-the-k8s-interface)
+3. [Longhorn for persistant, replicated storage on raspberry pi kubernetes cluster](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster)
+4. [Deploying monitoring TIG stack (Telegraf, InfluxDB and Grafana) on Raspberry Pi Kubernetes cluster](../blog/deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster)
+5. [Deploying a NodeJS Postgres application to a Kubernetes Raspberry Pi Cluster](../blog/deploying-a-nodejs-postgres-application-to-kubernetes-raspberry-pi-cluster)
+6. [Manage SSL certificates and ingress for services in k3s kubernetes cluster using cert-manager, letsencrypt and traefik](../blog/deploying-cert-manager-for-multiple-ssl-certificates-in-one-kubernetes-cluster)
