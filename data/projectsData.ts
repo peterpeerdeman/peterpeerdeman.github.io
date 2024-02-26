@@ -27,7 +27,7 @@ const projectsData: Project[] = [
   {
     title: 'Timeseries & Quantified Self',
     description: `The collection of timeseries data of about any (digital) aspect of my life, including but not limited to health, parking, notes, gaming, devices data, gaming, finance using NodeJS, influxdb, grafana`,
-    imgSrc: '/assets/images/2020-05-20-destiny-1.png',
+    imgSrc: '/assets/images/2022-02-15-timeseries-prediction-review.png',
     href: '/blog/rasplogger-influxdb-grafana-dashboards-showcase',
   },
   {
