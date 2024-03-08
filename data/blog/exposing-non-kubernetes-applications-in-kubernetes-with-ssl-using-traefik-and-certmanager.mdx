@@ -1,0 +1,114 @@
+---
+date: '2023-04-16'
+title: 'Exposing non-kubernetes applications in kubernetes with SSL using traefik and certmanager'
+category: technology
+tags: ['kubernetes', 'devops']
+---
+
+As I am now managing all my SSL certificates using [certmanager in kubernetes](../manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefikt), I need to find a solution to access legacy applications with a secure SSL connection. All services are hosted on the same, whilst a couple of these applications have not been ported to kubernetes yet.
+
+These services all used the same SSL certificate that was managed using [certbot](https://certbot.eff.org/). This was a great solution but does no longer work as all http and https traffic is now handled by kubernetes.
+
+As I was investigating the configuration of external endpoints I noticed that the kubernetes `Endpoints` don't scale very well, and you have to use `EndpointSlices` instead. As I could not get the `EndpointSlices` to work and the usecase is not highly scalable I've opted for the traditional `Endpoints` route.
+
+Our Kubernetes configurations shopping list for today:
+- A `Namespace` for our application, as we like to keep our configs tidy and grouped
+-" A `Certficate` for our (sub)domain, managed by certmanager
+- An `Endpoints`, specifying the legacy application's ip and port
+- A `Service`, creating a name / reference to our legacy application
+- A Traefik  `IngressRoute`, linking a specific hostname to our application
+
+We start off by creating the namespace. For this example, let's imaging we are exposing a homeassistant server running on a separate server within our network
+
+```
+kubectl create ns homeassistant
+```
+
+## The `Certficate`
+
+This was one of the easiest steps: In the previous blog [about SSL](../manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefikt) I configured a `ClusterIssuer`, that can issue and validate certificates for the whole cluster, no matter what namespace. We create a new certificate in the namespace and refer to the ClusterIssuer like so:
+```
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: homeassistant-domain-com-production
+  namespace: homeassistant
+spec:
+  secretName: homeassistant-domain-com-production
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+  - homeassistant.domain.com
+```
+
+## An `Endpoints`
+
+For some reason, I was stuck a long time on configuring this endpoint, as I was sent in a rabbithole of the EndpointSlices I couldn't find good examples for. The thing thats weird here is that there are no references from and to the service definition, other than the name. So if you configure and Endpoints with the same name as the Service, the service will use the endpoint that you specified manually.
+```
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: homeassistant-service
+  namespace: homeassistant
+subsets:
+  - addresses:
+      - ip: 192.168.0.2
+    ports:
+      - port: 8123
+        name: homeassistant
+```
+
+## A `Service`
+
+The service is very similar to what we have seen before, the only difference is we don't specify the "selector" in the service. I'm not sure why, but it does work.
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: homeassistant-service
+  namespace: homeassistant
+spec:
+  ports:
+    -
+      name: "homeassistant"
+      protocol: "TCP"
+      port: 8123
+      targetPort: 8123
+```
+
+## A Traefik  `IngressRoute`
+
+Similar to before, we create a Traefik `IngressRoute`, which is the custom Traefik version of a Kubernetes `Ingress`. We specify the port and service, and specify the secret that contains the ssl certificate, as specfied in the certificate from earlier in this post.
+```
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: homeassistant-ingress-route
+  namespace: homeassistant
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`homeassistant.domain.com`)
+      kind: Rule
+      services:
+        - name: homeassistant-service
+          port: 8123
+  tls:
+    secretName: homeassistant-domain-com-production
+```
+
+If we now apply all these files, and patiently wait a second for our `ClusterIssuer` to issue the certificate, we can now access our legacy application with a brand new managed SSL certificate whilst we work on plans to migrate all the services to kubernetes!
+
+*Edit: blog updated 2024-03*
+
+Check the other kubernetes related blogs in the kubernetes raspberry pi blog series:
+
+1. [Kubernetes cluster build with Raspberry Pi nodes and PoE Hats in a DIN breaker box panel](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats)
+2. [Visualising a Raspberry Pi Kubernetes cluster by deploying the k8s web interface](../blog/visualising-raspberry-pi-kubernetes-cluster-by-deploying-the-k8s-interface)
+3. [Longhorn for persistant, replicated storage on raspberry pi kubernetes cluster](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster)
+4. [Deploying monitoring TIG stack (Telegraf, InfluxDB and Grafana) on Raspberry Pi Kubernetes cluster](../blog/deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster)
+5. [Deploying a NodeJS Postgres application to a Kubernetes Raspberry Pi Cluster](../blog/deploying-a-nodejs-postgres-application-to-kubernetes-raspberry-pi-cluster)
+6. [Manage SSL certificates and ingress for services in k3s kubernetes cluster using cert-manager, letsencrypt and traefik](../blog/manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefik)
