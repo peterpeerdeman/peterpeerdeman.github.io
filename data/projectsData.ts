@@ -20,7 +20,7 @@ const projectsData: Project[] = [
   },
   {
     title: 'Kubernetes Cluster',
-    description: `Learning by building my owne kubernetes cluster with 4 Raspberry pi nodes in a breaker box panel`,
+    description: `Learning by building my own kubernetes cluster with 4 Raspberry pi nodes in a breaker box panel`,
     imgSrc: '/static/images/cluster.jpg',
     href: '/blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats',
   },
@@ -52,7 +52,7 @@ const projectsData: Project[] = [
     title: 'Wisdoms',
     description: `A platform to record the wisdoms and quotes you've stumbled upon and share them with the world, originally written in Ruby on Rails, now discontinued`,
     imgSrc: '/static/images/wisdoms.png',
-    href: 'https://wisdoms.herokuapp.com',
+    href: 'https://github.com/peterpeerdeman/wisdoms',
   },
   {
     title: 'NiftySystems',
