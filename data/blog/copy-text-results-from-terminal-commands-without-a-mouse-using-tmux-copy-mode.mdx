@@ -1,0 +1,17 @@
+---
+date: '2023-07-26'
+title: 'Copy text results from terminal commands without a mouse using tmux copy mode'
+tags: ['cli', 'tmux', 'workflow']
+---
+
+One of the reasons I'm a big fan of terminals is not having to remove my fingers from the keyboard and using the mouse. I could find my way around quite well, and found so many solutions but selecting terminal output and using that in the next command was always stille a step too far.
+
+Introducing [tmux copy mode](https://dev.to/iggredible/the-easy-way-to-copy-text-in-tmux-319g), which has always been close, without me ever knowing it was there.
+
+Say you are in a command line, and want to show the logs of a kubernetes pod. You need the pod id in the logs command, so you first get the pods and then copy the pod id. 
+
+We do this by entering tmux copy mode with `ctrl+b [`, then navigate to the start of the text you want to copy using vim navigation (hjkl), press `space` to start the selection, and press `enter` to copy the selection.
+
+Then, when you are ready to paste, press `ctrl+b ]` to paste right there in the command. Without your fingers ever leaving the keyboard!
+
+<Video id="916654254" mediaprovider="vimeo" />

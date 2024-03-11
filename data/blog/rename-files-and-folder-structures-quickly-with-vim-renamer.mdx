@@ -1,0 +1,15 @@
+---
+date: '2023-06-10'
+title: 'Rename files and folder structures quickly in vim with vim-renamer'
+tags: ['vim', 'workflow']
+---
+
+Sometimes you stumble upon a task and think by yourself: what if I get this done with vim? This time: renaming and organising files and folders. I'm an avid user of the [nerdtree plugin](https://github.com/preservim/nerdtree) which already does a great job at editing folders, copying files and navigating around filestructures, but for renaming and moving multiple files I still had to resort to bash scripts. 
+
+But no longer! I suddenly had an idea: what if I could open the folder structure as a buffer, edit the folder structure as plain text and then make vim execute the commands? Turns out, the [vim-renamer plugin](https://github.com/qpkorr/vim-renamer/) does exactly that!
+
+Install the plugin, run the `:Renamer` command, and the current directory is loaded into a buffer. Use the `>` and `<` keys to display files that are one directory level lower. Change around all the filenames or locations of files, type `:Ren` and all your changes are executed. Very neat!
+
+Kind of silly example but to the use of vim-renamer in combination with macros: renaming all .mdx files to .md:
+
+<Video id="922147809" mediaprovider="vimeo" />
