@@ -7,7 +7,7 @@ tags: ['docker', 'devops']
 
 When I would manually look through my `docker-compose.yml` files for regular server maintenance, I used to keep a browser tab with hub.docker.com open and manual check if there were new versions available. After doing this for the upteenth time, I decided to look if there wasn't a way to get pro-actively notified when a new docker image is released.
 
-Lo and behold: the awesome application DIUN (Docker Image Update Notifier) by CrazyMax. Diun uses the local docker socket to inspect running containers and checks if there are new image versions available. It allows you to configure one of your favorite notification services and sends you an update if one of your images is out of date.
+Lo and behold: the awesome application [DIUN](https://crazymax.dev/diun/) (Docker Image Update Notifier) by CrazyMax. Diun uses the local docker socket to inspect running containers and checks if there are new image versions available. It allows you to configure one of your favorite notification services and sends you an update if one of your images is out of date.
 
 I installed and configured diun using docker compose as follows:
 
