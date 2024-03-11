@@ -1,0 +1,41 @@
+---
+date: '2023-05-05'
+title: 'Receive notifications when updates to docker images are released using DIUN'
+category: technology
+tags: ['docker', 'devops']
+---
+
+When I would manually look through my `docker-compose.yml` files for regular server maintenance, I used to keep a browser tab with hub.docker.com open and manual check if there were new versions available. After doing this for the upteenth time, I decided to look if there wasn't a way to get pro-actively notified when a new docker image is released.
+
+Lo and behold: the awesome application DIUN (Docker Image Update Notifier) by CrazyMax. Diun uses the local docker socket to inspect running containers and checks if there are new image versions available. It allows you to configure one of your favorite notification services and sends you an update if one of your images is out of date.
+
+I installed and configured diun using docker compose as follows:
+
+```
+version: '3.3'
+services:
+  diun:
+    container_name: diun
+    image: crazymax/diun:latest
+    command: serve
+    volumes:
+      - "~/diun/data:/data"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - "TZ=Europe/Amsterdam"
+      - "DIUN_WATCH_WORKERS=20"
+      - "DIUN_WATCH_SCHEDULE=0 */6 * * *"
+      - "DIUN_WATCH_JITTER=30s"
+      - "DIUN_PROVIDERS_DOCKER=true"
+      - "DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT=true"
+      - "DIUN_NOTIF_TELEGRAM_TOKEN=${DIUN_NOTIF_TELEGRAM_TOKEN}"
+      - "DIUN_NOTIF_TELEGRAM_CHATIDS=${DIUN_NOTIF_TELEGRAM_CHATIDS}"
+```
+
+I used environment variables to configure diun. One is specifically worth mentioning: I used `DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT=true` to ensure all docker images that are in use are actually automatically included in the scans, instead of having to give each container a specific `diun.enable=true` label. The telegram token and chatid variables are loaded from a local .env file, keeping the credentials and config separate.
+
+Now Diun checks for new images every 2 hours and I receive a notification in telegram on my mobile phone if there is a new version of one of my containers available!
+
+![](../assets/images/2023-05-05-diun.png)
+
+
