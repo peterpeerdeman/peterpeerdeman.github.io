@@ -54,6 +54,12 @@ const projectsData: Project[] = [
     imgSrc: '/static/images/wisdoms.png',
     href: 'https://wisdoms.herokuapp.com',
   },
+  {
+    title: 'NiftySystems',
+    description: `A collection of creative technology projects in collaboration with Timen Olthof`,
+    imgSrc: '/static/images/niftysystems.png',
+    href: 'https://niftysystems.nl/',
+  },
 ]
 
 export default projectsData
