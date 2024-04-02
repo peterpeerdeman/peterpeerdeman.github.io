@@ -1,0 +1,124 @@
+---
+date: '2024-03-27'
+title: 'Publishing your personal knowledge management system using obsidian, quartz, private repositories, gitea, gitea actions and netlify'
+tags: ['pkm', 'devops']
+---
+
+I've been using Obsidian for a while now, and after [attending pkmsummit 2024](https://notes.peterpeerdeman.nl/pkm-summit-2024) I was finally convinced to start publishing parts of my personal knowledge management ([PKM](https://notes.peterpeerdeman.nl/personal-knowledge-management)) system.
+
+Before we get started with my modestly complicated setup, lets start with the goals and requirements I had before publishing:
+
+- **Goal**: the goal of my publishing is to become a better writer by lowering barriers of publication, sharing more and receiving more feedback on my writing.
+- **Privacy**: My vault contains private notes that I never want to publish. The system should support mixed notes and linking without publishing the private notes.
+- **Data sovereignty**: I want my private notes to not leave my private homelab network other than on my own devices.
+- **Ease of use**: I want to use a single vault both private and public files, as I've found that switching between vaults increase the barrier to publish
+- **Syncing**: I want to be able to work on notes on all my devices, including my mobile phone.
+
+So... this complicates things a little. If you are reading this and just want to get started quickly, these are the fastest options:
+
+- **Obsidian sync**: If you just want to publish immediately without any fuss use the [obsidian sync service](https://obsidian.md/sync) by obsidian. It works straight from the app, just fill in your creditcard and you can publish immediately.
+- **Github Actions Quartz publish step**: If you are ok publishing your whole vault to a github (private) repository, you can use the quartz publish step to publish to github pages. Nicole van der Hoeven created an excellent youtube video "[how to publish your notes for free](https://www.youtube.com/watch?v=6s6DT1yN4dw)" explaining this exact setup.
+
+Alright. So I don't want my private notes on github, even not in a private repository. That means I also cannot use the quartz github deployment flow and I have to come up with something more private on my own infrastructure. Before diving into the details, let's start with a component diagram to give a little overview of the solution:
+
+![](../assets/images/2024-03-27-pkm-publishing-overview.png)
+
+Following the sequence of events:
+
+1. On my laptop and mobile phone, I create notes in [Obsidian](https://obsidian.md). On notes that I want to publish I set a frontmatter variable `publish` to `true`.
+2. When I'm ready to publish, I create a commit with all the changes to my vault since the last commit, including both private and the soon to be published notes.
+3. I connect my device to my home network using a VPN connection. Most modern routers support this feature nowadays, check brand of your router and google something like `<brandname> <modelname> vpn guide`.
+4. I push the commit to a private repository hosted with Gitea. Gitea is basically your own private open source github that runs smoothly on a raspberry pi. 
+5. Gitea's "actions" feature detects the [workflow action file](#gitea-action-workflow) in the notes repository and triggers a build and deploy step.
+6. The runner checks out the notes repository that contains both private and public notes.
+7. The runner checks out the quartz repository containing [my configuration of the quartz setup](https://github.com/peterpeerdeman/petersmindvault/blob/main/quartz.config.ts) and [minor customisations](https://github.com/peterpeerdeman/petersmindvault/commits/main/).
+8. The runner builds the quartz website, filtering out all notes except the ones marked `publish: true` in the frontmatter.
+9. The runner uses the netlify-cli to deploy the site that was built to netlify using [the site id and access token](https://docs.netlify.com/cli/get-started/), and netlify then takes care of hosting the site with SSL on a custom domain.   
+
+![](../assets/images/2024-03-27-pkm-quartz-netlify.png)
+
+And there we have it! Our PKM system is now (partly) public and we can start sharing our notes with the world. If you are interested in the end result, feel free to explore [Peter's Mind Vault](https://notes.peterpeerdeman.nl). 
+
+For each of the steps that require some configuration and code, I've shared mine:
+
+## Running gitea 
+
+for step 4, you need to run gitea and configure a git repository in gitea. The docker compose config for gitea looks a bit like:
+
+```
+version: '3.3'
+services:
+  gitea:
+    image: gitea/gitea:1.21.8
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    restart: always
+    volumes:
+      - ~/gitea/:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3000:3000"
+      - "222:22"
+    container_name: gitea
+```
+
+## Running gitea act runner
+
+for step 5 to happen automatically, you need to [run a separate gitea act runner](https://docs.gitea.com/usage/actions/quickstart) and configure it as a runner for your gitea instance. The docker compose config for gitea looks a bit like:
+
+```
+  gitearunner:
+    image: gitea/act_runner:nightly
+    environment:
+      GITEA_INSTANCE_URL: "http://192.168.0.2:3000"
+      GITEA_RUNNER_REGISTRATION_TOKEN: ${GITEA_RUNNER_REGISTRATION_TOKEN}
+      GITEA_RUNNER_NAME: ${GITEA_RUNNER_NAME}
+    volumes:
+      - ~/gitea-runner/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: gitearunner
+```
+
+## Gitea action workflow
+
+After the gitea act runner is running and configured, you can create a `.gitea/workflows/publish-quartz.yaml` file in your notes repository. This workflow will be detected by gitea and automate the checkout of the notes, quartz site, build the site and publish it to npm:
+
+```
+name: Build Quartz Site
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Checkout peter-notes
+        uses: actions/checkout@v3
+        with:
+          path: content
+      - name: Check out petersmindvault quartz site
+        run: |
+          git clone https://github.com/peterpeerdeman/petersmindvault.git
+      - name: copy notes into quartz site
+        run: |
+          cp -R ${{ gitea.workspace }}/content/* ${{ gitea.workspace }}/petersmindvault/content/
+      - name: build quartz site 
+        run: |
+          cd ${{ gitea.workspace }}/petersmindvault
+          npm i
+          npx quartz build 
+      - name: Install Netlify
+        run: npm install netlify-cli@17.10.1 -g
+      - name: Deploy to Netlify
+        id: netlify_deploy
+        run: |
+          netlify deploy \
+            --dir ${{ gitea.workspace }}/petersmindvault/public \
+            --site ${{ secrets.NETLIFY_SITE_ID }} \
+            --auth ${{ secrets.NETLIFY_API_TOKEN }} \
+            --prod
+```
