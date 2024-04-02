@@ -1,0 +1,18 @@
+---
+date: '2023-12-07'
+title: 'My reflections on cross platform app development with flutter in 2023'
+tags: ['mobile', 'flutter']
+draft: true
+---
+
+As the threats from the google developer console to close down my account became bigger and deadline-ier, I stepped up and decided to publish an update to the ancient app that was purged from the store long ago. As the API for this app was [recently revived during the kubernetes project](./deploying-a-nodejs-postgres-application-to-kubernetes-raspberry-pi-cluster), I could revisit the mobile app. The [original app](./building-recordfairsnl-a-webscraper-application-in-nodejs-with-postgres-database) was written in cordova and ionic, basically a website in an app. Nowadays, we have far prettier tools, and because [react-native](./tags/reactnative) would have been too obvious, I decided to see what the current status of the flutter ecosystem was.
+
+I have to say, it was a lot of fun working in flutter again after a couple of years. The getting started flow has become a lot friendlier and more refined. There are still things that puzzle me, such as the formal need to request permission for the use of the internet that immediately got my brand new app rejected, but the onboarding was a lot nicer than the last time I dove into flutter.
+
+At first, I wasn't that big on dart as I didn't really feel like learning yet another langugage, but it is so similar to javascript / typescript that I actually didn't that big of a problem with the syntax. Working with the view elements in a declarative, react like way has been perfected and works great. When you make small typos you immediately get corrected by the constant linting and typechecking, and the structure of default components and layouts are simple and clearly designed. 
+
+I also want to make a shoutout to the way futures are handled. Assigning a separate `late` type to variables that will get a value after a ansynchronous action is completed is very elegant and reads well in the code. Having the builder code immediately providing a clear distinction between `hasData` and `hasError` reminds me of the pretty state indicators that we got in graphql's excellent apollo library for state management, which is awesome to see so deeply integrated into a language.
+
+That being said, publishing was always a nightmare in the mobile app space, and it hasn't gotten a lot better. I might even say: from a developer point of view it has become even worse due to all of the policies, regulations and checkboxes you have to tick if you just want to publish a simple application. This is of course great progress in tightening the reigns on companies exploiting every bit of data theft they can still possibly manage, especially since we used to be able to publish apps to the android appstore without any submission checks whatsoever.
+
+To conclude, the app submission did eventually get approved in the end. You can find the flutter-based [Recordfairs app](https://play.google.com/store/apps/details?id=nl.peterpeerdeman.recordfairs2) in the android play store 😉
