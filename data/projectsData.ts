@@ -7,8 +7,14 @@ interface Project {
 
 const projectsData: Project[] = [
   {
+    title: "Peter's Mind Vault",
+    description: `An extensive personal knowledge management system, as a published linked database with all the references, notes, and insights I’ve collected and refined throughout my life.`,
+    imgSrc: '/static/images/mindvault.png',
+    href: 'https://notes.peterpeerdeman.nl',
+  },
+  {
     title: 'Lifely',
-    description: `Lifely is a research-led design and technology agency that creates solutions with longevity. We aren’t just solving for now, we’re solving for good.`,
+    description: `Lifely is a research-led design and technology agency that creates solutions with longevity. Not just solving for now, but solving for good.`,
     imgSrc: '/static/images/lifely.jpg',
     href: 'https://lifely.nl',
   },
