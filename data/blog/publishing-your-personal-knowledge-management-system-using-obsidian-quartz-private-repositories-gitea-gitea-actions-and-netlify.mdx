@@ -105,20 +105,32 @@ jobs:
           git clone https://github.com/peterpeerdeman/petersmindvault.git
       - name: copy notes into quartz site
         run: |
-          cp -R ${{ gitea.workspace }}/content/* ${{ gitea.workspace }}/petersmindvault/content/
-      - name: build quartz site 
+          cp -r ${{ gitea.workspace }}/content/. ${{ gitea.workspace }}/petersmindvault/content
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+      - name: Activate NPM Cache
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: npm install
         run: |
           cd ${{ gitea.workspace }}/petersmindvault
           npm i
-          npx quartz build 
-      - name: Install Netlify
-        run: npm install netlify-cli@17.10.1 -g
-      - name: Deploy to Netlify
-        id: netlify_deploy
+      - name: build quartz site 
         run: |
-          netlify deploy \
-            --dir ${{ gitea.workspace }}/petersmindvault/public \
-            --site ${{ secrets.NETLIFY_SITE_ID }} \
-            --auth ${{ secrets.NETLIFY_API_TOKEN }} \
-            --prod
+          cd ${{ gitea.workspace }}/petersmindvault
+          npx quartz build 
+      - name: Publish with netlify
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --prod --dir=${{ gitea.workspace }}/petersmindvault/public
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_API_TOKEN }}
 ```
