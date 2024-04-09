@@ -1,0 +1,22 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Hashbang B.V.
+
+    peter@peterpeerdeman.nl
+    www.hashbang.nl
+
+    KvK 66169631
+    BTW NL856425473B01
+
+    IBAN NL35 INGB 0007 3653 76
+    BIC INGBNL2A
+
+# TECHNOLOGY COLOPHON
+
+    Next.JS
+    Tailwind
+    ContentLayer2
+    React
