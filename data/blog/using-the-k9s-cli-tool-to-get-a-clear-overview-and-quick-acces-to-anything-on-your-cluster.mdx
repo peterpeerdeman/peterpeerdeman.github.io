@@ -1,0 +1,23 @@
+---
+title: 'using the k9s cli tool to get a clear overview and quick acces to anything on your cluster'
+date: '2023-12-05'
+category: kubernetes
+tags: ['kubernetes', 'workflow']
+draft: false
+---
+
+I stumbled upon this tool by accident and cannot imagine doing anything with kubernetes without it anymore. The tool is called k9s, you can [install it in various ways](https://k9scli.io/topics/install/).
+
+I find all the separate commands to figure out the status of your nodes, pods, logs and getting shell access to containers in differente namespaces quite cumbersome. k9s solves all these issues by putting all the above on you fingertips. 
+
+A couple of my highlights to try out when firing up the tool:
+
+- Easily switch between all namespaces and just the default namespace with 0 and 1. 
+- Navigating between pods with j and k
+- pressing L to access logs of a pod immediately
+- pressing S to get an immediate shell on that container
+- pressing shift+f to create a port-forward for that specific pod
+
+I wish I had known about this tool before, but possibly it is a good thing to learn the separate commands first without it. Enjoy the next chapter of your life where you don't have to copy pod instance names into commands anymore!
+
+<Video id="945732682" mediaprovider="vimeo" />

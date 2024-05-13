@@ -1,0 +1,35 @@
+---
+title: 'Solving Raspberry Pi max CPU related instability by limiting docker cpu access'
+date: '2023-12-30'
+category: devops
+tags: ['raspberry', 'docker']
+draft: false
+---
+
+"When it pours it rains". After my [recent CPU issues with the longhorn storage solution](../fixing-longhorn-instance-manager-max-cpu-issues), my other non-kubernetes docker-compose based server also had issues with instability due to CPU issues.
+ 
+As I could not decrease the workload of the influx server, I wanted to find a way to ensure that heavy load from the influx server would never impact the server in a way that it became unresponsive. 
+
+An easy fix for this problem is to avoid docker containers from accessing the full CPU capacity, leaving some compute space for other vital processes to ensure access and stability of the server itself.
+
+As the node was running docker compose, I add the following configuration to the service in question to limit its access to CPU resources. In this example, even when the influx container would max out, it would still only take 80% of the available CPU power.
+
+```
+version: '3.3'
+services:
+  influxdb:
+    ports:
+      - "8086:8086"
+    volumes:
+      - ~/influxdb/data:/var/lib/influxdb/data
+      - ~/influxdb/meta:/var/lib/influxdb/meta
+      - ~/influxdb/wal:/var/lib/influxdb/wal
+      - ~/influxdb/config:/var/etc/influxdb
+    restart: always
+    container_name: influxdb
+    image: influxdb:1.8.10
+    deploy:
+      resources:
+        limits:
+          cpus: "0.8"
+```
