@@ -1,0 +1,37 @@
+---
+title: 'Using Docker multistage build to optimise size of dockerised python images'
+date: '2024-04-05'
+category: devops
+tags: ['docker', 'devops', 'python']
+draft: false
+---
+
+As I was working on [my next python timeseries forecasting project using Darts](https://github.com/peterpeerdeman/darts-timeseries-forecaster), I found out darts doesn't quite like builing it's dependencies on the python slim image I was using in my Dockerfile.
+
+When using the non-slim image, the build would succeed, but build into a big 1,5G image file, which isn't optimal. I remembered using a multistage build in my nodejs projects and found out in [this example on github](https://github.com/LondheShubham153/python-multistage-docker) that this is also possible in python.
+
+For completeness, this is the dockerfile I ended up using:
+
+```
+FROM python:3.9.19 as base
+
+RUN mkdir /app
+COPY ./requirements.txt /app/requirements.txt
+WORKDIR /app
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . /app
+
+CMD python app.py
+
+FROM python:3.9.19-slim
+
+WORKDIR /app
+
+COPY --from=base /usr/local/lib/python3.9/site-packages/ /usr/local/lib/python3.9/site-packages/
+
+COPY --from=base /app /app
+
+CMD python app.py
+```
