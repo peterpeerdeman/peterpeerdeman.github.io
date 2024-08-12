@@ -6,7 +6,7 @@ tags: ['ai', 'mlops', 'influxdb', 'timeseries', 'machinelearning']
 draft: false
 ---
 
-Now that we have finally prepared the proper Extract Transform Load (ETL) steps to create a single forecast for a timeseries in [the previous blog](../using-darts-timeseries-forecaster-to-perform-configurable-forecasting-on-timeseries) about [darts-timeseries-forecaster](https://github.com/peterpeerdeman/darts-timeseries-forecaster), we can now turn these separate steps into a pipeline that we can automatically run every x amount of time.
+Now that we have finally prepared the proper Extract Transform Load (ETL) steps to create a single forecast for a timeseries in [the previous blog](./using-darts-timeseries-forecaster-to-perform-configurable-forecasting-on-timeseries) about [darts-timeseries-forecaster](https://github.com/peterpeerdeman/darts-timeseries-forecaster), we can now turn these separate steps into a pipeline that we can automatically run every x amount of time.
 
 My goal is to deploy an open source MLOps system that runs the workload in such way that we can 
 
@@ -16,7 +16,7 @@ My goal is to deploy an open source MLOps system that runs the workload in such 
 
 This is where [Argo Workflows](https://argoproj.github.io/workflows/) comes in, an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. What I like about Argo is that all steps are defined in one flow, that all separate steps have their own docker containers and volumes can be shared between steps to avoid storing and loading data multiple times in between steps.
 
-We get started by installing Argo Workflows and configuring access to the UI. You can read the detailed step by step process in my [Installing Argo Workflows with ui access explained step by step blog](../installing-argo-workflows-with-ui-access-step-by-step).
+We get started by installing Argo Workflows and configuring access to the UI. You can read the detailed step by step process in my [Installing Argo Workflows with ui access explained step by step blog](./installing-argo-workflows-with-ui-access-step-by-step).
 
 Now we are ready to define our Argo Cron Workflow file. It is very similar to a normal Argo workflow, we just add some metadata to define the frequency at which the job should run. The final workflow will looks like this, I'll go into some details afterwards. you can also [view the source on github](https://github.com/peterpeerdeman/argo-influx-prediction-workflow/blob/master/timeseries-prediction-parking.yaml):
 
@@ -80,8 +80,6 @@ spec:
       container:
         image: curlimages/curl:latest
         command: ["/bin/sh", "-c"]
-        securityContext:
-          runAsUser: 0
         args: ["{{inputs.parameters.cmd}}"]
         volumeMounts:                     # same syntax as k8s Pod spec
         - name: timeseries-prediction-workdir
@@ -116,7 +114,7 @@ I'll go through some of the highlights in the workflow:
 
 - the `generateName` is the prefix of the podname, I end with a '-' because a small id will be added afterwards
 - the `schedule` is the typical cron notation for how often the job should run, use crontab.guru to find the right value
-- the `successfulJobsHistoryLimit` and `failedJobsHistoryLimit` have saved me from completly flooding the pod view in [k9s](../using-the-k9s-cli-tool-to-get-a-clear-overview-and-quick-acces-to-anything-on-your-cluster)
+- the `successfulJobsHistoryLimit` and `failedJobsHistoryLimit` have saved me from completly flooding the pod view in [k9s](./using-the-k9s-cli-tool-to-get-a-clear-overview-and-quick-acces-to-anything-on-your-cluster)
 - the `entrypoint` should refer the first step that should be run in the flow
 
 ## Persistence
@@ -130,7 +128,7 @@ I'll go through some of the highlights in the workflow:
 
 ## Forecasting Workflow Steps
 
-- The first step performs the curl query we defined in [the previous blog](../using-darts-timeseries-forecaster-to-perform-configurable-forecasting-on-timeseries), and stores the result in the attached volume
+- The first step performs the curl query we defined in [the previous blog](./using-darts-timeseries-forecaster-to-perform-configurable-forecasting-on-timeseries), and stores the result in the attached volume
 - the second step runs the forecaster image, and is configured to consume the csv data from the attached volume and writes back the influx lines to a text file.
 - the final step POST's the the influx lines to the influxdb
 
