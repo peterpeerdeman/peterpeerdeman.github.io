@@ -1,0 +1,115 @@
+---
+title: 'Installing Argo Workflows with ui access explained step by step'
+date: '2024-05-17'
+category: mlops
+tags: ['ai', 'mlops']
+draft: false
+---
+
+Installing Argo Workflows and configuring the roles and user access wasn't a completely straightforward process for me. There is an [excellent guide at freecodecamp](https://www.freecodecamp.org/news/set-up-argo-workflows-on-kubernetes/) which also explains some of the basic concepts and commands, but I specifically didn't want to use server authentication mode.
+
+We start by creating the namespace and installing argo into the `argo` namespace
+
+```
+kubectl create namespace argo
+kubectl apply -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.5.0/install.yaml
+```
+
+Before we can access argo workflow's user interface, we need an access token. This kinda tripped me up as there are no default secrets created in the normal installation, there is no reference in the getting started to the [token creation documentation flow](https://argo-workflows.readthedocs.io/en/latest/access-token/#token-creation) and the example ui role is [documented on yet another page](https://argo-workflows.readthedocs.io/en/latest/security/). 
+
+In short, if you want to access the argo interface you need a `role`, a `serviceaccount`, a `rolebinding` AND a secret. The `role` defines the permissions, the `serviceaccount` is like the "user account", a `rolebinding` connects one service account to one (or more) roles and the secret contains the token that allows you to actually use the service account.
+
+Let's start by creating the role file `role-ui-user-read-only.yaml`: 
+```
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: role-ui-user-read-only
+  namespace: argo
+rules:
+  # k8s standard APIs
+  - apiGroups:
+      - ""
+    resources:
+      - events
+      - pods
+      - pods/log
+    verbs:
+      - get
+      - list
+      - watch
+  # Argo APIs. See also https://github.com/argoproj/argo-workflows/blob/main/manifests/cluster-install/workflow-controller-rbac/workflow-aggregate-roles.yaml#L4
+  - apiGroups:
+      - argoproj.io
+    resources:
+      - eventsources
+      - sensors
+      - workflows
+      - workfloweventbindings
+      - workflowtemplates
+      - clusterworkflowtemplates
+      - cronworkflows
+      - cronworkflows
+      - workflowtaskresults
+    verbs:
+      - get
+      - list
+      - watch
+```
+
+Then create the `serviceaccount`:
+```
+kubectl create sa ui -n argo
+```
+
+Bind the role to the `serviceaccount`:
+
+```
+kubectl create rolebinding argo-ui-role --role=role-ui-user-read-only --serviceaccount=argo:ui -n argo
+```
+
+And create a secret (where the trick is that you set an annotation for which service account this secret is valid):
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ui-secret
+  namespace: argo
+  annotations:
+    kubernetes.io/service-account.name: ui
+type: kubernetes.io/service-account-token
+```
+
+We can then finally retrieve and decode the token inside the secret:
+```
+ARGO_TOKEN="Bearer $(kubectl get secret ui-secret -o=jsonpath='{.data.token}' -n argo | base64 --decode)"
+```
+
+We can then get access to the user interface by forwarding a port to the service:
+
+```
+kubectl port-forward -n argo svc/argo-server 2746:2746
+```
+
+Or, as I prefer, modify the service and assign an external IP, so we can access it through an ip on our local network:
+
+```
+k edit service -n argo
+```
+
+then add the `externalIPs` block with the IP you like to use
+
+```
+...
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.43.4.216
+  clusterIPs:
+  - 10.43.4.216
+  externalIPs:
+  - 192.168.1.11
+  externalTrafficPolicy: Cluster
+...
+```
+
+You can then open your browser, either go to `localhost:2746` if you used the port forward or use the IP and enter the token into the login!
