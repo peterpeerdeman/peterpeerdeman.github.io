@@ -6,7 +6,7 @@ tags: ['kubernetes', 'devops']
 draft: false
 ---
 
-I've been running [a longhorn installation on a raspberry pi cluster](../installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster) for a while now. After some time, I started noticing the control plane becoming unstable and going offline, effectively making the workloads on the cluster inaccessible.
+I've been running [a longhorn installation on a raspberry pi cluster](./installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster) for a while now. After some time, I started noticing the control plane becoming unstable and going offline, effectively making the workloads on the cluster inaccessible.
 
 After rebooting the node, the cluster would come online and then become unreachable after about 20 to 30 minutes. After rebooting and immediately SSH'ing in I found that the pod "longhorn instance-manager" was running a process with 250% CPU, slowly grinding the poor raspberry pi to a halt.
 

@@ -5,7 +5,7 @@ category: technology
 tags: ['kubernetes', 'devops']
 ---
 
-As I am now managing all my SSL certificates using [certmanager in kubernetes](../manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefikt), I need to find a solution to access legacy applications with a secure SSL connection. All services are hosted on the same, whilst a couple of these applications have not been ported to kubernetes yet.
+As I am now managing all my SSL certificates using [certmanager in kubernetes](./manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefikt), I need to find a solution to access legacy applications with a secure SSL connection. All services are hosted on the same, whilst a couple of these applications have not been ported to kubernetes yet.
 
 These services all used the same SSL certificate that was managed using [certbot](https://certbot.eff.org/). This was a great solution but does no longer work as all http and https traffic is now handled by kubernetes.
 
@@ -26,7 +26,7 @@ kubectl create ns homeassistant
 
 ## The `Certficate`
 
-This was one of the easiest steps: In the previous blog [about SSL](../manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefikt) I configured a `ClusterIssuer`, that can issue and validate certificates for the whole cluster, no matter what namespace. We create a new certificate in the namespace and refer to the ClusterIssuer like so:
+This was one of the easiest steps: In the previous blog [about SSL](./manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefikt) I configured a `ClusterIssuer`, that can issue and validate certificates for the whole cluster, no matter what namespace. We create a new certificate in the namespace and refer to the ClusterIssuer like so:
 ```
 apiVersion: cert-manager.io/v1
 kind: Certificate
