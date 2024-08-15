@@ -86,7 +86,7 @@ spec:
           mountPath: /volume
     - name: darts-timeseries-forecaster
       container:
-        image: peterpeerdeman/darts-timeseries-forecaster:1.0.6
+        image: peterpeerdeman/darts-timeseries-forecaster:latest
         command: ["python", "app.py"]
         env:
         - name: INPUT_FREQUENCY

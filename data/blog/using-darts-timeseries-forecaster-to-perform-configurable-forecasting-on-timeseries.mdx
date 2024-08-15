@@ -6,7 +6,7 @@ tags: ['ai', 'machinelearning', 'timeseries']
 draft: false
 ---
 
-In [my previous blog about timeseries forecasting](../predicting-timeseries-data-using-facebook-prophet-in-a-python-flask-service-influxdb-and-grafana-on-raspberry-pi) I made my first timeseries predictions facebook prophet. Since then I discovered the Darts library, an excellent suite of prediction models, including the prophet prediction model amongst others. As I've got a whole range of different time series data that I would like to create predictions for, I wanted to create a generic image that is capable of predicting various types of timeseries data, and easily configure them through environment variables, instead of creating separate python code projects for each of these predictions.
+In [my previous blog about timeseries forecasting](./predicting-timeseries-data-using-facebook-prophet-in-a-python-flask-service-influxdb-and-grafana-on-raspberry-pi) I made my first timeseries predictions facebook prophet. Since then I discovered the Darts library, an excellent suite of prediction models, including the prophet prediction model amongst others. As I've got a whole range of different time series data that I would like to create predictions for, I wanted to create a generic image that is capable of predicting various types of timeseries data, and easily configure them through environment variables, instead of creating separate python code projects for each of these predictions.
 
 This is where [darts-timeseries-forecaster](https://github.com/peterpeerdeman/darts-timeseries-forecaster) comes in, implementing a number of models and runs as a container configurable through environment variables. Let's first look on the data flow I have in mind for this project:
 
