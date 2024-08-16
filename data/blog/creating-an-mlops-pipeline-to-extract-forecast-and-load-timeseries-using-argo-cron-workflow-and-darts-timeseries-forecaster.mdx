@@ -130,7 +130,7 @@ I'll go through some of the highlights in the workflow:
 
 - The first step performs the curl query we defined in [the previous blog](./using-darts-timeseries-forecaster-to-perform-configurable-forecasting-on-timeseries), and stores the result in the attached volume
 - the second step runs the forecaster image, and is configured to consume the csv data from the attached volume and writes back the influx lines to a text file.
-- the final step POST's the the influx lines to the influxdb
+- the final step POST's the influx lines back to influxdb
 
 ## Conclusion
 
