@@ -1,0 +1,42 @@
+---
+title: 'Why I am adding virtualisation with Proxmox to my infrastructure'
+date: '2024-06-09'
+category: infrastructure
+tags: ['devops', 'infrastructure', 'virtualisation']
+---
+
+In my infrastructure I've mostly been focused on low power, ARM hardware and installing to bare metal to use the available compute as efficient as possible. But times are a changing, and recently the number of arguments to try virtualisation have accumulated to a point that I have to give it a shot. Let's elaborate on why I'm migrating to a proxmox setup in the homelab.
+
+1) **Fast experimentation cycle**
+2) **Enable i386 support in the [k3s cluster](./blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats)**
+3) **Reliable and fast backup and restore**
+
+## Fast experimentation cycle
+As I am exploring and learning about a diverse set of CS topics, I want to be able to quickly spin up machines, try something out, and possibly get rid of the machine when the experiment is done. Up until now, I was fine just running containers but when working with infrastructure, terraform, k8s, and cyber security lab environments, burning sd cards and being limited to use just a couple of machines just doesn't cut it. 
+
+## Enable i386 support in the k3s cluster
+ARM support for open source software has taken a giant leap since apple switched to ARM architecture. ARM cloud server offerings is also helping, ARM based compute [is already providing cheaper compute per dollar](https://aws.amazon.com/blogs/apn/comparing-aws-lambda-arm-vs-x86-performance-cost-and-analysis-2/). Still, most projects build their images for x86 first, and most software isn't supported on ARM architecture. Adding i386 to my the ARM cluster enables me to run any available docker image.
+
+## Reliable and fast backups and disaster recovery
+
+Right after getting the proxmox machine up and running I had a hardware failure on one of my other ARM machines. I didn't lose a lot of data but the disaster recovery process with physical machines, and the restoration of the data and applications is quite cumbersome. Also, on-machine backups are only as good as you have configured them, often focusing on the data itself and not on the configuration and software running. Virtualisation software has rock solid backup solutions built in and make it almost impossible to do a bd backup.
+
+## Introducing Proxmox
+
+Last time I worked with virtualisation it was VMWare here there and everywhere. I discovered that QEMU and QEMU compatible Proxmox has come a great way since then, and it is astounding to me how feature complete the Proxmox VE product is. [Installing the software](https://www.proxmox.com/en/proxmox-virtual-environment/get-started) was a breeze, creating a bootable medium and booting the drive. 
+
+I think wrapping your head around the different types of storage in a Proxmox operation is actually the biggest challenge of getting started. In short, there is a difference between the filesystem that the proxmox service runs on and the disks that are provided to the virtual machines. The Proxmox software is a variant of debian and installs to a disk quite like how you would install ubuntu, including an ordinary filesystem. The best practice is to add separate disk that hold the storage for the virtual machines.
+
+## Usage
+ 
+Once you have installed Proxmox and defined the storage volumes, you can start creating virtual machines and configure them in any way you like. I started with a couple of headless machines, including a reconstruction of the broken raspberry pi machine that holds persistant data, that is now meticulously being snapshotted and backed up for fast recovery.
+
+As I'm diving a little deeper into [kubernetes](../tags/kubernetes) it has been a blessing to add a number of i386 nodes with a little more compute power to the cluster. The virtualisation environment also allows me to spin up a new development clusters, allowing me to experiment with other runtimes such as talos and practicing rollout of new clusters with gitops solutions such as flux.
+
+Next on the list was working with PFSense, I always wanted to try this firewall and work with the advanced router features but didn't want to risk breaking our local network and internet access, Proxmox now provides an versatile network test environment that allows me to connect any vm's to any kind of network devices, without pulling a single cable.
+
+The final usecase is the cyber security lab environment. Using pfsense, kali, flarevm and remnux to create a safe environment for working with all sorts of security topics such as malware analysis, pentesting and intrusion detection. These boxes provide full desktop GUI's which run surprisingly smoothly through either the web interface or parsec.
+
+If you've been working with low power servers I can definitely recommend trying out Proxmox, even if only for a while. Part of my upgrade experience was of course having a little more compute power and faster disks to work with. The box is relatively low powered (nuc i5 box with some nvme and plenty of ram), offers a lot of freedom in experimentation. I wish you a happy virtualisation!
+
+![](../assets/images/2024-06-09-proxmox.png)

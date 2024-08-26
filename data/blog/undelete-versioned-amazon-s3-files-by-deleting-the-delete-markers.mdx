@@ -1,0 +1,30 @@
+---
+date: '2024-06-20'
+title: 'Undelete versioned Amazon S3 files by deleting the delete markers'
+tags: ['devops', 'cloud']
+---
+
+Remember when I talked about an affordable backup strategy using S3 Glacier](./affordable-backup-strategy-using-amazon-s3-buckets-aws-command-line-tool-and-glacier-storage-rules)? The time has come to followup this blog and tell you about undeletion.
+
+[Enabling versioning on an s3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is a great way to make sure you don't lose data. If you overwrite an object, the old version of the object can also be retrieved.
+
+But what if you (accidentally) deleted a file? When you delete a file in a versioned bucket, you are actually creating a delete marker on top of the stack of old versions of the file. This is great, until you figure out that you are still paying for all the space the versions are taking up ór when you didn't want to remove the file in the first place.
+
+Getting rid of these markers is quite a challenge, especially if you are working with a large number of files. Clicking through the web interface for thousands of files wasn't going to work. Luckily, [cloventt wrote an nice bash script](https://gist.github.com/cloventt/a0ad8c045e856d070b9a2dc1efb7f515) that undeleted all the delete markers using the s3api tool using a clever sequence of listing and batched deletions. Thanks cloventt!
+
+```
+#!/bin/bash
+BUCKET=$1
+PREFIX=$2
+
+echo "Collecting delete markers to purge (may take a while)..."
+aws s3api list-object-versions --bucket $BUCKET --prefix "$PREFIX" --output=json --query='{Objects: DeleteMarkers[].{Key:Key,VersionId:VersionId}}' |
+  jq -c '.Objects | {Objects: _nwise(1000)}' | while read OBJECTS
+    do
+      echo "Deleting markers..."
+      echo $OBJECTS > deleting.json
+      aws s3api delete-objects --bucket $BUCKET --delete file://deleting.json
+    done
+    rm deleting.json
+    echo "Done"
+```

@@ -1,0 +1,37 @@
+---
+title: 'Building multi architecture Docker images using docker manifest lists'
+date: '2024-07-04'
+category: devops
+tags: ['docker', 'devops', 'kubernetes']
+draft: false
+---
+
+In the aftermath of [adding an i386 node](./why-i-am-adding-virtualisation-with-proxmox-to-my-infrastructure) to my [kubernetes cluster](./kubernetes-cluster-build-with-raspberry-pi-and-poe-hats), it was about time to dig into the creation of multi-architecture docker images. When you visit docker hub and look at a popular image, you often see a list of difference images, each with a different OS/ARCH label:
+
+![](../assets/images/2024-07-04-multiarch.png)
+
+This is achieved using docker manifest lists. A manifest lst has a tag, similar to a docker tag but actually refers to a list of images, possibly with different architectures. If we build our project multiple times, and specifying a specific platform during each build, we can then create a `manifest` that references the images for different platforms.
+
+I'll show both the manual way of creating such a manifest through the command line, and provide a github action workflow you can use to automatically build a (public) project to multiple images and upload them to an artifact repository.
+
+## Manual multi architecture manifest
+
+As I previously discussed in [the buildx blog](./building-raspberry-pi-arm64-images-on-desktop-using-docker-buildx), we can use buildx to emulate a build on a different platform. In this example, we first build for `amd64`, and then build for `linux/arm64`.
+
+```
+docker buildx build -t peterpeerdeman/lightning-logger:1.1.0-amd64 --platform linux/amd64 --push -f Dockerfile .
+
+docker buildx build -t peterpeerdeman/lightning-logger:1.1.0-arm64 --platform linux/arm64 --push -f Dockerfile .
+```
+
+after creating and pushing the images, we can now create a manifest file, and "amend" that manifest with the two images we have just created. 
+
+```
+docker manifest create peterpeerdeman/lightning-logger:1.1.0 --amend peterpeerdeman/lightning-logger:1.1.0-arm64 --amend peterpeerdeman/lightning-logger:1.1.0-amd64
+```
+
+We can then push the manifest file and enjoy the convenience of our future docker pulls automatically pulling the right image for the architecture that you are working on!
+
+```
+docker manifest push peterpeerdeman/lightning-logger:1.1.0
+```
