@@ -6,7 +6,7 @@ tags: ['raspberry', 'kubernetes', 'devops']
 draft: false
 ---
 
-As the [raspberry pi cluster](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats) is going to need some persistence, I looked into several distributed persistence modules such as NFS shares, [Ceph](https://ceph.com) and [Rook](https://rook.io) but found [Longhorn](https://longhorn.io) to be the most friendly to get started with, and actually had quite nice arm64 support at the time I was testing them out.
+As the [raspberry pi cluster](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats) is going to need some persistence, I looked into several distributed persistence modules such as NFS shares, [Ceph](https://ceph.io) and [Rook](https://rook.io) but found [Longhorn](https://longhorn.io) to be the most friendly to get started with, and actually had quite nice arm64 support at the time I was testing them out.
 
 First, we install `iscsi` on all nodes that we want to use in the disk configuration
 
