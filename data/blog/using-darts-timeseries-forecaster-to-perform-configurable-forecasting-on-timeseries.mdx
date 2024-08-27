@@ -16,7 +16,7 @@ This is where [darts-timeseries-forecaster](https://github.com/peterpeerdeman/da
 4) Send the prediction data back to influxdb
 5) Visualise the predictions in grafana
 
-Let's start by exploring the timeseries we want to predict on. We use the Grafana ui to visualise influxdb data we have collected want to forecast, for example [some parking places data I've been collecting over time](https://hashbang.nl/blog/rasplogger-influxdb-grafana-dashboards-showcase). To retrieve the CSV data from this panel, we click the triple dots on the top right of the panel, inspect, data and then press the download CSV button to download the csv file.
+Let's start by exploring the timeseries we want to predict on. We use the Grafana ui to visualise influxdb data we have collected want to forecast, for example [some parking places data I've been collecting over time](./rasplogger-influxdb-grafana-dashboards-showcase). To retrieve the CSV data from this panel, we click the triple dots on the top right of the panel, inspect, data and then press the download CSV button to download the csv file.
 
 We can now run the darts-timeseries-forecaster docker image. The image takes care of reading the CSV file, preparing the data to play nice with the python datastructures and read your configuration before fitting the darts models. We configure the container to use the current working directory with the `parking.csv` file as input, format the output as influx line format, the output file `predictions.txt` output text file and a couple of values that are specific to the timeseries, such as the time between each datapoint and the number of values to include in the moving average to smooth out the input values:
 
