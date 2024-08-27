@@ -9,7 +9,6 @@ import { MDXLayoutRenderer } from 'pliny/mdx-components'
 
 const MAX_DISPLAY = 10
 
-
 export default function Home({ posts }) {
   return (
     <>
@@ -27,7 +26,7 @@ export default function Home({ posts }) {
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, body, tags } = post
 
-            const rawBlurb = body.raw.substring(0, 600);
+            const rawBlurb = body.raw.substring(0, 600)
             const blurb = rawBlurb.replace(/\[(.*?)\]\(.*?\)/g, '$1')
 
             return (
