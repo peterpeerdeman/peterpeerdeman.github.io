@@ -6,13 +6,21 @@ tags: ['ai', 'mlops', 'influxdb', 'timeseries', 'machinelearning']
 draft: false
 ---
 
-Now that we have finally prepared the proper Extract Transform Load (ETL) steps to create a single forecast for a timeseries in [the previous blog](./using-darts-timeseries-forecaster-to-perform-configurable-forecasting-on-timeseries) about [darts-timeseries-forecaster](https://github.com/peterpeerdeman/darts-timeseries-forecaster), we can now turn these separate steps into a pipeline that we can automatically run every x amount of time.
+The blog series about collecting timeseries, making predictions and making these predictions configurable is now coming to an epic conclusion where we all the previous steps and add a workflow engine to create a proper Machine Learning Operations (MLOps) pipeline, that automates all of the previous steps and runs every x amount of time.
 
-My goal is to deploy an open source MLOps system that runs the workload in such way that we can 
+If you are just tuning in, check the previous timeseries and forecasting blogs here:
 
-1) configure multiple recurring forecasting jobs without making code changes
-2) define the interval at which the forecasts are being refreshed
-3) run on kubernetes, allowing us to scale the underlying infrastructure in case the workloads get bigger / need more compute.
+1) [Using influxdb, grafana and nodejs datalogger rasplogger to visualise solar panel data](./using-influxdb-grafana-and-nodejs-datalogger-to-visualise-solar-panel-data)
+2) [Predicting timeseries data using Facebook Prophet in a Python Flask service, Influxdb and Grafana on Raspberry Pi](./predicting-timeseries-data-using-facebook-prophet-in-a-python-flask-service-influxdb-and-grafana-on-raspberry-pi)
+3) [Using Darts-Timeseries-Forecaster to perform configurable forecasting on timeseries](./using-darts-timeseries-forecaster-to-perform-configurable-forecasting-on-timeseries)
+
+Now that we have finally prepared the proper Extract Transform Load (ETL) steps to create a single forecast for a timeseries in [the previous blog](./using-darts-timeseries-forecaster-to-perform-configurable-forecasting-on-timeseries) using [darts-timeseries-forecaster](https://github.com/peterpeerdeman/darts-timeseries-forecaster), we can now turn these steps into a workflow to be run on a kubernetes cluster.
+
+The end goal of this project is to deploy an open source MLOps system that runs the workload in such way that we can:
+
+1) Configure multiple recurring forecasting jobs without making code changes
+2) Define the interval at which the forecasts are being refreshed
+3) Run on kubernetes, allowing us to scale the underlying infrastructure in case the workloads get bigger / need more compute.
 
 This is where [Argo Workflows](https://argoproj.github.io/workflows/) comes in, an open source container-native workflow engine for orchestrating parallel jobs on Kubernetes. What I like about Argo is that all steps are defined in one flow, that all separate steps have their own docker containers and volumes can be shared between steps to avoid storing and loading data multiple times in between steps.
 
