@@ -1,0 +1,22 @@
+---
+title: 'Setting up Proxmox VM backups on an NFS share with retention policies'
+date: '2024-07-28'
+category: devops
+tags: ['devops', 'infrastructure']
+---
+
+After setting up a [Proxmox machine for virtualisation](./why-i-am-adding-virtualisation-with-proxmox-to-my-infrastructure.mdx) I wanted to ensure a quick and frictionless recovery if a hardware failure occurs. Whilst Proxmox has [excellent support for failover and high availability](https://pve.proxmox.com/wiki/High_Availability) I'm opting for a slightly less heavy approach but still be able to quickly recover a VM and its data.
+
+Proxmox has [a comprehensive backup system](https://pve.proxmox.com/wiki/Backup_and_Restore) built in that creates a snapshot of the virtual machine including the disk, and stores it as a zipped disk image. I've opted to store the backups on a separate NAS with mirrored disks, so I have multiple copies of the data, on 2 different media. To complete the [3-2-1 backup strategy](https://www.veeam.com/blog/321-backup-rule.html) I am incidentally backing up the latest NAS backup to an offsite cloud service.
+
+To set this up, the easiest way to access the NAS is through mounting an NFS share. After setting up the share, you can use the proxmox gui to add the NFS share which then is added as one of the storage devices
+
+![](../assets/images/2024-07-28-proxmox-nfs.png)
+
+When creating a backup job, you can specify to run it on a specific time schedule, and the second tab offers convenient retention policies to ensure you have a limit on the number of backups you can roll back to. I set the backup up to keep a total of 5 copies, and by specifying I want 1 monthly and 1 weekly backup I can reach back further in time than just the last 5 backups.
+
+![](../assets/images/2024-07-28-proxmox-retention.png)
+
+As with any backup, it is only as good as your restoration procedure. If the VM fails, I can navigate to the storage device, go to backups, select the backup and press restore to recreate the VM. If the whole proxmox box fails, I have to set up a new proxmox machine, connect the NFS share and restore the box on the new machine. This will take a little longer but avoids me constantly running three redundant machines.
+
+![](../assets/images/2024-07-28-proxmox-restore.png)
