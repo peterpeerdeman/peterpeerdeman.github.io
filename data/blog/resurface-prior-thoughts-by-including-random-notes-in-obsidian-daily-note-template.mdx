@@ -1,0 +1,22 @@
+---
+title: 'Resurface prior thoughts by including random notes in obsidian daily note template'
+date: '2024-07-10'
+draft: false
+tags: ['pkm']
+---
+
+One of the things I missed after [abandoning Readwise for Wallabag](./replacing-readwise-with-self-hosted-open-source-wallabag-with-obsidian-wallabag-plugin) was the serendipitous resurfacing of old highlights, that would often trigger new thoughts. To include some extra serendipity into my daily notemaking, I made a slight modification to [the snippet provided by dhniceday](https://forum.obsidian.md/t/how-to-add-links-to-random-notes-to-daily-note/52379/2) to show use the [dataview plugin](https://obsidian.rocks/dataview-in-obsidian-a-beginners-guide/) to show a couple of random notes from your vault everytime you open your daily note:
+
+```
+## Random notes
+```dataviewjs
+app.vault.getFiles() 
+const files = app.vault.getFiles() 
+for (i=0; i<3;i++) {
+	const random = Math.floor(Math.random() * (files.length - 1)) 
+	const randomNote = files[random] 
+	dv.paragraph('[[' + randomNote.basename + ']]') 
+}
+```
+
+There are some great other ideas on serendipity in at the [obsidian serendipity blog](https://obsidian.rocks/embrace-serendipity-discovering-old-notes-in-obsidian/)

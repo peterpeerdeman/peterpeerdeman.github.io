@@ -1,0 +1,117 @@
+---
+title: 'Replacing Readwise with self hosted open source: Wallabag with Obsidian Wallabag plugin'
+date: '2024-09-01'
+draft: false
+tags: ['pkm']
+images: ['/assets/images/2024-09-01-annotation.png']
+---
+
+After being recommended like a 100 times to give [Readwise](https://readwise.io) a try, Ernst Jan Pfauth finally convinced me during his talk about [thought dividends](https://notes.peterpeerdeman.nl/pkm-summit-2024#ernst-jan-pfauth---thought-dividends). And of course it was great: It is a well designed product with a rich featureset and it really supercharged my note making experience. 
+
+But there was just something aching about incorporating a (quite costly) subscription product into the note making workflow that I want to keep indefinitely for the rest of my life. Currently at at 15€ a month it is quite a luxury to splurge on.
+
+As I'm already [self hosting quite an elaborate CI/CD pipeline](./publishing-your-personal-knowledge-management-system-using-obsidian-quartz-private-repositories-gitea-gitea-actions-and-netlify) for sharing parts of my personal knowledge management system I decided to search for an alternative open source self hosted solution.
+
+Amongst the plethora of open source RSS readers / save for later type products, I finally discovered [Wallabag](https://github.com/wallabag). Wallabag is a web application that allows you to save pages from the internet to read later. It has a comprehensive API and integrates with many different applications, amongst which [Obsidian](./why-and-how-i-maintain-a-personal-knowledge-management-system-using-obsidian). 
+
+The most important feature that separates wallabag from many other applications is the ability to make highlights in the collected web documents, and exposing these highlights through the API.
+
+The workflow I'm using now is as follows: 
+
+1) Discover a link with some text that I want to highlight and quote, usually on my Android mobile phone
+2) I share the link to the wallabag app
+3) The app automatically submits the URL to the wallabag instance
+4) I open up the wallabag webapplication on my mobile phone
+5) Highlight the text
+
+Then, later on my Obsidian desktop application
+
+6) Wallabag automatically syncs the articles and their annotations
+7) I can use the annotations in my notes
+
+## Setting up Wallabag
+
+We start by installing Wallabag and a database on our server using a docker compose yaml. Take special care to the update the domain name, the ports (im using 3004) and the volume location.
+
+```
+  wallabag:
+    container_name: wallabag
+    image: wallabag/wallabag
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=wallaroot
+      - SYMFONY__ENV__DATABASE_DRIVER=pdo_mysql
+      - SYMFONY__ENV__DATABASE_HOST=wallabag-db
+      - SYMFONY__ENV__DATABASE_PORT=3306
+      - SYMFONY__ENV__DATABASE_NAME=wallabag
+      - SYMFONY__ENV__DATABASE_USER=wallabag
+      - SYMFONY__ENV__DATABASE_PASSWORD=wallapass
+      - SYMFONY__ENV__DATABASE_CHARSET=utf8mb4
+      - SYMFONY__ENV__DATABASE_TABLE_PREFIX="wallabag_"
+      - SYMFONY__ENV__MAILER_DSN=${WALLABAG_DSN}
+      - SYMFONY__ENV__FROM_EMAIL=${WALLABAG_FROM}
+      - SYMFONY__ENV__DOMAIN_NAME=http://192.168.117.9:3004
+      - SYMFONY__ENV__SERVER_NAME="Private Wallabag instance"
+    ports:
+      - "3004:80"
+    volumes:
+      - ~/wallabag-data/images:/var/www/wallabag/web/assets/images
+    healthcheck:
+      test: ["CMD", "wget" ,"--no-verbose", "--tries=1", "--spider", "http://localhost/api/info"]
+      interval: 1m
+      timeout: 3s
+    depends_on:
+      - wallabag-db
+  wallabag-db:
+    container_name: wallabag-db
+    image: mariadb
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=wallaroot
+    volumes:
+      - /volume1/docker/wallabag/data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 20s
+      timeout: 3s
+```
+
+We can now access the wallabag interface and start adding links. To further automate the process, click the profile in the top right, go to API clients management and create a new client. I recommend creating one for the mobile app and one for obsidian. 
+
+![](../assets/images/2024-09-01-wallabag.png)
+
+## Mobile access to wallabag
+
+We can now install the mobile app or the browser plugin on [ios](https://apps.apple.com/us/app/wallabag-2-official/id1170800946), [android](https://play.google.com/store/apps/details?id=fr.gaulupeau.apps.InThePoche&hl=nl&pli=1) and [chrome](https://chromewebstore.google.com/detail/wallabagger/gbmgphmejlcoihgedabhgjdkcahacjlj?pli=1). Configure them and use the credentials that you just created to access the database. I personally didn't expose wallabag to the internet: when I am on the move I use a VPN to get onto my local network and access wallabag through a local ip address.
+
+The mobile apps unfortunately [don't support highlighting yet](https://github.com/wallabag/ios-app/issues/167), but the webinterface does. You can use your mobile webbrowser or desktop to access the wallabag web application directly, make a selection and use the annotation button to add the annotation:
+
+![](../assets/images/2024-09-01-annotation.png)
+
+## Importing annotations to Obsidian 
+
+If we now open Obsidian / settings / Community Plugins / Browse, search for wallabag and install the [Obsidian Wallabag plugin](https://github.com/huseyz/obsidian-wallabag). After installing enable it, and click options to fill in your URL, and authentication details at the bottom of the settings panel. I used the "Article note template file" field point to my `templates/Wallabag`, which looks like this:
+
+```
+---
+tags: articles
+publish: false
+---
+## {{article_title}} 
+
+[{{original_link}}]({{original_link}})
+
+## annotations
+
+{{annotations}}
+```
+
+It's very basic and aimed mostly at showing the annotations and the original link. I sometimes publish these annotation notes and don't want to infringe on copyrights so I am not including the full original texts, those stay in Wallabag. 
+
+We can now fire the sync command Using `command+p` and typing `Wallabag: Sync Articles` and watch our saved wallabag articles with annotations get imported as markdown files in our Obsidian vaults:
+
+![](../assets/images/2024-09-01-obsidian.png)
+
+## Concluding
+
+It feels great to create an open source alternative to a subscription service and still have most of the functionality available. I think I will miss the snipd integration most. For the highlight reviews recaps I'm thinking about maye building a little automation that picks random notes from my published quartz pkm and send them to my email box, but for now I'll stick with the [random notes in my daily note template](./resurface-prior-thoughts-by-including-random-notes-in-obsidian-daily-note-template)
