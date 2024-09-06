@@ -1,0 +1,63 @@
+---
+title: 'Collecting and observing Kubernetes pod logs using Loki, Alloy and Grafana'
+date: '2024-08-10'
+category: observability
+tags: ['observability', 'kubernetes', 'loki', 'grafana']
+draft: false
+---
+For log aggregation and log visualisation, I worked with the [ELK stack](./logging-stashing-and-analyzing-with-elasticsearch-logstash-and-kibana) before. I didn't implement this in all of my projects because it is quite a heavy setup. Especially elasticsearch is quite a resource intensive java process. For most of the applications I've worked on it was a lot easier to just use a SaaS solution like papertrail.
+
+Recently, I got wind of Loki, which is a completely new product from Grafana. It offers a lightweight log storage setup with go-based codebase that scales out each of its components separately if needed. As a plus for fanboys like me, it integrates very nicely into grafana dashboards and which can result in very powerful [aggregated log and metric dashboards](./aggregated-dashboarding-of-metrics-and-logs-with-grafana-influx-and-loki).
+
+In this case, I just want to have one place where all of the logs from my [k8s cluster] pods are aggregated, and allow me to create some simple metrics, log details and alerting when specific loglines occur. Let's start by installing Loki into our cluster. We'll keep it simple with the monolithic install, follow the instructions for modifying the yaml file as instructed [in the docs here](https://grafana.com/docs/loki/latest/setup/install/helm/install-monolithic/)
+
+```
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+helm install --values values.yaml loki grafana/loki
+```
+
+Now that loki is running, can continue with Alloy, formerly known as grafana-agent, which is a small process that will run on each of our cluster nodes. Grafana released a convenient helm chart called [k8s-monitoring](https://github.com/grafana/k8s-monitoring-helm) that is able to monitor a whole bunch of things, amongst which functionality to gather logs from all the pods in your cluster. Lets start by downloading the [values.yaml](https://github.com/grafana/k8s-monitoring-helm/blob/main/charts/k8s-monitoring/values.yaml) file and doing some minor customisations.
+
+We start by specifying the right Loki host in the connection information, make sure it is a full url including transport and port name: 
+
+```
+externalServices:
+  # Connection information for Prometheus
+ # removed
+ 
+  # Connection information for Grafana Loki
+  loki:
+    # -- Loki host where logs and events will be sent
+    # @section -- External Services (Loki)
+    host: "http://192.168.117.5:3100"
+    # -- The key for the host property in the secret
+```
+
+By default, the `metrics` section is enabled, which will also require you to install prometheus. As this is not what I'm looking for right now, we can put enabled on false this 
+
+```
+# Settings related to capturing and forwarding metrics
+metrics:
+  # -- Capture and forward metrics
+  # @section -- Metrics Global Settings
+  enabled: false
+```
+
+I've kept Alloys  `enabled` field true and the `Logs` part as well. Because we disabled all metrics we don't have to look into all of the separate metrics configs. You can tweak all these values to your hearts content, but for now just disabling the metrics and keeping the rest default will work. Install the chart, fire up your [k9s console](./using-the-k9s-cli-tool-to-get-a-clear-overview-and-quick-acces-to-anything-on-your-cluster) and watch those agent pods get spawned!
+
+```
+helm install alloy-k8s-monitoring --atomic --timeout 300s grafana/k8s-monitoring -n monitoring --values values.yaml
+```
+
+![](../assets/images/2024-08-10-alloy-pods.png)
+
+K9s shows us 6 running pods: four logging pods that run on all my 4 k8s nodes, one alloy pod that exports kubernetes events on the control plane and one main alloy pod alloy pod that collects the logs from each of the nodes. If we create a port forward on the main alloy pod (using shift+f in the k9s console), we can take a peek at the Alloy user interface, showing us a long list of Alloy components. Each component has arguments (settings) and an export of values that are exposed to other components:
+
+![](../assets/images/2024-08-10-alloy-interface.png)
+
+Logs should now be flowing into Loki. If we fire up Grafana we can now create a dashboard, add loki as a datasource and show logs from multiple services and metrics calculated from our logs all in the same dashboard. For instance, my dashboard for [Recordfairs](./deploying-a-nodejs-postgres-application-to-kubernetes-raspberry-pi-cluster) shows logs from the application pod, logs from the postgres pod and shows the number of GET requests plotted over time in the top graph:
+
+![](../assets/images/2024-08-10-k8s-pod-logs.png)
+
+I dive in a little deeper how to create these kind of aggregated metrics dashboards in the blog "[Aggregated intrusion detection dashboarding of PFSense metrics and Snort alert logs with Grafana, telegraf, Influx and Loki](./aggregated-dashboarding-of-metrics-and-logs-with-grafana-influx-and-loki)"
