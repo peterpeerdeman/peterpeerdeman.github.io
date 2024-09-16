@@ -109,6 +109,7 @@ export const Blog = defineDocumentType(() => ({
     canonicalUrl: { type: 'string' },
     category: { type: 'string' },
     description: { type: 'string' },
+    pinned: { type: 'boolean' },
   },
   computedFields: {
     ...computedFields,

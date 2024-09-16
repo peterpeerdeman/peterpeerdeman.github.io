@@ -2,6 +2,8 @@ import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import Image from '@/components/Image'
 
+import Card from '@/components/Card'
+
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
@@ -9,17 +11,36 @@ import { MDXLayoutRenderer } from 'pliny/mdx-components'
 
 const MAX_DISPLAY = 10
 
+
 export default function Home({ posts }) {
+  const pinsData = posts.filter((blog) => {
+    return blog.pinned == true && blog.images
+  });
+
   return (
     <>
-      <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
+      <div>
+        <div className="space-y-2 pb-2 pt-2 md:space-y-5">
           <Image
             alt="Hashbang's Peter Peerdeman"
             src="/static/images/twitter-card.jpg"
             width={1024}
             height={312}
           />
+        </div>
+        <div className="container py-12">
+          <div className="-m-4 flex flex-wrap">
+            {pinsData.map((d) => (
+              <Card
+                key={d.title}
+                title={d.title}
+                description={formatDate(d.date, siteMetadata.locale)}
+                imgSrc={d.images[0]}
+                href={`/blog/${d.slug}`}
+                omitLabel= {true}
+              />
+            ))}
+          </div>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
