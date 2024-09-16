@@ -11,11 +11,10 @@ import { MDXLayoutRenderer } from 'pliny/mdx-components'
 
 const MAX_DISPLAY = 10
 
-
 export default function Home({ posts }) {
   const pinsData = posts.filter((blog) => {
     return blog.pinned == true && blog.images
-  });
+  })
 
   return (
     <>
@@ -37,7 +36,7 @@ export default function Home({ posts }) {
                 description={formatDate(d.date, siteMetadata.locale)}
                 imgSrc={d.images[0]}
                 href={`/blog/${d.slug}`}
-                omitLabel= {true}
+                omitLabel={true}
               />
             ))}
           </div>
