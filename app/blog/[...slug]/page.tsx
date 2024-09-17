@@ -119,7 +119,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       </Layout>
       {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
-          <NewsletterForm title = 'Support Hashbang, keep in touch 💌' />
+          <NewsletterForm title="Support Hashbang, keep in touch 💌" />
         </div>
       )}
     </>
