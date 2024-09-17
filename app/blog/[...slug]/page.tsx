@@ -14,6 +14,8 @@ import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 
+import NewsletterForm from 'pliny/ui/NewsletterForm'
+
 const defaultLayout = 'PostLayout'
 const layouts = {
   PostSimple,
@@ -115,6 +117,11 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
       <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
       </Layout>
+      {siteMetadata.newsletter?.provider && (
+        <div className="flex items-center justify-center pt-4">
+          <NewsletterForm title = 'Support Hashbang, keep in touch 💌' />
+        </div>
+      )}
     </>
   )
 }

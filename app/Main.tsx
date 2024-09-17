@@ -110,7 +110,7 @@ export default function Home({ posts }) {
       )}
       {siteMetadata.newsletter?.provider && (
         <div className="flex items-center justify-center pt-4">
-          <NewsletterForm />
+          <NewsletterForm title = 'Support Hashbang, keep in touch 💌' />
         </div>
       )}
     </>
