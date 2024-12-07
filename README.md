@@ -1,5 +1,4 @@
-
-based on [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) 
+based on [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog)
 
 ## Installation
 
@@ -145,6 +144,7 @@ Consider removing the following features that cannot be used in a static build:
 
 - [How can I add a custom MDX component?](/faq/custom-mdx-component.md)
 - [How can I customize the `kbar` search?](/faq/customize-kbar-search.md)
+- [Deploy with docker](/faq/deploy-with-docker.md)
 
 ## Support
 
