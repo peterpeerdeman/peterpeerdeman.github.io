@@ -20,32 +20,28 @@ helm install --values values.yaml loki grafana/loki
 
 Now that loki is running, can continue with Alloy, formerly known as grafana-agent, which is a small process that will run on each of our cluster nodes. Grafana released a convenient helm chart called [k8s-monitoring](https://github.com/grafana/k8s-monitoring-helm) that is able to monitor a whole bunch of things, amongst which functionality to gather logs from all the pods in your cluster. Lets start by downloading the [values.yaml](https://github.com/grafana/k8s-monitoring-helm/blob/main/charts/k8s-monitoring/values.yaml) file and doing some minor customisations.
 
-We start by specifying the right Loki host in the connection information, make sure it is a full url including transport and port name: 
+We start by specifying the kubernetes cluster's name, enable alloy-logs, and configure loki as the destination to ship the logs to. Make sure it is a full url including transport and port name: 
 
 ```
-externalServices:
-  # Connection information for Prometheus
- # removed
- 
-  # Connection information for Grafana Loki
-  loki:
-    # -- Loki host where logs and events will be sent
-    # @section -- External Services (Loki)
-    host: "http://192.168.117.5:3100"
-    # -- The key for the host property in the secret
+cluster:
+  name: my-k8s-cluster-name
+
+alloy-logs:
+  enabled: true
+
+podLogs:
+  enabled: true
+  destinations:
+    - loki
+
+destinations:
+  - name: loki
+    type: loki
+    url: http://loki:3100/loki/api/v1/push
+
 ```
 
-By default, the `metrics` section is enabled, which will also require you to install prometheus. As this is not what I'm looking for right now, we can put enabled on false this 
-
-```
-# Settings related to capturing and forwarding metrics
-metrics:
-  # -- Capture and forward metrics
-  # @section -- Metrics Global Settings
-  enabled: false
-```
-
-I've kept Alloys  `enabled` field true and the `Logs` part as well. Because we disabled all metrics we don't have to look into all of the separate metrics configs. You can tweak all these values to your hearts content, but for now just disabling the metrics and keeping the rest default will work. Install the chart, fire up your [k9s console](./using-the-k9s-cli-tool-to-get-a-clear-overview-and-quick-acces-to-anything-on-your-cluster) and watch those agent pods get spawned!
+Feel free to change any values, check the [docs](https://github.com/grafana/k8s-monitoring-helm/tree/main/charts/k8s-monitoring) for more information about configuring things. For now, install the chart, fire up your [k9s console](./using-the-k9s-cli-tool-to-get-a-clear-overview-and-quick-acces-to-anything-on-your-cluster) and watch those agent pods get spawned!
 
 ```
 helm install alloy-k8s-monitoring --atomic --timeout 300s grafana/k8s-monitoring -n monitoring --values values.yaml
