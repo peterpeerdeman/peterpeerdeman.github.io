@@ -19,8 +19,8 @@ const siteMetadata = {
   linkedin: 'https://www.linkedin.com/in/peterpeerdeman',
   //threads: 'https://www.threads.net',
   //instagram: 'https://www.instagram.com',
-  medium: 'https://medium.com',
-  bluesky: 'https://bsky.app/',
+  //medium: 'https://medium.com',
+  //bluesky: 'https://bsky.app/',
   locale: 'en-US',
   // set to true if you want a navbar fixed to the top
   stickyNav: false,
