@@ -18,8 +18,8 @@ export default function Home({ posts }) {
 
   return (
     <>
-      <div>
-        <div className="space-y-2 pb-2 pt-2 md:space-y-5">
+      <div className="divide-y divide-gray-200 dark:divide-gray-700">
+        <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <Image
             alt="Hashbang's Peter Peerdeman"
             src="/static/images/twitter-card.jpg"

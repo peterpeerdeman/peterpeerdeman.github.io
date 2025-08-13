@@ -47,7 +47,7 @@ export async function generateMetadata(props: {
   }
   const ogImages = imageList.map((img) => {
     return {
-      url: img.includes('http') ? img : siteMetadata.siteUrl + img,
+      url: img && img.includes('http') ? img : siteMetadata.siteUrl + img,
     }
   })
 
