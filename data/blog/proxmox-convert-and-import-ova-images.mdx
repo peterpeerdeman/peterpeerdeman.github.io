@@ -1,0 +1,15 @@
+---
+title: 'proxmox ova import'
+date: '2024-xx-xx'
+category: devops
+tags: ['devops', 'infrastructure']
+draft: true
+---
+
+you can log in to the proxmox shell, check if you could access the share, create a directory and mount the NFS disk by hand, which is also very convenient when you want to import large machine image files from a separate machine:
+
+```
+showmount -e 192.168.0.5
+mkdir /mnt/nfsshare
+mount 192.168.0.5:/home/peter/nfsshare /mnt/nfsshare/
+```

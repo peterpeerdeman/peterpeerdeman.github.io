@@ -1,0 +1,18 @@
+---
+title: 'Ubuntu on Proxmox use full disk space'
+date: '2024-xx-xx'
+category: infrastructure
+tags: ['infrastructure', 'virtualisation']
+---
+- extend volumes
+```
+lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+
+After that
+
+sudo resize2fs -p /dev/mapper/ubuntu--vg-ubuntu--lv
+
+First one extend the lv and second one resize.
+
+Then Check df -h
+```
