@@ -73,7 +73,7 @@
     outline-color: var(--color-primary-500);
   }
 
-  h1,h2 {
+  h1,h2,h3 {
     font-weight: 800;
   }
   .h-6 {
