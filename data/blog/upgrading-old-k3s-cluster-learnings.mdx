@@ -1,0 +1,27 @@
+---
+title: 'Upgrading old k3s cluster learnings'
+date: '2025-8-07'
+category: devops
+tags: ['kubernetes']
+---
+The great thing about K3s, Lightweight Kubernetes is that it is built in Go and compiles to one big executable. Upgrading to the latest version should be just updating that binary right? It is actually very close, but if you have not upgraded in a while, you need to take extra precaution to avoid encountering breaking changes between versions. This is the process I followed for upgrading an outdated k3s cluster:
+
+## Prep
+- Get some monitoring on the services that you are running, preferably outside the k3s cluster itself, to  at least have some visibility of your services and receive notifications if a service breaks down between upgrades
+- Create backups of the k3s configuration between verison upgrades. In the simplest case this is a simple copy command of the sqlite db, the token and the k3s binary to a timestamped folder, allowing you to roll back if the version upgrade messed up your configuration
+
+## Upgrade traefik from 2 to 3 first
+- Mostly this is switching apiVersion in your configuration, the migration path from traefik 2 to 3 [is documented extensively](https://doc.traefik.io/traefik/v3.0/migration/v2-to-v3/)
+- Be careful upgrading your CRD's: removing crd's also removes resources. First create resources using the `traefik.io` namespace and only then remove the old `traefik.containo.us` CRD's
+- Upgrade traefik helm chart one minor version at a time, and check if the services still work between each version.
+    - `helm search repo traefik --versions` to list available versions
+    = `helm upgrade traefik --version x.y.z`
+
+## Upgrade k3s binary one step at a time
+
+- Upgrade k3s installation on the nodes one minor version at a time. I used the release notes table at [k3s-io](https://docs.k3s.io/release-notes/v1.32.X) to find the latest patch version of each minor version, and used the official k3s installation command e.g. `curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION=v1.34.1+k3s1 K3S_URL=$k3s_server K3S_TOKEN=$k3s_token sh -`
+    - Ensure you set and supply the token in each installation command, if you make a typo the node will become a server node and shift all external ips to a different node
+    - Try to not have worker nodes and control plane nodes be more than one version apart
+
+## Upgrade installed helm packages
+Finally, upgrade the installed helm packages, by first listing versions and then upgrading per minor version

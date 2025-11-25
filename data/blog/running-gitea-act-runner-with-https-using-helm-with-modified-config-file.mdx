@@ -1,0 +1,25 @@
+---
+title: 'Running Gitea act-runner with https using helm with modified config file'
+date: '2025-09-01'
+category: devops
+tags: ['devops']
+---
+
+As I was upgrading [my gitea setup](./publishing-your-personal-knowledge-management-system-using-obsidian-quartz-private-repositories-gitea-gitea-actions-and-netlify) to use https certificates, I noticed my act runner stopped working. Of course the url of the gitea instance had to be updated to include the 's' in https, but because I'm using self signed certificates, I needed to configure the act runner to allow these type of certificates.
+
+I then realised that the [act_runner-helm](https://gitea.com/vquie/act_runner-helm) chart I was using doesn't supply an option to overwrite the default config file. As I found out, using a config map is the right way to supply your own version of a config file, so I created [a fork](https://github.com/peterpeerdeman/act_runner-helm) that allows you to (for instance) set the `insecure:true` value false in the `config.yaml` file
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: act-runner-config
+data:
+  config.yaml: |
+    runner:
+      insecure: true
+      labels: [
+        "ubuntu-latest:docker://node:16-bullseye"
+      ]
+
+```

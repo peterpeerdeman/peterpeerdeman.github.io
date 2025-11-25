@@ -1,0 +1,11 @@
+---
+title: 'Ubuntu on Proxmox use all available disk space'
+date: '2024-11-01'
+category: infrastructure
+tags: ['infrastructure', 'virtualisation']
+---
+As I was deploying a fresh Ubuntu VM in my Proxmox environment, I found that it didn't have all the disk space available that I assigned when I created the VM. I used the following commands to ensure the image was able to use all of the available diskspace:
+
+- Extend the logical volume `lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv`
+- Resize the filesystem `sudo resize2fs -p /dev/mapper/ubuntu--vg-ubuntu--lv`
+- Check if the resize worked using `df -h`

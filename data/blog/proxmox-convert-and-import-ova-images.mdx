@@ -1,15 +1,40 @@
 ---
-title: 'proxmox ova import'
-date: '2024-xx-xx'
+title: 'Import VMDK and QCOW2 virtual machine files to Proxmox'
+date: '2024-12-05'
 category: devops
 tags: ['devops', 'infrastructure']
-draft: true
 ---
 
-you can log in to the proxmox shell, check if you could access the share, create a directory and mount the NFS disk by hand, which is also very convenient when you want to import large machine image files from a separate machine:
+The nice thing about VM's is that their images are very portable, and you can easily reuse your images on different machines. Handling these big images can be a bit unwieldy, and there are several image formatswhich will need conversion to the qcow2 format if you are using proxmox. I've noticed that using NFS shares to import images is an easy way of getting images into a proxmox host.
+
+## Prepare acces to the images
+
+Make sure that the machine that contains the image you want to import is serving an NFS share. Then log in to the Proxmox shell, and check if you can access the share. Create a mounting directory and mount the NFS disk by hand: 
 
 ```
 showmount -e 192.168.0.5
 mkdir /mnt/nfsshare
-mount 192.168.0.5:/home/peter/nfsshare /mnt/nfsshare/
+mount 192.168.0.5:/home/user/nfsshare /mnt/nfsshare/
 ```
+
+## Converting VMDK files
+If you are importing a VMDK file, first convert it to qcow2 format, then create the vm, import the qcow2 file as a disk image and then set the imported disk to the virtual machine. Please note that this import will copy the data from the qcow2 file to the desired disk (in this case nvme). I followed the following commands for a metasploitable box:
+```
+cd /mnt/nfsshare
+cd Metasploitable2-Linux/
+qemu-img convert -O qcow2 Metasploitable.vmdk metasploitable.qcow2
+qm create 105 --memory 2048 --cores 2 --name metasploitable2 --net0 virtio,bridge=vmbr1 --boot c --bootdisk ide0
+qm importdisk 105 metasploitable.qcow2 nvme
+qm set 105 --ide0 unused0:nvme:vm-105-disk-0
+```
+
+## Extra step for OVA files
+
+In case you are dealing with an OVA file, you first need to untar the ova file, and then gunzip the vmdk file before converting to QCOW2. I followed the following commands for a remnux box:
+```
+tar -xvf remnux-v7-focal.ova
+tar -xvzf remnux-v7-focal-disk1.vmdk.gz
+qemu-img convert -O qcow2 remnux-v7-focal-disk1.vmdk remnux-v7-focal.qcow2
+qm create 106 --memory 2048 --cores 2 --name remnux --net0 virtio,bridge=vmbr1 --boot c --bootdisk ide0
+qm importdisk 106 remnux-v7-focal.qcow2 nvme
+qm set 106 --ide0 nvme:vm-106-disk-0

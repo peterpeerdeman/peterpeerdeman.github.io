@@ -1,0 +1,20 @@
+---
+title: 'Setting up a Nostr relay with nostr-rs-relay'
+date: '2024-10-14'
+category: devops
+tags: ['nostr', 'devops', 'infrastructure']
+---
+
+If you are interested in learning about Nostr, definitely check out [some of my writing](https://notes.peterpeerdeman.nl/nostr) on this open source, decentralised, censorship resistant social media alternative. If you would like to experiment with running your own relay to, I can recommend looking into [nostr-rs-relay](https://github.com/scsibug/nostr-rs-relay). When running your own nostr relay, you become an independant, censorship resistant part of the nostr network and allow you to backup your events. 
+
+I'm currently running nostr-rs locked down with whitelisted npub to only accept my own messages, to avoid having to moderate the content that gets pushed to my relay. Use the `pubkey_whitelist` array value in the authorization section of `config.toml` to define the whitelisted pubkeys. Please note that the values are in hex format, so convert your npub to hex using an [online converter](https://nostrcheck.me/converter/)
+
+```
+[authorization]
+# Pubkey addresses in this array are whitelisted for event publishing.
+# Only valid events by these authors will be accepted, if the variable
+# is set.
+pubkey_whitelist = [
+  "4fda8b10d2d955b1f85f1e65bbb624dfc46575d70982e86462fd18a77bbee962" #peter
+]
+```

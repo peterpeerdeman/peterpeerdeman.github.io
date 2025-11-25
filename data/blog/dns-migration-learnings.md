@@ -1,0 +1,39 @@
+---
+date: '2025-11-25'
+title: 'DNS Migration learnings'
+category: devops
+tags: ['devops']
+draft: false
+---
+
+I try to avoid it at any time, but sometimes migrating DNS records from one registrar to another is just unavoidable. In this case it would have been great if the DNS host would have allowed internal moving between accounts, so the could be kept alive while moving between different accounts for bookkeeping reasons.
+
+A couple of learnings from this move follow
+
+### create DNS record backups
+
+- create backups / exports of all domain DNS records, preferably in BIND format
+
+### analyse and normalise records
+
+Many domain hosts have different standards how to store and parse records
+
+- CNAME records ending in dot `.` or not
+- record values are wrapped in `"`, or not wrapped in quotes.
+- double / multiple records with the same name and type
+- merging multiple `_dmarc` name records with different `rua` values
+
+### reducing dns downtime
+
+- investigate feature to enter DNS records on the new site BEFORE the actual domain move is performed (e.g. at trans-ip enter a wrong moving code, enter all the dns records and then restart the move process with the right moving code)
+
+### use tooling to compare old and new nameserver before moving
+
+```
+nslookup domain.nl ns0.newnameserver.nl
+nslookup domain.nl ns0.oldnameserver.nl
+nslookup -type=CNAME domain.nl ns0.newnameserver.nl
+nslookup -type=CNAME domain.nl ns0.oldnameserver.nl
+nslookup -type=MX domain.nl ns0.newnameserver.nl
+nslookup -type=MX domain.nl ns0.oldnameserver.nl
+```

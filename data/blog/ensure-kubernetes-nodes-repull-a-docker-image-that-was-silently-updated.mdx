@@ -1,0 +1,13 @@
+---
+title: 'Ensure kubernetes nodes repull a docker image that was silently updated'
+date: '2024-07-25'
+category: devops
+tags: ['docker', 'devops', 'kubernetes']
+---
+If you silently overwrite a docker image in your registry with a new version, the image might not get automatically updated if you specified that version in your kubernetes configuration. In that case, add the following `imagePullPolicy` to ensure the image is always refetched, even if it is the same version number.
+
+More details on the working of the image pull policy can be found in [this stack overflow thread](https://stackoverflow.com/questions/33112789/how-do-i-force-kubernetes-to-re-pull-an-image)
+
+```
+imagePullPolicy: Always
+```

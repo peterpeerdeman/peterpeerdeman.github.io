@@ -1,0 +1,27 @@
+---
+date: '2025-10-15'
+title: 'Setting up deltachat chatmail relay on Ubuntu instead of Debian'
+---
+
+As I was experimenting with the mail and PGP protocol based instant messenger [deltachat](https://delta.chat), I wanted to run the relay setup on an up-to-date Ubuntu box instead of the prescribed debian image.How different can these platforms be right? Turns out it works fine, with a couple of modifications:
+ 
+## installing missing debian12 packages
+Turns out there are a couple packages missing that are needed, libicu72, libtextcat, libtextcat-data and liblua. Download and install them with the following commands:
+```
+wget http://ftp.de.debian.org/debian/pool/main/i/icu/libicu72_72.1-3+deb12u1_amd64.deb
+dpkg -i libicu72_72.1-3+deb12u1_amd64.deb
+wget http://ftp.de.debian.org/debian/pool/main/libe/libexttextcat/libexttextcat-2.0-0_3.4.7-1+b1_amd64.deb
+dpkg -i libexttextcat-2.0-0_3.4.7-1+b1_amd64.deb
+wget http://ftp.de.debian.org/debian/pool/main/libe/libexttextcat/libexttextcat-data_3.4.7-1_all.deb
+dpkg -i libexttextcat-data_3.4.7-1_all.deb
+wget http://ftp.de.debian.org/debian/pool/main/l/lua5.4/liblua5.4-0_5.4.8-1_amd64.deb
+dpkg -i liblua5.4-0_5.4.8-1_amd64.deb
+```
+
+## clearing port 53
+Next up, make sure that port 53 isn't in use by what turns out to be the DNSStub listener that runs by default on Ubuntu images.
+- edit the file at `/etc/systemd/resolved.conf`
+- set `DNSStubListener=no`
+- run `systemctl restart systemd-resolved`
+
+After these modification, you should be able to continue installation as documented

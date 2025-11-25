@@ -1,0 +1,35 @@
+---
+date: '2025-10-02'
+title: 'Upgrading Flutter app dependencies and app publishing in 2025'
+tags: ['mobile', 'flutter']
+---
+
+A step by step reference of the dependency upgrading process in flutter mobile applications, which seemingly changes about every time I blink my eyes:
+
+## Upgrade Flutter and Android SDK versions
+
+- First `flutter upgrade`
+- Then upgrade dependencies
+  - `flutter pub outdated`
+  - `flutter pub upgrade`
+  - `flutter pub upgrade --major-versions` (only if needed)
+- `compileSdkVersion` and `targetSDKVersion` should be upgraded automatically since flutter 3.5
+
+## Test the release
+
+- connect android device with usb-c cable
+- `flutter run`
+
+## building release
+
+- Adjust `flutter.versionCode` in `local.properties` file
+- Bump the `version` in `pubspec.yaml` (at least increase the value behind the plus sign)
+- Ensure keystore is present (in my case, container with keystore is mounted)
+- Run `flutter build appbundle`
+
+## uploading release
+
+- Upload the resulting app bundle to app bundle selector via [developer console](https://play.google.com/console/u/0/developers)
+- Go to release/production [developer console page](https://play.google.com/console/u/0/developers/7743440429079041357/app/4976044628703597282/tracks/production)
+- Press create release button top right, follow wizard
+- Go to publishing overview, send new release "send for review"
