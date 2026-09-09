@@ -1,0 +1,63 @@
+---
+date: '2025-03-19'
+title: 'Giving a local LLM access to my filesystem and e-reader database with MCP'
+category: ai
+tags: ['ai', 'pkm']
+images: ['/assets/images/2025-03-19-mcp-3.png']
+---
+
+Last night I dove a bit further into LLMs, specifically into the Model Context Protocol. The plan was simple: give a local model access to some real things on my machine — the filesystem, and the SQLite database my Kobo e-reader keeps — and see what it could actually do with them.
+
+MCP standardises how an application exposes its functionality to a language model. Instead of every tool inventing its own integration, a model speaks one protocol and any MCP server can offer it a set of callable functions. Which means the interesting question stops being "what does the model know" and starts being "what do I let it touch".
+
+I kept a [small writeup on MCP in my notes](https://notes.peterpeerdeman.nl/Model-Context-Protocol) as we went.
+
+## the local setup
+
+The local half ran on ollama with llama3.2, driven through `mcp-cli`, with two servers wired up: a filesystem server pointed at a sandbox folder, and a SQLite server pointed at a copy of `KoboReader.sqlite`.
+
+![](../assets/images/2025-03-19-mcp-3.png)
+
+It works, and that on its own was the thing worth seeing. Given a question about the database, the model produces a genuine tool call:
+
+```json
+{
+  "query": "SELECT id, content FROM Bookmark ORDER BY id DESC LIMIT 3"
+}
+```
+
+"This should return the last 3 bookmarks from the Bookmark table in the SQLite database." Correct, unprompted, and entirely locally.
+
+The catch is in the same screenshot. That response took 6.13 seconds, individual `/api/chat` calls run anywhere from 1 to 7 seconds, and there is a line in the ollama log that explains most of the trouble:
+
+```
+level=WARN source=runner.go:131 msg="truncating input prompt" limit=2048 prompt=2070 keep=5 new=2048
+```
+
+The prompt is being cut off. Once you attach a couple of MCP servers, the tool definitions alone eat a serious chunk of the context, and anything that requires remembering what happened two steps ago falls off the end. So llama3.2 handles single instructions fine — create a file, edit it, run one query — and falls apart on compound tasks, not really because it isn't clever enough, but because it cannot hold the job in its head.
+
+## and then the same thing against claude 3.7
+
+Switching the same MCP servers over to Claude 3.7 made the point of all this much clearer. I asked it something I genuinely did not know the answer to, and deliberately did not tell it how to find out:
+
+> when was I most actively reading, based on the number of highlights?
+
+Nothing in that question says where highlights live. It had to go and find out.
+
+![](../assets/images/2025-03-19-mcp-1.png)
+
+It listed the tables, recognised a Kobo database, then walked through the schemas it thought were relevant — `content` for the books, `Bookmark` for reading progress, then `Authors`, `BookAuthors` and `ratings`. It worked out that `Bookmark` is where a highlight actually ends up, since Kobo has no table called anything as convenient as "highlights", and sampled some rows to confirm.
+
+Then it wrote the query, looked at the result, and said "this query doesn't quite group by month correctly" — and wrote a better one.
+
+![](../assets/images/2025-03-19-mcp-2.png)
+
+The whole thing took about a minute and ended with an actual answer: 2019 was my most active year at 227 highlights, with April 2019 the strongest single month at 99, then October 2019 at 95. June 2018 and December 2020 show up as smaller peaks.
+
+## what stuck with me
+
+I have written a lot of small loggers over the years that pull data out of somewhere and put it into influxdb so I can look at it in grafana. Every one of those needed me to know the schema first, and to decide up front which question I was going to ask.
+
+Here I asked the question in English, and the exploration — find the tables, guess which one means "highlight", check, query, notice the query is wrong, fix it — happened on the other side. That loop of trying something, reading the result and correcting course is the part that felt new. Not the answer, which is only mildly interesting, but the fact that nobody told it where to look.
+
+The other half of the evening's conclusion is the obvious one. What made this work is that the model had real access to my filesystem and a real database. That is precisely the tradeoff: the usefulness comes from the access, and so does everything that could go wrong with it. Running the experiment against a copy of the database in a sandbox folder felt like a sensible instinct at the time, and I suspect thinking properly about isolation is going to become a lot more important than it currently feels.

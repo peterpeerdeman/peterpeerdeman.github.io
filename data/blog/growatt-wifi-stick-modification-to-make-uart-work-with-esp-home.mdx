@@ -1,0 +1,85 @@
+---
+title: 'Growatt wifi stick modification to make UART work with ESPHome'
+date: '2026-08-22'
+category: internetofthings
+tags: ['iot', 'esphome', 'homeassistant', 'solar', 'hardware']
+draft: false
+images: ['/assets/images/2026-08-22-growatt-d1-mini.jpg']
+pinned: true
+---
+
+Back in 2018 I got my solar panel data out of the Growatt inverter by [impersonating the growatt API](./impersonating-a-growatt-solar-panel-api-decoding-a-solar-panel-data-bytestream-and-uploading-that-data-to-pvoutput-using-nodejs) with a man in the middle server. That worked, but still depended on the original ShineWiFi stick and our intercepting the traffic. When I removed the stick from the inverter completely I received an email that my stick might be down, leading me to believe that my man in the middle server wasn't as firewalled as I expected.
+
+## alternative solutions
+
+ESPHome speaks Modbus and the inverter speaks Modbus, so this time I wanted to cut out the original code entirely and replace the microcontroller on the stick with our own Wemos D1 mini.
+
+![](../assets/images/2026-08-22-growatt-d1-mini.jpg)
+
+## RS232 and modbus
+
+My stick, a ShineWiFi-S, connects to the inverter over RS232. The stick already has all the hardware it needs to shift the high 12v voltage inside the housing. Instead of building our replacement wifi stick from scratch, we could reuse the transceiver, the connector and the power supply that were already in the stick, and only replace the "smart" parts
+
+Opening up the stick, I found the following components:
+
+- a DB9 connector (for connecting with the inverter's RS232 port)
+- an RS232 transceiver between that connector and the module's TTL UART
+- a buck converter stepping the inverter's 9-12V down to a 3.3V
+- the HF-A11 module responsible for wifi and networking 
+
+## silencing the old brain
+
+The HF-A11 datasheet listed an active low reset on pin 7, so I wired pin 7 to ground to hold the module in permanent reset. I validated this by turning the stick on, and didn't see the wifi accesspoint come online.
+
+## wiring the D1
+
+| module pad          | D1 mini    |
+| ------------------- | ---------- |
+| 1 (GND)             | GND        |
+| 2 (3.3 V from buck) | 3V3        |
+| 3 (module TXD)      | TX (GPIO1) |
+| 4 (module RXD)      | RX (GPIO3) |
+
+Luckily for this project, the HF-A11 was already a 3.3 V part and communicated via UART through the TX and RX pins, so we could easily wire the D1 power and UART to the same pins. 
+
+## the ESPHome config
+
+ESPHome has a native `growatt_solar` component, so there is no manual Modbus register map to write. Two things are specific to this setup and are where first attempts usually fail:
+
+```yaml
+esp8266:
+  board: d1_mini_pro
+
+logger:
+  baud_rate: 0 # the ESP8266's only full UART is GPIO1/3, the same pins as Modbus.
+               # serial logging must be off or it corrupts the bus, logs go over wifi
+
+uart:
+  id: mod_uart
+  baud_rate: 9600 # growatt modbus standard: 9600 8N1
+  tx_pin: GPIO1
+  rx_pin: GPIO3
+
+modbus:
+  uart_id: mod_uart
+
+sensor:
+  - platform: growatt_solar
+    protocol_version: RTU # older inverters, newer MIC/MIN/MAX use RTU2
+    update_interval: 10s
+    # phase_a, pv1, pv2, frequency, energy, temperature ...
+```
+
+## testing with a bus pirate as a fake inverter
+
+As I was working on this project at night, I couldn't debug with the inverter (as it only turns on when the sun is shining). We created a test by emulating the growatt inverter using a Bus Pirate 5. The bus pirate offerse a bench PSU, voltmeter, UART engine and scope in one device, and the clamps make it easy to wire up both power and UART TX RX pins.
+
+![](../assets/images/2026-08-22-growatt-buspirate.jpg)
+
+1. **power and short check.** `W 3.3 300` powers the 3.3 V rail. The live current readout shows us whether the device is drawing power without shorts.
+2. **RS232 loopback.** Bus Pirate wired to the TTL pads, the two DB9 data pins shorted together and send a byte, watching it come back through the transceiver and connector. This proves the analogue front end before factoring in the replacement MCU
+3. **fake inverter.** `bridge` mode turned the Bus Pirate into a usb to serial adapter, and a `pymodbus` script on our laptop sending data to the serial port makes the device think it is connected to an actual inverter. The ESPHome sensors were populated with the supplied fake values
+
+I finished the night by putting the device back together, which was quite a snug fit because the d1 was duct-taped to the top of the original pcb. It still fit the original enclosure though. I connected it to the inverter and lo and behold, the next morning the sun came up and we had live data pouring into home assistant, without the stick phoning home or us being dependent on the man in the middle server!
+
+Next up was getting years of scattered pv history into [one clean InfluxDB series](./influxdb-pv-history-consolidation)

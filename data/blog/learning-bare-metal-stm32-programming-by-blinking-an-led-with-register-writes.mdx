@@ -1,0 +1,64 @@
+---
+title: 'Learning bare metal STM32 programming by blinking an LED with register writes'
+date: '2026-01-18'
+category: technology
+tags: ['hardware', 'stm32', 'embedded']
+---
+
+Most of my microcontroller experience has been at Arduino and micropython interpreted level. It works, it's great for prototyping but it doesn't really make you understand how the hardware actually works. Over the past weeks I have been working through a bare metal STM32 course, where you blink an LED by writing firmware in C, manipulating registers yourself and learning to use the datasheet to guide your programming.
+
+It has been quite slow but super interesting. Some highlights of the learners journey below.
+
+## everything is a memory address
+
+On an ARM microcontroller, all peripherals are memory locations. GPIO ports, timers, the clock controller, each are ranges of memory addresses. Writing a value into the right address is how you configure the peripheral, and reading one is how you get the state of the components.
+
+For instance, on an STM32F4 the layout is roughly:
+
+| range                       | what                    |
+| --------------------------- | ----------------------- |
+| `0x0800 0000 - 0x0807 FFFF` | flash, your firmware    |
+| `0x0000 0000 - 0x0007 FFFF` | the same flash, aliased |
+| `0x2000 0000 - 0x2002 0000` | SRAM                    |
+| `0x1FFF 0000 - 0x1FFF 77FF` | system memory, the factory bootloader |
+| `0x1FFF C000 - 0x1FFF C00F` | option bytes            |
+| `0x4000 0000` upwards       | peripherals             |
+
+## steps to blink a LED
+
+**Enable the clock.** Peripherals are unclocked by default when the microcontroller turns on. You figure out on which bus your peripheral connects, and enable that bus with `RCC_AHB1ENR`
+
+**Set the pin direction.** `MODER` gives every pin two bits: `00` input, `01` general purpose output, `10` alternate function, `11` analog. Alternate function is how a pin becomes a UART or an SPI line later.
+
+**Write the output.** `ODR`, one bit per pin.
+
+On a Nucleo F411RE, the user LED sits on PA5. We use memory addresses with offsets read from the data sheets, shift bytes and perform or operations with the registers, all by hand:
+
+```c
+#define RCC_AHB1ENR (*(volatile uint32_t *)(0x40023800UL + 0x30))
+#define GPIOA_MODER (*(volatile uint32_t *)(0x40020000UL + 0x00))
+#define GPIOA_ODR   (*(volatile uint32_t *)(0x40020000UL + 0x14))
+
+RCC_AHB1ENR |=  (1 << 0);   // clock on for GPIOA
+GPIOA_MODER |=  (1 << 10);  // PA5 -> output (bits 11:10 = 01)
+GPIOA_MODER &= ~(1 << 11);
+
+while (1) {
+    GPIOA_ODR ^= (1 << 5);  // toggle PA5
+    for (volatile int i = 0; i < 500000; i++);
+}
+```
+
+## building it without IDE
+
+CubeIDE is often used for building the firmware, but performs some hidden steps to make firmware compilation work. Turning your c code into a binary firmware in the command lines helps to understand each step of the process in detail:
+
+- **toolchain**, start with installing the toolchain `brew install arm-none-eabi-gcc openocd cmake stlink`
+- **your code**, compiled to one object file per source file
+- **a linker script**, which tells the linker how the sections are layed out, e.g. the interrupt vector table and `.text` and `.rodata` into flash, `.data` and `.bss` into SRAM
+- **startup code**, which runs before `main()` to copy initialised variables from flash into SRAM, and zero the `.bss` section. Then it calls `main()`
+- **a programmer**, openocd or the ST tools, to get the result onto the chip
+
+Writing that linker script by hand was nicely explained in [Klein Embedded's series on STM32 without CubeIDE](https://kleinembedded.com/stm32-without-cubeide-part-1-the-bare-necessities/)
+
+Next on my list is working a similar setup in Rust, where [the embedded ecosystem](https://github.com/rust-embedded/awesome-embedded-rust) wraps these same registers in types, warning you about invalid configuration of peripherals at compile time instead of runtime.

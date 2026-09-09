@@ -1,0 +1,63 @@
+---
+title: 'Isolating AI agents in sandbox with Proxmox LXC and firewall rules'
+date: '2026-02-16'
+category: security
+tags: ['security', 'infrastructure', 'ai', 'devops']
+draft: false
+---
+
+AI agents with access to local tooling provide amazing opportunities but also present some significant security risks, as you are basically providing remote code execution to an unpredictable entity.
+
+To reduce the attack surface, I want to run tun the agent in a sandboxed [proxmox machine](./why-i-am-adding-virtualisation-with-proxmox-to-my-infrastructure) that is able to reach the internet, but for instance isn't able to access my local network.
+
+## the unprivileged LXC container
+
+A full VM would work, but an LXC container boots fast, costs little extra memory and can be created "unprivileged". Unpriviliged means that the container gets its own user namespace on the host: UID 0 (root) inside the container is mapped to a high, UID on the host (e.g. 100000). If the agent breaks out of the container, they land on the host without special rights.
+
+An added proxmox bonus are the snapshots. If the agent messes up the environment, we can revert to a snapshot where the system was still clean.
+
+## the firewall
+
+The interesting part is the network policy. Proxmox has a per-guest firewall, configured at `/etc/pve/firewall/<vmid>.fw`:
+
+```
+[OPTIONS]
+
+enable: 1
+policy_in: DROP
+policy_out: DROP
+
+[RULES]
+
+IN ACCEPT -p tcp -dport 22
+
+OUT ACCEPT -p udp -dport 53
+OUT DROP -dest 192.168.0.0/16
+OUT ACCEPT -dest 0.0.0.0/0 -log nolog
+
+IN DROP -p ipv6
+OUT DROP -p ipv6
+```
+
+Both default policies are DROP, so everything has to be named explicitly. Inbound, only SSH gets through, which is required to attach to a terminal. 
+
+The following rules are applied for outbound traffic
+
+- DNS is allowed first, so the container can still resolve names using the resolver on my router
+- then everything to `192.168.0.0/16` is dropped, which is the subnet for my LAN, so no local services, containers and devices are accessible
+- then everything else is allowed, which is the internet
+
+## locking yourself out
+
+A good learning was that these firewall rules only go into effect when the firwall at the datacenter level is enabled. Guess what happens when you havent defined the rules yet, but activate the firewall? You guessed it: you can't acces your proxmox machine anymore. Setting the firewall rules first before activating the datacenter level firewall would have saved me a trip to my local machine.  
+
+## don't trust, verify
+
+Before handing the box to an agent, we can verify the policy from inside the container:
+
+```sh
+ping -c1 1.1.1.1              # internet, should work
+curl -sI https://github.com   # DNS and https out, should work
+ping -c1 192.168.1.1          # the router, should time out
+nc -vz 192.168.1.10 22        # anything on the LAN, should time out
+```

@@ -1,0 +1,16 @@
+---
+title: 'Replacing my Amazon S3 offsite backup with a NAS at a friends house'
+date: '2025-12-31'
+category: infrastructure
+tags: ['infrastructure', 'devops', 'backup', 'nas']
+---
+
+For many years my offsite copy was [an S3 bucket with glacier storage rules](./affordable-backup-strategy-using-amazon-s3-buckets-aws-command-line-tool-and-glacier-storage-rules). It is a good setup and I would still recommend it to most tech savvy people: cheap to write, durable, no hardware to think about. I did find out the hard way that [Getting data back out of deep storage is painful](./undelete-versioned-amazon-s3-files-by-deleting-the-delete-markers.mdx). Over the christmas break I rebuilt the 3-2-1 backup with a second NAS, at a separate location. My system pushes to that one, and the other location has a nice storage platform available.
+
+First up was distributing diskspace, upgrading one nas from 4TB disks to 10TB disks. Synology does a great job at this, replacing the disks and rebuilding the storage array was mostly a matter of patience, about two days worth of it before I could access the new storage.
+
+Next up was the linkup, there are multiple ways of going about this. I initially wanted a WireGuard link between the two machines, creating a permanent protected tunnel, so the backup job does not have to think about NAT or dynamic addresses on either end. Running the wireguard image on the remote NAS via Portainer the nas unfortunately did not work, as WireGuard needs kernel module access and network capabilities that the container did not get in that setup. In the end, an rsync daemon over SSH was a good fallback option and only required a dynamic dns record on the remote site.
+
+The last step was a satisfying one: pull everything back out of S3 and google takeouts, delete the buckets and end the subscriptions. We moved from google photos to Immich and have not regretted any moment of it and are enjoying viewing old videos of our kids that we pruned to save space.
+
+A small uptime kuma check checks if the remote site is still up, alerting when something is off. So far, after that initial sync everything has been purring along without issues.

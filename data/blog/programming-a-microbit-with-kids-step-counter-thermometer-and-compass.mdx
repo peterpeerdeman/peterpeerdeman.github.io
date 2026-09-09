@@ -1,0 +1,19 @@
+---
+title: 'Programming a micro:bit with kids: step counter, thermometer and compass'
+date: '2026-01-08'
+category: internetofthings
+tags: ['iot', 'hardware', 'microbit']
+images: ['/assets/images/2026-01-08-microbit-stepcounter.png']
+---
+
+The micro:bit is a fun, small board with a nRF52 microcontroller and a pile of peripherals already soldered on, including a 5x5 LED matrix, two buttons, a microphone, a speaker, an accelerometer and a magnetometer. Programming is done with MakeCode, a visual block editor. You drag blocks together in a browser (also works on ipad!), and flashing can be done through usb or even with bluetooth. There is excellent Rust support and [Rust programming guides](https://docs.rust-embedded.org/discovery-mb2/) for microbit as well, but of course we started out with the visual editor
+
+We tried a number of example projects 
+
+**The step counter.** The accelerometer has a shake gesture built in, so counting steps is a variable, an increment on a shake. The number shown on the LED matrix. Then you strap the board to your ankle with a rubber band, walk around, and read what it counts. 
+
+![](../assets/images/2026-01-08-microbit-stepcounter.png)
+
+**A thermometer.** One block reads the on-chip temperature and one block shows the value. We bound it to a button so you can control when the measurement is taken.
+
+**A radio.** thanks to the onboard rf radio and easy api for radio messages, it is really easy to set up radio communications, sending a signal to show a smiley face on the second micro:bit is a fun way of learning about wireless communication.

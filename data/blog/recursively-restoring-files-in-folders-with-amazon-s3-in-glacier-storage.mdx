@@ -1,0 +1,51 @@
+---
+date: '2025-02-05'
+title: 'Recursively restoring folders of files from Amazon S3 Glacier storage'
+tags: ['devops', 'cloud']
+---
+
+After writing about [an affordable backup strategy using S3 Glacier](./affordable-backup-strategy-using-amazon-s3-buckets-aws-command-line-tool-and-glacier-storage-rules), and then about [undeleting files by removing their delete markers](./undelete-versioned-amazon-s3-files-by-deleting-the-delete-markers) we've been talking about getting data _into_ a bucket, now let's talk about getting getting a few hundred gigabytes of deeply store files out again.
+
+## can't I just sync it back down?
+
+Of course, a `aws s3 sync` would be too easy. Objects that have been transitioned to Glacier Deep Archive aren't syncable. Before you can download anything, every single object has to be individually restored, which temporarily copies it back into a readable state for a specific number of days that you choose (!). Also, folders don't really exist in Glacier, it's just a bunch of keys that happen to contain slashes, and the `restore-object` call takes exactly one key. So restoring `photos/2015/` means making one API call per object underneath it. That's a lot of calls for my DSLR photo backups.
+
+We start by listing the keys that are actually archived. Filtering on the storage class keeps out anything already restored or never transitioned in the first place:
+
+```sh
+aws s3api list-objects-v2 \
+  --bucket xxxx \
+  --prefix photos/2015/ \
+  --output json \
+  | jq -r '.Contents[] | select(.StorageClass == "DEEP_ARCHIVE") | .Key' \
+  > glacier-restore-rest.txt
+```
+
+The `restore-object` call takes a "tier". Standard finishes within 12 hours, Bulk within 48 hours. Combined with the number of days you want the restored data to stay visible, you really need to plan your restoration schedule to make sure you don't pay too much and also still have time to take out your data. We can now use the restore txt to restore the objects
+
+```sh
+#!/bin/sh
+IFS=$'\n'
+for x in `cat glacier-restore-rest.txt`
+  do
+    echo "Begin restoring $x"
+    aws s3api restore-object --restore-request '{"Days":7,"GlacierJobParameters":{"Tier":"Bulk"}}' --bucket xxxx --key "$x"
+    echo "Done restoring $x"
+  done
+unset IFS
+```
+
+To see whether an object is available for download we ask for its metadata and look at the `Restore` field:
+
+```sh
+aws s3api head-object --bucket xxxx --key "photos/2015/IMG_0042.CR2"
+```
+
+Even after everything has been restored and is downloadable, `aws s3 sync` still refuses to sync. It looks at the object's storage class rather than its restore status, and will decide to not download at all. Luckily enough, there is a specific flag that forces the transfer 
+
+```sh
+aws s3 sync s3://xxxxx/photos/2015/ ./photos/2015/ \
+  --force-glacier-transfer
+```
+
+And there you have it, your thousands and thousands of separate files, thawed and synced to your very own infrastructure. Take good care of it!

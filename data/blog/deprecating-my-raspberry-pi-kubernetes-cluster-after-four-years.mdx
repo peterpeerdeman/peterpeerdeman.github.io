@@ -1,0 +1,12 @@
+---
+title: 'Deprecating my raspberry pi kubernetes cluster after four years'
+date: '2025-12-28'
+category: kubernetes
+tags: ['kubernetes', 'infrastructure', 'devops', 'raspberry']
+---
+
+Between christmas and new year I turned off the [raspberry pi kubernetes cluster](./kubernetes-cluster-build-with-raspberry-pi-and-poe-hats) that has been running in my breaker box since 2021. Three Pis on PoE hats, k3s, [longhorn for replicated storage](./installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster), [traefik and cert-manager for ingress and certificates](./manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefik), [argo workflows](./installing-argo-workflows-with-ui-access-step-by-step) for scheduled jobs, and the [TIG stack](./deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster) collecting everything.
+
+I learned so much from maintaining a cluster, but I am also happy it is now turned off. Building an maintaining it taught me more about ingress, storage classes, node affinity, multi architecture images and resource limits. I also found out that keeping state in k8s is relatively hard and tricky to debug an maintain. For the learning journey, [adding proxmox](./why-i-am-adding-virtualisation-with-proxmox-to-my-infrastructure) allowed me to experiment with new fresh machines remotely, without physically switching out sd cards and hardware.
+
+As the cluster was taking care of ingress and certificates, I first moved ingress to traefik and it's built in https management to a VM in the proxmox machine instead of traefik plus cert-manager on the cluster. This allowed me to move the services one by one: services that maintained important state I moved to the NAS machine with redundant disks and [offsite backups](./replacing-my-amazon-s3-offsite-backup-with-a-nas-at-a-friends-house.mdx). The experimental containers moved to the other VM's. Then it was finally time to say goodbye to the cluster, draining and cordoning the last nodes before pulling the plugs.

@@ -1,0 +1,34 @@
+---
+date: '2022-01-30'
+title: 'Using docker socket to provide dockerised telegraf container metrics'
+category: devops
+tags: ['devops', 'docker', 'influxdb']
+---
+
+While building my home server setup I wanted telegraf to report on the docker containers running on the host itself, in addition to the usual cpu and memory metrics. Telegraf has a [docker input plugin](https://github.com/influxdata/telegraf/blob/master/plugins/inputs/docker/README.md) for this, and since telegraf runs as a container in my `docker-compose.yml`, I thought I could just mount the docker socket into it.
+
+When I mounted the socket and restarted I got nothing, just a permission denied on `/var/run/docker.sock` in the telegraf logs. On the host, `/var/run/docker.sock` is owned by `root:docker` with mode `660`, which means only root and members of the `docker` group get to talk to it.
+
+Bind mounting a file into a container apparently does not change its ownership. The file arrives with the host's numeric uid and gid intact, and the process inside the container is not a member of that group, so the kernel refuses the connection. The permissions are evaluated against the host's numeric ids, not against anything defined inside the image.
+
+## matching the host docker group id
+
+The fix was to give the telegraf process the host's docker group as its group, by numeric id. We first find the gid on the host with `stat -c '%g' /var/run/docker.sock`, and then set the container's user and group in the docker compose file accordingly:
+
+```yaml
+telegraf:
+  image: telegraf
+  container_name: telegraf
+  restart: always
+  user: 'telegraf:995'
+  environment:
+    HOST_PROC: /host/proc
+  volumes:
+    - /proc:/host/proc:ro
+    - ~/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    - /var/run/docker.sock:/var/run/docker.sock
+```
+
+Please note that access to the docker socket is the same as providing root access. Anything that can talk to that socket can start a privileged container and own the host
+
+If you're interested in this topic, consider reading the blog: [deploying the TIG stack on the kubernetes cluster](./deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster).

@@ -1,0 +1,63 @@
+---
+title: 'Removing files from the git history using git filter-repo'
+date: '2026-02-13'
+category: git
+tags: ['git', 'pkm']
+draft: false
+---
+
+While cleaning up my [obsidian vault](./why-and-how-i-maintain-a-personal-knowledge-management-system-using-obsidian) I moved a bunch of notes out that had no business being there anymore. Of course, just deleting them committing would show their history in the git log, as every version of every note is still sitting in the history.
+
+For just any notes that is a bit untidy, but for notes that end up in a [semi-published vault](./publishing-your-personal-knowledge-management-system-using-obsidian-quartz-private-repositories-gitea-gitea-actions-and-netlify) this is turning into a potential data leak, so I wanted them gone from the history as well.
+
+The tool of choice is [git-filter-repo](https://github.com/newren/git-filter-repo), the officially recommended replacement for the actively discouraged old `git filter-branch` command
+
+```sh
+brew install git-filter-repo
+```
+
+## collect everything you want gone into one folder
+
+`git filter-repo` filters on paths, so the job gets a lot easier if the things you want removed share a path. I moved all of the to be filtered notes into a folder and committed that first. We then only need a single `--paths` argument instead of a list of thirty note names that 
+
+## rewrite the history in a fresh clone
+
+`git filter-repo` refuses to run on a repository that does not look like a fresh clone, to avoid messing up your working copy, dotfiles and other changes 
+
+```sh
+git clone git@git.example.com:example/notes.git notes-clean
+cd notes-clean
+git filter-repo --invert-paths --path folder/path
+```
+
+`--path` selects the folder, `--invert-paths` flips the selection so everything *except* that folder is kept. Every commit that touched those files gets rewritten, which means every commit hash after the first affected one changes.
+
+## put the remote back and force push
+
+After the rewrite `git remote -v` is made empty by filter-repo so you cannot casually push a rewritten history over a repository or accidentally fetch the old objects back in.
+
+```sh
+git remote add origin git@git.example.com:example/notes.git
+git push --force origin --all
+```
+
+## get your other clones back in line
+
+Every remaining clone needs to be forced onto the new history
+
+```sh
+git fetch --prune --tags --force origin
+git checkout -- .
+git reset --hard @{upstream}
+```
+
+The old objects are still in that clone's object database until git cleans them up. If you care about that (you probably do, that was the entire point), expire the reflog and garbage collect:
+
+```sh
+git reflog expire --expire=now --all
+git gc --prune=now
+```
+
+## final cleanup
+
+Please note the server keeps the old objects for a while. Forge software like github and gitea garbage collect on their own schedule, and until then the old commits can still be fetched by hash. On github you have to ask support to run the gc, on a self hosted gitea you can trigger it yourself.

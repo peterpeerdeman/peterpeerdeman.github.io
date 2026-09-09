@@ -1,0 +1,31 @@
+---
+title: 'InfluxDB pv history consolidation'
+date: '2026-08-23'
+category: timeseries
+tags: ['timeseries', 'influxdb', 'solar', 'homeassistant', 'grafana']
+draft: false
+---
+
+With the [Growatt stick rebuilt around a D1 mini](./growatt-wifi-stick-modification-to-make-uart-work-with-esp-home) I finally had my live local feed from the inverter working again, but in yet another data format from what i previously collected. The solar history was scattered over multiple places: a Grott influxdb table from the years I ran grott, a PVOutput mirror from the [rasplogger](./rasplogger-influxdb-grafana-dashboards-showcase.mdx) age and a Growatt cloud CSV export going back to 2016. I would be nice to have the full history of solar in one consistent database
+
+I decided to make the active data from ESPhome leading, log the current home assistant values to influxdb and migrate all the historial pv data into the same format. Home assistant has a very nice configurable rest_command that can be used to make a POST request to the influx server, containing a payload based on the sensor states:
+
+```yaml
+rest_command:
+  influx_growatt:
+    url: 'http://influx:8086/write?db=solar&precision=s'
+    method: POST
+    content_type: 'text/plain'
+    payload: >-
+      8xxxxxxxx9 pvgridvoltage={{ (states('sensor.mini_pro_growatt_grid_voltage')|float(0)*10)|round(0)|int }}i,pvpowerout={{ (states('sensor.mini_pro_growatt_grid_active_power')|float(0)*10)|round(0)|int }}i,pvfrequentie={{ (states('sensor.mini_pro_growatt_grid_frequency')|float(0)*100)|round(0)|int }}i
+```
+
+## influx table migration
+
+The oldest database, `pv`, was a PVOutput mirror: floats in human units (`energyGeneration`, `powerGeneration`, `temperature`, `voltage`). Mapping it into Grott's schema meant scaling, renaming and casting to integer, and InfluxQL cannot scale and cast in one step (`field*10::integer` does not parse), so it became a two step query: scale and rename into a temporary measurement, then cast that into the new table.
+
+The biggest learning here is that Claude is very good at writing these migrations. For some of the values we had to figure out what the units were the historical data was expressed in, so we wrote some queries that compared a range of summer days and their min max values to match up the units with the previous year historical data:
+
+__"per day peaks across a season swung with the weather, 15 000 on a sunny day against 4 000 on a cloudy one. A lifetime counter only climbs, this one reset daily, so it is daily cumulative."__
+
+I can now view the full historical data right from the grafana!
