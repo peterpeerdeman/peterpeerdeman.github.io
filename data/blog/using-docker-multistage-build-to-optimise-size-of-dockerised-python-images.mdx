@@ -6,9 +6,9 @@ tags: ['docker', 'devops', 'python']
 draft: false
 ---
 
-As I was working on [my next python timeseries forecasting project using Darts](https://github.com/peterpeerdeman/darts-timeseries-forecaster), I found out darts doesn't quite like builing it's dependencies on the python slim image I was using in my Dockerfile.
+As I was working on [my next python timeseries forecasting project using Darts](https://github.com/peterpeerdeman/darts-timeseries-forecaster), I found out darts doesn't quite like building its dependencies on the python slim image I was using in my Dockerfile.
 
-When using the non-slim image, the build would succeed, but build into a big 1,5G image file, which isn't optimal. I remembered using a multistage build in my nodejs projects and found out in [this example on github](https://github.com/LondheShubham153/python-multistage-docker) that this is also possible in python.
+When using the non-slim image, the build would succeed, but build into a big 1.5G image file, which isn't optimal. I remembered using a multistage build in my nodejs projects and found out in [this example on github](https://github.com/LondheShubham153/python-multistage-docker) that this is also possible in python.
 
 For completeness, this is the dockerfile I ended up using:
 

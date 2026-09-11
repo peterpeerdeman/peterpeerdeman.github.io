@@ -9,7 +9,7 @@ draft: false
 
 As described in an earlier post about [improving performance in meteor applications](../blog/improving-performance-loading-speed-and-scalability-of-a-large-meteor-application), we separated synchedcron jobs out of a meteor application docker image using two deployments of the same image using a special environment variable.
 
-In the ansible file below we can see two ansible docker tasks that both run a specific docker image. The environment settings are loaded from the `app.env` groupvar. Using the ansible `combine` functionthat was introduced in ansible 2.0, we are now able to combine the configured groupvars with one special environment variable `CRON_ENABLED`, which is set to 0 or 1, depending on wether we are deploying a cron instance, or a webserver instance of the same docker container. The ansible `when` configuration ensures that only one of these 2 tasks is ran for each individual server.
+In the ansible file below we can see two ansible docker tasks that both run a specific docker image. The environment settings are loaded from the `app.env` groupvar. Using the ansible `combine` function that was introduced in ansible 2.0, we are now able to combine the configured groupvars with one special environment variable `CRON_ENABLED`, which is set to 0 or 1, depending on whether we are deploying a cron instance, or a webserver instance of the same docker container. The ansible `when` configuration ensures that only one of these 2 tasks is run for each individual server.
 
 ```
 -   name: docker | start application

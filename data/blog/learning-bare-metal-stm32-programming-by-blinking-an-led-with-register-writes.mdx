@@ -7,11 +7,11 @@ tags: ['hardware', 'stm32', 'embedded']
 
 Most of my microcontroller experience has been at Arduino and micropython interpreted level. It works, it's great for prototyping but it doesn't really make you understand how the hardware actually works. Over the past weeks I have been working through a bare metal STM32 course, where you blink an LED by writing firmware in C, manipulating registers yourself and learning to use the datasheet to guide your programming.
 
-It has been quite slow but super interesting. Some highlights of the learners journey below.
+It has been quite slow but super interesting. Some highlights of the learner's journey below.
 
 ## everything is a memory address
 
-On an ARM microcontroller, all peripherals are memory locations. GPIO ports, timers, the clock controller, each are ranges of memory addresses. Writing a value into the right address is how you configure the peripheral, and reading one is how you get the state of the components.
+On an ARM microcontroller, all peripherals are memory locations. GPIO ports, timers, the clock controller, each is a range of memory addresses. Writing a value into the right address is how you configure the peripheral, and reading one is how you get the state of the components.
 
 For instance, on an STM32F4 the layout is roughly:
 
@@ -24,9 +24,9 @@ For instance, on an STM32F4 the layout is roughly:
 | `0x1FFF C000 - 0x1FFF C00F` | option bytes            |
 | `0x4000 0000` upwards       | peripherals             |
 
-## steps to blink a LED
+## steps to blink an LED
 
-**Enable the clock.** Peripherals are unclocked by default when the microcontroller turns on. You figure out on which bus your peripheral connects, and enable that bus with `RCC_AHB1ENR`
+**Enable the clock.** Peripherals are unclocked by default when the microcontroller turns on. You figure out to which bus your peripheral connects, and enable that bus with `RCC_AHB1ENR`
 
 **Set the pin direction.** `MODER` gives every pin two bits: `00` input, `01` general purpose output, `10` alternate function, `11` analog. Alternate function is how a pin becomes a UART or an SPI line later.
 
@@ -51,14 +51,14 @@ while (1) {
 
 ## building it without IDE
 
-CubeIDE is often used for building the firmware, but performs some hidden steps to make firmware compilation work. Turning your c code into a binary firmware in the command lines helps to understand each step of the process in detail:
+CubeIDE is often used for building the firmware, but performs some hidden steps to make firmware compilation work. Turning your c code into a binary firmware on the command line helps to understand each step of the process in detail:
 
 - **toolchain**, start with installing the toolchain `brew install arm-none-eabi-gcc openocd cmake stlink`
 - **your code**, compiled to one object file per source file
-- **a linker script**, which tells the linker how the sections are layed out, e.g. the interrupt vector table and `.text` and `.rodata` into flash, `.data` and `.bss` into SRAM
+- **a linker script**, which tells the linker how the sections are laid out, e.g. the interrupt vector table and `.text` and `.rodata` into flash, `.data` and `.bss` into SRAM
 - **startup code**, which runs before `main()` to copy initialised variables from flash into SRAM, and zero the `.bss` section. Then it calls `main()`
 - **a programmer**, openocd or the ST tools, to get the result onto the chip
 
 Writing that linker script by hand was nicely explained in [Klein Embedded's series on STM32 without CubeIDE](https://kleinembedded.com/stm32-without-cubeide-part-1-the-bare-necessities/)
 
-Next on my list is working a similar setup in Rust, where [the embedded ecosystem](https://github.com/rust-embedded/awesome-embedded-rust) wraps these same registers in types, warning you about invalid configuration of peripherals at compile time instead of runtime.
+Next on my list is working on a similar setup in Rust, where [the embedded ecosystem](https://github.com/rust-embedded/awesome-embedded-rust) wraps these same registers in types, warning you about invalid configuration of peripherals at compile time instead of runtime.

@@ -7,7 +7,7 @@ images: ['/assets/images/2024-04-14-forecast.png']
 draft: false
 ---
 
-The blog series about collecting timeseries, making predictions and making these predictions configurable is now coming to an epic conclusion where we all the previous steps and add a workflow engine to create a proper Machine Learning Operations (MLOps) pipeline, that automates all of the previous steps and runs every x amount of time.
+The blog series about collecting timeseries, making predictions and making these predictions configurable is now coming to an epic conclusion where we tie all the previous steps together and add a workflow engine to create a proper Machine Learning Operations (MLOps) pipeline that runs every x amount of time.
 
 If you are just tuning in, check the previous timeseries and forecasting blogs here:
 
@@ -27,7 +27,7 @@ This is where [Argo Workflows](https://argoproj.github.io/workflows/) comes in, 
 
 We get started by installing Argo Workflows and configuring access to the UI. You can read the detailed step by step process in my [Installing Argo Workflows with ui access explained step by step blog](./installing-argo-workflows-with-ui-access-step-by-step).
 
-Now we are ready to define our Argo Cron Workflow file. It is very similar to a normal Argo workflow, we just add some metadata to define the frequency at which the job should run. The final workflow will looks like this, I'll go into some details afterwards. you can also [view the source on github](https://github.com/peterpeerdeman/argo-influx-prediction-workflow/blob/master/timeseries-prediction-parking.yaml):
+Now we are ready to define our Argo Cron Workflow file. It is very similar to a normal Argo workflow, we just add some metadata to define the frequency at which the job should run. The final workflow will look like this, I'll go into some details afterwards. you can also [view the source on github](https://github.com/peterpeerdeman/argo-influx-prediction-workflow/blob/master/timeseries-prediction-parking.yaml):
 
 ```
 apiVersion: argoproj.io/v1alpha1
@@ -123,7 +123,7 @@ I'll go through some of the highlights in the workflow:
 
 - the `generateName` is the prefix of the podname, I end with a '-' because a small id will be added afterwards
 - the `schedule` is the typical cron notation for how often the job should run, use crontab.guru to find the right value
-- the `successfulJobsHistoryLimit` and `failedJobsHistoryLimit` have saved me from completly flooding the pod view in [k9s](./using-the-k9s-cli-tool-to-get-a-clear-overview-and-quick-acces-to-anything-on-your-cluster)
+- the `successfulJobsHistoryLimit` and `failedJobsHistoryLimit` have saved me from completely flooding the pod view in [k9s](./using-the-k9s-cli-tool-to-get-a-clear-overview-and-quick-acces-to-anything-on-your-cluster)
 - the `entrypoint` should refer the first step that should be run in the flow
 
 ## Persistence

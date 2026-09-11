@@ -12,7 +12,7 @@ Before we get started with my modestly complicated setup, lets start with the go
 - **Goal**: the goal of my publishing is to become a better writer by lowering barriers of publication, sharing more and receiving more feedback on my writing.
 - **Privacy**: My vault contains private notes that I never want to publish. The system should support mixed notes and linking without publishing the private notes.
 - **Data sovereignty**: I want my private notes to not leave my private homelab network other than on my own devices.
-- **Ease of use**: I want to use a single vault both private and public files, as I've found that switching between vaults increase the barrier to publish
+- **Ease of use**: I want to use a single vault for both private and public files, as I've found that switching between vaults increases the barrier to publish
 - **Syncing**: I want to be able to work on notes on all my devices, including my mobile phone.
 
 So... this complicates things a little. If you are reading this and just want to get started quickly, these are the fastest options:
@@ -20,7 +20,7 @@ So... this complicates things a little. If you are reading this and just want to
 - **Obsidian sync**: If you just want to publish immediately without any fuss use the [obsidian sync service](https://obsidian.md/sync) by obsidian. It works straight from the app, just fill in your creditcard and you can publish immediately.
 - **Github Actions Quartz publish step**: If you are ok publishing your whole vault to a github (private) repository, you can use the quartz publish step to publish to github pages. Nicole van der Hoeven created an excellent youtube video "[how to publish your notes for free](https://www.youtube.com/watch?v=6s6DT1yN4dw)" explaining this exact setup.
 
-Alright. So I don't want my private notes on github, even not in a private repository. That means I also cannot use the quartz github deployment flow and I have to come up with something more private on my own infrastructure. Before diving into the details, let's start with a component diagram to give a little overview of the solution:
+Alright. So I don't want my private notes on github, not even in a private repository. That means I also cannot use the quartz github deployment flow and I have to come up with something more private on my own infrastructure. Before diving into the details, let's start with a component diagram to give a little overview of the solution:
 
 ![](../assets/images/2024-03-27-pkm-publishing-overview.png)
 
@@ -28,7 +28,7 @@ Following the sequence of events:
 
 1. On my laptop and mobile phone, I create notes in [Obsidian](https://obsidian.md). On notes that I want to publish I set a frontmatter variable `publish` to `true`.
 2. When I'm ready to publish, I create a commit with all the changes to my vault since the last commit, including both private and the soon to be published notes.
-3. I connect my device to my home network using a VPN connection. Most modern routers support this feature nowadays, check brand of your router and google something like `<brandname> <modelname> vpn guide`.
+3. I connect my device to my home network using a VPN connection. Most modern routers support this feature nowadays, check the brand of your router and google something like `<brandname> <modelname> vpn guide`.
 4. I push the commit to a private repository hosted with Gitea. Gitea is basically your own private open source github that runs smoothly on a raspberry pi. 
 5. Gitea's "actions" feature detects the [workflow action file](#gitea-action-workflow) in the notes repository and triggers a build and deploy step.
 6. The runner checks out the notes repository that contains both private and public notes.

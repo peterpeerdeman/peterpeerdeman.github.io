@@ -9,11 +9,11 @@ draft: false
 
 I've had a couple of run-ins with [Meteor](https://www.meteor.com) while it was in development. Several times I've given the framework a shot to see if their promises (developer delight, fraction of development time needed plus scalable and robust real-time data) were met and ready for production. As of version 1.0, I think they are.
 
-So I started listening to some podcasts ([Crater podcast](http://podcast.crater.io/) and [Meteor Interviews](http://www.meteorinterviews.com/) and visited some dutch [Meteor Meet-ups](http://www.meetup.com/Meteor-NL/). We got a chance to work with meteor for a big client project, so we decided to go for it.
+So I started listening to some podcasts ([Crater podcast](http://podcast.crater.io/) and [Meteor Interviews](http://www.meteorinterviews.com/)) and visited some dutch [Meteor Meet-ups](http://www.meetup.com/Meteor-NL/). We got a chance to work with meteor for a big client project, so we decided to go for it.
 
 ## Reactive templates
 
-In comparison with our previous experiences with angular, Blaze templates felt quite magical at the start. Where angular would present you with magical two-way binding, Meteor and Blaze would go one step further and even take care of updating the data when it was updated on the back-end. We have found that in the start, this magical data binding is quite delightful. In later stages of development, it simply means that you have to start understanding the magic and intervening with it when your templates become "too reactive".
+In comparison with our previous experiences with angular, Blaze templates felt quite magical at the start. Where angular would present you with magical two-way binding, Meteor and Blaze would go one step further and even take care of updating the data when it was updated on the back-end. We have found that at the start, this magical data binding is quite delightful. In later stages of development, it simply means that you have to start understanding the magic and intervening with it when your templates become "too reactive".
 
 ## Kick start / Mash-up
 
@@ -29,7 +29,7 @@ Sharing for instance helper methods and schema has been a great plus. Syncing mo
 
 Even in the longer term, Meteor holds up quite well when scaling up concurrent users. We have solved most problems by optimizing / minimizing the amount of subscriptions on active data and throwing in more application instances when the app gets more widely used.
 
-The hardest part is dealing with flash crowds, e.g. when sending out newsletters or getting featured and getting a lot of users at the same time. For the pages that are publicly available and heavily visited by non-users, we have switched to retrieving data through cached REST requests instead of DDP, and reserve the precious, non cachable active web socket connections for the heart of the application.
+The hardest part is dealing with flash crowds, e.g. when sending out newsletters or getting featured and getting a lot of users at the same time. For the pages that are publicly available and heavily visited by non-users, we have switched to retrieving data through cached REST requests instead of DDP, and reserve the precious, non-cacheable active web socket connections for the heart of the application.
 
 ## Conclusion
 

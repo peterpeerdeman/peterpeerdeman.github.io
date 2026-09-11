@@ -6,7 +6,7 @@ tags: ['raspberry', 'kubernetes', 'devops', 'node']
 images: ['/assets/images/2021-12-20-endresult.png']
 ---
 
-Now the Raspberry Pi Kubernetes cluster is [up and running](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats) and is carefully being [monitored](../blog/deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster), it is about time start deploying some actual workloads to the cluster.
+Now the Raspberry Pi Kubernetes cluster is [up and running](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats) and is carefully being [monitored](../blog/deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster), it is about time to start deploying some actual workloads to the cluster.
 
 
 We'll cover the following topics:
@@ -53,7 +53,7 @@ I could then build the application for the raspberry pi arm architecture using t
 docker buildx build -t peterpeerdeman/recordfairs:1.0.0 --push -f Dockerfile .
 ```
 
-Now the application is properly packaged up, we can start working on the actual kubernetes files. I first followed an [excellent guide by Daniel Olaogun](https://loft.sh/blog/adding-services-and-dependencies-in-kubernetes-tutorial/) to set up the deployment and services for the app. I made a couple of adjustments to support postgres instead of a mysql, and made it work with a stateful set instead of a deployment for the database. 
+Now the application is properly packaged up, we can start working on the actual kubernetes files. I first followed an [excellent guide by Daniel Olaogun](https://loft.sh/blog/adding-services-and-dependencies-in-kubernetes-tutorial/) to set up the deployment and services for the app. I made a couple of adjustments to support postgres instead of mysql, and made it work with a stateful set instead of a deployment for the database. 
 
 ## Application deployment definition
 
@@ -89,7 +89,7 @@ spec:
                   key: database-url
 ```
 
-You can see our deployment has two dependency on the postgres database: the definition references a secret containing the postgres database url containing username, password, host, port and database name. The specification of the host even reveals a second dependency on a service called `postgres-service`, but we'll get to that later.  Before we can apply the definition to our cluster, we first create the secret in fresh new namespace:
+You can see our deployment has two dependencies on the postgres database: the definition references a secret containing the postgres database url containing username, password, host, port and database name. The specification of the host even reveals a second dependency on a service called `postgres-service`, but we'll get to that later.  Before we can apply the definition to our cluster, we first create the secret in a fresh new namespace:
 
 ```
 kubectl create namespace recordfairs
@@ -98,11 +98,11 @@ kubectl create secret generic postgresql-secrets -n recordfairs --from-literal=d
 
 After the secret, we can create the deployment with `kubectl apply -f recordfairs-deployment.yaml -n recordfairs`
 
-As you'd expect, the application will not boot properly, as it tries to connect to a database that doesnt exist using a hostname that doesnt exist. Let's fix that!
+As you'd expect, the application will not boot properly, as it tries to connect to a database that doesn't exist using a hostname that doesn't exist. Let's fix that!
 
 ## Postgres database with persistent statefulset
 
-We could create a similar deployment definition for the postgres database, but I want to persist to our automatically replicated [longhorn storageclass](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster). This means we will have to create a `StatefulSet` rather than a `Deployment`. The longhorn documentation show [an excellent example of how to use a StatefulSet](https://longhorn.io/docs/1.6.0/references/examples/#statefulset), I've modified it only slightly, and called it `postgres-statefulset.yaml`:
+We could create a similar deployment definition for the postgres database, but I want to persist to our automatically replicated [longhorn storageclass](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster). This means we will have to create a `StatefulSet` rather than a `Deployment`. The longhorn documentation shows [an excellent example of how to use a StatefulSet](https://longhorn.io/docs/1.6.0/references/examples/#statefulset), I've modified it only slightly, and called it `postgres-statefulset.yaml`:
 
 ```
 apiVersion: apps/v1
@@ -147,7 +147,7 @@ spec:
           storage: 512Mi
 ```
 
-The most interesting part of of this definition is the `volumeMounts` and the `volumeClaimTemplates`. The `volumeMounts`, similar to what you would see in a docker-compose definition, points to the volume that should be mounted to the container. (Sidenote: [for some reason](https://stackoverflow.com/a/76868038), postgres wouldn't boot properly because the mount folder wasn't empty, adding the subPath fixed that.)
+The most interesting part of this definition is the `volumeMounts` and the `volumeClaimTemplates`. The `volumeMounts`, similar to what you would see in a docker-compose definition, points to the volume that should be mounted to the container. (Sidenote: [for some reason](https://stackoverflow.com/a/76868038), postgres wouldn't boot properly because the mount folder wasn't empty, adding the subPath fixed that.)
 
 The `volumeClaimTemplates` defines that volume using a claim on our longhorn storage. We specify explicitly that it allocates 512Mi diskspace and longhorn takes care of the rest.
 
@@ -203,7 +203,7 @@ spec:
   type: LoadBalancer
 ```
 
-As you can see, defining access to both services. The `type` is the most intersting here. The postgres one uses a [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/cluster-ip-allocation/), which means it will get an ip address automatically within the cluster range. The type `loadBalancer` creates an externally accessible IP that we can route external traffic to, but we'll probably get into that next time.
+As you can see, these two definitions expose both services. The `type` is the most interesting part here. The postgres one uses a [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/cluster-ip-allocation/), which means it will get an ip address automatically within the cluster range. The type `loadBalancer` creates an externally accessible IP that we can route external traffic to, but we'll probably get into that next time.
 
 ```
 » kubectl -n recordfairs get services
@@ -226,7 +226,7 @@ Check the other blogs in this raspberry pi kubernetes cluster series here:
 
 1. [Kubernetes cluster build with Raspberry Pi nodes and PoE Hats in a DIN breaker box panel](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats)
 2. [Visualising a Raspberry Pi Kubernetes cluster by deploying the k8s web interface](../blog/visualising-raspberry-pi-kubernetes-cluster-by-deploying-the-k8s-interface)
-3. [Longhorn for persistant, replicated storage on raspberry pi kubernetes cluster](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster)
+3. [Longhorn for persistent, replicated storage on raspberry pi kubernetes cluster](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster)
 4. [Deploying monitoring TIG stack (Telegraf, InfluxDB and Grafana) on Raspberry Pi Kubernetes cluster](../blog/deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster)
 5. [Deploying a NodeJS Postgres application to a Kubernetes Raspberry Pi Cluster](../blog/deploying-a-nodejs-postgres-application-to-kubernetes-raspberry-pi-cluster)
 6. [Manage SSL certificates and ingress for services in k3s kubernetes cluster using cert-manager, letsencrypt and traefik](../blog/manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefik)

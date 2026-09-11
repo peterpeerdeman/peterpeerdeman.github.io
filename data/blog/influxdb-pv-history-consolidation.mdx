@@ -6,9 +6,9 @@ tags: ['timeseries', 'influxdb', 'solar', 'homeassistant', 'grafana']
 draft: false
 ---
 
-With the [Growatt stick rebuilt around a D1 mini](./growatt-wifi-stick-modification-to-make-uart-work-with-esp-home) I finally had my live local feed from the inverter working again, but in yet another data format from what i previously collected. The solar history was scattered over multiple places: a Grott influxdb table from the years I ran grott, a PVOutput mirror from the [rasplogger](./rasplogger-influxdb-grafana-dashboards-showcase.mdx) age and a Growatt cloud CSV export going back to 2016. I would be nice to have the full history of solar in one consistent database
+With the [Growatt stick rebuilt around a D1 mini](./growatt-wifi-stick-modification-to-make-uart-work-with-esp-home) I finally had my live local feed from the inverter working again, but in yet another data format from what I previously collected. The solar history was scattered over multiple places: a Grott influxdb table from the years I ran grott, a PVOutput mirror from the [rasplogger](./rasplogger-influxdb-grafana-dashboards-showcase.mdx) age and a Growatt cloud CSV export going back to 2016. It would be nice to have the full history of solar in one consistent database.
 
-I decided to make the active data from ESPhome leading, log the current home assistant values to influxdb and migrate all the historial pv data into the same format. Home assistant has a very nice configurable rest_command that can be used to make a POST request to the influx server, containing a payload based on the sensor states:
+I decided to make the active data from ESPhome leading, log the current home assistant values to influxdb and migrate all the historical pv data into the same format. Home assistant has a very nice configurable rest_command that can be used to make a POST request to the influx server, containing a payload based on the sensor states:
 
 ```yaml
 rest_command:
@@ -28,4 +28,4 @@ The biggest learning here is that Claude is very good at writing these migration
 
 __"per day peaks across a season swung with the weather, 15 000 on a sunny day against 4 000 on a cloudy one. A lifetime counter only climbs, this one reset daily, so it is daily cumulative."__
 
-I can now view the full historical data right from the grafana!
+I can now view the full historical data right from grafana!

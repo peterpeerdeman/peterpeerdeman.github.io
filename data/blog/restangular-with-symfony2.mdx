@@ -6,7 +6,7 @@ tags: ['php']
 draft: false
 ---
 
-After struggling for a couple of hours I found out why my Restangular POST call to our Symphony2 backend were not working. Symfony2 expects resources to wrapped with an entity object while sending a POST or PUT.
+After struggling for a couple of hours I found out why my Restangular POST call to our Symfony2 backend was not working. Symfony2 expects resources to be wrapped with an entity object while sending a POST or PUT.
 
 ```javascript
 {
@@ -21,7 +21,7 @@ I found this out by rendering a form as per [Symfony's tutorial](http://symfony.
 
 By default, restangular always PUTs objects without wrapping. If you request a single object through a GET with an id, Restangular uses the 'id' field in all subsequent requests such as posts or puts. This means that if you would wrap the customer object in the single resource GET request, restangular will not find the id.
 
-I solved this dillema by making the backend return a non wrapped resource so the id is parsed correctly and using a requestInterceptor to wrap the outgoing POST / PUT request with the object name:
+I solved this dilemma by making the backend return a non wrapped resource so the id is parsed correctly and using a requestInterceptor to wrap the outgoing POST / PUT request with the object name:
 
 ```javascript
 RestangularProvider.setRequestInterceptor(function (elem, operation, what) {

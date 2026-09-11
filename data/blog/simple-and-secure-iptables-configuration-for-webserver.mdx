@@ -31,6 +31,6 @@ Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
 pkts bytes target prot opt in out source destination
 ```
 
-Please note the incoming `RELATED,ESTABLISHED` line, which is necessary if you want to be able to create outgoing connections from the server. Without these lines, all your CURLs and pings sent from the server will fail (as did mine before I added those lines).
+Please note the incoming `RELATED,ESTABLISHED` line, which is necessary if you want to be able to create outgoing connections from the server. Without this line, all your CURLs and pings sent from the server will fail (as did mine before I added that line).
 
 If you want to load these tables by default, run the command `sudo sh -c "iptables-save > /etc/iptables.rules"` to save the configuration to the default iptables configuration.

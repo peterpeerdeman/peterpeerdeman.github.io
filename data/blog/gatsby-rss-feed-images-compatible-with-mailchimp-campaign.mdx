@@ -14,11 +14,11 @@ There were a couple of caveats I ran into:
 -   You have to add a custom xml namespace in the setup options to support `<media:content>` tags in your feed, as defined by the [rssboard](https://www.rssboard.org/media-rss)
 -   The query should contain a reference to the image, I (re)used a `childImageSharp` from one of the pages where I render the blog images.
 -   Please note that images in queries in `gatsby-config.js` somehow don't automatically generate the images to your build folder, like the queries do in the templates or pages folders. I ended up reusing the 400 size images I used in my blog-list.
--   In the `serialize` portion each rss item gets rendered, there are two custom elements defined. one for the HTML content and one for the aforementioned image.
+-   In the `serialize` portion each rss item gets rendered, there are two custom elements defined. One for the HTML content and one for the aforementioned image.
 
 If you finished setting up this configuration you can follow [the mailchimp guide](https://mailchimp.com/help/share-your-blog-posts-with-mailchimp/) for setting up RSS based newsletters 💪
 
-I ended up with the something like the following plugin code in the `gatsby-config.js`:
+I ended up with something like the following plugin code in the `gatsby-config.js`:
 
 ```
 module.exports = {

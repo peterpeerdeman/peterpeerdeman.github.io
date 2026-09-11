@@ -11,7 +11,7 @@ I've been running [a longhorn installation on a raspberry pi cluster](./installi
 
 After rebooting the node, the cluster would come online and then become unreachable after about 20 to 30 minutes. After rebooting and immediately SSH'ing in I found that the pod "longhorn instance-manager" was running a process with 250% CPU, slowly grinding the poor raspberry pi to a halt.
 
-If I would kill the pod, the CPU would go back down, but of course kubernetes would detect this, recreate the instance manager pod and the CPU problem would re-appear. Inspecting the logs of the instance manager, I found no noticable clues other than an update watch running: 
+If I would kill the pod, the CPU would go back down, but of course kubernetes would detect this, recreate the instance manager pod and the CPU problem would re-appear. Inspecting the logs of the instance manager, I found no noticeable clues other than an update watch running: 
 
 ```
 (base) » k logs instance-manager-52c9b80bf492c0e68c6d3174b98e0044 -n longhorn-system          [±master ●●]
@@ -21,7 +21,7 @@ If I would kill the pod, the CPU would go back down, but of course kubernetes wo
 [longhorn-instance-manager] time="2024-05-08T12:52:02Z" level=info msg="Started new process manager update watch" func="process.(*Manager).ProcessWatch" file="process_manager.go:377"
 ```
 
-Because It was only the control plan having these issues, I continued to find out if I could decrease the activity on the control plane through the longhorn ui. 
+Because it was only the control plane having these issues, I continued to find out if I could decrease the activity on the control plane through the longhorn ui. 
 
 Using the port forward `kubectl port-forward --namespace longhorn-system svc/longhorn-frontend :80` I changed the amount of replicas on the volumes to 1, effectively eliminating the need for the cluster to do anything, but the problem still persisted.
 

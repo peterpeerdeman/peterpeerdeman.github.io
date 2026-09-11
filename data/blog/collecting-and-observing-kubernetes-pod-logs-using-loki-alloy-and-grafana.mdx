@@ -50,7 +50,7 @@ helm install alloy-k8s-monitoring --atomic --timeout 300s grafana/k8s-monitoring
 
 ![](../assets/images/2024-08-10-alloy-pods.png)
 
-K9s shows us 6 running pods: four logging pods that run on all my 4 k8s nodes, one alloy pod that exports kubernetes events on the control plane and one main alloy pod alloy pod that collects the logs from each of the nodes. If we create a port forward on the main alloy pod (using shift+f in the k9s console), we can take a peek at the Alloy user interface, showing us a long list of Alloy components. Each component has arguments (settings) and an export of values that are exposed to other components:
+K9s shows us 6 running pods: four logging pods that run on all my 4 k8s nodes, one alloy pod that exports kubernetes events on the control plane and one main alloy pod that collects the logs from each of the nodes. If we create a port forward on the main alloy pod (using shift+f in the k9s console), we can take a peek at the Alloy user interface, showing us a long list of Alloy components. Each component has arguments (settings) and an export of values that are exposed to other components:
 
 ![](../assets/images/2024-08-10-alloy-interface.png)
 

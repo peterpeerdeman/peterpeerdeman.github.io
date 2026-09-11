@@ -10,7 +10,7 @@ As you have probably already noticed, I thoroughly enjoy [collecting timeseries 
 
 ## Goal: predicting solar yield over the next year
 
-I was already [collecting and visualising solar panel data using influxdb, nodejs and pvoutput](../blog/using-influxdb-grafana-and-nodejs-datalogger-to-visualise-solar-panel-data). This means we already have a timeseries database, there is a database present filled with a couple of years worth of energy generation measurements. Following this template, we could try to predict any influxdb timeseries! Before we get there, we need to take the following steps:
+I was already [collecting and visualising solar panel data using influxdb, nodejs and pvoutput](../blog/using-influxdb-grafana-and-nodejs-datalogger-to-visualise-solar-panel-data). This means we already have a timeseries database, filled with a couple of years' worth of energy generation measurements. Following this template, we could try to predict any influxdb timeseries! Before we get there, we need to take the following steps:
 
 - [Find the right timeseries prediction model](#researching-timeseries-prediction-models)
 - [Get prophet running on arm](#getting-prophet-running-on-raspberry-pi-arm)
@@ -21,7 +21,7 @@ I was already [collecting and visualising solar panel data using influxdb, nodej
 
 ## Researching timeseries prediction models
 
-After some research, I found there are quite a number of methods to extrapolate timeseries data: Long Short-Term Memory (LSTM), Autoregressive Integrated Moving Average (ARIMA), SARIMA (ARIMA but with Seasons) and combinations of before: additive regression. I'm not getting into the super specifics here, if you are into that definitely read [Krish Hariharan's](https://medium.com/analytics-vidhya/time-series-forecasting-arima-vs-prophet-5015928e402a) blog on the theory behind these topics.
+After some research, I found there are quite a number of methods to extrapolate timeseries data: Long Short-Term Memory (LSTM), Autoregressive Integrated Moving Average (ARIMA), SARIMA (ARIMA but with Seasons) and combinations of the above: additive regression. I'm not getting into the super specifics here, if you are into that definitely read [Krish Hariharan's](https://medium.com/analytics-vidhya/time-series-forecasting-arima-vs-prophet-5015928e402a) blog on the theory behind these topics.
 
 ## Making that easily accessible: Facebook Prophet
 
@@ -29,27 +29,27 @@ As I figured the project would already have enough going on with data flow and c
 
 ## Trends, Yearly Seasonality, Weekly cycles
 
-Prophet works best with with timeseries that have "seasonal" effects and a dataset that has several seasons worth of data. To get a basic idea of how Prophet works, check out this dataset with facebook data events: 
+Prophet works best with timeseries that have "seasonal" effects and a dataset that has several seasons worth of data. To get a basic idea of how Prophet works, check out this dataset with facebook data events: 
 
 ![facebook prophet data](../assets/images/2022-02-15-prophet-facebook.png)
 
-Prophet looks at a timeseries like this and tries to fit multiple graphs on top of eachother, in each using different cycles of time. A trendline over a longer period of time, a yearly cycle (e.g. with a dip in summer and december) and a weekly cycle (most activity on monday)
+Prophet looks at a timeseries like this and tries to fit multiple graphs on top of each other, each using different cycles of time. A trendline over a longer period of time, a yearly cycle (e.g. with a dip in summer and december) and a weekly cycle (most activity on monday)
 
 ![facebook prophet composition](../assets/images/2022-02-15-prophet.png)
 
-Now that we have an idea how the model works, let's setup that crystal ball and see if we can predict next years solar panel yield!
+Now that we have an idea how the model works, let's setup that crystal ball and see if we can predict next year's solar panel yield!
 
 Let's go!
 
 ## Getting Prophet running on Raspberry Pi ARM
 
-My first step was to just get the prophet command even running on Raspberry PI's ARM architecture. I found this [docker image by lppier](https://github.com/lppier/docker-prophet) that I could tweak to to get it running on arm:
+My first step was to just get the prophet command even running on Raspberry PI's ARM architecture. I found this [docker image by lppier](https://github.com/lppier/docker-prophet) that I could tweak to get it running on arm:
 
-- update the the python version
+- update the python version
 - explicitly use piwheels for the setuptools, cython dependencies
 - omit use of slim image to make sure it builds
 
-I could now [build the image for arm using buildx](../blog/building-raspberry-pi-arm64-images-on-desktop-using-docker-buildx), and get a first [timeseries predictions on raspberry](https://github.com/peterpeerdeman/docker-prophet-arm), using the `example_wp_log_peyton_manning.csv` example file!
+I could now [build the image for arm using buildx](../blog/building-raspberry-pi-arm64-images-on-desktop-using-docker-buildx), and get a first [timeseries prediction on raspberry](https://github.com/peterpeerdeman/docker-prophet-arm), using the `example_wp_log_peyton_manning.csv` example file!
 
 ```
 » docker run -it peterpeerdeman/docker-prophet-arm:1.0.0-slim /bin/sh
@@ -98,7 +98,7 @@ Optimization terminated normally:
 
 The `app.py` script is supplied with a csv file containing 2906 records of a date and a value, then predicts the following year of 356 values and prints the "tail" (last 5 values).
 
-That's great and all, but 1) this is not our own home grown influx data yet, and 2) we cant see the resulting python graphs because we are running in docker. We'll build a realtime dashboard in grafana later, but lets first focus on the data.
+That's great and all, but 1) this is not our own home grown influx data yet, and 2) we can't see the resulting python graphs because we are running in docker. We'll build a realtime dashboard in grafana later, but lets first focus on the data.
 
 ## Rasprophet: A Raspberry Prophet REST interface
 
@@ -106,7 +106,7 @@ Instead of running a command on our laptop when we want to make a prediction, I 
 
 Introducing [Rasprophet](https://github.com/peterpeerdeman/rasprophet-prophet-rest-service/tree/master), a small python application that is built on top of the above docker image, but uses a small Flask API to expose the Prophet functionality and allow us to use http to post data to the model.
 
-The app defines an API that allows us to post timeseries data in a similar format as the example csv, and takes a parameter p that allows us to define how many prediction values s should be returned:
+The app defines an API that allows us to post timeseries data in a similar format as the example csv, and takes a parameter p that allows us to define how many prediction values should be returned:
 
 ```
 {
@@ -237,7 +237,7 @@ It was quite fun to see that the seasonality was quite well predicted, especiall
 
 ![grafana prophet predictions plus 10 months](../assets/images/2022-02-15-timeseries-prediction-review.png)
 
-As next steps, I'm looking forward to investigating a robust MLOps solutions such as kubeflow or [Argo](./creating-an-mlops-pipeline-to-extract-forecast-and-load-timeseries-using-argo-cron-workflow-and-darts-timeseries-forecaster) to schedule these workloads and recurring jobs reliably.
+As next steps, I'm looking forward to investigating a robust MLOps solution such as kubeflow or [Argo](./creating-an-mlops-pipeline-to-extract-forecast-and-load-timeseries-using-argo-cron-workflow-and-darts-timeseries-forecaster) to schedule these workloads and recurring jobs reliably.
 
 check out the other blogs on the timeseries and forecasting topic here:
 

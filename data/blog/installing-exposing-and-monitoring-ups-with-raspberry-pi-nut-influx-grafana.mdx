@@ -6,7 +6,7 @@ images: ['/assets/images/2021-10-22-connecting-and-monitoring-ups-with-raspberry
 draft: false
 ---
 
-To protect my Raspberry Pi server against sudden power outage and power fluctuations I've decided to install an "Uninterruptable Power Supply", or "UPS". I got the [APC Back-UPS 2200VA, 230V, AVR, 4 Schuko outlets](https://www.apc.com/shop/ug/en/products/APC-Back-UPS-2200VA-230V-AVR-4-Schuko-outlets/P-BX2200MI-GR) that gives my raspberry pi a window of about 1 hour to properly shut down without damaging the hardware or losing data.
+To protect my Raspberry Pi server against sudden power outage and power fluctuations I've decided to install an "Uninterruptible Power Supply", or "UPS". I got the [APC Back-UPS 2200VA, 230V, AVR, 4 Schuko outlets](https://www.apc.com/shop/ug/en/products/APC-Back-UPS-2200VA-230V-AVR-4-Schuko-outlets/P-BX2200MI-GR) that gives my raspberry pi a window of about 1 hour to properly shut down without damaging the hardware or losing data.
 
 ## Serving the UPS API
 
@@ -30,7 +30,7 @@ services:
 
 ## Trying out the UPS API
 
-We now have a server application running on port 3493 that exposes the UPS statistics detected through the USB cable coming from the UPS. Back in the day, there was no REST, no JSON and not even XML or SOAP. You can test the API only with [netcat](https://en.wikipedia.org/wiki/Netcat), connecting to the port directly and sending ASCII commands such as `LIST UPS` and `LIST VAR <upsname>` to retrieve the data:
+We now have a server application running on port 3493 that exposes the UPS statistics detected through the USB cable coming from the UPS. Back in the day, there was no REST, no JSON and not even XML or SOAP. You can only test the API with [netcat](https://en.wikipedia.org/wiki/Netcat), connecting to the port directly and sending ASCII commands such as `LIST UPS` and `LIST VAR <upsname>` to retrieve the data:
 
 ```bash
 » nc 127.0.0.1 3493
@@ -133,7 +133,7 @@ Broadcast message from nut@raspberrypi (somewhere) (Wed Apr 20 18:33:02 2022):
 UPS UPS@192.168.x.x on line power
 ```
 
-To do a full shutdown test, You could of course pull the plug on the UPS, let the battery die down and see if the nut clients that are connected will actually shut down by then, but it is also possible to simulate a critical power level and send an immediate shutdown to all devices listening to the upsmon. To do this, I went into the nutupsd docker container and ran the `upsmon` shutdown command there:
+To do a full shutdown test, you could of course pull the plug on the UPS, let the battery die down and see if the nut clients that are connected will actually shut down by then, but it is also possible to simulate a critical power level and send an immediate shutdown to all devices listening to the upsmon. To do this, I went into the nutupsd docker container and ran the `upsmon` shutdown command there:
 
 ```bash
 $ docker exec -it nutupsd /bin/sh

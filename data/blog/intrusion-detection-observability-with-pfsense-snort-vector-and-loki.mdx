@@ -7,7 +7,7 @@ images: ['/assets/images/2024-08-05-loki-explorer.png']
 draft: false
 ---
 
-Now that we have set up [our virtualised cyber security lab in proxmox](./cyber-security-lab-setup-with-proxmox-for-pentesting-malware-analysis-and-intrusion-detection), we should get some visual insights into the the intrusion detection system. We are going to leverage PFSense's alert logging, put these logs into Loki and then create dashboarding panels in Grafana. The components in short:
+Now that we have set up [our virtualised cyber security lab in proxmox](./cyber-security-lab-setup-with-proxmox-for-pentesting-malware-analysis-and-intrusion-detection), we should get some visual insights into the intrusion detection system. We are going to leverage PFSense's alert logging, put these logs into Loki and then create dashboarding panels in Grafana. The components in short:
 
 - Alert Log source (produced in PFSense as rsyslog logs)
 - A log transformer (Vector)
@@ -17,7 +17,7 @@ Now that we have set up [our virtualised cyber security lab in proxmox](./cyber-
 To extract the alert logs from PFSense, we will configure PFSense to use RFC-5424 compliant system logs and send these logs to a remote log server using the Status / System Logs / Settings tab, as explained in [the remote logging docs](https://docs.netgate.com/pfsense/en/latest/monitoring/logs/remote.html). Before we can specify the ip and port of the remote syslog, we should first set up that application.
 
 ## Storing the logs in Loki
-First, we'll need to setup the database that will store the logs, and then set up the application that will receiving the syslogs, transform them and store them in the logging database. I went through several configurations, including syslog-ng and alloy but eventually ended up with datadog's Vector to process the logs and Loki to store the logs.
+First, we'll need to setup the database that will store the logs, and then set up the application that will receive the syslogs, transform them and store them in the logging database. I went through several configurations, including syslog-ng and alloy but eventually ended up with datadog's Vector to process the logs and Loki to store the logs.
 
 Loki can be setup in a plethora of ways, ranging from simple single binary to [infinitely scalable microservices](https://grafana.com/docs/loki/latest/setup/install/helm/install-microservices/). For my setup I settled with a simple docker compose installation: 
 
@@ -38,7 +38,7 @@ services:
 
 Because loki can't receive the rsyslog format directly, we need an application that receives rsyslog and transforms that data and outputs to Loki. For this log aggregation I will be using Vector on the Kubernetes cluster. When you are getting started with Vector, be sure to read their awesome [quickstart tutorial](https://vector.dev/docs/setup/quickstart/), showcasing their generate_syslog debug resource, that enables you to check if your sinks are setup properly before you try connecting your actual syslog source. 
 
-In this case, we specify a source that receive syslog on UDP port 513 and a sink that receives the syslog source and sends it to the loki endpoint
+In this case, we specify a source that receives syslog on UDP port 513 and a sink that receives the syslog source and sends it to the loki endpoint
 
 ```
 sources:

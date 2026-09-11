@@ -9,7 +9,7 @@ draft: false
 
 After getting my first smart [Philips Hue color ambiance starter kit](http://www2.meethue.com/nl-nl/productdetail/philips-hue-white-and-color-ambiance-starter-kit-a19) as a present from the [LifelyNL team](https://instagram.com/LifelyNL) I immediately started integrating the set into my home automation system.
 
-First off, the bridge had to be integrated into my `raspapi` node application, to be able to access the API functionality from anywhere I have access to my home automation API. I used the [node-hue-api]() npm module to easily configure my home bridge and send commands to the Hue lights. I created the following express routes that exposes some of the features through a nice rest api (the rest of the code can be found on [github](https://github.com/peterpeerdeman/raspapi/blob/master/routes/lights/index.js))
+First off, the bridge had to be integrated into my `raspapi` node application, to be able to access the API functionality from anywhere I have access to my home automation API. I used the [node-hue-api]() npm module to easily configure my home bridge and send commands to the Hue lights. I created the following express routes that expose some of the features through a nice rest api (the rest of the code can be found on [github](https://github.com/peterpeerdeman/raspapi/blob/master/routes/lights/index.js))
 
 ```javascript
 var express = require('express');
@@ -59,7 +59,7 @@ module.exports = router;
 
 Now the lights are switchable through the API which is great, but I'd like them to be automatically turned on when it gets dark, and have them turned off when it is time to go to sleep. It sounds weird but it actually works as a nice reminder at night to quit what we are doing and get some sleep ;)
 
-I extended my [raspschedule](https://github.com/peterpeerdeman/raspschedule/blob/master/raspschedule.js) program, also running on the raspberrypi home server, to include the code that switches the lights on and off through the raspapi api on `localhost:3000`. By using the npm module [suncalc](https://github.com/mourner/suncalc) I know exactly when sunset and sunrise are occuring for the current day. The cronjob is then scheduled for these times precisely, and only if the sun is not already shining at that moment!
+I extended my [raspschedule](https://github.com/peterpeerdeman/raspschedule/blob/master/raspschedule.js) program, also running on the raspberrypi home server, to include the code that switches the lights on and off through the raspapi api on `localhost:3000`. By using the npm module [suncalc](https://github.com/mourner/suncalc) I know exactly when sunset and sunrise are occurring for the current day. The cronjob is then scheduled for these times precisely, and only if the sun is not already shining at that moment!
 
 ```javascript
 var CronJob = require('cron').CronJob;

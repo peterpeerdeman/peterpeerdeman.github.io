@@ -15,7 +15,7 @@ W20151117-16:32:34.996(1)? (STDERR) at Process.ChildProcess.\_handle.onexit (chi
 => Exited with code: 7
 ```
 
-The strangest part was that some of the team members could boot the project without problems. After wildly commenting out most of the projects bootstrapping code we found out that the following lines were causing the crash:
+The strangest part was that some of the team members could boot the project without problems. After wildly commenting out most of the project's bootstrapping code we found out that the following lines were causing the crash:
 
 ```javascript
 var gm = Npm.require('gm').subClass({ imageMagick: true });

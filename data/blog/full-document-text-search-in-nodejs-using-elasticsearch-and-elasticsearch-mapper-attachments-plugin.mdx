@@ -7,7 +7,7 @@ tags: ['node', 'docker']
 draft: false
 ---
 
-In one of our recent meteor applications we included a full document search feature using elasticsearch. Elasticsearch creates an index of documents based on metadata and their plain text content. For this feature we needed to support PDF and office filetypes (doc, docx, pptx etc.) as well. To accomodate this, elasticsearch has a plugin called [elasticsearch-mapper-attachments](https://github.com/elastic/elasticsearch-mapper-attachments).
+In one of our recent meteor applications we included a full document search feature using elasticsearch. Elasticsearch creates an index of documents based on metadata and their plain text content. For this feature we needed to support PDF and office filetypes (doc, docx, pptx etc.) as well. To accommodate this, elasticsearch has a plugin called [elasticsearch-mapper-attachments](https://github.com/elastic/elasticsearch-mapper-attachments).
 
 Because we wanted to use a docker image to run elasticsearch, we decided to extend the `elasticsearch:2.3.3` image and add the plugin on top of it. The plugin takes care of transforming the documents into a plaintext format using apache tika. The plaintext of the document is then used to create a document in elasticsearch.
 
@@ -112,4 +112,4 @@ client.search(
 );
 ```
 
-The hits object in the result contains an array of hits sorted by search score, which can then be rendered as pleased!
+The hits object in the result contains an array of hits sorted by search score, which can then be rendered as you please!

@@ -29,6 +29,6 @@ telegraf:
     - /var/run/docker.sock:/var/run/docker.sock
 ```
 
-Please note that access to the docker socket is the same as providing root access. Anything that can talk to that socket can start a privileged container and own the host
+Please note that access to the docker socket is the same as providing root access. Anything that can talk to that socket can start a privileged container and own the host.
 
 If you're interested in this topic, consider reading the blog: [deploying the TIG stack on the kubernetes cluster](./deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster).

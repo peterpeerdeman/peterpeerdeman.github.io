@@ -7,19 +7,19 @@ draft: false
 images: ['/assets/images/2026-09-05-kobo-clara-dashboard.jpg']
 ---
 
-An always-on dashboard in the house has been on my wishlist for quite a while. Somehow, I never really went for it before. Recently I saw a live PV / Grid consume / Grid delivery panel at a friends house, and with the recent [pv solar wifi stick mod](./growatt-wifi-stick-modification-to-make-uart-work-with-esp-home.mdx) in place, it was about time for a first prototype of this solution. 
+An always-on dashboard in the house has been on my wishlist for quite a while. Somehow, I never really went for it before. Recently I saw a live PV / Grid consume / Grid delivery panel at a friend's house, and with the recent [pv solar wifi stick mod](./growatt-wifi-stick-modification-to-make-uart-work-with-esp-home.mdx) in place, it was about time for a first prototype of this solution. 
 
-as I don't want another device emitting light drawing our gaze and messing with our natural sleep rhythm, the solution had to be E-ink. There are some off the shelf products available, such as the proprietary TRMNL and the diy Inkplate, but I had a Kobo e-reader that is seeing some idle time recently, and that turned out to be a perfectly capable platform for the first prototype.
+As I don't want another device emitting light, drawing our gaze and messing with our natural sleep rhythm, the solution had to be E-ink. There are some off the shelf products available, such as the proprietary TRMNL and the diy Inkplate, but I had a Kobo e-reader that is seeing some idle time recently, and that turned out to be a perfectly capable platform for the first prototype.
 
 ![](../assets/images/2026-09-05-kobo-clara-dashboard.jpg)
 
 ## screenshots instead of a browser
 
-The lazy plan would be to point the Kobo's built-in browser at a home assistant dashboard in a sort of kiosk mode and call it a day. Unfortunately, that does not work as the experimental browser cant run the home assistant dashboard without javascript.
+The lazy plan would be to point the Kobo's built-in browser at a home assistant dashboard in a sort of kiosk mode and call it a day. Unfortunately, that does not work as the experimental browser can't run the home assistant dashboard without javascript.
 
 The approach that some had used online is to take screenshots with a headless browser, and render the images to the Kobo screen.
 
-For this rendering I use balloob's [puppet](https://github.com/balloob/home-assistant-addons) add-on, a headless Chrome that screenshots any home assistant view. Home Assistant was already running in a docker-compose, so we only had to add the extra container. Requesting a URL and get a grayscale PNG back:
+For this rendering I use balloob's [puppet](https://github.com/balloob/home-assistant-addons) add-on, a headless Chrome that screenshots any home assistant view. Home Assistant was already running in a docker-compose, so we only had to add the extra container. Requesting a URL and getting a grayscale PNG back:
 
 ```
 http://<puppet-host>:10000/<token>/kobo-dashboard/0?viewport=1448x1072&zoom=1.76
@@ -35,7 +35,7 @@ The Kobo needed three pieces to work:
 
 ## kfmon
 
-The documentation and the forum thread about this are all over the place. In the end, i used the [one click kobo install packages](https://www.mobileread.com/forums/showthread.php?t=314220) to get KOreader started, from which you can enable a SSH server to get a root shell on the device.
+The documentation and the forum thread about this are all over the place. In the end, I used the [one click kobo install packages](https://www.mobileread.com/forums/showthread.php?t=314220) to get KOreader started, from which you can enable a SSH server to get a root shell on the device.
 
 To turn the reader into a dashboard the script kills `nickel`, the Kobo UI, and also `hindenburg`, the watchdog that otherwise brings nickel back a minute later.
 
@@ -125,6 +125,6 @@ while true; do
 done
 ```
 
-Now the fun part began, which was deciding which widgets to show on the screen. I found the markdown tile very useful to print data in a little bigger font, and avoided to customise the styling of the tiles. The historic bar charts and line charts render quite well, and using emoji's helps to create some visual support between all of the stats. 
+Now the fun part began, which was deciding which widgets to show on the screen. I found the markdown tile very useful to print data in a little bigger font, and avoided customising the styling of the tiles. The historic bar charts and line charts render quite well, and using emoji's helps to create some visual support between all of the stats. 
 
-Putting the kobo in landscape mode on an ikea tablet stand, and wiring it to a big 20.000mA battery pack makes it a nice portable prototype to experience live stats from the dinner table. Maybe we will bolt it to the wall at some point, but let's see if we still enjoy the stats after a couple weeks first.
+Putting the kobo in landscape mode on an ikea tablet stand, and wiring it to a big 20.000mA battery pack makes it a nice portable prototype to experience live stats from the dinner table. Maybe we will bolt it to the wall at some point, but let's see if we still enjoy the stats after a couple of weeks first.

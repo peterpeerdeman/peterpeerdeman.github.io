@@ -23,7 +23,7 @@ We can now add a panel that shows our PFSense logs: Add / Visualisation, select 
 
 ## Filtering message contents with regexp
 
-The log lines also contains some interesting data in the message field:
+The log lines also contain some interesting data in the message field:
 
 ```
 [119:4:1] (http_inspect) BARE BYTE UNICODE ENCODING [Classification: Not Suspicious Traffic] [Priority: 3] {TCP} 10.0.1.10:36826 -> 192.168.117.5:7000
@@ -58,6 +58,6 @@ sum by (classification) (
 )
 ```
 
-If we add all these together with the network traffic metrics, you can get really interesting overviews and spot correlations between traffic and alerts. In the following example, you can see a small spike in network occuring and correlating to the snort alerts by classification. An added bonus is that the log view is filtered by the current timeframe as well, so you can easily drill down into the original alert logs once you have found the timeframe you want to inspect.
+If we add all these together with the network traffic metrics, you can get really interesting overviews and spot correlations between traffic and alerts. In the following example, you can see a small spike in network traffic occurring and correlating to the snort alerts by classification. An added bonus is that the log view is filtered by the current timeframe as well, so you can easily drill down into the original alert logs once you have found the timeframe you want to inspect.
 
 ![](../assets/images/2024-08-05-pfsense-metric-log-dashboard.png)

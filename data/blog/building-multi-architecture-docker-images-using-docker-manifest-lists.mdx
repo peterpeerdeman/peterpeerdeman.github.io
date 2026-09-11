@@ -7,11 +7,11 @@ draft: false
 images: ['/assets/images/2024-07-04-multiarch.png']
 ---
 
-In the aftermath of [adding an i386 node](./why-i-am-adding-virtualisation-with-proxmox-to-my-infrastructure) to my [kubernetes cluster](./kubernetes-cluster-build-with-raspberry-pi-and-poe-hats), it was about time to dig into the creation of multi-architecture docker images. When you visit docker hub and look at a popular image, you often see a list of difference images, each with a different OS/ARCH label:
+In the aftermath of [adding an i386 node](./why-i-am-adding-virtualisation-with-proxmox-to-my-infrastructure) to my [kubernetes cluster](./kubernetes-cluster-build-with-raspberry-pi-and-poe-hats), it was about time to dig into the creation of multi-architecture docker images. When you visit docker hub and look at a popular image, you often see a list of different images, each with a different OS/ARCH label:
 
 ![](../assets/images/2024-07-04-multiarch.png)
 
-This is achieved using docker manifest lists. A manifest lst has a tag, similar to a docker tag but actually refers to a list of images, possibly with different architectures. If we build our project multiple times, and specifying a specific platform during each build, we can then create a `manifest` that references the images for different platforms.
+This is achieved using docker manifest lists. A manifest list has a tag, similar to a docker tag but actually refers to a list of images, possibly with different architectures. If we build our project multiple times, and specifying a specific platform during each build, we can then create a `manifest` that references the images for different platforms.
 
 I'll show both the manual way of creating such a manifest through the command line, and provide a github action workflow you can use to automatically build a (public) project to multiple images and upload them to an artifact repository.
 
@@ -37,7 +37,7 @@ We can then push the manifest file and enjoy the convenience of our future docke
 docker manifest push peterpeerdeman/lightning-logger:1.1.0
 ```
 
-The next step is to automate this process completely. We can go about this is by creating a github action that automatically triggers the building of images when a change is pushed to the repository. I've used the following workflow file `main.yaml` in the `.github/workflows/` folder of a repository to automatically build both the `amd64` and `arm64` images:
+The next step is to automate this process completely. We can go about this by creating a github action that automatically triggers the building of images when a change is pushed to the repository. I've used the following workflow file `main.yaml` in the `.github/workflows/` folder of a repository to automatically build both the `amd64` and `arm64` images:
 
 ```
 name: ci
@@ -66,4 +66,4 @@ jobs:
           tags: peterpeerdeman/darts-timeseries-forecaster:latest, peterpeerdeman/darts-timeseries-forecaster:${{ github.sha }}
 ````
 
-The only thing left is configuring the secrets in your github repository. So create an access token for you docker hub account on `https://app.docker.com/settings/personal-access-tokens` and use them as "repository secrets" in your github repo's settings / security / secrets and variables / actions.
+The only thing left is configuring the secrets in your github repository. So create an access token for your docker hub account on `https://app.docker.com/settings/personal-access-tokens` and use them as "repository secrets" in your github repo's settings / security / secrets and variables / actions.

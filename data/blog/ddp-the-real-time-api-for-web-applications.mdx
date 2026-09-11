@@ -16,11 +16,11 @@ The slides can be found on [http://peterpeerdeman.github.io/ddp-the-real-time-ap
 
 DDP, or the "Distributed Data Protocol" was coined by Matt DeBergalis to provide a new standard for communication over websockets. Instead of using a request / response protocol such as rest over HTTP, DDP describes a JSON protocol over bi-directional websockets using the pub/sub and RPC paradigms.
 
-The four main parts the DDP spec focuses are the connection, managing data, remote procedure calls and errorhandling. During the conference talk I've demonstrated all of the following examples by opening the chrome inspector and inspecting the traffic on the [endpointcon map demonstration application](http://endpoint15.meteor.com).
+The four main parts the DDP spec focuses on are the connection, managing data, remote procedure calls and errorhandling. During the conference talk I've demonstrated all of the following examples by opening the chrome inspector and inspecting the traffic on the [endpointcon map demonstration application](http://endpoint15.meteor.com).
 
 ### Connection
 
-After opening the websocket connecting, the client sends out a `connect` message, to which the server responds with either a `connected` message or a `failed` message. Both parties are able to send out a `ping` message, to which the receiving will reply with a `pong` message.
+After opening the websocket connection, the client sends out a `connect` message, to which the server responds with either a `connected` message or a `failed` message. Both parties are able to send out a `ping` message, to which the receiving party will reply with a `pong` message.
 
 ```bash
 CLIENT SERVER
@@ -35,7 +35,7 @@ CLIENT SERVER
 
 ### Managing Data
 
-After connecting to the server, the client describes its interest in certain documents by sending a `sub` message, containing the name of the publication. The server will respond with a series of `added` messages for each requested document, followed by a `ready` message to indicate all initial data has been sent. If a document changes on the server, `changed` and/or `removed` messages are sent out to each subscribed client. This means that clients no longer have to poll for data, but will be automatically updated once a document changes on the server side. If a client is no longer interested in receiving updates on a description, an `unsub` message can be sent.
+After connecting to the server, the client describes its interest in certain documents by sending a `sub` message, containing the name of the publication. The server will respond with a series of `added` messages for each requested document, followed by a `ready` message to indicate all initial data has been sent. If a document changes on the server, `changed` and/or `removed` messages are sent out to each subscribed client. This means that clients no longer have to poll for data, but will be automatically updated once a document changes on the server side. If a client is no longer interested in receiving updates on a subscription, an `unsub` message can be sent.
 
 ```bash
 CLIENT SERVER
@@ -52,7 +52,7 @@ CLIENT SERVER
 
 ### Remote Procedure Calls
 
-The RPC paradigm is used to manipulate data on the backend. At any given time, the client is able to send `method` messages to the server, containing the method name that has to be exectued and optional arguments for that method. The server responds with a `result` message, containing either a response value or an error. If certain documents the user was subscribed to were changed due to the execution of the method, these changes are sent with similar `changed` messages as we have seen in the previous diagram. After all the `changed` messages have been sent, an `updated` message is sent used to signal the end of the incoming changes.
+The RPC paradigm is used to manipulate data on the backend. At any given time, the client is able to send `method` messages to the server, containing the method name that has to be executed and optional arguments for that method. The server responds with a `result` message, containing either a response value or an error. If certain documents the user was subscribed to were changed due to the execution of the method, these changes are sent with similar `changed` messages as we have seen in the previous diagram. After all the `changed` messages have been sent, an `updated` message is sent to signal the end of the incoming changes.
 
 ```bash
 CLIENT SERVER

@@ -6,9 +6,9 @@ tags: ['git', 'pkm']
 draft: false
 ---
 
-While cleaning up my [obsidian vault](./why-and-how-i-maintain-a-personal-knowledge-management-system-using-obsidian) I moved a bunch of notes out that had no business being there anymore. Of course, just deleting them committing would show their history in the git log, as every version of every note is still sitting in the history.
+While cleaning up my [obsidian vault](./why-and-how-i-maintain-a-personal-knowledge-management-system-using-obsidian) I moved a bunch of notes out that had no business being there anymore. Of course, just deleting them and committing would show their history in the git log, as every version of every note is still sitting in the history.
 
-For just any notes that is a bit untidy, but for notes that end up in a [semi-published vault](./publishing-your-personal-knowledge-management-system-using-obsidian-quartz-private-repositories-gitea-gitea-actions-and-netlify) this is turning into a potential data leak, so I wanted them gone from the history as well.
+For most notes that is a bit untidy, but for notes that end up in a [semi-published vault](./publishing-your-personal-knowledge-management-system-using-obsidian-quartz-private-repositories-gitea-gitea-actions-and-netlify) this is turning into a potential data leak, so I wanted them gone from the history as well.
 
 The tool of choice is [git-filter-repo](https://github.com/newren/git-filter-repo), the officially recommended replacement for the actively discouraged old `git filter-branch` command
 
@@ -18,7 +18,7 @@ brew install git-filter-repo
 
 ## collect everything you want gone into one folder
 
-`git filter-repo` filters on paths, so the job gets a lot easier if the things you want removed share a path. I moved all of the to be filtered notes into a folder and committed that first. We then only need a single `--paths` argument instead of a list of thirty note names that 
+`git filter-repo` filters on paths, so the job gets a lot easier if the things you want removed share a path. I moved all of the to be filtered notes into a folder and committed that first. We then only need a single `--paths` argument instead of a list of thirty note names that each need their own. 
 
 ## rewrite the history in a fresh clone
 
@@ -34,7 +34,7 @@ git filter-repo --invert-paths --path folder/path
 
 ## put the remote back and force push
 
-After the rewrite `git remote -v` is made empty by filter-repo so you cannot casually push a rewritten history over a repository or accidentally fetch the old objects back in.
+After the rewrite, `git remote -v` is empty: filter-repo removes the remote so you cannot casually push a rewritten history over a repository or accidentally fetch the old objects back in.
 
 ```sh
 git remote add origin git@git.example.com:example/notes.git

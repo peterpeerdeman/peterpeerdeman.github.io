@@ -8,7 +8,7 @@ draft: false
 
 On the 1st of July 2015 [Lifely](http://lifely.nl) hosted the dutch [Meteor meetup](http://www.meetup.com/Meteor-NL/events/223096911/). I gave a presentation about our experiences during the "Part-up" project, a web-based startup product that we built in Meteor.
 
-During the presentation I give some insights on how we weighed the pro's and con's while deciding to use Meteor for this project. After this I address 4 specific challenges we faced during development.
+During the presentation I give some insights on how we weighed the pros and cons while deciding to use Meteor for this project. After this I address 4 specific challenges we faced during development.
 
 The slides and code can be found at [Part-up: a Meteor Production Story](https://peterpeerdeman.github.io/partup-a-meteor-production-story/)
 
@@ -16,7 +16,7 @@ The slides and code can be found at [Part-up: a Meteor Production Story](https:/
 
 ### Teamwork -> Component directory structure
 
-We made heavy use of components to split up the functionality of the web application. This allowed the team to work on isolated pieces of functionality without running into loads of merge conflicts while working in the same files. We documented all of the components API's so it would be clear for every team member how to use the re-usable blaze components and how to set each of the parameters.
+We made heavy use of components to split up the functionality of the web application. This allowed the team to work on isolated pieces of functionality without running into loads of merge conflicts while working in the same files. We documented all of the components' APIs so it would be clear for every team member how to use the re-usable blaze components and how to set each of the parameters.
 
 This first snippet shows the top level of our application, with the packages folder containing all of the separate components and the `client-pages` packages containing all of the page templates that are used in the routing
 
@@ -93,7 +93,7 @@ This second snippet shows the directory structure of the Activity component.
         package-tap.i18n
         package.js
 
-`Activity.js` is the entrypoint for the component, which also contains API documentation how to use the component:
+`Activity.js` is the entrypoint for the component, which also contains API documentation on how to use the component:
 
 ```javascript
 /\*\*

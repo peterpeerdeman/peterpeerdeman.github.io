@@ -4,9 +4,9 @@ date: '2024-07-25'
 category: devops
 tags: ['kubernetes']
 ---
-After adding a [virtualised intel node](./why-the-hybrid-approach-finally-works) to imy [ARM k8s cluster](./kubernetes-cluster-build-with-raspberry-pi-and-poe-hats) I quickly found that I wanted some more control over what pods would be deployed on which nodes. 
+After adding a [virtualised intel node](./why-the-hybrid-approach-finally-works) to my [ARM k8s cluster](./kubernetes-cluster-build-with-raspberry-pi-and-poe-hats) I quickly found that I wanted some more control over what pods would be deployed on which nodes. 
 
-This is where the `nodeselector` keyword comes in play. With `nodeselector` we can specify what labels we want to be present at the node before it gets chosen to perform the specified workload.
+This is where the `nodeselector` keyword comes into play. With `nodeselector` we can specify what labels we want to be present at the node before it gets chosen to perform the specified workload.
 
 We can view the labels our nodes currently have with `kubectl get nodes --show-labels`:
 
@@ -19,7 +19,7 @@ We can view the labels our nodes currently have with `kubectl get nodes --show-l
 
 ```
 
-As you can see, k3s already supplied the nodes with a bunch of default tags on installation, including the architecture `beta.kubernetes.io/arch=arm64` and the os `kubernetes.io/os=linux`, but also the hostname `kubernetes.io/hostname=raspbravo`, which would enable you to pin a workflow to a specific machine. We can use the nodeselector in any kubernetes file holds a spec, in this example ensuring this deployment to only run on `arm64` architecture:
+As you can see, k3s already supplied the nodes with a bunch of default tags on installation, including the architecture `beta.kubernetes.io/arch=arm64` and the os `kubernetes.io/os=linux`, but also the hostname `kubernetes.io/hostname=raspbravo`, which would enable you to pin a workflow to a specific machine. We can use the nodeselector in any kubernetes file that holds a spec, in this example ensuring this deployment only runs on `arm64` architecture:
 
 ```
 apiVersion: apps/v1

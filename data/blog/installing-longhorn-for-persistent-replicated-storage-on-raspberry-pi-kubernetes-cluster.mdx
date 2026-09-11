@@ -1,6 +1,6 @@
 ---
 date: '2021-10-14'
-title: 'Longhorn for persistant, replicated storage on raspberry pi kubernetes cluster'
+title: 'Longhorn for persistent, replicated storage on raspberry pi kubernetes cluster'
 category: technology
 tags: ['raspberry', 'kubernetes', 'devops']
 draft: false
@@ -75,9 +75,9 @@ persistence:
 ...
 ```
 
-After installing this chart, we can now go return to the longhorn web interface and see a new volume, of 3Gi was created. The volume was automatically replicated over all three nodes, since we used a variable "numberOfReplicas: 3" in the storageclass. When one of these nodes would die (or more commonly with raspberry pi's, the SD card would crash), we can create and add a new node and the data will be replicated on the fresh node.
+After installing this chart, we can now go back to the longhorn web interface and see a new volume of 3Gi was created. The volume was automatically replicated over all three nodes, since we used a variable "numberOfReplicas: 3" in the storageclass. When one of these nodes would die (or more commonly with raspberry pi's, the SD card would crash), we can create and add a new node and the data will be replicated on the fresh node.
 
-An interesting note is that if drain one of the nodes containing a volume, kubernetes will automatically try to replicate the volume somewhere else to achieve the replica number of 3. In this case, it would make the third replica on one of the 2 nodes that are left and of course having 2 replicas on the same disk is not ideal for data safety.
+An interesting note is that if we drain one of the nodes containing a volume, kubernetes will automatically try to replicate the volume somewhere else to achieve the replica number of 3. In this case, it would make the third replica on one of the 2 nodes that are left and of course having 2 replicas on the same disk is not ideal for data safety.
 
 ![longhorn replicated volume](/assets/images/2021-10-14-longhorn-volume.png)
 
@@ -85,7 +85,7 @@ Check the other blogs in this raspberry pi kubernetes cluster series here:
 
 1. [Kubernetes cluster build with Raspberry Pi nodes and PoE Hats in a DIN breaker box panel](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats)
 2. [Visualising a Raspberry Pi Kubernetes cluster by deploying the k8s web interface](../blog/visualising-raspberry-pi-kubernetes-cluster-by-deploying-the-k8s-interface)
-3. [Longhorn for persistant, replicated storage on raspberry pi kubernetes cluster](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster)
+3. [Longhorn for persistent, replicated storage on raspberry pi kubernetes cluster](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster)
 4. [Deploying monitoring TIG stack (Telegraf, InfluxDB and Grafana) on Raspberry Pi Kubernetes cluster](../blog/deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster)
 5. [Deploying a NodeJS Postgres application to a Kubernetes Raspberry Pi Cluster](../blog/deploying-a-nodejs-postgres-application-to-kubernetes-raspberry-pi-cluster)
 6. [Manage SSL certificates and ingress for services in k3s kubernetes cluster using cert-manager, letsencrypt and traefik](../blog/manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefik)

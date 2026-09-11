@@ -1,6 +1,6 @@
 ---
 date: '2022-02-01'
-title: "Learnings from one of my Raspberry Pi SD card's crashing"
+title: "Learnings from one of my Raspberry Pi SD cards crashing"
 category: infrastructure
 tags: ['raspberry', 'devops', 'infrastructure']
 ---
@@ -9,7 +9,7 @@ The SD card in the Raspberry Pi that was running a bunch of docker containers ga
 
 ## 1) SD cards are consumables and they wear out
 
-Servers write constantly. A timeseries database is, by definition, a thing that writes small amounts of data forever. Every [logger](./using-influxdb-grafana-and-nodejs-datalogger-to-visualise-solar-panel-data.mdx) service polling every minute, every write-ahead log flush, all of it lands on a card that was originally designed to hold holiday photos in a camera. Apparently flash storage actually wears out. The fix was clear: put the operating system and the data on an external SSD and use the SD just when installing the system.
+Servers write constantly. A timeseries database is, by definition, a thing that writes small amounts of data forever. Every [logger](./using-influxdb-grafana-and-nodejs-datalogger-to-visualise-solar-panel-data.mdx) service polling every minute, every write-ahead log flush, all of it lands on a card that was originally designed to hold holiday photos in a camera. Apparently flash storage actually wears out. The fix was clear: put the operating system and the data on an external SSD and use the SD only when installing the system.
 
 ## 2) "I have a backup" and "I can restore" are different stories
 
@@ -19,4 +19,4 @@ I did have backups of the data, so nothing was lost. What I did not have was a w
 
 In the end the rebuild took about two weeks, not because it was that much data but because the platform that I recovered to was a platform that was better suited for recoverability. On one hand it pushed me towards [exploring redundancy and replicated storage in kubernetes](./installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster), and creating a properly multi-disk NAS storage solution. 
 
-Eventually, the crash was one of the reasons [why I also added Proxmox to my infrastructure](./why-i-am-adding-virtualisation-with-proxmox-to-my-infrastructure), The Raspberry Pi SD card that died now exists as a virtual machine that gets snapshotted and [backed up to an NFS share on a retention schedule](./setting-up-proxmox-vm-backups-on-an-nfs-share-with-retention-policies), and restoring it has become a small gui exercise.
+Eventually, the crash was one of the reasons [why I also added Proxmox to my infrastructure](./why-i-am-adding-virtualisation-with-proxmox-to-my-infrastructure). The Raspberry Pi SD card that died now exists as a virtual machine that gets snapshotted and [backed up to an NFS share on a retention schedule](./setting-up-proxmox-vm-backups-on-an-nfs-share-with-retention-policies), and restoring it has become a small gui exercise.

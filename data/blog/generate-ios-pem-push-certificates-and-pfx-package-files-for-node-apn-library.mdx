@@ -5,9 +5,9 @@ tags: ['mobile', 'node']
 draft: false
 ---
 
-As a future reference to myself, this is how we transformed iOS pem certificates into PFX packages for use with nodes apn library
+As a future reference to myself, this is how we transformed iOS pem certificates into PFX packages for use with node's apn library
 
-1. Use this guide by [Ray Wnederlich](https://www.raywenderlich.com/123862/push-notifications-tutorial) to create the push certificates
+1. Use this guide by [Ray Wenderlich](https://www.raywenderlich.com/123862/push-notifications-tutorial) to create the push certificates
     - create keys through app id preferences screen in [https://developer.apple.com](https://developer.apple.com) interface.
     - export certificate and keys to `.p12` from keychain using following commands
         - `openssl pkcs12 -in PushProdKeys.p12 -out PushProdKeys.pem -nodes -clcerts`

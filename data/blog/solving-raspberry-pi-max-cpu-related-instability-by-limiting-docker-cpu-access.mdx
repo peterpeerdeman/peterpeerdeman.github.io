@@ -10,9 +10,9 @@ draft: false
  
 As I could not decrease the workload of the influx server, I wanted to find a way to ensure that heavy load from the influx server would never impact the server in a way that it became unresponsive. 
 
-An easy fix for this problem is to avoid docker containers from accessing the full CPU capacity, leaving some compute space for other vital processes to ensure access and stability of the server itself.
+An easy fix for this problem is to prevent docker containers from accessing the full CPU capacity, leaving some compute space for other vital processes to ensure access and stability of the server itself.
 
-As the node was running docker compose, I add the following configuration to the service in question to limit its access to CPU resources. In this example, even when the influx container would max out, it would still only take 80% of the available CPU power.
+As the node was running docker compose, I added the following configuration to the service in question to limit its access to CPU resources. In this example, even when the influx container would max out, it would still only take 80% of the available CPU power.
 
 ```
 version: '3.3'

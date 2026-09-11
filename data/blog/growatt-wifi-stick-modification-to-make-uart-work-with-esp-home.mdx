@@ -18,18 +18,18 @@ ESPHome speaks Modbus and the inverter speaks Modbus, so this time I wanted to c
 
 ## RS232 and modbus
 
-My stick, a ShineWiFi-S, connects to the inverter over RS232. The stick already has all the hardware it needs to shift the high 12v voltage inside the housing. Instead of building our replacement wifi stick from scratch, we could reuse the transceiver, the connector and the power supply that were already in the stick, and only replace the "smart" parts
+My stick, a ShineWiFi-S, connects to the inverter over RS232. The stick already has all the hardware it needs to shift the high 12v voltage inside the housing. Instead of building our replacement wifi stick from scratch, we could reuse the transceiver, the connector and the power supply that were already in the stick, and only replace the "smart" parts.
 
 Opening up the stick, I found the following components:
 
 - a DB9 connector (for connecting with the inverter's RS232 port)
 - an RS232 transceiver between that connector and the module's TTL UART
-- a buck converter stepping the inverter's 9-12V down to a 3.3V
+- a buck converter stepping the inverter's 9-12V down to 3.3V
 - the HF-A11 module responsible for wifi and networking 
 
 ## silencing the old brain
 
-The HF-A11 datasheet listed an active low reset on pin 7, so I wired pin 7 to ground to hold the module in permanent reset. I validated this by turning the stick on, and didn't see the wifi accesspoint come online.
+The HF-A11 datasheet listed an active low reset on pin 7, so I wired pin 7 to ground to hold the module in permanent reset. I validated this by turning the stick on, and didn't see the wifi access point come online.
 
 ## wiring the D1
 
@@ -72,14 +72,14 @@ sensor:
 
 ## testing with a bus pirate as a fake inverter
 
-As I was working on this project at night, I couldn't debug with the inverter (as it only turns on when the sun is shining). We created a test by emulating the growatt inverter using a Bus Pirate 5. The bus pirate offerse a bench PSU, voltmeter, UART engine and scope in one device, and the clamps make it easy to wire up both power and UART TX RX pins.
+As I was working on this project at night, I couldn't debug with the inverter (as it only turns on when the sun is shining). We created a test by emulating the growatt inverter using a Bus Pirate 5. The bus pirate offers a bench PSU, voltmeter, UART engine and scope in one device, and the clamps make it easy to wire up both power and UART TX RX pins.
 
 ![](../assets/images/2026-08-22-growatt-buspirate.jpg)
 
 1. **power and short check.** `W 3.3 300` powers the 3.3 V rail. The live current readout shows us whether the device is drawing power without shorts.
-2. **RS232 loopback.** Bus Pirate wired to the TTL pads, the two DB9 data pins shorted together and send a byte, watching it come back through the transceiver and connector. This proves the analogue front end before factoring in the replacement MCU
-3. **fake inverter.** `bridge` mode turned the Bus Pirate into a usb to serial adapter, and a `pymodbus` script on our laptop sending data to the serial port makes the device think it is connected to an actual inverter. The ESPHome sensors were populated with the supplied fake values
+2. **RS232 loopback.** Bus Pirate wired to the TTL pads, the two DB9 data pins shorted together and send a byte, watching it come back through the transceiver and connector. This proves the analogue front end before factoring in the replacement MCU.
+3. **fake inverter.** `bridge` mode turned the Bus Pirate into a usb to serial adapter, and a `pymodbus` script on our laptop sending data to the serial port makes the device think it is connected to an actual inverter. The ESPHome sensors were populated with the supplied fake values.
 
 I finished the night by putting the device back together, which was quite a snug fit because the d1 was duct-taped to the top of the original pcb. It still fit the original enclosure though. I connected it to the inverter and lo and behold, the next morning the sun came up and we had live data pouring into home assistant, without the stick phoning home or us being dependent on the man in the middle server!
 
-Next up was getting years of scattered pv history into [one clean InfluxDB series](./influxdb-pv-history-consolidation)
+Next up was getting years of scattered pv history into [one clean InfluxDB series](./influxdb-pv-history-consolidation).

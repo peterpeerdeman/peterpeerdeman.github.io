@@ -8,13 +8,13 @@ draft: false
 
 AI agents with access to local tooling provide amazing opportunities but also present some significant security risks, as you are basically providing remote code execution to an unpredictable entity.
 
-To reduce the attack surface, I want to run tun the agent in a sandboxed [proxmox machine](./why-i-am-adding-virtualisation-with-proxmox-to-my-infrastructure) that is able to reach the internet, but for instance isn't able to access my local network.
+To reduce the attack surface, I want to run the agent in a sandboxed [proxmox machine](./why-i-am-adding-virtualisation-with-proxmox-to-my-infrastructure) that is able to reach the internet, but for instance isn't able to access my local network.
 
 ## the unprivileged LXC container
 
-A full VM would work, but an LXC container boots fast, costs little extra memory and can be created "unprivileged". Unpriviliged means that the container gets its own user namespace on the host: UID 0 (root) inside the container is mapped to a high, UID on the host (e.g. 100000). If the agent breaks out of the container, they land on the host without special rights.
+A full VM would work, but an LXC container boots fast, costs little extra memory and can be created "unprivileged". Unprivileged means that the container gets its own user namespace on the host: UID 0 (root) inside the container is mapped to a high UID on the host (e.g. 100000). If the agent breaks out of the container, it lands on the host without special rights.
 
-An added proxmox bonus are the snapshots. If the agent messes up the environment, we can revert to a snapshot where the system was still clean.
+An added proxmox bonus is the snapshots. If the agent messes up the environment, we can revert to a snapshot where the system was still clean.
 
 ## the firewall
 
@@ -49,7 +49,7 @@ The following rules are applied for outbound traffic
 
 ## locking yourself out
 
-A good learning was that these firewall rules only go into effect when the firwall at the datacenter level is enabled. Guess what happens when you havent defined the rules yet, but activate the firewall? You guessed it: you can't acces your proxmox machine anymore. Setting the firewall rules first before activating the datacenter level firewall would have saved me a trip to my local machine.  
+A good learning was that these firewall rules only go into effect when the firewall at the datacenter level is enabled. Guess what happens when you haven't defined the rules yet, but activate the firewall? You guessed it: you can't access your proxmox machine anymore. Setting the firewall rules first before activating the datacenter level firewall would have saved me a trip to my local machine.  
 
 ## don't trust, verify
 

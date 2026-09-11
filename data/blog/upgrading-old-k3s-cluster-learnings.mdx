@@ -8,7 +8,7 @@ The great thing about K3s, Lightweight Kubernetes is that it is built in Go and 
 
 ## Prep
 - Get some monitoring on the services that you are running, preferably outside the k3s cluster itself, to  at least have some visibility of your services and receive notifications if a service breaks down between upgrades
-- Create backups of the k3s configuration between verison upgrades. In the simplest case this is a simple copy command of the sqlite db, the token and the k3s binary to a timestamped folder, allowing you to roll back if the version upgrade messed up your configuration
+- Create backups of the k3s configuration between version upgrades. In the simplest case this is a simple copy command of the sqlite db, the token and the k3s binary to a timestamped folder, allowing you to roll back if the version upgrade messed up your configuration
 
 ## Upgrade traefik from 2 to 3 first
 - Mostly this is switching apiVersion in your configuration, the migration path from traefik 2 to 3 [is documented extensively](https://doc.traefik.io/traefik/v3.0/migration/v2-to-v3/)

@@ -7,11 +7,11 @@ draft: false
 images: ['/assets/images/2026-08-16-photon-bme680.jpg']
 ---
 
-As I was workign on my home assistant setup, I wanted to install some sensors to get some temperature sensor data around the house. I remembered I still have a couple of [Particle Photons](https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/) lying around from the days I built a [wireless outside weather station](./wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs). This is some old hardware, based on the STM32F2 series combined with a BCM43362 for wifi connections. 
+As I was working on my home assistant setup, I wanted to install some sensors to get some temperature sensor data around the house. I remembered I still have a couple of [Particle Photons](https://docs.particle.io/reference/datasheets/wi-fi/photon-datasheet/) lying around from the days I built a [wireless outside weather station](./wireless-outside-weather-station-using-particle-photon-arduino-and-nodejs). This is some old hardware, based on the STM32F2 series combined with a BCM43362 for wifi connections. 
 
 Combined with an [Adafruit BME680](https://learn.adafruit.com/adafruit-bme680-humidity-temperature-barometic-pressure-voc-gas) sensor that gives you temperature, humidity, pressure and a gas resistance reading in one I2C device, that should work fine with Home Assistant. The challenge was to have it be completely local without depending on the particle cloud.
 
-As ESPHome doesnt run on the STM32 platform, and programming the firmware in Rust would get stuck on the missing drivers for the BCM chip (something with loading a licensed proprietary blob image, amongst other challenges), Claude and I decided we'd stick with the original DeviceOS and push the sensor data to a local MQTT broker before consuming that in Home Assistant.
+As ESPHome doesn't run on the STM32 platform, and programming the firmware in Rust would get stuck on the missing drivers for the BCM chip (something with loading a licensed proprietary blob image, amongst other challenges), Claude and I decided we'd stick with the original DeviceOS and push the sensor data to a local MQTT broker before consuming that in Home Assistant.
 
 ![](../assets/images/2026-08-16-photon-bme680.jpg)
 
@@ -70,7 +70,7 @@ mosquitto_sub -h <broker> -v -t 'particle/#' -t 'homeassistant/#'
 
 ## adding robustness
 
-After witnessing a couple of times that the temperature sensor data was n't submitted anymore, claude helped built some extra robustness into the readouts. 
+After witnessing a couple of times that the temperature sensor data wasn't submitted anymore, claude helped build some extra robustness into the readouts. 
 
 We first made the bus force a re-init if data wasn't read correctly:
 

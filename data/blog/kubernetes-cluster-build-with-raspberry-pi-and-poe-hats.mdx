@@ -20,7 +20,7 @@ This post was originally dated `2020-05-31`, which was when I ordered the materi
 -   **Cases**: 4x Joy-it RB-CaseP4+07 DIN rail case
 -   **PoE Switch**: 1x Unifi US-8-60W
 
-The hardware part of the build was a lot of fun to set up. Instead of having the pies lie around separately I've opted to go for a DIN breaker box panel, similar to the one routing the power in our homes breaker box. The Raspberry pi's with PoE hats fit snugly into the cases, which can then be clicked onto the DIN rail inside the Eaton Holec Panel.
+The hardware part of the build was a lot of fun to set up. Instead of having the pi's lie around separately I've opted to go for a DIN breaker box panel, similar to the one routing the power in our home's breaker box. The Raspberry pi's with PoE hats fit snugly into the cases, which can then be clicked onto the DIN rail inside the Eaton Holec Panel.
 
 ![din mount](../assets/images/2021-09-15-din.jpg)
 
@@ -104,7 +104,7 @@ curl -sfL https://get.k3s.io | K3S_URL=$k3s_server K3S_TOKEN=$k3s_token sh -
 kubectl label node raspalpha node-role.kubernetes.io/worker=worker
 ```
 
-7. Running the first Kubernetes commands on the **controller** node:
+8. Running the first Kubernetes commands on the **controller** node:
 
 ```
 kubectl get nodes
@@ -122,7 +122,7 @@ Check the other blogs in this raspberry pi kubernetes cluster series here:
 
 1. [Kubernetes cluster build with Raspberry Pi nodes and PoE Hats in a DIN breaker box panel](../blog/kubernetes-cluster-build-with-raspberry-pi-and-poe-hats)
 2. [Visualising a Raspberry Pi Kubernetes cluster by deploying the k8s web interface](../blog/visualising-raspberry-pi-kubernetes-cluster-by-deploying-the-k8s-interface)
-3. [Longhorn for persistant, replicated storage on raspberry pi kubernetes cluster](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster)
+3. [Longhorn for persistent, replicated storage on raspberry pi kubernetes cluster](../blog/installing-longhorn-for-persistent-replicated-storage-on-raspberry-pi-kubernetes-cluster)
 4. [Deploying monitoring TIG stack (Telegraf, InfluxDB and Grafana) on Raspberry Pi Kubernetes cluster](../blog/deploying-monitoring-tig-stack-telegraf-influxdb-grafana-on-raspberry-pi-kubernetes-cluster)
 5. [Deploying a NodeJS Postgres application to a Kubernetes Raspberry Pi Cluster](../blog/deploying-a-nodejs-postgres-application-to-kubernetes-raspberry-pi-cluster)
 6. [Manage SSL certificates and ingress for services in k3s kubernetes cluster using cert-manager, letsencrypt and traefik](../blog/manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefik)

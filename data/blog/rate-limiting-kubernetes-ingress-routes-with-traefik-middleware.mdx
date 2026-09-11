@@ -7,9 +7,9 @@ tags: ['kubernetes', 'devops']
 
 Just a little tidbit on hardening. As I was [setting up some services with Traefik's IngressRoutes](./manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefik) I wanted to see what I could do to easily harden these services. 
 
-There are very elaborate solutions to doing extensive hardening on kubernetes services such as [crowdseq](https://github.com/crowdsecurity/crowdsec) wich is similar to solutions such as fail2ban we had back in the apache2 days. But if you really quickly just want to put some ratelimiting up on a service, you can far more easily accomplish this with Traefik Middlewares.
+There are very elaborate solutions to doing extensive hardening on kubernetes services such as [crowdsec](https://github.com/crowdsecurity/crowdsec) which is similar to solutions such as fail2ban we had back in the apache2 days. But if you really quickly just want to put some ratelimiting up on a service, you can far more easily accomplish this with Traefik Middlewares.
 
-To for instance ratelimit an IngressRoute, we add a special type `Middleware` entity, describe it's spec variables and add it to the existing ingressroute directly under the route configuration. Apply the file and the rate-limited endpoint is good to go!
+To for instance ratelimit an IngressRoute, we add a special type `Middleware` entity, describe its spec variables and add it to the existing ingressroute directly under the route configuration. Apply the file and the rate-limited endpoint is good to go!
 
 ```
 apiVersion: traefik.io/v1alpha1
