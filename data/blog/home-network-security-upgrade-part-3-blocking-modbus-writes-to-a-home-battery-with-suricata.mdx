@@ -14,7 +14,7 @@ images: ['/assets/images/2026-11-01-anker-solix-solarbank.jpg']
 > 4. [Security Onion on Proxmox with a switch mirror port](./home-network-security-upgrade-part-4-security-onion-on-proxmox-with-a-switch-mirror-port)
 > 5. [agentic blueteaming with Security Onion](./home-network-security-upgrade-part-5-agentic-blueteaming-with-security-onion)
 
-Our home battery can be controlled locally over Modbus TCP. That's great for integration with Home Assistant, which can read live power data without a cloud roundtrip. But Modbus has no authentication whatsoever. Any device on the network can read and write registers, which means changing the operating mode or the charge and discharge limits. While this won't cause a fire or [spoil food in the freezer]((https://nltimes.nl/2026/11/02/fridges-freezers-17-dutch-businesses-attacked-large-supermarkets-unaffected), this setup can be seen as synonymous for any network with OT devices attached.
+Our home battery can be controlled locally over Modbus TCP. That's great for integration with Home Assistant, which can read live power data without a cloud roundtrip. But Modbus has no authentication whatsoever. Any device on the network can read and write registers, which means changing the operating mode or the charge and discharge limits. While this won't cause a fire or [spoil food in the freezer](https://nltimes.nl/2026/11/02/fridges-freezers-17-dutch-businesses-attacked-large-supermarkets-unaffected), this setup can be seen as synonymous for any network with OT devices attached.
 
 Because we cant fix the devices at the protocol level, we need to control who can reach the devices ports and which Modbus commands we will let through.
 
