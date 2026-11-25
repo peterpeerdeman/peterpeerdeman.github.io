@@ -1,0 +1,87 @@
+---
+title: 'Restricting Claude Code to working folder with hook and sandbox'
+date: '2026-10-04'
+category: security
+tags: ['security', 'ai', 'pkm']
+---
+
+Most of my Claude Code sessions run inside my [Obsidian notes vault](./why-and-how-i-maintain-a-personal-knowledge-management-system-using-obsidian). For work, I start Claude in specifc project folders, expecting it to stay within that folder. But could it really not read it's parent folders? It turned out it could. Starting Claude Code in a folder only sets where it starts working. It's not an access boundary, and the parent folder with other notes was also accessible for the agent.
+
+In this post I show how Claude helped me sandbox itself to a folder, perhaps similar to isolating it on its own host as i discussed in an earlier blog ([isolating AI agents in a Proxmox sandbox](./isolating-ai-agents-in-sandbox-with-proxmox-lxc-and-firewall-rules))
+Claude reads files in two ways, and each needs its own control:
+
+- file tools (Read, Edit, Write, Grep, Glob) -> use a `PreToolUse` **hook** that denies paths outside the folder
+- shell (`cat`, `grep`, `ls` etc in Bash) -> the OS **sandbox**, with `denyRead` on the parent and `allowRead` on the working folder
+
+You need to close both, as otherwise Claude can still reach the files through the other.
+
+## the settings
+
+Both controls go in `<working folder>/.claude/settings.local.json`:
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [{
+      "matcher": "Read|Edit|Write|MultiEdit|NotebookEdit|Grep|Glob|LSP",
+      "hooks": [{
+        "type": "command",
+        "command": "python3 -I \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard.py\"",
+        "timeout": 10,
+        "onFailure": "block"
+      }]
+    }]
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false,
+    "filesystem": {
+      "denyRead":  ["/path/to/vault"],
+      "allowRead": ["/path/to/vault/project"]
+    }
+  }
+}
+```
+
+## the hook
+
+The hook receives the tool call as JSON on stdin. It collects every path in the call, resolves it with `realpath` (which catches `../` tricks and symlinks), and denies anything inside the parent folder but outside the working folder:
+
+```python
+import json
+import os
+import sys
+
+project = os.path.realpath(os.environ["CLAUDE_PROJECT_DIR"])
+parent = os.path.dirname(project)
+
+call = json.load(sys.stdin)
+args = call.get("tool_input", {})
+
+paths = [args[k] for k in ("file_path", "notebook_path", "path") if args.get(k)]
+if call.get("tool_name") == "Glob" and args.get("pattern"):
+    # only the part before the first wildcard is a real directory
+    prefix = args["pattern"].split("*")[0].split("?")[0].split("[")[0]
+    if prefix:
+        paths.append(prefix)
+if not paths:
+    paths = [project]
+
+
+def inside(path, folder):
+    return path == folder or path.startswith(folder + os.sep)
+
+
+for p in paths:
+    full = os.path.realpath(os.path.join(project, os.path.expanduser(p)))
+    if inside(full, parent) and not inside(full, project):
+        print(json.dumps({"hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": f"{p} is outside {project}",
+        }}))
+        sys.exit(0)
+```
+
+

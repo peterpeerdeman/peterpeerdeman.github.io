@@ -1,0 +1,83 @@
+---
+title: 'Home network security upgrade, part 1: from a flat LAN to VLAN zones on OPNsense'
+date: '2026-10-25'
+category: security
+tags: ['security', 'infrastructure', 'iot', 'devops']
+draft: true
+images: ['/assets/images/2026-10-25-protectli-opnsense.jpg']
+---
+
+> This is part 1 of a series on the hashbang home network security upgrade:
+>
+> 1. from a flat LAN to VLAN zones on OPNsense (this post)
+> 2. [firewalling WireGuard access with admin and family roles](./home-network-security-upgrade-part-2-firewalling-wireguard-access-with-admin-and-family-roles)
+> 3. [blocking Modbus writes to a home battery with Suricata](./home-network-security-upgrade-part-3-blocking-modbus-writes-to-a-home-battery-with-suricata)
+> 4. [Security Onion on Proxmox with a switch mirror port](./home-network-security-upgrade-part-4-security-onion-on-proxmox-with-a-switch-mirror-port)
+> 5. [agentic blueteaming with Security Onion](./home-network-security-upgrade-part-5-agentic-blueteaming-with-security-onion)
+
+After sharing my network diagram with claude for a suggestion on how to properly secure our new home battery system I was vigourously cyber-shamed for the lack of upkeep on my local network. It was time for a serious upgrade.
+
+## the new hardware
+
+- a **Protectli VP2430** (four 2.5 GbE ports, Intel N150, 8 GB RAM) capable of running **OPNsense** and replacing my ISP's router completely
+- the existing **UniFi US-8-60W** poe switch could stay
+- three **UniFi U7 Lite** access points, replacing my *ahum* "vintage collection"
+
+![The Protectli VP2430, fresh out of the box](../assets/images/2026-10-25-protectli-opnsense.jpg)
+## the zones
+
+The most important part of the upgrade was the ability to create separate VLAN's that provide network isolation with its own risk profile. After many iterations, Claude and me came up with the following list
+
+| zone | what lives there |
+| --- | --- |
+| MGMT | infrastructure, firewall, switch, access points, virtual machine hosts|
+| TRUSTED | laptops and phones |
+| SECURITY | Security Operations Center (SOC) |
+| SERVERS | e.g. NAS, internal services |
+| IOT | sensors, lighting, thermostats, printer, e-readers |
+| ENERGY | home battery, smart plugs, P1 meter |
+| DMZ | backends that are reachable from the internet |
+| GUEST | visitors, game consoles, TV, internet only |
+| LAB | Kali, FlareVM and Remnux for malware analysis |
+| AGENT | AI agents |
+
+On wifi, the SSID decides the VLAN: the access point tags a client's traffic with the VLAN of the network it joined. So every zone with wireless clients gets its own SSID and password:
+
+| SSID | zone | bands | who |
+| --- | --- | --- | --- |
+| `home` | TRUSTED | 5 GHz | our phones and laptops, ensuring it doesnt fall back to 2.4 ghz|
+| `home-iot` | IOT | 2.4 GHz only | everything that isn't a person's device, with 2.4 ghz compatibility as many IOT don't have 5ghz support |
+| `home-energy` | ENERGY | 2.4 GHz only | the devices I'd consider OT, e.g. home battery, power plugs and P1 meters |
+| `home-guest` | GUEST | 2.4 + 5 GHz | visitors, with client isolation enabled |
+
+The energy and IOT deserve some extra attention:
+
+- IOT has its own VLAN and wifi password. The devices are isolated from the laptops, infrastructure, servers and other VLANs. Most still use an internet connection, one could suggest it might even make sense to separate it further into an IOT without internet and IOT with internet access. For now, I'm handling this with firewall rules
+- ENERGY has its own VLAN and its own wifi password. The batteries and powerplugs could be considered "Operational Technology" (OT) and are extra sensitive due to possible operation via unauthenticated modbus protocols. A wifi password leaked from an IOT device in the garbage bin would otherwise provide over-the-air access to the OT environment. In part 3 of this series we go further into securing the Modbus devices.
+
+## the firewall pattern
+
+OPNsense has interface groups, and rules on a group apply to every member before the interface's own rules. We created one group called `ISOLATED`, which has four rules:
+
+1. pass DNS and NTP to the firewall
+2. a handful of specific allows (e.g. IOT → metrics, home assistant → sensors in IOT etc)
+3. **block** everything to private address ranges
+4. pass everything else, which is the internet
+
+That makes "isolated with exceptions" the default for every new VLAN: we add it to the group and it's done. TRUSTED, MGMT and the WireGuard interface get their own, more elaborate rules
+
+## migrating without a big bang
+
+The order of the migration helped keeping downtime as low as possible:
+
+1. **prepare**: switch every IOT device from a hard-coded IP to DHCP, and set the new IOT wifi network
+2. **drop-in swap**: OPNsense got the old LAN range, untagged. Everything keeps working, and if anything goes wrong i could plug the old router back in.
+3. **WireGuard set up first**, tested from 4G, so there's always a way in from outside. More on that in [part 2](./home-network-security-upgrade-part-2-firewalling-wireguard-access-with-admin-and-family-roles).
+5. **building the VLANs** on OPNsense and in UniFi, without moving anything yet
+6. **swapping the access points**, with a temporary SSID that has the old name and password, but lets the devices land in the IOT VLAN. Unconverted devices end up in the right place on their own, and I could move them one by one
+7. **move devices zone by zone**: one device at a time, checking if the devices still work and are accessible in the right way, tuning the firewall rules based on our requirements 
+8. **harden**: enable the default deny rules everywhere and keep a watch the firewall logs for the flows I forgot
+
+It seems there is always a way forward to improve and harden the network further. In my opinion, this is already a good step forward in isolating some risky devices.
+
+The first thing I set up on the new firewall, before moving any devices, was the WireGuard tunnel, with different roles for admin and family devices. That's [part 2: firewalling WireGuard access with admin and family roles](./home-network-security-upgrade-part-2-firewalling-wireguard-access-with-admin-and-family-roles).

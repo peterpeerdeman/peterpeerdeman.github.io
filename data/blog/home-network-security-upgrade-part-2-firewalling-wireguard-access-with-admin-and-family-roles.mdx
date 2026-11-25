@@ -1,0 +1,55 @@
+---
+title: 'Home network security upgrade, part 2: firewalling WireGuard access with admin and family roles'
+date: '2026-10-26'
+category: security
+tags: ['security', 'infrastructure', 'devops']
+---
+
+> This is part 2 of a series on the hashbang home network security upgrade:
+>
+> 1. [from a flat LAN to VLAN zones on OPNsense](./home-network-security-upgrade-part-1-from-a-flat-lan-to-vlan-zones-on-opnsense)
+> 2. firewalling WireGuard access with admin and family roles (this post)
+> 3. [blocking Modbus writes to a home battery with Suricata](./home-network-security-upgrade-part-3-blocking-modbus-writes-to-a-home-battery-with-suricata)
+> 4. [Security Onion on Proxmox with a switch mirror port](./home-network-security-upgrade-part-4-security-onion-on-proxmox-with-a-switch-mirror-port)
+> 5. [agentic blueteaming with Security Onion](./home-network-security-upgrade-part-5-agentic-blueteaming-with-security-onion)
+
+When I [split my home network into VLAN zones](./home-network-security-upgrade-part-1-from-a-flat-lan-to-vlan-zones-on-opnsense), the WireGuard VPN tunnel was one of the most important features to set up. It runs on the firewall itself. As most firewalling works based on IP addresses, we can use the dedicated wireguard client ip addresses in firewall rules to decide which wireguard key gets gets access to which vlan / network / service: An admin could for instance reach the infrastructure VLAN, the hypervisor and the firewall GUI, while a family member's phone only needs access to a password manager and photo library.
+
+OPNsense routes traffic between all VLANs. A WireGuard tunnel is one more interface with its own subnet and its own rule tab. When you assign the WireGuard instance as an interface (*Interfaces → Assignments*, I called it `WG_RW`) you get a dedicated firewall tab and an interface you can select in outbound NAT and as an Unbound listen interface
+
+## roles by tunnel IP
+
+You can't put a WireGuard peer "in" a VLAN, but you can give every peer a fixed tunnel IP. On the server side, a peer's `AllowedIPs` is a `/32`, and WireGuard enforces that cryptographically, so a peer can't use another peer's address. You can then carve the tunnel subnet into role ranges and write firewall rules against aliases, e.g.
+
+| range | alias | who | gets |
+| --- | --- | --- | --- |
+| `.1` | | the firewall | DNS for the tunnel |
+| `.0/27` | `VPN_ADMIN` | admin via laptop | everything, including the admin interfaces |
+| `.96/28` | `VPN_FAMILY` | family devices | password manager, photos, internet |
+
+Family peers use `.100` and up on purpose: they stand out in a log at a glance. One WireGuard instance with aliases is much simpler than one instance per role, which would mean more ports, more keys and more interfaces.
+
+## the firewall rules
+
+We set up the following rules in the `WG_RW` interface tab, top to bottom (first match wins):
+
+1. tunnel net → firewall: DNS and NTP
+2. `VPN_ADMIN` → firewall: SSH and the GUI on 8443
+3. `VPN_ADMIN` → every zone, one pass rule per zone
+4. `VPN_FAMILY` → access to the internal reverse proxy and a couple of internal services
+6. per role: pass any, which is the internet for full-tunnel use
+
+
+## the allow rules for home and on the go
+
+At home I bring up a second tunnel profile with the **same key**, pointing at the firewall's TRUSTED address instead of the public hostname, with only the admin networks in its `AllowedIPs`:
+
+| profile | endpoint | client `AllowedIPs` | when |
+| --- | --- | --- | --- |
+| away, split | `vpn.example.com:51820` | home network ranges | on demand: any wifi except home, and cellular |
+| away, full | `vpn.example.com:51820` | `0.0.0.0/0, ::/0` | untrusted networks such as hotel wifi |
+| admin at home | firewall's TRUSTED address | admin networks only | manually, only when I need it |
+
+This setup really brings an extra layer of authentication and authorisation to the network, on top of the wifi security. The private key on an admin device is now what makes it admin and if a device gets lost, deleting its peer on the firewall revokes all of its admin access at once.
+
+With access sorted, the first zone that needed more than a separate VLAN was ENERGY: the batteries accept Modbus writes without authentication, from anything that can reach them. That's [part 3: blocking Modbus writes to a home battery with Suricata](./home-network-security-upgrade-part-3-blocking-modbus-writes-to-a-home-battery-with-suricata).

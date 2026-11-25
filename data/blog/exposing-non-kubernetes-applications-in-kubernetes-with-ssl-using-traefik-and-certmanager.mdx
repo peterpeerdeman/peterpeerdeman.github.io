@@ -26,7 +26,7 @@ kubectl create ns homeassistant
 
 ## The `Certficate`
 
-This was one of the easiest steps: In the previous blog [about SSL](./manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefikt) I configured a `ClusterIssuer`, that can issue and validate certificates for the whole cluster, no matter what namespace. We create a new certificate in the namespace and refer to the ClusterIssuer like so:
+This was one of the easiest steps: In the previous blog [about SSL](./manage-ssl-certificates-and-ingress-for-services-in-k3s-kubernetes-cluster-using-cert-manager-letsencrypt-and-traefik) I configured a `ClusterIssuer`, that can issue and validate certificates for the whole cluster, no matter what namespace. We create a new certificate in the namespace and refer to the ClusterIssuer like so:
 ```
 apiVersion: cert-manager.io/v1
 kind: Certificate
