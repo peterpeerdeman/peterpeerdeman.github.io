@@ -1,9 +1,9 @@
 ---
 title: 'Home network security upgrade, part 5: agentic blueteaming with Security Onion'
-date: '2026-11-15'
+date: '2026-11-26'
 category: security
 tags: ['security', 'infrastructure', 'observability', 'ai']
-images: ['/assets/images/2026-11-15-soc-telegram-alerts.png']
+images: ['/assets/images/2026-11-26-soc-telegram-alerts.png']
 ---
 
 > This is part 5 of a series on the hashbang home network security upgrade:
@@ -14,17 +14,54 @@ images: ['/assets/images/2026-11-15-soc-telegram-alerts.png']
 > 4. [Security Onion on Proxmox with a switch mirror port](./home-network-security-upgrade-part-4-security-onion-on-proxmox-with-a-switch-mirror-port)
 > 5. agentic blueteaming with Security Onion (this post)
 
-The Security Onion install on my home network with vanilla configuration creates a lot of alerts. After the first 24 hours there were 144 unacknowledged alerts, and the security onion user interface and detection rules can be quite cryptic. This final part of the series was to get the SOC to push important alerts to my phone, and making sure that what reaches me is actually worth looking at. This was my first experience with agentic blueteaming: the AI agent does most of the triage and assists me in learning, tuning and acknowledging what is going on in the network.
+Looking back at this project, there was hardly a step in this upgrade where an AI agent wasn't involved. Claude opus 5.5 proved to be a highly capable colleague that does the reading, the planning, the clicking and the note-taking, keeping me involved to provide guidance. We are getting quite close to fully autonomous agentic blueteaming. This last part wraps up the series with an overview of where agents helped, zooms into the most hands-on example (triaging and tuning the SOC)
 
-## agentic blueteaming
+## what agents can do for a blue team
 
-It turns out that agents are very good at processing alerts and making sense of why certain rules are triggered. By providing the agent access to my knowledge base containing information on the network with details on the installation, and a browser logged into the SOC interface, the agent clicks through the alert groups, pivots into the Zeek logs for each of them to find out what the alert actually means. The prompt didn't have to be more elaborate than "have a look at the SOC alerts and guide me through the most important ones". After reporting on each important alert, it also immediately provides suggestions on how to suppress traffic if it is considered noise, further cutting down the volume that needs to be handled next time around.
+Across the series, the agent (Claude Code, with access to my notes and a browser) helped with:
 
-After the briefing I answered in one line per item ("that was me fixing the switches, tune it", "keep that rule as is"), and only then did it apply the overrides, all through the same web interface. Afterwards it processes the tuning decision into my network notes, so the next round starts from what's documented instead of from memory.
+- **hardware requirements, equipment and wiring.** Sizing the firewall, picking access points, and working out which device goes on which switch port, deciding the port for the SOC's mirror interface. See [the new hardware](./home-network-security-upgrade-part-1-from-a-flat-lan-to-vlan-zones-on-opnsense#the-new-hardware) in part 1 and [planning the hardware and installation](./home-network-security-upgrade-part-4-security-onion-on-proxmox-with-a-switch-mirror-port#planning-the-hardware-and-installation) in part 4
+- **phased plans and cutover scenarios.** The migration from a flat LAN to VLANs was planned as a sequence of small steps, even including some roll back I didn't even think of, including the measures that should be taken to migrate without big disturbances. See [migrating without a big bang](./home-network-security-upgrade-part-1-from-a-flat-lan-to-vlan-zones-on-opnsense#migrating-without-a-big-bang)
+- **installing and configuring infrastructure.** Firewall aliases and rules, [WireGuard roles](./home-network-security-upgrade-part-2-firewalling-wireguard-access-with-admin-and-family-roles), a [custom Suricata rule](./home-network-security-upgrade-part-3-blocking-modbus-writes-to-a-home-battery-with-suricata) delivered through a git repository, and the [Security Onion install](./home-network-security-upgrade-part-4-security-onion-on-proxmox-with-a-switch-mirror-port), mostly through the OPNsense and Security Onion web interfaces and APIs in a logged-in browser session
+- **network zoning and documentation.** The [zone layout](./home-network-security-upgrade-part-1-from-a-flat-lan-to-vlan-zones-on-opnsense#the-zones) went through many iterations with the agent, and after every change it updated my [Obsidian notes](./why-and-how-i-maintain-a-personal-knowledge-management-system-using-obsidian): the VLAN overview, the physical topology, the firewall rules. The documentation stayed in sync with what was actually implemented, and the agent spotted and fixed documentation drift many times along the way
+- **triage and case reports.** Going through SOC alerts, pivoting into the logs, and writing a short case report per alert: what happened, which device, why it matters, and a recommendation.
+- **mitigation: suppressing and tuning.** Proposing narrow suppressions and thresholds for noise, and applying them once I agreed
+- **hardening plans.** Turning findings into concrete hardening steps, such as making the home battery [read-only over Modbus](./home-network-security-upgrade-part-3-blocking-modbus-writes-to-a-home-battery-with-suricata), and writing an allow-list for the hosts it may reach in the cloud
+
+## agentic triage in the SOC
+
+The Security Onion install on my home network with vanilla configuration creates a lot of alerts. After the first 24 hours there were 144 unacknowledged alerts, and the security onion user interface and detection rules can be quite cryptic. The SOC should push important alerts to my phone, and we should make sure that what reaches me is actually worth looking at. The AI agent does most of the triage and assists me in learning, tuning and acknowledging what is going on in the network.
+
+It turns out that agents are very good at processing alerts and making sense of why certain rules are triggered. By providing the agent access to my knowledge base containing information on the network with details on the installation, and a browser logged into the SOC interface, the agent clicks through the alert groups, pivots into the Zeek logs for each of them to find out what the alert actually means. The prompt didn't have to be more elaborate than "have a look at the SOC alerts and guide me through the most important ones".
+
+After reporting on each important alert, it also immediately provides suggestions on how to suppress traffic if it is considered noise, further cutting down the volume that needs to be handled next time around. After the briefing I answered in one line per item ("that was me fixing the switches, tune it", "keep that rule as is"), and only then did it apply the overrides, all through the same web interface. Afterwards it processes the tuning decision into my network notes, so the next round starts from what's documented instead of from memory.
+
+### a case report per alert
+
+For every alert group, the agent's briefing followed the same structure, which is roughly what an analyst in a real SOC would write up. Condensed, one of them looked like this:
+
+```
+alert:      request to hidden .env file, phpinfo, .htaccess and 4 related rules
+volume:     ~380 alerts in 24 hours, all inbound from internet scanners
+target:     the public Node.js app in the DMZ, through the reverse proxy
+evidence:   Zeek HTTP logs show generic probe paths from many different sources
+assessment: noise. The app has no PHP, Apache or WordPress, these probes can't work
+proposal:   suppress these rules for this one backend only. Keep the SQL injection
+            and WordPress exploit rules active for it
+```
+
+### guardrails
+
+An agent in the SOC reads attacker-controlled data all day: user agents, URLs and DNS names in the alerts are all written by whoever sent the traffic. That makes prompt injection a real risk, so a few rules apply:
+
+- the agent proposes, I decide. Every suppression or rule change waits for my answer
+- the agent only works through the web interface with my session. It has no SSH access to the Security Onion VM, and every change it makes shows up in the SOC like any other analyst's
+- it only acknowledges alerts we have actually discussed. When 408 new alerts came in during the session, it left them alone until I had seen them
+- the agent itself runs with limited access, as described in [isolating AI agents in a sandbox](./isolating-ai-agents-in-sandbox-with-proxmox-lxc-and-firewall-rules) and [restricting Claude Code to its working folder](./restricting-claude-code-to-its-working-folder-with-a-hook-and-the-sandbox)
 
 ## alerts on my phone via Telegram
 
-Security Onion's built-in notifications are a Pro feature, but it ships ElastAlert 2, which has a native alerter for Telegram. A custom rule file in a subfolder of `/opt/so/rules/elastalert/rules/` configures this:
+To make sure a human is put in the loop when incidents occur, we have used ElastAlert 2 and its native alerter for Telegram to send alerts. A custom rule file in a subfolder of `/opt/so/rules/elastalert/rules/` configures this:
 
 ```yaml
 name: telegram-suricata-high
@@ -46,8 +83,19 @@ alert_text: '<b>{0}</b>\n{1} → {2}:{3}\nseverity: {4}'
 alert_text_args: [rule.name, source.ip, destination.ip, destination.port, event.severity_label]
 ```
 
-<img src="/assets/images/2026-11-15-soc-telegram-alerts.png" alt="Security Onion alerts arriving in Telegram, with internal addresses redacted" width="360" />
+<img src="/assets/images/2026-11-26-soc-telegram-alerts.png" alt="Security Onion alerts arriving in Telegram, with internal addresses redacted" width="360" />
 
-A privacy note: Telegram bot messages aren't end-to-end encrypted, so rule names and internal IPs pass through Telegram's servers. A self-hosted solution such as ntfy, a deltachat bot or a Home Assistant push notification would avoid that, at the cost of an extra firewall hole from the SECURITY VLAN.
+Please note that Telegram bot messages aren't end-to-end encrypted, so rule names and internal IPs pass through Telegram's servers. A self-hosted solution such as ntfy, a deltachat bot or a Home Assistant push notification would avoid that, at the cost of an extra firewall hole from the SECURITY VLAN.
 
-With roughly 120 of the 144 daily alerts explained and tuned away, what's left in the SOC and on my phone is worth opening. That wraps up this series. The network went from one flat LAN to [isolated VLAN zones](./home-network-security-upgrade-part-1-from-a-flat-lan-to-vlan-zones-on-opnsense), admin and family devices got [their own WireGuard roles](./home-network-security-upgrade-part-2-firewalling-wireguard-access-with-admin-and-family-roles), the home battery got a [read-only Modbus policy](./home-network-security-upgrade-part-3-blocking-modbus-writes-to-a-home-battery-with-suricata), and [Security Onion](./home-network-security-upgrade-part-4-security-onion-on-proxmox-with-a-switch-mirror-port) now watches the wire, with agentic blueteaming keeping the noise down. Next on the list: endpoint telemetry with Elastic Agent, so the SOC also sees what happens on the devices themself.
+## wrapping up the series
+
+The network went from one flat LAN to [isolated VLAN zones](./home-network-security-upgrade-part-1-from-a-flat-lan-to-vlan-zones-on-opnsense), admin and family devices got [their own WireGuard roles](./home-network-security-upgrade-part-2-firewalling-wireguard-access-with-admin-and-family-roles), the home battery got a [read-only Modbus policy](./home-network-security-upgrade-part-3-blocking-modbus-writes-to-a-home-battery-with-suricata), and [Security Onion](./home-network-security-upgrade-part-4-security-onion-on-proxmox-with-a-switch-mirror-port) now watches the wire, with the agents providing a first level support for blue teaming efforts.
+
+## looking ahead
+
+So far, the agent only works when I start a session, and only changes things after I approve them. A step further would be a long-running agent with its own access to the infrastructure:
+
+- **always-on triage.** An agent that picks up every high severity alert as it comes in, so a case report is waiting by the time I open the notification on my phone
+- **automatic remediation.** For well understood cases, act first and report afterwards: move a misbehaving IoT device to a quarantine VLAN, or block a scanning address on the firewall
+- **patching.** Match new security advisories against the inventory in my notes, and roll out the updates to the affected hosts
+- **shielding when there is no patch yet.** The Modbus rule in part 3 is already a form of virtual patching: it blocks dangerous traffic because the device itself can't be fixed. [Shirudo](https://thehackernews.com/2026/11/openai-and-cisco-unveil-ai-assisted.html), an open source project by Cisco and OpenAI announced recently, takes that idea to the host: an agent writes an eBPF "shield" (on top of Tetragon) that blocks the vulnerable code path in a running Linux system until a real patch is available, with a human approving every shield. It's an early, experimental pre-release, but it makes a lot of sense in an agentically operated SOC.
