@@ -1,0 +1,32 @@
+---
+title: 'Re-adopting a UniFi Flex Mini that informs the wrong controller address'
+date: '2026-11-23'
+category: infrastructure
+tags: ['infrastructure', 'iot', 'devops']
+---
+
+To free a [mirror port](./home-network-security-upgrade-part-4-security-onion-on-proxmox-with-a-switch-mirror-port) on my unifi switch, I moved two devices onto a small UniFi USW Flex Mini. I adopted it while my laptop, which runs the UniFi controller, happened to be on the IoT wifi. The switch remembered that address as its controller. Once the laptop was back on the trusted network, the Flex Mini kept calling home to an address where nothing was listening, and showed up as disconnected.
+
+UniFi devices periodically "inform" the controller at a stored URL. Normally you'd SSH into the device and run `set-inform http://<controller>:8080/inform` to set the inform address. The first-generation Flex Mini has no SSH and no web interface, so that's not an option. The firewall log eventually shoed us the problem: every 25 seconds or so a connection from the switch to the old address on port 8080.
+
+## getting back in
+
+**Option 1: let the controller push a new address.** The controller can only change the inform URL if the switch reaches it once more. So make the controller reachable at the old address one last time (in my case: put the laptop back on the network it was on during adoption), then set *Settings → System → Advanced → Inform Host* to an override with the correct address. When the switch informs and gets provisioned, it picks up the new URL. In the firewall log the informs moved to the new address within seconds.
+
+**Option 2: forget, reset and re-adopt.** If the old address is gone for good:
+
+1. make sure a fresh device can find the controller: DHCP option 43 on the management network, or a DNS record `unifi` pointing at the controller (factory reset devices look for that name)
+2. **Forget** the Flex Mini in the controller
+3. factory reset it: hold the reset button for about 10 seconds
+4. adopt it again, this time with the controller on the right network
+
+## the VLAN settings
+
+Once adopted, the Flex Mini became VLAN-aware: it sends its client ports' traffic tagged on its uplink, and its own management traffic untagged. That means the port on the main switch can't be a simple access port in the IoT VLAN, and the Flex Mini's own uplink has to accept tagged traffic. Its default ("Block All") silently dropped every DHCP request from the connected devices, which didn't help the debugging process.
+
+On the main switch, I ended up with the port set to the management vlan, and on the Flex Mini ensuring the first uplink port was "allow all" and the other ports were configured to tag a specific VLAN
+
+## avoiding this in the future
+
+My controller is a laptop, so its address changes now and then. Instead of an IP, the inform host is now a DNS name: an Unbound host override `unifi.internal` on the firewall, with a short TTL, and *Inform Host* set to `unifi.internal`. When the laptop's address changes, I update one DNS record and every switch and access point follows.
+
